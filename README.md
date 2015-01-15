@@ -1,1 +1,1 @@
-## Linode APIs Client Library for PHP
+# Linode API Client Library for PHP
