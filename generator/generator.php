@@ -100,6 +100,8 @@ foreach ($classes as $class => $methods) {
 
     foreach ($methods as $method => $meta) {
 
+        $strlen = 0;
+
         $args = array();
 
         $pad_null = false;
@@ -111,6 +113,10 @@ foreach ($classes as $class => $methods) {
         $lines[] = " * ";
 
         if (count($meta['PARAMETERS'])) {
+
+            foreach ($meta['PARAMETERS'] as $key => $value) {
+                $strlen = max($strlen, strlen($key));
+            }
 
             foreach ($meta['PARAMETERS'] as $key => $value) {
 
@@ -131,7 +137,10 @@ foreach ($classes as $class => $methods) {
 
                 $args[] = "\${$name}" . ($pad_null ? " = null" : null);
 
-                $lines[] = " * @param   {$type} \${$name} [{$required}] {$value['DESCRIPTION']}";
+                $line  = " * @param   {$type} \$" . str_pad($name, $strlen + 1, ' ', STR_PAD_RIGHT);
+                $line .= "[{$required}] {$value['DESCRIPTION']}";
+
+                $lines[] = $line;
             }
 
             $lines[] = " * ";
@@ -149,7 +158,8 @@ foreach ($classes as $class => $methods) {
             $lines[] = "    return \$this->call('{$meta['ACTION']}', array(";
 
             foreach ($meta['PARAMETERS'] as $key => $value) {
-                $lines[] = "        '{$key}' => \${$key},";
+                $name = str_pad("'{$key}'", $strlen + 2, ' ', STR_PAD_RIGHT);
+                $lines[] = "        {$name} => \${$key},";
             }
 
             $lines[] = "    ));";
