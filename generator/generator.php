@@ -53,7 +53,7 @@ $version = $api['VERSION'];
 
 $classes = array();
 
-// Convert "linode.disk.createfromstackscript" names to "LinodeDisk.createFromStackScript" ones.
+// Convert "linode.disk.createfromstackscript" names to "Linode.Disk.createFromStackScript" ones.
 
 foreach (array_keys($api['METHODS']) as $entry) {
 
@@ -78,7 +78,7 @@ foreach (array_keys($api['METHODS']) as $entry) {
         $parts[$key] = ucfirst($value);
     }
 
-    $class = implode(null, $parts);
+    $class = implode('.', $parts);
 
     if (!array_key_exists($class, $classes)) {
         $classes[$class] = array();
@@ -167,7 +167,18 @@ foreach ($classes as $class => $methods) {
         $php .= "\n    " . implode("\n    ", $lines) . "\n";
     }
 
-    $php = sprintf($template, $version, $class, '    ' . ltrim($php));
+    $class     = explode('.' , 'Linode.' . $class);
+    $classname = array_pop($class);
+    $namespace = implode('\\', $class);
 
-    file_put_contents("src/{$class}.php", $php);
+    $dir = str_replace('\\', '/', $namespace);
+    $dir = substr($dir, 6);
+
+    $php = sprintf($template, $namespace, $version, $classname, '    ' . ltrim($php));
+
+    if (!file_exists("src{$dir}")) {
+        mkdir("src{$dir}");
+    }
+
+    file_put_contents("src{$dir}/{$classname}.php", $php);
 }
