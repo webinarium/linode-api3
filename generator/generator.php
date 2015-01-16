@@ -108,8 +108,15 @@ foreach ($classes as $class => $methods) {
 
         $lines = array();
 
+        $description = explode("\n", str_replace('. ', ".\n", $meta['DESCRIPTION']));
+
         $lines[] = "/**";
-        $lines[] = " * {$meta['DESCRIPTION']}";
+
+        foreach ($description as $line) {
+            $line = trim($line);
+            $lines[] = " * {$line}";
+        }
+
         $lines[] = " * ";
 
         if (count($meta['PARAMETERS'])) {
