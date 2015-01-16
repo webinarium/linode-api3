@@ -1,0 +1,14 @@
+{
+    "name": "arodygin/linode-api-php",
+    "description": "Linode API Client Library for PHP",
+    "license": "GPL-3.0",
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=5.2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Linode\\": "src/"
+        }
+    }
+}
