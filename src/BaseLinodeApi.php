@@ -55,7 +55,9 @@ class BaseLinodeApi
         $query = "api_key={$this->key}&api_action={$action}";
 
         foreach ($parameters as $key => $value) {
-            $query .= sprintf('&%s=%s', urlencode($key), urlencode($value));
+            if (!is_null($value)) {
+                $query .= sprintf('&%s=%s', urlencode($key), urlencode($value));
+            }
         }
 
         curl_setopt($curl, CURLOPT_URL, 'https://api.linode.com/');
