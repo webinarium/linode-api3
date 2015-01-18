@@ -39,34 +39,34 @@ class Image extends BaseLinodeApi
     /**
      * Lists available gold-master images
      *
-     * @param   integer $pending [optional] Show images currently being created.
      * @param   integer $ImageID [optional] Request information for a specific gold-master image
+     * @param   integer $pending [optional] Show images currently being created.
      *
      * @return  array
      */
-    public function getList($pending = null, $ImageID = null)
+    public function getList($ImageID = null, $pending = null)
     {
         return $this->call('image.list', array(
-            'pending' => $pending,
             'ImageID' => $ImageID,
+            'pending' => $pending,
         ));
     }
 
     /**
      * Update an Image record.
      *
+     * @param   integer $ImageID     [required] The ID of the Image to modify.
      * @param   string  $label       [optional] The label of the Image.
      * @param   string  $description [optional] An optional description of the Image.
-     * @param   integer $ImageID     [required] The ID of the Image to modify.
      *
      * @return  array
      */
-    public function update($label = null, $description = null, $ImageID = null)
+    public function update($ImageID, $label = null, $description = null)
     {
         return $this->call('image.update', array(
+            'ImageID'     => $ImageID,
             'label'       => $label,
             'description' => $description,
-            'ImageID'     => $ImageID,
         ));
     }
 }
