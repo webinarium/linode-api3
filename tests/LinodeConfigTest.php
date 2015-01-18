@@ -32,9 +32,9 @@ class LinodeConfigTest extends \PHPUnit_Framework_TestCase
     public function testCreate()
     {
         $LinodeID = rand(1, PHP_INT_MAX);
-        $Label    = '';
+        $Label    = 'label';
         $KernelID = rand(1, PHP_INT_MAX);
-        $DiskList = '';
+        $DiskList = rand(1, PHP_INT_MAX);
 
         $expected = "api_key={$this->key}&api_action=linode.config.create&LinodeID={$LinodeID}&Label={$Label}&KernelID={$KernelID}&DiskList={$DiskList}";
         $query = $this->api->create($LinodeID, $Label, $KernelID, $DiskList);
@@ -64,9 +64,9 @@ class LinodeConfigTest extends \PHPUnit_Framework_TestCase
     {
         $LinodeID = rand(1, PHP_INT_MAX);
         $ConfigID = rand(1, PHP_INT_MAX);
-        $Label    = '';
+        $Label    = 'label';
         $KernelID = rand(1, PHP_INT_MAX);
-        $DiskList = '';
+        $DiskList = rand(1, PHP_INT_MAX);
 
         $expected = "api_key={$this->key}&api_action=linode.config.update&LinodeID={$LinodeID}&ConfigID={$ConfigID}&Label={$Label}&KernelID={$KernelID}&DiskList={$DiskList}";
         $query = $this->api->update($LinodeID, $ConfigID, $Label, $KernelID, $DiskList);
