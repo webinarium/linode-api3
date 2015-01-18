@@ -1,7 +1,6 @@
 language: php
 
 php:
-    - 5.2
     - 5.3
     - 5.4
     - 5.5
@@ -11,4 +10,6 @@ install:
     - composer install -n
 
 script:
-    - phpunit
+    - phpunit --coverage-clover=coverage.clover
+    - wget https://scrutinizer-ci.com/ocular.phar
+    - php ocular.phar code-coverage:upload --format=php-clover coverage.clover
