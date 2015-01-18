@@ -25,42 +25,42 @@ class Config extends BaseLinodeApi
     /**
      * Creates a Linode Configuration Profile.
      *
-     * @param   string  $RootDeviceCustom       [optional] A custom root device setting.
-     * @param   string  $Comments               [optional] Comments you wish to save along with this profile
-     * @param   boolean $devtmpfs_automount     [optional] Controls if pv_ops kernels should automount devtmpfs at boot.
+     * @param   integer $LinodeID               [required]
      * @param   string  $Label                  [required] The Label for this profile
-     * @param   boolean $helper_disableUpdateDB [optional] Enable the disableUpdateDB filesystem helper
-     * @param   boolean $helper_network         [optional] Automatically creates network configuration files for your distro and places them into your filesystem.
+     * @param   integer $KernelID               [required] The KernelID for this profile.  Found in avail.kernels()
      * @param   string  $DiskList               [required] A comma delimited list of DiskIDs; position reflects device node.  The 9th element for specifying the initrd.
      * @param   string  $RunLevel               [optional] One of 'default', 'single', 'binbash'
-     * @param   boolean $RootDeviceRO           [optional] Enables the 'ro' kernel flag.  Modern distros want this.
-     * @param   integer $RootDeviceNum          [optional] Which device number (1-8) that contains the root partition.  0 to utilize RootDeviceCustom.
-     * @param   boolean $helper_xen             [optional] Enable the Xen filesystem helper.  Corrects fstab and inittab/upstart entries depending on the kernel you're booting.  You want this.
      * @param   integer $RAMLimit               [optional] RAMLimit in MB.  0 for max.
-     * @param   integer $LinodeID               [required]
+     * @param   string  $RootDeviceCustom       [optional] A custom root device setting.
+     * @param   integer $RootDeviceNum          [optional] Which device number (1-8) that contains the root partition.  0 to utilize RootDeviceCustom.
+     * @param   boolean $RootDeviceRO           [optional] Enables the 'ro' kernel flag.  Modern distros want this.
+     * @param   boolean $devtmpfs_automount     [optional] Controls if pv_ops kernels should automount devtmpfs at boot.
+     * @param   boolean $helper_xen             [optional] Enable the Xen filesystem helper.  Corrects fstab and inittab/upstart entries depending on the kernel you're booting.  You want this.
+     * @param   boolean $helper_disableUpdateDB [optional] Enable the disableUpdateDB filesystem helper
      * @param   boolean $helper_depmod          [optional] Creates an empty modprobe file for the kernel you're booting.
-     * @param   integer $KernelID               [required] The KernelID for this profile.  Found in avail.kernels()
+     * @param   boolean $helper_network         [optional] Automatically creates network configuration files for your distro and places them into your filesystem.
+     * @param   string  $Comments               [optional] Comments you wish to save along with this profile
      *
      * @return  array
      */
-    public function create($RootDeviceCustom = null, $Comments = null, $devtmpfs_automount = null, $Label = null, $helper_disableUpdateDB = null, $helper_network = null, $DiskList = null, $RunLevel = null, $RootDeviceRO = null, $RootDeviceNum = null, $helper_xen = null, $RAMLimit = null, $LinodeID = null, $helper_depmod = null, $KernelID = null)
+    public function create($LinodeID, $Label, $KernelID, $DiskList, $RunLevel = null, $RAMLimit = null, $RootDeviceCustom = null, $RootDeviceNum = null, $RootDeviceRO = null, $devtmpfs_automount = null, $helper_xen = null, $helper_disableUpdateDB = null, $helper_depmod = null, $helper_network = null, $Comments = null)
     {
         return $this->call('linode.config.create', array(
-            'RootDeviceCustom'       => $RootDeviceCustom,
-            'Comments'               => $Comments,
-            'devtmpfs_automount'     => $devtmpfs_automount,
+            'LinodeID'               => $LinodeID,
             'Label'                  => $Label,
-            'helper_disableUpdateDB' => $helper_disableUpdateDB,
-            'helper_network'         => $helper_network,
+            'KernelID'               => $KernelID,
             'DiskList'               => $DiskList,
             'RunLevel'               => $RunLevel,
-            'RootDeviceRO'           => $RootDeviceRO,
-            'RootDeviceNum'          => $RootDeviceNum,
-            'helper_xen'             => $helper_xen,
             'RAMLimit'               => $RAMLimit,
-            'LinodeID'               => $LinodeID,
+            'RootDeviceCustom'       => $RootDeviceCustom,
+            'RootDeviceNum'          => $RootDeviceNum,
+            'RootDeviceRO'           => $RootDeviceRO,
+            'devtmpfs_automount'     => $devtmpfs_automount,
+            'helper_xen'             => $helper_xen,
+            'helper_disableUpdateDB' => $helper_disableUpdateDB,
             'helper_depmod'          => $helper_depmod,
-            'KernelID'               => $KernelID,
+            'helper_network'         => $helper_network,
+            'Comments'               => $Comments,
         ));
     }
 
@@ -99,44 +99,44 @@ class Config extends BaseLinodeApi
     /**
      * Updates a Linode Configuration Profile.
      *
-     * @param   string  $RootDeviceCustom       [optional] A custom root device setting.
-     * @param   string  $Comments               [optional] Comments you wish to save along with this profile
-     * @param   boolean $devtmpfs_automount     [optional] Controls if pv_ops kernels should automount devtmpfs at boot.
-     * @param   string  $Label                  [optional] The Label for this profile
-     * @param   boolean $helper_disableUpdateDB [optional] Enable the disableUpdateDB filesystem helper
-     * @param   boolean $helper_network         [optional] Automatically creates network configuration files for your distro and places them into your filesystem.
-     * @param   integer $ConfigID               [required]
-     * @param   string  $DiskList               [optional] A comma delimited list of DiskIDs; position reflects device node.  The 9th element for specifying the initrd.
-     * @param   string  $RunLevel               [optional] One of 'default', 'single', 'binbash'
-     * @param   boolean $RootDeviceRO           [optional] Enables the 'ro' kernel flag.  Modern distros want this.
-     * @param   integer $RootDeviceNum          [optional] Which device number (1-8) that contains the root partition.  0 to utilize RootDeviceCustom.
-     * @param   boolean $helper_xen             [optional] Enable the Xen filesystem helper.  Corrects fstab and inittab/upstart entries depending on the kernel you're booting.  You want this.
-     * @param   integer $RAMLimit               [optional] RAMLimit in MB.  0 for max.
      * @param   integer $LinodeID               [optional]
-     * @param   integer $KernelID               [optional] The KernelID for this profile.  Found in avail.kernels()
+     * @param   integer $ConfigID               [required]
+     * @param   string  $Label                  [required] The Label for this profile
+     * @param   integer $KernelID               [required] The KernelID for this profile.  Found in avail.kernels()
+     * @param   string  $DiskList               [required] A comma delimited list of DiskIDs; position reflects device node.  The 9th element for specifying the initrd.
+     * @param   string  $RunLevel               [optional] One of 'default', 'single', 'binbash'
+     * @param   integer $RAMLimit               [optional] RAMLimit in MB.  0 for max.
+     * @param   string  $RootDeviceCustom       [optional] A custom root device setting.
+     * @param   integer $RootDeviceNum          [optional] Which device number (1-8) that contains the root partition.  0 to utilize RootDeviceCustom.
+     * @param   boolean $RootDeviceRO           [optional] Enables the 'ro' kernel flag.  Modern distros want this.
+     * @param   boolean $devtmpfs_automount     [optional] Controls if pv_ops kernels should automount devtmpfs at boot.
+     * @param   boolean $helper_xen             [optional] Enable the Xen filesystem helper.  Corrects fstab and inittab/upstart entries depending on the kernel you're booting.  You want this.
+     * @param   boolean $helper_disableUpdateDB [optional] Enable the disableUpdateDB filesystem helper
      * @param   boolean $helper_depmod          [optional] Creates an empty modprobe file for the kernel you're booting.
+     * @param   boolean $helper_network         [optional] Automatically creates network configuration files for your distro and places them into your filesystem.
+     * @param   string  $Comments               [optional] Comments you wish to save along with this profile
      *
      * @return  array
      */
-    public function update($RootDeviceCustom = null, $Comments = null, $devtmpfs_automount = null, $Label = null, $helper_disableUpdateDB = null, $helper_network = null, $ConfigID = null, $DiskList = null, $RunLevel = null, $RootDeviceRO = null, $RootDeviceNum = null, $helper_xen = null, $RAMLimit = null, $LinodeID = null, $KernelID = null, $helper_depmod = null)
+    public function update($LinodeID, $ConfigID, $Label, $KernelID, $DiskList, $RunLevel = null, $RAMLimit = null, $RootDeviceCustom = null, $RootDeviceNum = null, $RootDeviceRO = null, $devtmpfs_automount = null, $helper_xen = null, $helper_disableUpdateDB = null, $helper_depmod = null, $helper_network = null, $Comments = null)
     {
         return $this->call('linode.config.update', array(
-            'RootDeviceCustom'       => $RootDeviceCustom,
-            'Comments'               => $Comments,
-            'devtmpfs_automount'     => $devtmpfs_automount,
-            'Label'                  => $Label,
-            'helper_disableUpdateDB' => $helper_disableUpdateDB,
-            'helper_network'         => $helper_network,
+            'LinodeID'               => $LinodeID,
             'ConfigID'               => $ConfigID,
+            'Label'                  => $Label,
+            'KernelID'               => $KernelID,
             'DiskList'               => $DiskList,
             'RunLevel'               => $RunLevel,
-            'RootDeviceRO'           => $RootDeviceRO,
-            'RootDeviceNum'          => $RootDeviceNum,
-            'helper_xen'             => $helper_xen,
             'RAMLimit'               => $RAMLimit,
-            'LinodeID'               => $LinodeID,
-            'KernelID'               => $KernelID,
+            'RootDeviceCustom'       => $RootDeviceCustom,
+            'RootDeviceNum'          => $RootDeviceNum,
+            'RootDeviceRO'           => $RootDeviceRO,
+            'devtmpfs_automount'     => $devtmpfs_automount,
+            'helper_xen'             => $helper_xen,
+            'helper_disableUpdateDB' => $helper_disableUpdateDB,
             'helper_depmod'          => $helper_depmod,
+            'helper_network'         => $helper_network,
+            'Comments'               => $Comments,
         ));
     }
 }
