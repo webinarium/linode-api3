@@ -26,20 +26,20 @@ class Account extends BaseLinodeApi
      * Estimates the invoice for adding a new Linode or NodeBalancer as well as resizing a Linode.
      * This returns two fields: PRICE which is the estimated cost of the invoice, and INVOICE_TO which is the date invoice would be though with timezone set to America/New_York
      *
-     * @param   integer $PaymentTerm [optional] Subscription term in months. One of: 1, 12, or 24. This is required for modes 'linode_new' and 'nodebalancer_new'.
      * @param   string  $mode        [required] This is one of the following options: 'linode_new', 'linode_resize', or 'nodebalancer_new'.
-     * @param   integer $PlanID      [optional] The desired PlanID available from avail.LinodePlans(). This is required for modes 'linode_new' and 'linode_resize'.
      * @param   integer $LinodeID    [optional] This is the LinodeID you want to resize and is required for mode 'linode_resize'.
+     * @param   integer $PlanID      [optional] The desired PlanID available from avail.LinodePlans(). This is required for modes 'linode_new' and 'linode_resize'.
+     * @param   integer $PaymentTerm [optional] Subscription term in months. One of: 1, 12, or 24. This is required for modes 'linode_new' and 'nodebalancer_new'.
      *
      * @return  array
      */
-    public function estimateInvoice($PaymentTerm = null, $mode = null, $PlanID = null, $LinodeID = null)
+    public function estimateInvoice($mode, $LinodeID = null, $PlanID = null, $PaymentTerm = null)
     {
         return $this->call('account.estimateinvoice', array(
-            'PaymentTerm' => $PaymentTerm,
             'mode'        => $mode,
-            'PlanID'      => $PlanID,
             'LinodeID'    => $LinodeID,
+            'PlanID'      => $PlanID,
+            'PaymentTerm' => $PaymentTerm,
         ));
     }
 
@@ -66,18 +66,18 @@ class Account extends BaseLinodeApi
     /**
      *
      *
+     * @param   integer $ccNumber   [required]
      * @param   integer $ccExpMonth [required]
      * @param   integer $ccExpYear  [required]
-     * @param   integer $ccNumber   [required]
      *
      * @return  array
      */
-    public function updateCard($ccExpMonth, $ccExpYear, $ccNumber)
+    public function updateCard($ccNumber, $ccExpMonth, $ccExpYear)
     {
         return $this->call('account.updatecard', array(
+            'ccNumber'   => $ccNumber,
             'ccExpMonth' => $ccExpMonth,
             'ccExpYear'  => $ccExpYear,
-            'ccNumber'   => $ccNumber,
         ));
     }
 }
