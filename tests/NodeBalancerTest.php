@@ -14,7 +14,6 @@
 require_once(__DIR__ . '/../vendor/autoload.php');
 
 use Linode\NodeBalancer;
-use Linode\PaymentTerm;
 
 class NodeBalancerTest extends \PHPUnit_Framework_TestCase
 {

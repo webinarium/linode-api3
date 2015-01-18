@@ -25,22 +25,22 @@ class Node extends BaseLinodeApi
     /**
      *
      *
-     * @param   string  $Label    [required] This backend Node's label
      * @param   integer $ConfigID [required] The parent ConfigID to attach this Node to
+     * @param   string  $Label    [required] This backend Node's label
+     * @param   string  $Address  [required] The address:port combination used to communicate with this Node
      * @param   string  $Mode     [optional] The connections mode for this node.  One of 'accept', 'reject', or 'drain'
      * @param   integer $Weight   [optional] Load balancing weight, 1-255. Higher means more connections.
-     * @param   string  $Address  [required] The address:port combination used to communicate with this Node
      *
      * @return  array
      */
-    public function create($Label, $ConfigID, $Mode = null, $Weight = null, $Address = null)
+    public function create($ConfigID, $Label, $Address, $Mode = null, $Weight = null)
     {
         return $this->call('nodebalancer.node.create', array(
-            'Label'    => $Label,
             'ConfigID' => $ConfigID,
+            'Label'    => $Label,
+            'Address'  => $Address,
             'Mode'     => $Mode,
             'Weight'   => $Weight,
-            'Address'  => $Address,
         ));
     }
 
@@ -61,38 +61,38 @@ class Node extends BaseLinodeApi
     /**
      * Returns a list of Nodes associated with a NodeBalancer Config
      *
-     * @param   integer $NodeID   [optional] Limits the list to the specified NodeID
      * @param   integer $ConfigID [required]
+     * @param   integer $NodeID   [optional] Limits the list to the specified NodeID
      *
      * @return  array
      */
-    public function getList($NodeID = null, $ConfigID = null)
+    public function getList($ConfigID, $NodeID = null)
     {
         return $this->call('nodebalancer.node.list', array(
-            'NodeID'   => $NodeID,
             'ConfigID' => $ConfigID,
+            'NodeID'   => $NodeID,
         ));
     }
 
     /**
      * Updates a Node's properties
      *
-     * @param   string  $Label   [optional] This backend Node's label
      * @param   integer $NodeID  [required]
+     * @param   string  $Label   [optional] This backend Node's label
+     * @param   string  $Address [optional] The address:port combination used to communicate with this Node
      * @param   string  $Mode    [optional] The connections mode for this node.  One of 'accept', 'reject', or 'drain'
      * @param   integer $Weight  [optional] Load balancing weight, 1-255. Higher means more connections.
-     * @param   string  $Address [optional] The address:port combination used to communicate with this Node
      *
      * @return  array
      */
-    public function update($Label = null, $NodeID = null, $Mode = null, $Weight = null, $Address = null)
+    public function update($NodeID, $Label = null, $Address = null, $Mode = null, $Weight = null)
     {
         return $this->call('nodebalancer.node.update', array(
-            'Label'   => $Label,
             'NodeID'  => $NodeID,
+            'Label'   => $Label,
+            'Address' => $Address,
             'Mode'    => $Mode,
             'Weight'  => $Weight,
-            'Address' => $Address,
         ));
     }
 }
