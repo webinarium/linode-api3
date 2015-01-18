@@ -55,16 +55,16 @@ class Ip extends BaseLinodeApi
     /**
      * Returns the IP addresses of all Linodes you have access to.
      *
-     * @param   integer $IPAddressID [optional] If specified, limits the result to this IPAddressID
      * @param   integer $LinodeID    [optional] If specified, limits the result to this LinodeID
+     * @param   integer $IPAddressID [optional] If specified, limits the result to this IPAddressID
      *
      * @return  array
      */
-    public function getList($IPAddressID = null, $LinodeID = null)
+    public function getList($LinodeID = null, $IPAddressID = null)
     {
         return $this->call('linode.ip.list', array(
-            'IPAddressID' => $IPAddressID,
             'LinodeID'    => $LinodeID,
+            'IPAddressID' => $IPAddressID,
         ));
     }
 
@@ -72,16 +72,16 @@ class Ip extends BaseLinodeApi
      * Sets the rDNS name of a Public IP.
      * Returns the IPAddressID and IPAddress that were updated.
      *
-     * @param   string  $Hostname    [required] The hostname to set the reverse DNS to
      * @param   integer $IPAddressID [required] The IPAddressID of the address to update
+     * @param   string  $Hostname    [required] The hostname to set the reverse DNS to
      *
      * @return  array
      */
-    public function setReverseDNS($Hostname, $IPAddressID)
+    public function setReverseDNS($IPAddressID, $Hostname)
     {
         return $this->call('linode.ip.setrdns', array(
-            'Hostname'    => $Hostname,
             'IPAddressID' => $IPAddressID,
+            'Hostname'    => $Hostname,
         ));
     }
 
@@ -91,18 +91,18 @@ class Ip extends BaseLinodeApi
      * Returns the resulting relationship of the Linode and IP Address parameters.
      * When performing a one directional swap, the source is represented by the first of the two resultant array members.
      *
-     * @param   integer $toLinodeID      [optional] The LinodeID of the Linode where IPAddressID will be transfered
      * @param   integer $IPAddressID     [required] The IPAddressID of an IP Address to transfer or swap
      * @param   integer $withIPAddressID [optional] The IP Address ID to swap
+     * @param   integer $toLinodeID      [optional] The LinodeID of the Linode where IPAddressID will be transfered
      *
      * @return  array
      */
-    public function swap($toLinodeID = null, $IPAddressID = null, $withIPAddressID = null)
+    public function swap($IPAddressID, $withIPAddressID = null, $toLinodeID = null)
     {
         return $this->call('linode.ip.swap', array(
-            'toLinodeID'      => $toLinodeID,
             'IPAddressID'     => $IPAddressID,
             'withIPAddressID' => $withIPAddressID,
+            'toLinodeID'      => $toLinodeID,
         ));
     }
 }
