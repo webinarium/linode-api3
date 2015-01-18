@@ -11,7 +11,9 @@
 //
 //----------------------------------------------------------------------
 
-namespace Linode;
+require_once(__DIR__ . '/../vendor/autoload.php');
+
+use Linode\BaseLinodeApi;
 
 class LinodeApiStub extends BaseLinodeApi
 {
