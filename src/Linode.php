@@ -43,17 +43,17 @@ class Linode extends BaseLinodeApi
      * Creates a Linode and assigns you full privileges.
      * There is a 75-linodes-per-hour limiter.
      *
-     * @param   integer $PlanID       [required] The desired PlanID available from avail.LinodePlans()
      * @param   integer $DatacenterID [required] The DatacenterID from avail.datacenters() where you wish to place this new Linode
+     * @param   integer $PlanID       [required] The desired PlanID available from avail.LinodePlans()
      * @param   integer $PaymentTerm  [optional] Subscription term in months for prepaid customers.  One of: 1, 12, or 24
      *
      * @return  array
      */
-    public function create($PlanID, $DatacenterID, $PaymentTerm = null)
+    public function create($DatacenterID, $PlanID, $PaymentTerm = null)
     {
         return $this->call('linode.create', array(
-            'PlanID'       => $PlanID,
             'DatacenterID' => $DatacenterID,
+            'PlanID'       => $PlanID,
             'PaymentTerm'  => $PaymentTerm,
         ));
     }
@@ -81,20 +81,20 @@ class Linode extends BaseLinodeApi
      * There is a limit of 5 active clone operations per source Linode.
      * It is recommended that the source Linode be powered down during the clone.
      *
-     * @param   integer $PaymentTerm  [optional] Subscription term in months for prepaid customers.  One of: 1, 12, or 24
+     * @param   integer $LinodeID     [required] The LinodeID that you want cloned
      * @param   integer $DatacenterID [required] The DatacenterID from avail.datacenters() where you wish to place this new Linode
      * @param   integer $PlanID       [required] The desired PlanID available from avail.LinodePlans()
-     * @param   integer $LinodeID     [required] The LinodeID that you want cloned
+     * @param   integer $PaymentTerm  [optional] Subscription term in months for prepaid customers.  One of: 1, 12, or 24
      *
      * @return  array
      */
-    public function duplicate($PaymentTerm = null, $DatacenterID = null, $PlanID = null, $LinodeID = null)
+    public function duplicate($LinodeID, $DatacenterID, $PlanID, $PaymentTerm = null)
     {
         return $this->call('linode.clone', array(
-            'PaymentTerm'  => $PaymentTerm,
+            'LinodeID'     => $LinodeID,
             'DatacenterID' => $DatacenterID,
             'PlanID'       => $PlanID,
-            'LinodeID'     => $LinodeID,
+            'PaymentTerm'  => $PaymentTerm,
         ));
     }
 
@@ -146,16 +146,16 @@ class Linode extends BaseLinodeApi
      * Resizes a Linode from one plan to another.
      * Immediately shuts the Linode down, charges/credits the account, and issue a migration to another host server.
      *
-     * @param   integer $PlanID   [required] The desired PlanID available from avail.LinodePlans()
      * @param   integer $LinodeID [required]
+     * @param   integer $PlanID   [required] The desired PlanID available from avail.LinodePlans()
      *
      * @return  array
      */
-    public function resize($PlanID, $LinodeID)
+    public function resize($LinodeID, $PlanID)
     {
         return $this->call('linode.resize', array(
-            'PlanID'   => $PlanID,
             'LinodeID' => $LinodeID,
+            'PlanID'   => $PlanID,
         ));
     }
 
@@ -176,52 +176,52 @@ class Linode extends BaseLinodeApi
     /**
      * Updates a Linode's properties.
      *
-     * @param   boolean $Alert_cpu_enabled       [optional] Enable the cpu usage email alert
-     * @param   string  $ms_ssh_user             [optional]
-     * @param   boolean $Alert_bwin_enabled      [optional] Enable the incoming bandwidth email alert
-     * @param   integer $Alert_cpu_threshold     [optional] CPU Alert threshold, percentage 0-800
-     * @param   boolean $Alert_bwquota_enabled   [optional] Enable the bw quote email alert
-     * @param   integer $Alert_diskio_threshold  [optional] IO ops/sec
+     * @param   integer $LinodeID                [required]
      * @param   string  $Label                   [optional] This Linode's label
+     * @param   string  $lpm_displayGroup        [optional] Display group in the Linode list inside the Linode Manager
+     * @param   boolean $Alert_cpu_enabled       [optional] Enable the cpu usage email alert
+     * @param   integer $Alert_cpu_threshold     [optional] CPU Alert threshold, percentage 0-800
+     * @param   boolean $Alert_diskio_enabled    [optional] Enable the disk IO email alert
+     * @param   integer $Alert_diskio_threshold  [optional] IO ops/sec
+     * @param   boolean $Alert_bwin_enabled      [optional] Enable the incoming bandwidth email alert
+     * @param   integer $Alert_bwin_threshold    [optional] Mb/sec
+     * @param   boolean $Alert_bwout_enabled     [optional] Enable the outgoing bandwidth email alert
+     * @param   integer $Alert_bwout_threshold   [optional] Mb/sec
+     * @param   boolean $Alert_bwquota_enabled   [optional] Enable the bw quote email alert
+     * @param   integer $Alert_bwquota_threshold [optional] Percentage of monthly bw quota
      * @param   integer $backupWindow            [optional]
      * @param   integer $backupWeeklyDay         [optional]
      * @param   boolean $watchdog                [optional] Enable the Lassie shutdown watchdog
-     * @param   boolean $Alert_diskio_enabled    [optional] Enable the disk IO email alert
-     * @param   string  $lpm_displayGroup        [optional] Display group in the Linode list inside the Linode Manager
-     * @param   integer $ms_ssh_port             [optional]
      * @param   boolean $ms_ssh_disabled         [optional]
-     * @param   integer $Alert_bwquota_threshold [optional] Percentage of monthly bw quota
+     * @param   string  $ms_ssh_user             [optional]
      * @param   string  $ms_ssh_ip               [optional]
-     * @param   integer $Alert_bwin_threshold    [optional] Mb/sec
-     * @param   integer $LinodeID                [required]
-     * @param   integer $Alert_bwout_threshold   [optional] Mb/sec
-     * @param   boolean $Alert_bwout_enabled     [optional] Enable the outgoing bandwidth email alert
+     * @param   integer $ms_ssh_port             [optional]
      *
      * @return  array
      */
-    public function update($Alert_cpu_enabled = null, $ms_ssh_user = null, $Alert_bwin_enabled = null, $Alert_cpu_threshold = null, $Alert_bwquota_enabled = null, $Alert_diskio_threshold = null, $Label = null, $backupWindow = null, $backupWeeklyDay = null, $watchdog = null, $Alert_diskio_enabled = null, $lpm_displayGroup = null, $ms_ssh_port = null, $ms_ssh_disabled = null, $Alert_bwquota_threshold = null, $ms_ssh_ip = null, $Alert_bwin_threshold = null, $LinodeID = null, $Alert_bwout_threshold = null, $Alert_bwout_enabled = null)
+    public function update($LinodeID, $Label = null, $lpm_displayGroup = null, $Alert_cpu_enabled = null, $Alert_cpu_threshold = null, $Alert_diskio_enabled = null, $Alert_diskio_threshold = null, $Alert_bwin_enabled = null, $Alert_bwin_threshold = null, $Alert_bwout_enabled = null, $Alert_bwout_threshold = null, $Alert_bwquota_enabled = null, $Alert_bwquota_threshold = null, $backupWindow = null, $backupWeeklyDay = null, $watchdog = null, $ms_ssh_disabled = null, $ms_ssh_user = null, $ms_ssh_ip = null, $ms_ssh_port = null)
     {
         return $this->call('linode.update', array(
-            'Alert_cpu_enabled'       => $Alert_cpu_enabled,
-            'ms_ssh_user'             => $ms_ssh_user,
-            'Alert_bwin_enabled'      => $Alert_bwin_enabled,
-            'Alert_cpu_threshold'     => $Alert_cpu_threshold,
-            'Alert_bwquota_enabled'   => $Alert_bwquota_enabled,
-            'Alert_diskio_threshold'  => $Alert_diskio_threshold,
+            'LinodeID'                => $LinodeID,
             'Label'                   => $Label,
+            'lpm_displayGroup'        => $lpm_displayGroup,
+            'Alert_cpu_enabled'       => $Alert_cpu_enabled,
+            'Alert_cpu_threshold'     => $Alert_cpu_threshold,
+            'Alert_diskio_enabled'    => $Alert_diskio_enabled,
+            'Alert_diskio_threshold'  => $Alert_diskio_threshold,
+            'Alert_bwin_enabled'      => $Alert_bwin_enabled,
+            'Alert_bwin_threshold'    => $Alert_bwin_threshold,
+            'Alert_bwout_enabled'     => $Alert_bwout_enabled,
+            'Alert_bwout_threshold'   => $Alert_bwout_threshold,
+            'Alert_bwquota_enabled'   => $Alert_bwquota_enabled,
+            'Alert_bwquota_threshold' => $Alert_bwquota_threshold,
             'backupWindow'            => $backupWindow,
             'backupWeeklyDay'         => $backupWeeklyDay,
             'watchdog'                => $watchdog,
-            'Alert_diskio_enabled'    => $Alert_diskio_enabled,
-            'lpm_displayGroup'        => $lpm_displayGroup,
-            'ms_ssh_port'             => $ms_ssh_port,
             'ms_ssh_disabled'         => $ms_ssh_disabled,
-            'Alert_bwquota_threshold' => $Alert_bwquota_threshold,
+            'ms_ssh_user'             => $ms_ssh_user,
             'ms_ssh_ip'               => $ms_ssh_ip,
-            'Alert_bwin_threshold'    => $Alert_bwin_threshold,
-            'LinodeID'                => $LinodeID,
-            'Alert_bwout_threshold'   => $Alert_bwout_threshold,
-            'Alert_bwout_enabled'     => $Alert_bwout_enabled,
+            'ms_ssh_port'             => $ms_ssh_port,
         ));
     }
 
