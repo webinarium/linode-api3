@@ -25,20 +25,20 @@ class NodeBalancer extends BaseLinodeApi
     /**
      *
      *
+     * @param   integer $DatacenterID       [required] The DatacenterID from avail.datacenters() where you wish to place this new NodeBalancer
      * @param   string  $Label              [optional] This NodeBalancer's label
      * @param   integer $ClientConnThrottle [optional] To help mitigate abuse, throttle connections per second, per client IP. 0 to disable. Max of 20.
      * @param   integer $PaymentTerm        [optional] Subscription term in months for prepaid customers.  One of: 1, 12, or 24
-     * @param   integer $DatacenterID       [required] The DatacenterID from avail.datacenters() where you wish to place this new NodeBalancer
      *
      * @return  array
      */
-    public function create($Label = null, $ClientConnThrottle = null, $PaymentTerm = null, $DatacenterID = null)
+    public function create($DatacenterID, $Label = null, $ClientConnThrottle = null, $PaymentTerm = null)
     {
         return $this->call('nodebalancer.create', array(
+            'DatacenterID'       => $DatacenterID,
             'Label'              => $Label,
             'ClientConnThrottle' => $ClientConnThrottle,
             'PaymentTerm'        => $PaymentTerm,
-            'DatacenterID'       => $DatacenterID,
         ));
     }
 
@@ -73,18 +73,18 @@ class NodeBalancer extends BaseLinodeApi
     /**
      * Updates a NodeBalancer's properties
      *
+     * @param   integer $NodeBalancerID     [required]
      * @param   string  $Label              [optional] This NodeBalancer's label
      * @param   integer $ClientConnThrottle [optional] To help mitigate abuse, throttle connections per second, per client IP. 0 to disable. Max of 20.
-     * @param   integer $NodeBalancerID     [required]
      *
      * @return  array
      */
-    public function update($Label = null, $ClientConnThrottle = null, $NodeBalancerID = null)
+    public function update($NodeBalancerID, $Label = null, $ClientConnThrottle = null)
     {
         return $this->call('nodebalancer.update', array(
+            'NodeBalancerID'     => $NodeBalancerID,
             'Label'              => $Label,
             'ClientConnThrottle' => $ClientConnThrottle,
-            'NodeBalancerID'     => $NodeBalancerID,
         ));
     }
 }
