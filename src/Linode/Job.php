@@ -25,17 +25,17 @@ class Job extends BaseLinodeApi
     /**
      *
      *
-     * @param   integer $JobID       [optional] Limits the list to the specified JobID
      * @param   integer $LinodeID    [required]
+     * @param   integer $JobID       [optional] Limits the list to the specified JobID
      * @param   boolean $pendingOnly [optional]
      *
      * @return  array
      */
-    public function getList($JobID = null, $LinodeID = null, $pendingOnly = null)
+    public function getList($LinodeID, $JobID = null, $pendingOnly = null)
     {
         return $this->call('linode.job.list', array(
-            'JobID'       => $JobID,
             'LinodeID'    => $LinodeID,
+            'JobID'       => $JobID,
             'pendingOnly' => $pendingOnly,
         ));
     }
