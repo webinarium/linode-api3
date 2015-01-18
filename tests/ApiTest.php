@@ -13,29 +13,21 @@
 
 require_once(__DIR__ . '/../vendor/autoload.php');
 
-use Linode\BaseLinodeApi;
+use Linode\Api;
 
-class LinodeApiStub extends BaseLinodeApi
+class ApiTest extends \PHPUnit_Framework_TestCase
 {
-    public function call($action, $parameters = array())
-    {
-        return parent::call($action, $parameters);
-    }
-}
-
-class SpecTest extends \PHPUnit_Framework_TestCase
-{
-    /** @var LinodeApiStub */
+    /** @var Api */
     private $api = null;
 
     protected function setUp()
     {
-        $this->api = new LinodeApiStub(null);
+        $this->api = new Api(null);
     }
 
-    public function testApiSpec()
+    public function testSpec()
     {
-        $result = $this->api->call('api.spec');
+        $result = $this->api->spec('api.spec');
 
         $this->assertTrue(is_array($result));
         $this->assertArrayHasKey('METHODS', $result);
