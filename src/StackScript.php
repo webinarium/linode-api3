@@ -25,24 +25,24 @@ class StackScript extends BaseLinodeApi
     /**
      * Create a StackScript.
      *
-     * @param   string  $Label              [required] The Label for this StackScript
-     * @param   string  $rev_note           [optional]
      * @param   string  $script             [required] The actual script
-     * @param   boolean $isPublic           [optional] Whether this StackScript is published in the Library, for everyone to use
-     * @param   string  $Description        [optional]
      * @param   string  $DistributionIDList [required] Comma delimited list of DistributionIDs that this script works on
+     * @param   string  $Label              [required] The Label for this StackScript
+     * @param   string  $Description        [optional]
+     * @param   boolean $isPublic           [optional] Whether this StackScript is published in the Library, for everyone to use
+     * @param   string  $rev_note           [optional]
      *
      * @return  array
      */
-    public function create($Label, $rev_note = null, $script = null, $isPublic = null, $Description = null, $DistributionIDList = null)
+    public function create($script, $DistributionIDList, $Label, $Description = null, $isPublic = null, $rev_note = null)
     {
         return $this->call('stackscript.create', array(
-            'Label'              => $Label,
-            'rev_note'           => $rev_note,
             'script'             => $script,
-            'isPublic'           => $isPublic,
-            'Description'        => $Description,
             'DistributionIDList' => $DistributionIDList,
+            'Label'              => $Label,
+            'Description'        => $Description,
+            'isPublic'           => $isPublic,
+            'rev_note'           => $rev_note,
         ));
     }
 
@@ -77,26 +77,26 @@ class StackScript extends BaseLinodeApi
     /**
      * Update a StackScript.
      *
-     * @param   string  $rev_note           [optional]
+     * @param   integer $StackScriptID      [required]
      * @param   string  $script             [optional] The actual script
      * @param   string  $DistributionIDList [optional] Comma delimited list of DistributionIDs that this script works on
-     * @param   string  $Description        [optional]
      * @param   string  $Label              [optional] The Label for this StackScript
+     * @param   string  $Description        [optional]
      * @param   boolean $isPublic           [optional] Whether this StackScript is published in the Library, for everyone to use
-     * @param   integer $StackScriptID      [required]
+     * @param   string  $rev_note           [optional]
      *
      * @return  array
      */
-    public function update($rev_note = null, $script = null, $DistributionIDList = null, $Description = null, $Label = null, $isPublic = null, $StackScriptID = null)
+    public function update($StackScriptID, $script = null, $DistributionIDList = null, $Label = null, $Description = null, $isPublic = null, $rev_note = null)
     {
         return $this->call('stackscript.update', array(
-            'rev_note'           => $rev_note,
+            'StackScriptID'      => $StackScriptID,
             'script'             => $script,
             'DistributionIDList' => $DistributionIDList,
-            'Description'        => $Description,
             'Label'              => $Label,
+            'Description'        => $Description,
             'isPublic'           => $isPublic,
-            'StackScriptID'      => $StackScriptID,
+            'rev_note'           => $rev_note,
         ));
     }
 }
