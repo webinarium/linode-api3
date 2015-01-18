@@ -26,30 +26,32 @@ class Resource extends BaseLinodeApi
      * Create a domain record.
      *
      * @param   integer $DomainID [required]
-     * @param   integer $Port     [optional]
-     * @param   string  $Name     [optional] The hostname or FQDN.  When Type=MX the subdomain to delegate to the Target MX server.
-     * @param   integer $Weight   [optional]
-     * @param   string  $Target   [optional] When Type=MX the hostname.  When Type=CNAME the target of the alias.  When Type=TXT the value of the record.  
-		When Type=A or AAAA the token of '[remote_addr]' will be substituted with the IP address of the request.
-     * @param   integer $Priority [optional] Priority for MX and SRV records, 0-255
-     * @param   integer $TTL_sec  [optional] TTL.  Leave as 0 to accept our default.
-     * @param   string  $Protocol [optional] The protocol to append to an SRV record.  Ignored on other record types.
      * @param   string  $Type     [required] One of: NS, MX, A, AAAA, CNAME, TXT, or SRV
+     * @param   string  $Name     [optional] The hostname or FQDN.  When Type=MX the subdomain to delegate to the Target MX server.
+     * @param   string  $Target   [optional] When Type=MX the hostname.
+     *                                       When Type=CNAME the target of the alias.
+     *                                       When Type=TXT the value of the record.
+     *                                       When Type=A or AAAA the token of '[remote_addr]' will be substituted with the IP address of the request.
+     * @param   integer $Priority [optional] Priority for MX and SRV records, 0-255
+     * @param   integer $Weight   [optional]
+     * @param   integer $Port     [optional]
+     * @param   string  $Protocol [optional] The protocol to append to an SRV record.  Ignored on other record types.
+     * @param   integer $TTL_sec  [optional] TTL.  Leave as 0 to accept our default.
      *
      * @return  array
      */
-    public function create($DomainID, $Port = null, $Name = null, $Weight = null, $Target = null, $Priority = null, $TTL_sec = null, $Protocol = null, $Type = null)
+    public function create($DomainID, $Type, $Name = null, $Target = null, $Priority = null, $Weight = null, $Port = null, $Protocol = null, $TTL_sec = null)
     {
         return $this->call('domain.resource.create', array(
             'DomainID' => $DomainID,
-            'Port'     => $Port,
+            'Type'     => $Type,
             'Name'     => $Name,
-            'Weight'   => $Weight,
             'Target'   => $Target,
             'Priority' => $Priority,
-            'TTL_sec'  => $TTL_sec,
+            'Weight'   => $Weight,
+            'Port'     => $Port,
             'Protocol' => $Protocol,
-            'Type'     => $Type,
+            'TTL_sec'  => $TTL_sec,
         ));
     }
 
@@ -89,30 +91,32 @@ class Resource extends BaseLinodeApi
      * Update a domain record.
      *
      * @param   integer $DomainID   [optional]
-     * @param   integer $Port       [optional]
      * @param   integer $ResourceID [required]
      * @param   string  $Name       [optional] The hostname or FQDN.  When Type=MX the subdomain to delegate to the Target MX server.
-     * @param   integer $Weight     [optional]
-     * @param   string  $Target     [optional] When Type=MX the hostname.  When Type=CNAME the target of the alias.  When Type=TXT the value of the record.  
-		When Type=A or AAAA the token of '[remote_addr]' will be substituted with the IP address of the request.
+     * @param   string  $Target     [optional] When Type=MX the hostname.
+     *                                         When Type=CNAME the target of the alias.
+     *                                         When Type=TXT the value of the record.
+     *                                         When Type=A or AAAA the token of '[remote_addr]' will be substituted with the IP address of the request.
      * @param   integer $Priority   [optional] Priority for MX and SRV records, 0-255
-     * @param   integer $TTL_sec    [optional] TTL.  Leave as 0 to accept our default.
+     * @param   integer $Weight     [optional]
+     * @param   integer $Port       [optional]
      * @param   string  $Protocol   [optional] The protocol to append to an SRV record.  Ignored on other record types.
+     * @param   integer $TTL_sec    [optional] TTL.  Leave as 0 to accept our default.
      *
      * @return  array
      */
-    public function update($DomainID = null, $Port = null, $ResourceID = null, $Name = null, $Weight = null, $Target = null, $Priority = null, $TTL_sec = null, $Protocol = null)
+    public function update($DomainID, $ResourceID, $Name = null, $Target = null, $Priority = null, $Weight = null, $Port = null, $Protocol = null, $TTL_sec = null)
     {
         return $this->call('domain.resource.update', array(
             'DomainID'   => $DomainID,
-            'Port'       => $Port,
             'ResourceID' => $ResourceID,
             'Name'       => $Name,
-            'Weight'     => $Weight,
             'Target'     => $Target,
             'Priority'   => $Priority,
-            'TTL_sec'    => $TTL_sec,
+            'Weight'     => $Weight,
+            'Port'       => $Port,
             'Protocol'   => $Protocol,
+            'TTL_sec'    => $TTL_sec,
         ));
     }
 }
