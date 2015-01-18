@@ -23,14 +23,19 @@ class BaseLinodeApi
     /** @var string API key */
     protected $key;
 
+    /** @var boolean Whether the object is in debug mode */
+    protected $debug;
+
     /**
      * Constructor.
      *
-     * @param   string $key
+     * @param   string  $key
+     * @param   boolean $debug
      */
-    public function __construct($key)
+    public function __construct($key, $debug = false)
     {
-        $this->key = $key;
+        $this->key   = $key;
+        $this->debug = $debug;
     }
 
     /**
@@ -58,6 +63,10 @@ class BaseLinodeApi
             if (!is_null($value)) {
                 $query .= sprintf('&%s=%s', urlencode($key), urlencode($value));
             }
+        }
+
+        if ($this->debug) {
+            return $query;
         }
 
         curl_setopt($curl, CURLOPT_URL, 'https://api.linode.com/');
