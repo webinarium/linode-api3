@@ -1,4 +1,6 @@
 [![Build Status](https://travis-ci.org/arodygin/linode-api-php.svg)](https://travis-ci.org/arodygin/linode-api-php)
+[![License](https://poser.pugx.org/arodygin/linode-api-php/license.svg)](https://packagist.org/packages/arodygin/linode-api-php)
+[![Latest Stable Version](https://poser.pugx.org/arodygin/linode-api-php/v/stable.svg)](https://packagist.org/packages/arodygin/linode-api-php)
 [![Code Coverage](https://scrutinizer-ci.com/g/arodygin/linode-api-php/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/arodygin/linode-api-php/?branch=master)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/arodygin/linode-api-php/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/arodygin/linode-api-php/?branch=master)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/727b4566-d4ae-49a3-90de-b4a607d514bc/mini.png)](https://insight.sensiolabs.com/projects/727b4566-d4ae-49a3-90de-b4a607d514bc)
