@@ -32,6 +32,6 @@ class ApiTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue(is_array($result));
         $this->assertArrayHasKey('METHODS', $result);
         $this->assertArrayHasKey('VERSION', $result);
-        $this->assertEquals('3.3', $result['VERSION']);
+        $this->assertEquals(Api::VERSION, $result['VERSION']);
     }
 }
