@@ -28,6 +28,7 @@ The recommended way to install is via Composer:
 
 ```bash
 composer.phar require "arodygin/linode-api-php=~1.0"
+composer.phar install
 ```
 
 ## Usage Example
@@ -35,8 +36,6 @@ composer.phar require "arodygin/linode-api-php=~1.0"
 Below is a complete example of how to create a new Linode host using the library:
 
 ```php
-<?php
-
 require_once(__DIR__ . '/../vendor/autoload.php');
 
 use Linode\LinodeApi;
