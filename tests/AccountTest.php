@@ -13,7 +13,7 @@
 
 require_once(__DIR__ . '/../vendor/autoload.php');
 
-use Linode\Account;
+use Linode\AccountApi;
 use Linode\LinodeMode;
 
 class AccountTest extends \PHPUnit_Framework_TestCase
@@ -21,13 +21,13 @@ class AccountTest extends \PHPUnit_Framework_TestCase
     /** @var string */
     private $key;
 
-    /** @var Account */
+    /** @var AccountApi */
     private $api = null;
 
     protected function setUp()
     {
         $this->key = uniqid();
-        $this->api = new Account($this->key, true);
+        $this->api = new AccountApi($this->key, true);
     }
 
     public function testEstimateInvoice()

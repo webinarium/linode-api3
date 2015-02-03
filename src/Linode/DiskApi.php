@@ -20,7 +20,7 @@ use Linode\BaseLinodeApi;
  *
  * @version Linode API v3.3
  */
-class Disk extends BaseLinodeApi
+class DiskApi extends BaseLinodeApi
 {
     /**
      *

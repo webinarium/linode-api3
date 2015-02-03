@@ -13,20 +13,20 @@
 
 require_once(__DIR__ . '/../vendor/autoload.php');
 
-use Linode\Linode;
+use Linode\LinodeApi;
 
 class LinodeTest extends \PHPUnit_Framework_TestCase
 {
     /** @var string */
     private $key;
 
-    /** @var Linode */
+    /** @var LinodeApi */
     private $api = null;
 
     protected function setUp()
     {
         $this->key = uniqid();
-        $this->api = new Linode($this->key, true);
+        $this->api = new LinodeApi($this->key, true);
     }
 
     public function testBoot()

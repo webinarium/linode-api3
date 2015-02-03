@@ -20,7 +20,7 @@ use Linode\BaseLinodeApi;
  *
  * @version Linode API v3.3
  */
-class Linode extends BaseLinodeApi
+class LinodeApi extends BaseLinodeApi
 {
     /**
      * Issues a boot job for the provided ConfigID.

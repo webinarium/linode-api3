@@ -13,20 +13,20 @@
 
 require_once(__DIR__ . '/../vendor/autoload.php');
 
-use Linode\StackScript;
+use Linode\StackScriptApi;
 
 class StackScriptTest extends \PHPUnit_Framework_TestCase
 {
     /** @var string */
     private $key;
 
-    /** @var StackScript */
+    /** @var StackScriptApi */
     private $api = null;
 
     protected function setUp()
     {
         $this->key = uniqid();
-        $this->api = new StackScript($this->key, true);
+        $this->api = new StackScriptApi($this->key, true);
     }
 
     public function testCreate()

@@ -13,20 +13,20 @@
 
 require_once(__DIR__ . '/../vendor/autoload.php');
 
-use Linode\User;
+use Linode\UserApi;
 
 class UserTest extends \PHPUnit_Framework_TestCase
 {
     /** @var string */
     private $key;
 
-    /** @var User */
+    /** @var UserApi */
     private $api = null;
 
     protected function setUp()
     {
         $this->key = uniqid();
-        $this->api = new User($this->key, true);
+        $this->api = new UserApi($this->key, true);
     }
 
     public function testGetApiKey()

@@ -13,20 +13,20 @@
 
 require_once(__DIR__ . '/../vendor/autoload.php');
 
-use Linode\NodeBalancer\Node;
+use Linode\NodeBalancer\NodeApi;
 
 class NodeBalancerNodeTest extends \PHPUnit_Framework_TestCase
 {
     /** @var string */
     private $key;
 
-    /** @var Node */
+    /** @var NodeApi */
     private $api = null;
 
     protected function setUp()
     {
         $this->key = uniqid();
-        $this->api = new Node($this->key, true);
+        $this->api = new NodeApi($this->key, true);
     }
 
     public function testCreate()

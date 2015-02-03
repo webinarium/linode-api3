@@ -188,6 +188,10 @@ foreach ($classes as $class => $methods) {
     $classname = array_pop($class);
     $namespace = implode('\\', $class);
 
+    if ($classname != 'Api') {
+        $classname .= 'Api';
+    }
+
     $dir = str_replace('\\', '/', $namespace);
     $dir = substr($dir, 6);
 

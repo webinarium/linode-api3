@@ -13,7 +13,7 @@
 
 require_once(__DIR__ . '/../vendor/autoload.php');
 
-use Linode\NodeBalancer\Config;
+use Linode\NodeBalancer\ConfigApi;
 use Linode\BalancingAlgorithm;
 use Linode\SessionPersistence;
 
@@ -22,13 +22,13 @@ class NodeBalancerConfigTest extends \PHPUnit_Framework_TestCase
     /** @var string */
     private $key;
 
-    /** @var Config */
+    /** @var ConfigApi */
     private $api = null;
 
     protected function setUp()
     {
         $this->key = uniqid();
-        $this->api = new Config($this->key, true);
+        $this->api = new ConfigApi($this->key, true);
     }
 
     public function testCreate()

@@ -20,7 +20,7 @@ use Linode\BaseLinodeApi;
  *
  * @version Linode API v3.3
  */
-class Ip extends BaseLinodeApi
+class IpApi extends BaseLinodeApi
 {
     /**
      * Assigns a Private IP to a Linode.

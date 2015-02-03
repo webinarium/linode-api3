@@ -20,7 +20,7 @@ use Linode\BaseLinodeApi;
  *
  * @version Linode API v3.3
  */
-class StackScript extends BaseLinodeApi
+class StackScriptApi extends BaseLinodeApi
 {
     /**
      * Create a StackScript.

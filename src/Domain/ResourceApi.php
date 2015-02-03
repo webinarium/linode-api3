@@ -20,7 +20,7 @@ use Linode\BaseLinodeApi;
  *
  * @version Linode API v3.3
  */
-class Resource extends BaseLinodeApi
+class ResourceApi extends BaseLinodeApi
 {
     /**
      * Create a domain record.

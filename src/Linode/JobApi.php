@@ -20,7 +20,7 @@ use Linode\BaseLinodeApi;
  *
  * @version Linode API v3.3
  */
-class Job extends BaseLinodeApi
+class JobApi extends BaseLinodeApi
 {
     /**
      *

@@ -20,7 +20,7 @@ use Linode\BaseLinodeApi;
  *
  * @version Linode API v3.3
  */
-class Image extends BaseLinodeApi
+class ImageApi extends BaseLinodeApi
 {
     /**
      * Deletes a gold-master image

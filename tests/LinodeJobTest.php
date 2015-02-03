@@ -13,20 +13,20 @@
 
 require_once(__DIR__ . '/../vendor/autoload.php');
 
-use Linode\Linode\Job;
+use Linode\Linode\JobApi;
 
 class LinodeJobTest extends \PHPUnit_Framework_TestCase
 {
     /** @var string */
     private $key;
 
-    /** @var Job */
+    /** @var JobApi */
     private $api = null;
 
     protected function setUp()
     {
         $this->key = uniqid();
-        $this->api = new Job($this->key, true);
+        $this->api = new JobApi($this->key, true);
     }
 
     public function testList()

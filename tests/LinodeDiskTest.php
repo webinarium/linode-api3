@@ -13,7 +13,7 @@
 
 require_once(__DIR__ . '/../vendor/autoload.php');
 
-use Linode\Linode\Disk;
+use Linode\Linode\DiskApi;
 use Linode\DiskType;
 
 class LinodeDiskTest extends \PHPUnit_Framework_TestCase
@@ -21,13 +21,13 @@ class LinodeDiskTest extends \PHPUnit_Framework_TestCase
     /** @var string */
     private $key;
 
-    /** @var Disk */
+    /** @var DiskApi */
     private $api = null;
 
     protected function setUp()
     {
         $this->key = uniqid();
-        $this->api = new Disk($this->key, true);
+        $this->api = new DiskApi($this->key, true);
     }
 
     public function testCreate()

@@ -13,7 +13,7 @@
 
 require_once(__DIR__ . '/../vendor/autoload.php');
 
-use Linode\Domain;
+use Linode\DomainApi;
 use Linode\DomainType;
 
 class DomainTest extends \PHPUnit_Framework_TestCase
@@ -21,13 +21,13 @@ class DomainTest extends \PHPUnit_Framework_TestCase
     /** @var string */
     private $key;
 
-    /** @var Domain */
+    /** @var DomainApi */
     private $api = null;
 
     protected function setUp()
     {
         $this->key = uniqid();
-        $this->api = new Domain($this->key, true);
+        $this->api = new DomainApi($this->key, true);
     }
 
     public function testCreate()

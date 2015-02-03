@@ -13,20 +13,20 @@
 
 require_once(__DIR__ . '/../vendor/autoload.php');
 
-use Linode\Linode\Ip;
+use Linode\Linode\IpApi;
 
 class LinodeIpTest extends \PHPUnit_Framework_TestCase
 {
     /** @var string */
     private $key;
 
-    /** @var Ip */
+    /** @var IpApi */
     private $api = null;
 
     protected function setUp()
     {
         $this->key = uniqid();
-        $this->api = new Ip($this->key, true);
+        $this->api = new IpApi($this->key, true);
     }
 
     public function testAddPrivate()

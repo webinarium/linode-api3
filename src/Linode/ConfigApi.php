@@ -20,7 +20,7 @@ use Linode\BaseLinodeApi;
  *
  * @version Linode API v3.3
  */
-class Config extends BaseLinodeApi
+class ConfigApi extends BaseLinodeApi
 {
     /**
      * Creates a Linode Configuration Profile.

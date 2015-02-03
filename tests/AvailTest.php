@@ -13,20 +13,20 @@
 
 require_once(__DIR__ . '/../vendor/autoload.php');
 
-use Linode\Avail;
+use Linode\AvailApi;
 
 class AvailTest extends \PHPUnit_Framework_TestCase
 {
     /** @var string */
     private $key;
 
-    /** @var Avail */
+    /** @var AvailApi */
     private $api = null;
 
     protected function setUp()
     {
         $this->key = uniqid();
-        $this->api = new Avail($this->key, true);
+        $this->api = new AvailApi($this->key, true);
     }
 
     public function testDatacenters()

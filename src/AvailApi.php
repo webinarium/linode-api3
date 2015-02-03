@@ -20,7 +20,7 @@ use Linode\BaseLinodeApi;
  *
  * @version Linode API v3.3
  */
-class Avail extends BaseLinodeApi
+class AvailApi extends BaseLinodeApi
 {
     /**
      * Returns a list of Linode data center facilities.

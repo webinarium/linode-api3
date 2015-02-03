@@ -13,20 +13,20 @@
 
 require_once(__DIR__ . '/../vendor/autoload.php');
 
-use Linode\Image;
+use Linode\ImageApi;
 
 class ImageTest extends \PHPUnit_Framework_TestCase
 {
     /** @var string */
     private $key;
 
-    /** @var Image */
+    /** @var ImageApi */
     private $api = null;
 
     protected function setUp()
     {
         $this->key = uniqid();
-        $this->api = new Image($this->key, true);
+        $this->api = new ImageApi($this->key, true);
     }
 
     public function testDelete()

@@ -21,13 +21,13 @@ class DomainResourceTest extends \PHPUnit_Framework_TestCase
     /** @var string */
     private $key;
 
-    /** @var Domain\Resource */
+    /** @var Domain\ResourceApi */
     private $api = null;
 
     protected function setUp()
     {
         $this->key = uniqid();
-        $this->api = new Domain\Resource($this->key, true);
+        $this->api = new Domain\ResourceApi($this->key, true);
     }
 
     public function testCreate()

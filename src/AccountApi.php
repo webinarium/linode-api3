@@ -20,7 +20,7 @@ use Linode\BaseLinodeApi;
  *
  * @version Linode API v3.3
  */
-class Account extends BaseLinodeApi
+class AccountApi extends BaseLinodeApi
 {
     /**
      * Estimates the invoice for adding a new Linode or NodeBalancer as well as resizing a Linode.

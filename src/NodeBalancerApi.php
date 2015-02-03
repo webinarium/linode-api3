@@ -20,7 +20,7 @@ use Linode\BaseLinodeApi;
  *
  * @version Linode API v3.3
  */
-class NodeBalancer extends BaseLinodeApi
+class NodeBalancerApi extends BaseLinodeApi
 {
     /**
      *
