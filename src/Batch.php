@@ -62,7 +62,7 @@ class Batch
      *
      * @param   boolean $debug Whether make a call in a debug mode
      *
-     * @return  array|null Array of results
+     * @return  array|string|null Array of results (or query string in debug mode)
      *
      * @throws  Exception
      */
