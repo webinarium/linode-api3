@@ -1,6 +1,7 @@
 {
     "name": "arodygin/linode-api-php",
     "description": "Linode API Client Library for PHP",
+    "keywords": ["api", "linode"],
     "license": "GPL-3.0",
     "minimum-stability": "stable",
     "require": {
