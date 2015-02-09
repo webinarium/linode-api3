@@ -23,18 +23,28 @@ class BaseLinodeApi
     /** @var string API key */
     protected $key;
 
+    /** @var Batch */
+    protected $batch;
+
     /** @var boolean Whether the object is in debug mode */
     protected $debug;
 
     /**
      * Constructor.
      *
-     * @param   string  $key
-     * @param   boolean $debug
+     * @param   string|Batch $key   API key, or batch of requests
+     * @param   boolean      $debug Whether the object should be in debug mode
      */
     public function __construct($key, $debug = false)
     {
-        $this->key   = $key;
+        if ($key instanceof Batch) {
+            $this->batch = $key;
+        }
+        else {
+            $this->key   = $key;
+            $this->batch = null;
+        }
+
         $this->debug = $debug;
     }
 
@@ -44,17 +54,32 @@ class BaseLinodeApi
      * @param   string $action
      * @param   array  $parameters
      *
-     * @return  array|null
+     * @return  array|boolean
      *
      * @throws  LinodeException
      * @throws  Exception
      */
     protected function call($action, $parameters = array())
     {
+        if ($this->batch) {
+
+            $query = array('api_action' => $action);
+
+            foreach ($parameters as $key => $value) {
+                if (!is_null($value)) {
+                    $query[urlencode($key)] = urlencode($value);
+                }
+            }
+
+            $this->batch->addRequest($query);
+
+            return true;
+        }
+
         $curl = curl_init();
 
         if (!$curl) {
-            return null;
+            return false;
         }
 
         $query = "api_key={$this->key}&api_action={$action}";
