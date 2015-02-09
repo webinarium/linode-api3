@@ -41,5 +41,6 @@ class BatchTest extends \PHPUnit_Framework_TestCase
         $result = $batch->execute(true);
 
         $this->assertEquals($expected, $result);
+        $this->assertFalse($batch->execute(true));
     }
 }

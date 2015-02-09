@@ -38,16 +38,6 @@ class Batch
     }
 
     /**
-     * Returns current API key.
-     *
-     * @return  string API key
-     */
-    public function getKey()
-    {
-        return $this->key;
-    }
-
-    /**
      * Adds specified request to the batch.
      *
      * @param   array $query Request parameters
@@ -62,19 +52,25 @@ class Batch
      *
      * @param   boolean $debug Whether make a call in a debug mode
      *
-     * @return  array|string|null Array of results (or query string in debug mode)
+     * @return  array|string|false Array of results (or query string in debug mode)
      *
      * @throws  Exception
      */
     public function execute($debug = false)
     {
+        if (count($this->requests) == 0) {
+            return false;
+        }
+
         $curl = curl_init();
 
         if (!$curl) {
-            return null;
+            return false;
         }
 
         $query = "api_key={$this->key}&api_action=batch&api_requestArray=" . json_encode($this->requests);
+
+        $this->requests = array();
 
         if ($debug) {
             return $query;
