@@ -1,9 +1,9 @@
-[![Build Status](https://travis-ci.org/arodygin/linode-api-php.svg)](https://travis-ci.org/arodygin/linode-api-php)
-[![Code Coverage](https://scrutinizer-ci.com/g/arodygin/linode-api-php/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/arodygin/linode-api-php/?branch=master)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/arodygin/linode-api-php/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/arodygin/linode-api-php/?branch=master)
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/727b4566-d4ae-49a3-90de-b4a607d514bc/mini.png)](https://insight.sensiolabs.com/projects/727b4566-d4ae-49a3-90de-b4a607d514bc)
-[![Latest Stable Version](https://poser.pugx.org/arodygin/linode-api-php/v/stable.svg)](https://packagist.org/packages/arodygin/linode-api-php)
-[![License](https://poser.pugx.org/arodygin/linode-api-php/license.svg)](https://packagist.org/packages/arodygin/linode-api-php)
+[![License](https://img.shields.io/packagist/l/arodygin/linode-api-php.svg)](https://packagist.org/packages/arodygin/linode-api-php)
+[![Latest Stable Version](https://img.shields.io/packagist/v/arodygin/linode-api-php.svg)](https://packagist.org/packages/arodygin/linode-api-php)
+[![Build Status](https://img.shields.io/travis/arodygin/linode-api-php.svg)](https://travis-ci.org/arodygin/linode-api-php)
+[![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/arodygin/linode-api-php.svg)](https://scrutinizer-ci.com/g/arodygin/linode-api-php/?branch=master)
+[![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/arodygin/linode-api-php.svg)](https://scrutinizer-ci.com/g/arodygin/linode-api-php/?branch=master)
+[![SensioLabsInsight](https://img.shields.io/sensiolabs/i/727b4566-d4ae-49a3-90de-b4a607d514bc.svg)](https://insight.sensiolabs.com/projects/727b4566-d4ae-49a3-90de-b4a607d514bc)
 
 # Linode API Client Library for PHP
 
