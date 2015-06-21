@@ -25,17 +25,15 @@ class NodeBalancerApi extends BaseLinodeApi
      * @param int    $DatacenterID       [required] The DatacenterID from avail.datacenters() where you wish to place this new NodeBalancer
      * @param string $Label              [optional] This NodeBalancer's label
      * @param int    $ClientConnThrottle [optional] To help mitigate abuse, throttle connections per second, per client IP. 0 to disable. Max of 20.
-     * @param int    $PaymentTerm        [optional] Subscription term in months for prepaid customers.  One of: 1, 12, or 24
      *
      * @return array
      */
-    public function create($DatacenterID, $Label = null, $ClientConnThrottle = null, $PaymentTerm = null)
+    public function create($DatacenterID, $Label = null, $ClientConnThrottle = null)
     {
         return $this->call('nodebalancer.create', array(
             'DatacenterID'       => $DatacenterID,
             'Label'              => $Label,
             'ClientConnThrottle' => $ClientConnThrottle,
-            'PaymentTerm'        => $PaymentTerm,
         ));
     }
 

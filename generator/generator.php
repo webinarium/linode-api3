@@ -23,6 +23,7 @@ $vocabulary = array(
 
     // classes
     'nodebalancer'           => 'NodeBalancer',
+    'professionalservices'   => 'ProfessionalServices',
     'stackscript'            => 'StackScript',
 
     // methods
