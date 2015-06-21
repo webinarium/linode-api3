@@ -1,4 +1,6 @@
-<?php return array (
+<?php
+
+return array (
   'VERSION' => 3.2999999999999998,
   'METHODS' => 
   array (

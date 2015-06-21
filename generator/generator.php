@@ -122,7 +122,7 @@ $json = file_get_contents('https://api.linode.com/?api_action=api.spec');
 $api = json_decode($json, true);
 $api = $api['DATA'];
 
-file_put_contents(__DIR__ . '/apicache.php', '<?php return ' . var_export($api, true) . ';');
+file_put_contents(__DIR__ . '/apicache.php', sprintf("<?php\n\nreturn %s;\n", var_export($api, true)));
 
 $version = $api['VERSION'];
 
