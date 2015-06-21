@@ -38,7 +38,8 @@ class NodeBalancerApi extends BaseLinodeApi
     }
 
     /**
-     * Immediately removes a NodeBalancer from your account and issues a pro-rated credit back to your account, if applicable.
+     * Immediately removes a NodeBalancer from your account and issues a pro-rated credit back to your
+     * account, if applicable.
      *
      * @param int $NodeBalancerID [required] The NodeBalancerID to delete
      *

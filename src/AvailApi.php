@@ -62,7 +62,8 @@ class AvailApi extends BaseLinodeApi
     }
 
     /**
-     * Returns a structure of Linode PlanIDs containing the Plan label and the availability in each Datacenter.
+     * Returns a structure of Linode PlanIDs containing the Plan label and the availability in each
+     * Datacenter.
      *
      * @param int $PlanID [optional] Limits the list to the specified PlanID
      *

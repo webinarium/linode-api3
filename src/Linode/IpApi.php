@@ -24,8 +24,7 @@ use Linode\BaseLinodeApi;
 class IpApi extends BaseLinodeApi
 {
     /**
-     * Assigns a Private IP to a Linode.
-     * Returns the IPAddressID that was added.
+     * Assigns a Private IP to a Linode.  Returns the IPAddressID that was added.
      *
      * @param int $LinodeID [required]
      *
@@ -39,8 +38,7 @@ class IpApi extends BaseLinodeApi
     }
 
     /**
-     * Assigns a Public IP to a Linode.
-     * Returns the IPAddressID and IPAddress that was added.
+     * Assigns a Public IP to a Linode.  Returns the IPAddressID and IPAddress that was added.
      *
      * @param int $LinodeID [required] The LinodeID of the Linode that will be assigned an additional public IP address
      *
@@ -70,8 +68,7 @@ class IpApi extends BaseLinodeApi
     }
 
     /**
-     * Sets the rDNS name of a Public IP.
-     * Returns the IPAddressID and IPAddress that were updated.
+     * Sets the rDNS name of a Public IP.  Returns the IPAddressID and IPAddress that were updated.
      *
      * @param int    $IPAddressID [required] The IPAddressID of the address to update
      * @param string $Hostname    [required] The hostname to set the reverse DNS to
@@ -87,10 +84,10 @@ class IpApi extends BaseLinodeApi
     }
 
     /**
-     * Exchanges Public IP addresses between two Linodes within a Datacenter.
-     * The destination of the IP Address can be designated by either the toLinodeID or withIPAddressID parameter.
-     * Returns the resulting relationship of the Linode and IP Address parameters.
-     * When performing a one directional swap, the source is represented by the first of the two resultant array members.
+     * Exchanges Public IP addresses between two Linodes within a Datacenter.  The destination of the IP
+     * Address can be designated by either the toLinodeID or withIPAddressID parameter.  Returns the
+     * resulting relationship of the Linode and IP Address parameters.  When performing a one directional
+     * swap, the source is represented by the first of the two resultant array members.
      *
      * @param int $IPAddressID     [required] The IPAddressID of an IP Address to transfer or swap
      * @param int $withIPAddressID [optional] The IP Address ID to swap

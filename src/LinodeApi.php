@@ -22,8 +22,8 @@ namespace Linode;
 class LinodeApi extends BaseLinodeApi
 {
     /**
-     * Issues a boot job for the provided ConfigID.
-     * If no ConfigID is provided boots the last used configuration profile, or the first configuration profile if this Linode has never been booted.
+     * Issues a boot job for the provided ConfigID.  If no ConfigID is provided boots the last used
+     * configuration profile, or the first configuration profile if this Linode has never been booted.
      *
      * @param int $LinodeID [required]
      * @param int $ConfigID [optional] The ConfigID to boot, available from linode.config.list().
@@ -39,8 +39,7 @@ class LinodeApi extends BaseLinodeApi
     }
 
     /**
-     * Creates a Linode and assigns you full privileges.
-     * There is a 75-linodes-per-hour limiter.
+     * Creates a Linode and assigns you full privileges. There is a 75-linodes-per-hour limiter.
      *
      * @param int $DatacenterID [required] The DatacenterID from avail.datacenters() where you wish to place this new Linode
      * @param int $PlanID       [required] The desired PlanID available from avail.LinodePlans()
@@ -58,9 +57,9 @@ class LinodeApi extends BaseLinodeApi
     }
 
     /**
-     * Immediately removes a Linode from your account and issues a pro-rated credit back to your account, if applicable.
-     * To prevent accidental deletes, this requires the Linode has no Disk images.
-     * You must first delete its disk images.".
+     * Immediately removes a Linode from your account and issues a pro-rated credit back to your account,
+     * if applicable.  To prevent accidental deletes, this requires the Linode has no Disk images.  You
+     * must first delete its disk images.".
      *
      * @param int  $LinodeID   [required] The LinodeID to delete
      * @param bool $skipChecks [optional] Skips the safety checks and will always delete the Linode
@@ -76,9 +75,9 @@ class LinodeApi extends BaseLinodeApi
     }
 
     /**
-     * Creates a new Linode, assigns you full privileges, and then clones the specified LinodeID to the new Linode.
-     * There is a limit of 5 active clone operations per source Linode.
-     * It is recommended that the source Linode be powered down during the clone.
+     * Creates a new Linode, assigns you full privileges, and then clones the specified LinodeID to the new
+     * Linode. There is a limit of 5 active clone operations per source Linode.  It is recommended that the
+     * source Linode be powered down during the clone.
      *
      * @param int    $LinodeID     [required] The LinodeID that you want cloned
      * @param int    $DatacenterID [required] The DatacenterID from avail.datacenters() where you wish to place this new Linode
@@ -100,8 +99,8 @@ class LinodeApi extends BaseLinodeApi
     }
 
     /**
-     * Returns a list of all Linodes user has access or delete to, including some properties.
-     * Status values are -1: Being Created, 0: Brand New, 1: Running, and 2: Powered Off.
+     * Returns a list of all Linodes user has access or delete to, including some properties.  Status
+     * values are -1: Being Created, 0: Brand New, 1: Running, and 2: Powered Off.
      *
      * @param int $LinodeID [optional] Limits the list to the specified LinodeID
      *
@@ -145,8 +144,8 @@ class LinodeApi extends BaseLinodeApi
     }
 
     /**
-     * Resizes a Linode from one plan to another.
-     * Immediately shuts the Linode down, charges/credits the account, and issue a migration to another host server.
+     * Resizes a Linode from one plan to another.  Immediately shuts the Linode down, charges/credits the
+     * account, and issue a migration to another host server.
      *
      * @param int $LinodeID [required]
      * @param int $PlanID   [required] The desired PlanID available from avail.LinodePlans()

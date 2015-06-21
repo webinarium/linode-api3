@@ -259,16 +259,12 @@ foreach ($classes as $class => $methods) {
             );
         }
 
-        // Split long descriptions - each sentence goes to a separated line.
-        $description = explode("\n", str_replace('. ', ".\n", $meta['DESCRIPTION']));
-
-        foreach ($description as $i => $line) {
-            $description[$i] = trim($line);
-        }
+        // Split long descriptions.
+        $description = wordwrap($meta['DESCRIPTION'], 100, "\n     * ");
 
         // Generate complete function.
         $function = sprintf($function_template,
-            implode("\n     * ", $description),
+            $description,
             $annotation,
             $method,
             implode(', ', $function_params),

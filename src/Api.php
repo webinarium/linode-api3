@@ -25,8 +25,9 @@ class Api extends BaseLinodeApi
     const VERSION = '3.3';
 
     /**
-     * Returns a data structure of the entire Linode API specification.
-     * This method does not require authorization.<br><br>For example: <a target="_blank" href="https://api.linode.com/?api_action=api.spec">https://api.linode.com/?api_action=api.spec</a>.
+     * Returns a data structure of the entire Linode API specification.  This method does not require
+     * authorization.<br><br>For example: <a target="_blank"
+     * href="https://api.linode.com/?api_action=api.spec">https://api.linode.com/?api_action=api.spec</a>.
      *
      * @return array
      */

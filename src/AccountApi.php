@@ -22,8 +22,9 @@ namespace Linode;
 class AccountApi extends BaseLinodeApi
 {
     /**
-     * Estimates the invoice for adding a new Linode or NodeBalancer as well as resizing a Linode.
-     * This returns two fields: PRICE which is the estimated cost of the invoice, and INVOICE_TO which is the date invoice would be though with timezone set to America/New_York.
+     * Estimates the invoice for adding a new Linode or NodeBalancer as well as resizing a Linode. This
+     * returns two fields: PRICE which is the estimated cost of the invoice, and INVOICE_TO which is the
+     * date invoice would be though with timezone set to America/New_York.
      *
      * @param string $mode        [required] This is one of the following options: 'linode_new', 'linode_resize', or 'nodebalancer_new'.
      * @param int    $LinodeID    [optional] This is the LinodeID you want to resize and is required for mode 'linode_resize'.
@@ -43,7 +44,8 @@ class AccountApi extends BaseLinodeApi
     }
 
     /**
-     * Shows information about your account such as the date your account was opened as well as your network utilization for the current month in gigabytes.
+     * Shows information about your account such as the date your account was opened as well as your
+     * network utilization for the current month in gigabytes.
      *
      * @return array
      */

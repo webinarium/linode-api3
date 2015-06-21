@@ -22,8 +22,9 @@ namespace Linode;
 class UserApi extends BaseLinodeApi
 {
     /**
-     * Authenticates a Linode Manager user against their username, password, and two-factor token (when enabled), and then returns a new API key, which can be used until it expires.
-     * The number of active keys is limited to 20.
+     * Authenticates a Linode Manager user against their username, password, and two-factor token (when
+     * enabled), and then returns a new API key, which can be used until it expires.  The number of active
+     * keys is limited to 20.
      *
      * @param string $username [required]
      * @param string $password [required]
