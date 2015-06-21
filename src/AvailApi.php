@@ -48,16 +48,16 @@ class AvailApi extends BaseLinodeApi
     /**
      * List available kernels.
      *
-     * @param bool $isXen    [optional] Limits the results to show only Xen kernels
      * @param int  $KernelID [optional]
+     * @param bool $isXen    [optional] Limits the results to show only Xen kernels
      *
      * @return array
      */
-    public function kernels($isXen = null, $KernelID = null)
+    public function kernels($KernelID = null, $isXen = null)
     {
         return $this->call('avail.kernels', array(
-            'isXen'    => $isXen,
             'KernelID' => $KernelID,
+            'isXen'    => $isXen,
         ));
     }
 
@@ -89,17 +89,17 @@ class AvailApi extends BaseLinodeApi
      * Returns a list of available public StackScripts.
      *
      * @param int    $DistributionID     [optional] Limit the results to StackScripts that can be applied to this DistributionID
-     * @param string $keywords           [optional] Search terms
      * @param string $DistributionVendor [optional] Debian, Ubuntu, Fedora, etc.
+     * @param string $keywords           [optional] Search terms
      *
      * @return array
      */
-    public function stackScripts($DistributionID = null, $keywords = null, $DistributionVendor = null)
+    public function stackScripts($DistributionID = null, $DistributionVendor = null, $keywords = null)
     {
         return $this->call('avail.stackscripts', array(
             'DistributionID'     => $DistributionID,
-            'keywords'           => $keywords,
             'DistributionVendor' => $DistributionVendor,
+            'keywords'           => $keywords,
         ));
     }
 }

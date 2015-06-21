@@ -27,19 +27,19 @@ class NodeApi extends BaseLinodeApi
      * @param int    $ConfigID [required] The parent ConfigID to attach this Node to
      * @param string $Label    [required] This backend Node's label
      * @param string $Address  [required] The address:port combination used to communicate with this Node
-     * @param string $Mode     [optional] The connections mode for this node.  One of 'accept', 'reject', or 'drain'
      * @param int    $Weight   [optional] Load balancing weight, 1-255. Higher means more connections.
+     * @param string $Mode     [optional] The connections mode for this node.  One of 'accept', 'reject', or 'drain'
      *
      * @return array
      */
-    public function create($ConfigID, $Label, $Address, $Mode = null, $Weight = null)
+    public function create($ConfigID, $Label, $Address, $Weight = null, $Mode = null)
     {
         return $this->call('nodebalancer.node.create', array(
             'ConfigID' => $ConfigID,
             'Label'    => $Label,
             'Address'  => $Address,
-            'Mode'     => $Mode,
             'Weight'   => $Weight,
+            'Mode'     => $Mode,
         ));
     }
 
@@ -79,19 +79,19 @@ class NodeApi extends BaseLinodeApi
      * @param int    $NodeID  [required]
      * @param string $Label   [optional] This backend Node's label
      * @param string $Address [optional] The address:port combination used to communicate with this Node
-     * @param string $Mode    [optional] The connections mode for this node.  One of 'accept', 'reject', or 'drain'
      * @param int    $Weight  [optional] Load balancing weight, 1-255. Higher means more connections.
+     * @param string $Mode    [optional] The connections mode for this node.  One of 'accept', 'reject', or 'drain'
      *
      * @return array
      */
-    public function update($NodeID, $Label = null, $Address = null, $Mode = null, $Weight = null)
+    public function update($NodeID, $Label = null, $Address = null, $Weight = null, $Mode = null)
     {
         return $this->call('nodebalancer.node.update', array(
             'NodeID'  => $NodeID,
             'Label'   => $Label,
             'Address' => $Address,
-            'Mode'    => $Mode,
             'Weight'  => $Weight,
+            'Mode'    => $Mode,
         ));
     }
 }

@@ -25,33 +25,33 @@ class ConfigApi extends BaseLinodeApi
 {
     /**
      * @param int    $NodeBalancerID [required] The parent NodeBalancer's ID
+     * @param int    $Port           [optional] Port to bind to on the public interfaces. 1-65534
+     * @param string $Protocol       [optional] Either 'tcp', 'http', or 'https'
      * @param string $Algorithm      [optional] Balancing algorithm.  One of 'roundrobin', 'leastconn', 'source'
      * @param string $Stickiness     [optional] Session persistence.  One of 'none', 'table', 'http_cookie'
-     * @param string $Protocol       [optional] Either 'tcp', 'http', or 'https'
-     * @param int    $Port           [optional] Port to bind to on the public interfaces. 1-65534
      * @param string $check          [optional] Perform active health checks on the backend nodes.  One of 'connection', 'http', 'http_body'
      * @param int    $check_interval [optional] Seconds between health check probes.  2-3600
-     * @param string $check_attempts [optional] Number of failed probes before taking a node out of rotation. 1-30
      * @param string $check_timeout  [optional] Seconds to wait before considering the probe a failure. 1-30.  Must be less than check_interval.
+     * @param string $check_attempts [optional] Number of failed probes before taking a node out of rotation. 1-30
      * @param string $check_path     [optional] When check=http, the path to request
-     * @param string $check_body     [optional] When check=http_body, a regex against the expected result body
+     * @param string $check_body     [optional] When check=http, a regex to match within the first 16,384 bytes of the response body
      * @param string $ssl_cert       [optional] SSL certificate served by the NodeBalancer when the protocol is 'https'
      * @param string $ssl_key        [optional] Unpassphrased private key for the SSL certificate when protocol is 'https'
      *
      * @return array
      */
-    public function create($NodeBalancerID, $Algorithm = null, $Stickiness = null, $Protocol = null, $Port = null, $check = null, $check_interval = null, $check_attempts = null, $check_timeout = null, $check_path = null, $check_body = null, $ssl_cert = null, $ssl_key = null)
+    public function create($NodeBalancerID, $Port = null, $Protocol = null, $Algorithm = null, $Stickiness = null, $check = null, $check_interval = null, $check_timeout = null, $check_attempts = null, $check_path = null, $check_body = null, $ssl_cert = null, $ssl_key = null)
     {
         return $this->call('nodebalancer.config.create', array(
             'NodeBalancerID' => $NodeBalancerID,
+            'Port'           => $Port,
+            'Protocol'       => $Protocol,
             'Algorithm'      => $Algorithm,
             'Stickiness'     => $Stickiness,
-            'Protocol'       => $Protocol,
-            'Port'           => $Port,
             'check'          => $check,
             'check_interval' => $check_interval,
-            'check_attempts' => $check_attempts,
             'check_timeout'  => $check_timeout,
+            'check_attempts' => $check_attempts,
             'check_path'     => $check_path,
             'check_body'     => $check_body,
             'ssl_cert'       => $ssl_cert,
@@ -95,33 +95,33 @@ class ConfigApi extends BaseLinodeApi
      * Updates a Config's properties.
      *
      * @param int    $ConfigID       [required]
+     * @param int    $Port           [optional] Port to bind to on the public interfaces. 1-65534
+     * @param string $Protocol       [optional] Either 'tcp', 'http', or 'https'
      * @param string $Algorithm      [optional] Balancing algorithm.  One of 'roundrobin', 'leastconn', 'source'
      * @param string $Stickiness     [optional] Session persistence.  One of 'none', 'table', 'http_cookie'
-     * @param string $Protocol       [optional] Either 'tcp', 'http', or 'https'
-     * @param int    $Port           [optional] Port to bind to on the public interfaces. 1-65534
      * @param string $check          [optional] Perform active health checks on the backend nodes.  One of 'connection', 'http', 'http_body'
      * @param int    $check_interval [optional] Seconds between health check probes.  2-3600
-     * @param string $check_attempts [optional] Number of failed probes before taking a node out of rotation. 1-30
      * @param string $check_timeout  [optional] Seconds to wait before considering the probe a failure. 1-30.  Must be less than check_interval.
+     * @param string $check_attempts [optional] Number of failed probes before taking a node out of rotation. 1-30
      * @param string $check_path     [optional] When check=http, the path to request
-     * @param string $check_body     [optional] When check=http_body, a regex against the expected result body
+     * @param string $check_body     [optional] When check=http, a regex to match within the first 16,384 bytes of the response body
      * @param string $ssl_cert       [optional] SSL certificate served by the NodeBalancer when the protocol is 'https'
      * @param string $ssl_key        [optional] Unpassphrased private key for the SSL certificate when protocol is 'https'
      *
      * @return array
      */
-    public function update($ConfigID, $Algorithm = null, $Stickiness = null, $Protocol = null, $Port = null, $check = null, $check_interval = null, $check_attempts = null, $check_timeout = null, $check_path = null, $check_body = null, $ssl_cert = null, $ssl_key = null)
+    public function update($ConfigID, $Port = null, $Protocol = null, $Algorithm = null, $Stickiness = null, $check = null, $check_interval = null, $check_timeout = null, $check_attempts = null, $check_path = null, $check_body = null, $ssl_cert = null, $ssl_key = null)
     {
         return $this->call('nodebalancer.config.update', array(
             'ConfigID'       => $ConfigID,
+            'Port'           => $Port,
+            'Protocol'       => $Protocol,
             'Algorithm'      => $Algorithm,
             'Stickiness'     => $Stickiness,
-            'Protocol'       => $Protocol,
-            'Port'           => $Port,
             'check'          => $check,
             'check_interval' => $check_interval,
-            'check_attempts' => $check_attempts,
             'check_timeout'  => $check_timeout,
+            'check_attempts' => $check_attempts,
             'check_path'     => $check_path,
             'check_body'     => $check_body,
             'ssl_cert'       => $ssl_cert,

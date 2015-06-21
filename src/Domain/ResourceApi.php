@@ -29,10 +29,7 @@ class ResourceApi extends BaseLinodeApi
      * @param int    $DomainID [required]
      * @param string $Type     [required] One of: NS, MX, A, AAAA, CNAME, TXT, or SRV
      * @param string $Name     [optional] The hostname or FQDN.  When Type=MX the subdomain to delegate to the Target MX server.
-     * @param string $Target   [optional] When Type=MX the hostname.
-     *                         When Type=CNAME the target of the alias.
-     *                         When Type=TXT the value of the record.
-     *                         When Type=A or AAAA the token of '[remote_addr]' will be substituted with the IP address of the request.
+     * @param string $Target   [optional] When Type=MX the hostname.  When Type=CNAME the target of the alias.  When Type=TXT the value of the record. When Type=A or AAAA the token of '[remote_addr]' will be substituted with the IP address of the request.
      * @param int    $Priority [optional] Priority for MX and SRV records, 0-255
      * @param int    $Weight   [optional]
      * @param int    $Port     [optional]
@@ -90,10 +87,7 @@ class ResourceApi extends BaseLinodeApi
      * @param int    $DomainID   [optional]
      * @param int    $ResourceID [required]
      * @param string $Name       [optional] The hostname or FQDN.  When Type=MX the subdomain to delegate to the Target MX server.
-     * @param string $Target     [optional] When Type=MX the hostname.
-     *                           When Type=CNAME the target of the alias.
-     *                           When Type=TXT the value of the record.
-     *                           When Type=A or AAAA the token of '[remote_addr]' will be substituted with the IP address of the request.
+     * @param string $Target     [optional] When Type=MX the hostname.  When Type=CNAME the target of the alias.  When Type=TXT the value of the record. When Type=A or AAAA the token of '[remote_addr]' will be substituted with the IP address of the request.
      * @param int    $Priority   [optional] Priority for MX and SRV records, 0-255
      * @param int    $Weight     [optional]
      * @param int    $Port       [optional]
@@ -102,7 +96,7 @@ class ResourceApi extends BaseLinodeApi
      *
      * @return array
      */
-    public function update($DomainID, $ResourceID, $Name = null, $Target = null, $Priority = null, $Weight = null, $Port = null, $Protocol = null, $TTL_sec = null)
+    public function update($DomainID = null, $ResourceID, $Name = null, $Target = null, $Priority = null, $Weight = null, $Port = null, $Protocol = null, $TTL_sec = null)
     {
         return $this->call('domain.resource.update', array(
             'DomainID'   => $DomainID,

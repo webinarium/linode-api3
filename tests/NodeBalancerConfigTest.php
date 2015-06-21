@@ -34,11 +34,13 @@ class NodeBalancerConfigTest extends \PHPUnit_Framework_TestCase
     public function testCreate()
     {
         $NodeBalancerID = rand(1, PHP_INT_MAX);
+        $Port           = 80;
+        $Protocol       = 'HTTP';
         $Algorithm      = BalancingAlgorithm::ROUNDROBIN;
         $Stickiness     = SessionPersistence::HTTP_COOKIE;
 
-        $expected = "api_key={$this->key}&api_action=nodebalancer.config.create&NodeBalancerID={$NodeBalancerID}&Algorithm={$Algorithm}&Stickiness={$Stickiness}";
-        $query    = $this->api->create($NodeBalancerID, $Algorithm, $Stickiness);
+        $expected = "api_key={$this->key}&api_action=nodebalancer.config.create&NodeBalancerID={$NodeBalancerID}&Port={$Port}&Protocol={$Protocol}&Algorithm={$Algorithm}&Stickiness={$Stickiness}";
+        $query    = $this->api->create($NodeBalancerID, $Port, $Protocol, $Algorithm, $Stickiness);
         $this->assertEquals($expected, $query);
     }
 
@@ -65,11 +67,13 @@ class NodeBalancerConfigTest extends \PHPUnit_Framework_TestCase
     public function testUpdate()
     {
         $ConfigID   = rand(1, PHP_INT_MAX);
+        $Port       = 80;
+        $Protocol   = 'HTTP';
         $Algorithm  = BalancingAlgorithm::ROUNDROBIN;
         $Stickiness = SessionPersistence::HTTP_COOKIE;
 
-        $expected = "api_key={$this->key}&api_action=nodebalancer.config.update&ConfigID={$ConfigID}&Algorithm={$Algorithm}&Stickiness={$Stickiness}";
-        $query    = $this->api->update($ConfigID, $Algorithm, $Stickiness);
+        $expected = "api_key={$this->key}&api_action=nodebalancer.config.update&ConfigID={$ConfigID}&Port={$Port}&Protocol={$Protocol}&Algorithm={$Algorithm}&Stickiness={$Stickiness}";
+        $query    = $this->api->update($ConfigID, $Port, $Protocol, $Algorithm, $Stickiness);
         $this->assertEquals($expected, $query);
     }
 }

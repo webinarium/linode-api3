@@ -32,8 +32,8 @@ class ConfigApi extends BaseLinodeApi
      * @param string $DiskList               [required] A comma delimited list of DiskIDs; position reflects device node.  The 9th element for specifying the initrd.
      * @param string $RunLevel               [optional] One of 'default', 'single', 'binbash'
      * @param int    $RAMLimit               [optional] RAMLimit in MB.  0 for max.
-     * @param string $RootDeviceCustom       [optional] A custom root device setting.
      * @param int    $RootDeviceNum          [optional] Which device number (1-8) that contains the root partition.  0 to utilize RootDeviceCustom.
+     * @param string $RootDeviceCustom       [optional] A custom root device setting.
      * @param bool   $RootDeviceRO           [optional] Enables the 'ro' kernel flag.  Modern distros want this.
      * @param bool   $devtmpfs_automount     [optional] Controls if pv_ops kernels should automount devtmpfs at boot.
      * @param bool   $helper_xen             [optional] Enable the Xen filesystem helper.  Corrects fstab and inittab/upstart entries depending on the kernel you're booting.  You want this.
@@ -44,7 +44,7 @@ class ConfigApi extends BaseLinodeApi
      *
      * @return array
      */
-    public function create($LinodeID, $Label, $KernelID, $DiskList, $RunLevel = null, $RAMLimit = null, $RootDeviceCustom = null, $RootDeviceNum = null, $RootDeviceRO = null, $devtmpfs_automount = null, $helper_xen = null, $helper_disableUpdateDB = null, $helper_depmod = null, $helper_network = null, $Comments = null)
+    public function create($LinodeID, $Label, $KernelID, $DiskList, $RunLevel = null, $RAMLimit = null, $RootDeviceNum = null, $RootDeviceCustom = null, $RootDeviceRO = null, $devtmpfs_automount = null, $helper_xen = null, $helper_disableUpdateDB = null, $helper_depmod = null, $helper_network = null, $Comments = null)
     {
         return $this->call('linode.config.create', array(
             'LinodeID'               => $LinodeID,
@@ -53,8 +53,8 @@ class ConfigApi extends BaseLinodeApi
             'DiskList'               => $DiskList,
             'RunLevel'               => $RunLevel,
             'RAMLimit'               => $RAMLimit,
-            'RootDeviceCustom'       => $RootDeviceCustom,
             'RootDeviceNum'          => $RootDeviceNum,
+            'RootDeviceCustom'       => $RootDeviceCustom,
             'RootDeviceRO'           => $RootDeviceRO,
             'devtmpfs_automount'     => $devtmpfs_automount,
             'helper_xen'             => $helper_xen,
@@ -102,13 +102,13 @@ class ConfigApi extends BaseLinodeApi
      *
      * @param int    $LinodeID               [optional]
      * @param int    $ConfigID               [required]
-     * @param string $Label                  [required] The Label for this profile
-     * @param int    $KernelID               [required] The KernelID for this profile.  Found in avail.kernels()
-     * @param string $DiskList               [required] A comma delimited list of DiskIDs; position reflects device node.  The 9th element for specifying the initrd.
+     * @param string $Label                  [optional] The Label for this profile
+     * @param int    $KernelID               [optional] The KernelID for this profile.  Found in avail.kernels()
+     * @param string $DiskList               [optional] A comma delimited list of DiskIDs; position reflects device node.  The 9th element for specifying the initrd.
      * @param string $RunLevel               [optional] One of 'default', 'single', 'binbash'
      * @param int    $RAMLimit               [optional] RAMLimit in MB.  0 for max.
-     * @param string $RootDeviceCustom       [optional] A custom root device setting.
      * @param int    $RootDeviceNum          [optional] Which device number (1-8) that contains the root partition.  0 to utilize RootDeviceCustom.
+     * @param string $RootDeviceCustom       [optional] A custom root device setting.
      * @param bool   $RootDeviceRO           [optional] Enables the 'ro' kernel flag.  Modern distros want this.
      * @param bool   $devtmpfs_automount     [optional] Controls if pv_ops kernels should automount devtmpfs at boot.
      * @param bool   $helper_xen             [optional] Enable the Xen filesystem helper.  Corrects fstab and inittab/upstart entries depending on the kernel you're booting.  You want this.
@@ -119,7 +119,7 @@ class ConfigApi extends BaseLinodeApi
      *
      * @return array
      */
-    public function update($LinodeID, $ConfigID, $Label, $KernelID, $DiskList, $RunLevel = null, $RAMLimit = null, $RootDeviceCustom = null, $RootDeviceNum = null, $RootDeviceRO = null, $devtmpfs_automount = null, $helper_xen = null, $helper_disableUpdateDB = null, $helper_depmod = null, $helper_network = null, $Comments = null)
+    public function update($LinodeID = null, $ConfigID, $Label = null, $KernelID = null, $DiskList = null, $RunLevel = null, $RAMLimit = null, $RootDeviceNum = null, $RootDeviceCustom = null, $RootDeviceRO = null, $devtmpfs_automount = null, $helper_xen = null, $helper_disableUpdateDB = null, $helper_depmod = null, $helper_network = null, $Comments = null)
     {
         return $this->call('linode.config.update', array(
             'LinodeID'               => $LinodeID,
@@ -129,8 +129,8 @@ class ConfigApi extends BaseLinodeApi
             'DiskList'               => $DiskList,
             'RunLevel'               => $RunLevel,
             'RAMLimit'               => $RAMLimit,
-            'RootDeviceCustom'       => $RootDeviceCustom,
             'RootDeviceNum'          => $RootDeviceNum,
+            'RootDeviceCustom'       => $RootDeviceCustom,
             'RootDeviceRO'           => $RootDeviceRO,
             'devtmpfs_automount'     => $devtmpfs_automount,
             'helper_xen'             => $helper_xen,

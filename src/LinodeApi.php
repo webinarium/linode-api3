@@ -99,6 +99,7 @@ class LinodeApi extends BaseLinodeApi
 
     /**
      * Returns a list of all Linodes user has access or delete to, including some properties.
+     * Status values are -1: Being Created, 0: Brand New, 1: Running, and 2: Powered Off.
      *
      * @param int $LinodeID [optional] Limits the list to the specified LinodeID
      *

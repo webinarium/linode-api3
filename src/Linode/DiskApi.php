@@ -28,22 +28,22 @@ class DiskApi extends BaseLinodeApi
      * @param string $Label              [required] The display label for this Disk
      * @param string $Type               [required] The formatted type of this disk.  Valid types are: ext3, ext4, swap, raw
      * @param int    $Size               [required] The size in MB of this Disk.
-     * @param int    $FromDistributionID [optional]
      * @param bool   $isReadOnly         [optional] Enable forced read-only for this Disk
+     * @param int    $FromDistributionID [optional]
      * @param string $rootPass           [optional]
      * @param string $rootSSHKey         [optional]
      *
      * @return array
      */
-    public function create($LinodeID, $Label, $Type, $Size, $FromDistributionID = null, $isReadOnly = null, $rootPass = null, $rootSSHKey = null)
+    public function create($LinodeID, $Label, $Type, $Size, $isReadOnly = null, $FromDistributionID = null, $rootPass = null, $rootSSHKey = null)
     {
         return $this->call('linode.disk.create', array(
             'LinodeID'           => $LinodeID,
             'Label'              => $Label,
             'Type'               => $Type,
             'Size'               => $Size,
-            'FromDistributionID' => $FromDistributionID,
             'isReadOnly'         => $isReadOnly,
+            'FromDistributionID' => $FromDistributionID,
             'rootPass'           => $rootPass,
             'rootSSHKey'         => $rootSSHKey,
         ));
@@ -51,20 +51,20 @@ class DiskApi extends BaseLinodeApi
 
     /**
      * @param int    $LinodeID       [required]
-     * @param string $Label          [required] The label of this new disk image
      * @param int    $DistributionID [required] The DistributionID to create this disk from.  Found in avail.distributions()
+     * @param string $Label          [required] The label of this new disk image
      * @param int    $Size           [required] Size of this disk image in MB
      * @param string $rootPass       [required] The root user's password
      * @param string $rootSSHKey     [optional] Optionally sets this string into /root/.ssh/authorized_keys upon distribution configuration.
      *
      * @return array
      */
-    public function createFromDistribution($LinodeID, $Label, $DistributionID, $Size, $rootPass = null, $rootSSHKey = null)
+    public function createFromDistribution($LinodeID, $DistributionID, $Label, $Size, $rootPass, $rootSSHKey = null)
     {
         return $this->call('linode.disk.createfromdistribution', array(
             'LinodeID'       => $LinodeID,
-            'Label'          => $Label,
             'DistributionID' => $DistributionID,
+            'Label'          => $Label,
             'Size'           => $Size,
             'rootPass'       => $rootPass,
             'rootSSHKey'     => $rootSSHKey,
@@ -75,21 +75,21 @@ class DiskApi extends BaseLinodeApi
      * Creates a new disk from a previously imagized disk.
      *
      * @param int    $LinodeID   [required] Specifies the Linode to deploy on to
-     * @param string $Label      [optional] The label of this new disk image
      * @param int    $ImageID    [required] The ID of the frozen image to deploy from
-     * @param int    $Size       [optional] The size of the disk image to creates. Defaults to the minimum size required for the requested image
+     * @param string $Label      [optional] The label of this new disk image
+     * @param int    $size       [optional] The size of the disk image to creates. Defaults to the minimum size required for the requested image
      * @param string $rootPass   [optional] Optionally sets the root password at deployment time. If a password is not provided the existing root password of the frozen image will not be modified
      * @param string $rootSSHKey [optional] Optionally sets this string into /root/.ssh/authorized_keys upon image deployment
      *
      * @return array
      */
-    public function createFromImage($LinodeID, $Label, $ImageID, $Size, $rootPass = null, $rootSSHKey = null)
+    public function createFromImage($LinodeID, $ImageID, $Label = null, $size = null, $rootPass = null, $rootSSHKey = null)
     {
         return $this->call('linode.disk.createfromimage', array(
             'LinodeID'   => $LinodeID,
-            'Label'      => $Label,
             'ImageID'    => $ImageID,
-            'Size'       => $Size,
+            'Label'      => $Label,
+            'size'       => $size,
             'rootPass'   => $rootPass,
             'rootSSHKey' => $rootSSHKey,
         ));
@@ -97,24 +97,24 @@ class DiskApi extends BaseLinodeApi
 
     /**
      * @param int    $LinodeID                [required]
-     * @param string $Label                   [required] The label of this new disk image
-     * @param int    $DistributionID          [required] Which Distribution to apply this StackScript to.  Must be one from the script's DistributionIDList
      * @param int    $StackScriptID           [required] The StackScript to create this image from
      * @param string $StackScriptUDFResponses [required] JSON encoded name/value pairs, answering this StackScript's User Defined Fields
+     * @param int    $DistributionID          [required] Which Distribution to apply this StackScript to.  Must be one from the script's DistributionIDList
+     * @param string $Label                   [required] The label of this new disk image
      * @param int    $Size                    [required] Size of this disk image in MB
      * @param string $rootPass                [required] The root user's password
      * @param string $rootSSHKey              [optional] Optionally sets this string into /root/.ssh/authorized_keys upon distribution configuration.
      *
      * @return array
      */
-    public function createFromStackScript($LinodeID, $Label, $DistributionID, $StackScriptID, $StackScriptUDFResponses, $Size, $rootPass, $rootSSHKey = null)
+    public function createFromStackScript($LinodeID, $StackScriptID, $StackScriptUDFResponses, $DistributionID, $Label, $Size, $rootPass, $rootSSHKey = null)
     {
         return $this->call('linode.disk.createfromstackscript', array(
             'LinodeID'                => $LinodeID,
-            'Label'                   => $Label,
-            'DistributionID'          => $DistributionID,
             'StackScriptID'           => $StackScriptID,
             'StackScriptUDFResponses' => $StackScriptUDFResponses,
+            'DistributionID'          => $DistributionID,
+            'Label'                   => $Label,
             'Size'                    => $Size,
             'rootPass'                => $rootPass,
             'rootSSHKey'              => $rootSSHKey,
@@ -152,6 +152,8 @@ class DiskApi extends BaseLinodeApi
     }
 
     /**
+     * Status values are 1: Ready and 2: Being Deleted.
+     *
      * @param int $LinodeID [required]
      * @param int $DiskID   [optional]
      *
@@ -188,16 +190,16 @@ class DiskApi extends BaseLinodeApi
     /**
      * @param int $LinodeID [required]
      * @param int $DiskID   [required]
-     * @param int $Size     [required] The requested new size of this Disk in MB
+     * @param int $size     [required] The requested new size of this Disk in MB
      *
      * @return array
      */
-    public function resize($LinodeID, $DiskID, $Size)
+    public function resize($LinodeID, $DiskID, $size)
     {
         return $this->call('linode.disk.resize', array(
             'LinodeID' => $LinodeID,
             'DiskID'   => $DiskID,
-            'Size'     => $Size,
+            'size'     => $size,
         ));
     }
 
@@ -209,7 +211,7 @@ class DiskApi extends BaseLinodeApi
      *
      * @return array
      */
-    public function update($LinodeID, $DiskID, $Label = null, $isReadOnly = null)
+    public function update($LinodeID = null, $DiskID, $Label = null, $isReadOnly = null)
     {
         return $this->call('linode.disk.update', array(
             'LinodeID'   => $LinodeID,

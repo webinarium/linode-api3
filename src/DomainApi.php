@@ -26,34 +26,34 @@ class DomainApi extends BaseLinodeApi
      *
      * @param string $Domain           [required] The zone's name
      * @param string $Type             [required] master or slave
-     * @param string $Description      [optional] Currently undisplayed.
      * @param string $SOA_Email        [optional] Required when type=master
-     * @param int    $status           [optional] 0, 1, or 2 (disabled, active, edit mode)
-     * @param string $lpm_displayGroup [optional] Display group in the Domain list inside the Linode DNS Manager
-     * @param string $master_ips       [optional] When type=slave, the zone's master DNS servers list, semicolon separated
-     * @param string $axfr_ips         [optional] IP addresses allowed to AXFR the entire zone, semicolon separated
-     * @param int    $TTL_sec          [optional]
+     * @param string $Description      [optional] Currently undisplayed.
      * @param int    $Refresh_sec      [optional]
      * @param int    $Retry_sec        [optional]
      * @param int    $Expire_sec       [optional]
+     * @param int    $TTL_sec          [optional]
+     * @param string $lpm_displayGroup [optional] Display group in the Domain list inside the Linode DNS Manager
+     * @param int    $status           [optional] 0, 1, or 2 (disabled, active, edit mode)
+     * @param string $master_ips       [optional] When type=slave, the zone's master DNS servers list, semicolon separated
+     * @param string $axfr_ips         [optional] IP addresses allowed to AXFR the entire zone, semicolon separated
      *
      * @return array
      */
-    public function create($Domain, $Type, $Description = null, $SOA_Email = null, $status = null, $lpm_displayGroup = null, $master_ips = null, $axfr_ips = null, $TTL_sec = null, $Refresh_sec = null, $Retry_sec = null, $Expire_sec = null)
+    public function create($Domain, $Type, $SOA_Email = null, $Description = null, $Refresh_sec = null, $Retry_sec = null, $Expire_sec = null, $TTL_sec = null, $lpm_displayGroup = null, $status = null, $master_ips = null, $axfr_ips = null)
     {
         return $this->call('domain.create', array(
             'Domain'           => $Domain,
             'Type'             => $Type,
-            'Description'      => $Description,
             'SOA_Email'        => $SOA_Email,
-            'status'           => $status,
-            'lpm_displayGroup' => $lpm_displayGroup,
-            'master_ips'       => $master_ips,
-            'axfr_ips'         => $axfr_ips,
-            'TTL_sec'          => $TTL_sec,
+            'Description'      => $Description,
             'Refresh_sec'      => $Refresh_sec,
             'Retry_sec'        => $Retry_sec,
             'Expire_sec'       => $Expire_sec,
+            'TTL_sec'          => $TTL_sec,
+            'lpm_displayGroup' => $lpm_displayGroup,
+            'status'           => $status,
+            'master_ips'       => $master_ips,
+            'axfr_ips'         => $axfr_ips,
         ));
     }
 
@@ -89,35 +89,35 @@ class DomainApi extends BaseLinodeApi
      * @param int    $DomainID         [required]
      * @param string $Domain           [optional] The zone's name
      * @param string $Type             [optional] master or slave
-     * @param string $Description      [optional] Currently undisplayed.
      * @param string $SOA_Email        [optional] Required when type=master
-     * @param int    $status           [optional] 0, 1, or 2 (disabled, active, edit mode)
-     * @param string $lpm_displayGroup [optional] Display group in the Domain list inside the Linode DNS Manager
-     * @param string $master_ips       [optional] When type=slave, the zone's master DNS servers list, semicolon separated
-     * @param string $axfr_ips         [optional] IP addresses allowed to AXFR the entire zone, semicolon separated
-     * @param int    $TTL_sec          [optional]
+     * @param string $Description      [optional] Currently undisplayed.
      * @param int    $Refresh_sec      [optional]
      * @param int    $Retry_sec        [optional]
      * @param int    $Expire_sec       [optional]
+     * @param int    $TTL_sec          [optional]
+     * @param string $lpm_displayGroup [optional] Display group in the Domain list inside the Linode DNS Manager
+     * @param int    $status           [optional] 0, 1, or 2 (disabled, active, edit mode)
+     * @param string $master_ips       [optional] When type=slave, the zone's master DNS servers list, semicolon separated
+     * @param string $axfr_ips         [optional] IP addresses allowed to AXFR the entire zone, semicolon separated
      *
      * @return array
      */
-    public function update($DomainID, $Domain = null, $Type = null, $Description = null, $SOA_Email = null, $status = null, $lpm_displayGroup = null, $master_ips = null, $axfr_ips = null, $TTL_sec = null, $Refresh_sec = null, $Retry_sec = null, $Expire_sec = null)
+    public function update($DomainID, $Domain = null, $Type = null, $SOA_Email = null, $Description = null, $Refresh_sec = null, $Retry_sec = null, $Expire_sec = null, $TTL_sec = null, $lpm_displayGroup = null, $status = null, $master_ips = null, $axfr_ips = null)
     {
         return $this->call('domain.update', array(
             'DomainID'         => $DomainID,
             'Domain'           => $Domain,
             'Type'             => $Type,
-            'Description'      => $Description,
             'SOA_Email'        => $SOA_Email,
-            'status'           => $status,
-            'lpm_displayGroup' => $lpm_displayGroup,
-            'master_ips'       => $master_ips,
-            'axfr_ips'         => $axfr_ips,
-            'TTL_sec'          => $TTL_sec,
+            'Description'      => $Description,
             'Refresh_sec'      => $Refresh_sec,
             'Retry_sec'        => $Retry_sec,
             'Expire_sec'       => $Expire_sec,
+            'TTL_sec'          => $TTL_sec,
+            'lpm_displayGroup' => $lpm_displayGroup,
+            'status'           => $status,
+            'master_ips'       => $master_ips,
+            'axfr_ips'         => $axfr_ips,
         ));
     }
 }
