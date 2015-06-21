@@ -11,7 +11,7 @@
 //
 //----------------------------------------------------------------------
 
-require_once(__DIR__ . '/../vendor/autoload.php');
+require_once __DIR__ . '/../vendor/autoload.php';
 
 use Linode\StackScriptApi;
 
@@ -36,7 +36,7 @@ class StackScriptTest extends \PHPUnit_Framework_TestCase
         $Label          = 'test';
 
         $expected = "api_key={$this->key}&api_action=stackscript.create&script={$script}&DistributionIDList={$DistributionID}&Label={$Label}";
-        $query = $this->api->create($script, $DistributionID, $Label);
+        $query    = $this->api->create($script, $DistributionID, $Label);
         $this->assertEquals($expected, $query);
     }
 
@@ -45,7 +45,7 @@ class StackScriptTest extends \PHPUnit_Framework_TestCase
         $StackScriptID = rand(1, PHP_INT_MAX);
 
         $expected = "api_key={$this->key}&api_action=stackscript.delete&StackScriptID={$StackScriptID}";
-        $query = $this->api->delete($StackScriptID);
+        $query    = $this->api->delete($StackScriptID);
         $this->assertEquals($expected, $query);
     }
 
@@ -54,7 +54,7 @@ class StackScriptTest extends \PHPUnit_Framework_TestCase
         $StackScriptID = rand(1, PHP_INT_MAX);
 
         $expected = "api_key={$this->key}&api_action=stackscript.list&StackScriptID={$StackScriptID}";
-        $query = $this->api->getList($StackScriptID);
+        $query    = $this->api->getList($StackScriptID);
         $this->assertEquals($expected, $query);
     }
 
@@ -66,7 +66,7 @@ class StackScriptTest extends \PHPUnit_Framework_TestCase
         $Label          = 'test';
 
         $expected = "api_key={$this->key}&api_action=stackscript.update&StackScriptID={$StackScriptID}&script={$script}&DistributionIDList={$DistributionID}&Label={$Label}";
-        $query = $this->api->update($StackScriptID, $script, $DistributionID, $Label);
+        $query    = $this->api->update($StackScriptID, $script, $DistributionID, $Label);
         $this->assertEquals($expected, $query);
     }
 }

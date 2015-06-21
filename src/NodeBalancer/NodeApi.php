@@ -11,6 +11,7 @@
 //
 //----------------------------------------------------------------------
 
+
 namespace Linode\NodeBalancer;
 
 use Linode\BaseLinodeApi;
@@ -23,15 +24,13 @@ use Linode\BaseLinodeApi;
 class NodeApi extends BaseLinodeApi
 {
     /**
+     * @param int    $ConfigID [required] The parent ConfigID to attach this Node to
+     * @param string $Label    [required] This backend Node's label
+     * @param string $Address  [required] The address:port combination used to communicate with this Node
+     * @param string $Mode     [optional] The connections mode for this node.  One of 'accept', 'reject', or 'drain'
+     * @param int    $Weight   [optional] Load balancing weight, 1-255. Higher means more connections.
      *
-     *
-     * @param   integer $ConfigID [required] The parent ConfigID to attach this Node to
-     * @param   string  $Label    [required] This backend Node's label
-     * @param   string  $Address  [required] The address:port combination used to communicate with this Node
-     * @param   string  $Mode     [optional] The connections mode for this node.  One of 'accept', 'reject', or 'drain'
-     * @param   integer $Weight   [optional] Load balancing weight, 1-255. Higher means more connections.
-     *
-     * @return  array
+     * @return array
      */
     public function create($ConfigID, $Label, $Address, $Mode = null, $Weight = null)
     {
@@ -45,11 +44,11 @@ class NodeApi extends BaseLinodeApi
     }
 
     /**
-     * Deletes a Node from a NodeBalancer Config
+     * Deletes a Node from a NodeBalancer Config.
      *
-     * @param   integer $NodeID [required] The NodeID to delete
+     * @param int $NodeID [required] The NodeID to delete
      *
-     * @return  array
+     * @return array
      */
     public function delete($NodeID)
     {
@@ -59,12 +58,12 @@ class NodeApi extends BaseLinodeApi
     }
 
     /**
-     * Returns a list of Nodes associated with a NodeBalancer Config
+     * Returns a list of Nodes associated with a NodeBalancer Config.
      *
-     * @param   integer $ConfigID [required]
-     * @param   integer $NodeID   [optional] Limits the list to the specified NodeID
+     * @param int $ConfigID [required]
+     * @param int $NodeID   [optional] Limits the list to the specified NodeID
      *
-     * @return  array
+     * @return array
      */
     public function getList($ConfigID, $NodeID = null)
     {
@@ -75,15 +74,15 @@ class NodeApi extends BaseLinodeApi
     }
 
     /**
-     * Updates a Node's properties
+     * Updates a Node's properties.
      *
-     * @param   integer $NodeID  [required]
-     * @param   string  $Label   [optional] This backend Node's label
-     * @param   string  $Address [optional] The address:port combination used to communicate with this Node
-     * @param   string  $Mode    [optional] The connections mode for this node.  One of 'accept', 'reject', or 'drain'
-     * @param   integer $Weight  [optional] Load balancing weight, 1-255. Higher means more connections.
+     * @param int    $NodeID  [required]
+     * @param string $Label   [optional] This backend Node's label
+     * @param string $Address [optional] The address:port combination used to communicate with this Node
+     * @param string $Mode    [optional] The connections mode for this node.  One of 'accept', 'reject', or 'drain'
+     * @param int    $Weight  [optional] Load balancing weight, 1-255. Higher means more connections.
      *
-     * @return  array
+     * @return array
      */
     public function update($NodeID, $Label = null, $Address = null, $Mode = null, $Weight = null)
     {

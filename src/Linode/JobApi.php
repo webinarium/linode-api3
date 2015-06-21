@@ -11,6 +11,7 @@
 //
 //----------------------------------------------------------------------
 
+
 namespace Linode\Linode;
 
 use Linode\BaseLinodeApi;
@@ -23,13 +24,11 @@ use Linode\BaseLinodeApi;
 class JobApi extends BaseLinodeApi
 {
     /**
+     * @param int  $LinodeID    [required]
+     * @param int  $JobID       [optional] Limits the list to the specified JobID
+     * @param bool $pendingOnly [optional]
      *
-     *
-     * @param   integer $LinodeID    [required]
-     * @param   integer $JobID       [optional] Limits the list to the specified JobID
-     * @param   boolean $pendingOnly [optional]
-     *
-     * @return  array
+     * @return array
      */
     public function getList($LinodeID, $JobID = null, $pendingOnly = null)
     {

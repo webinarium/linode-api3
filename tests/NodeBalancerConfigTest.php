@@ -11,10 +11,10 @@
 //
 //----------------------------------------------------------------------
 
-require_once(__DIR__ . '/../vendor/autoload.php');
+require_once __DIR__ . '/../vendor/autoload.php';
 
-use Linode\NodeBalancer\ConfigApi;
 use Linode\BalancingAlgorithm;
+use Linode\NodeBalancer\ConfigApi;
 use Linode\SessionPersistence;
 
 class NodeBalancerConfigTest extends \PHPUnit_Framework_TestCase
@@ -38,7 +38,7 @@ class NodeBalancerConfigTest extends \PHPUnit_Framework_TestCase
         $Stickiness     = SessionPersistence::HTTP_COOKIE;
 
         $expected = "api_key={$this->key}&api_action=nodebalancer.config.create&NodeBalancerID={$NodeBalancerID}&Algorithm={$Algorithm}&Stickiness={$Stickiness}";
-        $query = $this->api->create($NodeBalancerID, $Algorithm, $Stickiness);
+        $query    = $this->api->create($NodeBalancerID, $Algorithm, $Stickiness);
         $this->assertEquals($expected, $query);
     }
 
@@ -48,7 +48,7 @@ class NodeBalancerConfigTest extends \PHPUnit_Framework_TestCase
         $ConfigID       = rand(1, PHP_INT_MAX);
 
         $expected = "api_key={$this->key}&api_action=nodebalancer.config.delete&NodeBalancerID={$NodeBalancerID}&ConfigID={$ConfigID}";
-        $query = $this->api->delete($NodeBalancerID, $ConfigID);
+        $query    = $this->api->delete($NodeBalancerID, $ConfigID);
         $this->assertEquals($expected, $query);
     }
 
@@ -58,7 +58,7 @@ class NodeBalancerConfigTest extends \PHPUnit_Framework_TestCase
         $ConfigID       = rand(1, PHP_INT_MAX);
 
         $expected = "api_key={$this->key}&api_action=nodebalancer.config.list&NodeBalancerID={$NodeBalancerID}&ConfigID={$ConfigID}";
-        $query = $this->api->getList($NodeBalancerID, $ConfigID);
+        $query    = $this->api->getList($NodeBalancerID, $ConfigID);
         $this->assertEquals($expected, $query);
     }
 
@@ -69,7 +69,7 @@ class NodeBalancerConfigTest extends \PHPUnit_Framework_TestCase
         $Stickiness = SessionPersistence::HTTP_COOKIE;
 
         $expected = "api_key={$this->key}&api_action=nodebalancer.config.update&ConfigID={$ConfigID}&Algorithm={$Algorithm}&Stickiness={$Stickiness}";
-        $query = $this->api->update($ConfigID, $Algorithm, $Stickiness);
+        $query    = $this->api->update($ConfigID, $Algorithm, $Stickiness);
         $this->assertEquals($expected, $query);
     }
 }

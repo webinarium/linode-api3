@@ -11,7 +11,7 @@
 //
 //----------------------------------------------------------------------
 
-require_once(__DIR__ . '/../vendor/autoload.php');
+require_once __DIR__ . '/../vendor/autoload.php';
 
 use Linode\NodeBalancerApi;
 
@@ -35,7 +35,7 @@ class NodeBalancerTest extends \PHPUnit_Framework_TestCase
         $Label        = 'label';
 
         $expected = "api_key={$this->key}&api_action=nodebalancer.create&DatacenterID={$DatacenterID}&Label={$Label}";
-        $query = $this->api->create($DatacenterID, $Label);
+        $query    = $this->api->create($DatacenterID, $Label);
         $this->assertEquals($expected, $query);
     }
 
@@ -44,7 +44,7 @@ class NodeBalancerTest extends \PHPUnit_Framework_TestCase
         $NodeBalancerID = rand(1, PHP_INT_MAX);
 
         $expected = "api_key={$this->key}&api_action=nodebalancer.delete&NodeBalancerID={$NodeBalancerID}";
-        $query = $this->api->delete($NodeBalancerID);
+        $query    = $this->api->delete($NodeBalancerID);
         $this->assertEquals($expected, $query);
     }
 
@@ -53,7 +53,7 @@ class NodeBalancerTest extends \PHPUnit_Framework_TestCase
         $NodeBalancerID = rand(1, PHP_INT_MAX);
 
         $expected = "api_key={$this->key}&api_action=nodebalancer.list&NodeBalancerID={$NodeBalancerID}";
-        $query = $this->api->getList($NodeBalancerID);
+        $query    = $this->api->getList($NodeBalancerID);
         $this->assertEquals($expected, $query);
     }
 
@@ -63,7 +63,7 @@ class NodeBalancerTest extends \PHPUnit_Framework_TestCase
         $Label          = 'label';
 
         $expected = "api_key={$this->key}&api_action=nodebalancer.update&NodeBalancerID={$NodeBalancerID}&Label={$Label}";
-        $query = $this->api->update($NodeBalancerID, $Label);
+        $query    = $this->api->update($NodeBalancerID, $Label);
         $this->assertEquals($expected, $query);
     }
 }

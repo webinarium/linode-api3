@@ -11,10 +11,10 @@
 //
 //----------------------------------------------------------------------
 
-require_once(__DIR__ . '/../vendor/autoload.php');
+require_once __DIR__ . '/../vendor/autoload.php';
 
-use Linode\Domain;
 use Linode\DnsRecord;
+use Linode\Domain;
 
 class DomainResourceTest extends \PHPUnit_Framework_TestCase
 {
@@ -36,7 +36,7 @@ class DomainResourceTest extends \PHPUnit_Framework_TestCase
         $Type     = DnsRecord::A;
 
         $expected = "api_key={$this->key}&api_action=domain.resource.create&DomainID={$DomainID}&Type={$Type}";
-        $query = $this->api->create($DomainID, $Type);
+        $query    = $this->api->create($DomainID, $Type);
         $this->assertEquals($expected, $query);
     }
 
@@ -46,7 +46,7 @@ class DomainResourceTest extends \PHPUnit_Framework_TestCase
         $ResourceID = rand(1, PHP_INT_MAX);
 
         $expected = "api_key={$this->key}&api_action=domain.resource.delete&DomainID={$DomainID}&ResourceID={$ResourceID}";
-        $query = $this->api->delete($DomainID, $ResourceID);
+        $query    = $this->api->delete($DomainID, $ResourceID);
         $this->assertEquals($expected, $query);
     }
 
@@ -55,7 +55,7 @@ class DomainResourceTest extends \PHPUnit_Framework_TestCase
         $DomainID = rand(1, PHP_INT_MAX);
 
         $expected = "api_key={$this->key}&api_action=domain.resource.list&DomainID={$DomainID}";
-        $query = $this->api->getList($DomainID);
+        $query    = $this->api->getList($DomainID);
         $this->assertEquals($expected, $query);
     }
 
@@ -65,7 +65,7 @@ class DomainResourceTest extends \PHPUnit_Framework_TestCase
         $ResourceID = rand(1, PHP_INT_MAX);
 
         $expected = "api_key={$this->key}&api_action=domain.resource.update&DomainID={$DomainID}&ResourceID={$ResourceID}";
-        $query = $this->api->update($DomainID, $ResourceID);
+        $query    = $this->api->update($DomainID, $ResourceID);
         $this->assertEquals($expected, $query);
     }
 }

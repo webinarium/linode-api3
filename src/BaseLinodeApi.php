@@ -11,9 +11,8 @@
 //
 //----------------------------------------------------------------------
 
-namespace Linode;
 
-use \Exception;
+namespace Linode;
 
 /**
  * Basic class which can make calls to Linode API.
@@ -23,17 +22,17 @@ class BaseLinodeApi
     /** @var string API key */
     protected $key;
 
-    /** @var Batch */
+    /** @var \Linode\Batch */
     protected $batch;
 
-    /** @var boolean Whether the object is in debug mode */
+    /** @var bool Whether the object is in debug mode */
     protected $debug;
 
     /**
      * Constructor.
      *
-     * @param   string|Batch $key   API key, or batch of requests
-     * @param   boolean      $debug Whether the object should be in debug mode
+     * @param string|Batch $key   API key, or batch of requests
+     * @param bool         $debug Whether the object should be in debug mode
      */
     public function __construct($key, $debug = false)
     {
@@ -51,13 +50,13 @@ class BaseLinodeApi
     /**
      * Performs specified call to Linode API.
      *
-     * @param   string $action
-     * @param   array  $parameters
+     * @param string $action
+     * @param array  $parameters
      *
-     * @return  array|boolean
+     * @return array|bool
      *
-     * @throws  LinodeException
-     * @throws  Exception
+     * @throws LinodeException
+     * @throws \Exception
      */
     protected function call($action, $parameters = array())
     {
@@ -106,7 +105,7 @@ class BaseLinodeApi
         $json = json_decode($result, true);
 
         if (!$json) {
-            throw new Exception('Empty response');
+            throw new \Exception('Empty response');
         }
 
         $error = reset($json['ERRORARRAY']);

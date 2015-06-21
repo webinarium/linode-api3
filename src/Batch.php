@@ -11,9 +11,8 @@
 //
 //----------------------------------------------------------------------
 
-namespace Linode;
 
-use \Exception;
+namespace Linode;
 
 /**
  * A batch of requests.
@@ -29,7 +28,7 @@ class Batch
     /**
      * Constructor.
      *
-     * @param   string $key
+     * @param string $key
      */
     public function __construct($key)
     {
@@ -40,7 +39,7 @@ class Batch
     /**
      * Adds specified request to the batch.
      *
-     * @param   array $query Request parameters
+     * @param array $query Request parameters
      */
     public function addRequest($query)
     {
@@ -50,11 +49,11 @@ class Batch
     /**
      * Performs a call for currently batched requests.
      *
-     * @param   boolean $debug Whether make a call in a debug mode
+     * @param bool $debug Whether make a call in a debug mode
      *
-     * @return  array|string|false Array of results (or query string in debug mode)
+     * @return array|string|false Array of results (or query string in debug mode)
      *
-     * @throws  Exception
+     * @throws \Exception
      */
     public function execute($debug = false)
     {
@@ -88,7 +87,7 @@ class Batch
         $json = json_decode($result, true);
 
         if (!$json) {
-            throw new Exception('Empty response');
+            throw new \Exception('Empty response');
         }
 
         return $json;

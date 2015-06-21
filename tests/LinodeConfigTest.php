@@ -11,7 +11,7 @@
 //
 //----------------------------------------------------------------------
 
-require_once(__DIR__ . '/../vendor/autoload.php');
+require_once __DIR__ . '/../vendor/autoload.php';
 
 use Linode\Linode\ConfigApi;
 
@@ -37,7 +37,7 @@ class LinodeConfigTest extends \PHPUnit_Framework_TestCase
         $DiskList = rand(1, PHP_INT_MAX);
 
         $expected = "api_key={$this->key}&api_action=linode.config.create&LinodeID={$LinodeID}&Label={$Label}&KernelID={$KernelID}&DiskList={$DiskList}";
-        $query = $this->api->create($LinodeID, $Label, $KernelID, $DiskList);
+        $query    = $this->api->create($LinodeID, $Label, $KernelID, $DiskList);
         $this->assertEquals($expected, $query);
     }
 
@@ -47,7 +47,7 @@ class LinodeConfigTest extends \PHPUnit_Framework_TestCase
         $ConfigID = rand(1, PHP_INT_MAX);
 
         $expected = "api_key={$this->key}&api_action=linode.config.delete&LinodeID={$LinodeID}&ConfigID={$ConfigID}";
-        $query = $this->api->delete($LinodeID, $ConfigID);
+        $query    = $this->api->delete($LinodeID, $ConfigID);
         $this->assertEquals($expected, $query);
     }
 
@@ -56,7 +56,7 @@ class LinodeConfigTest extends \PHPUnit_Framework_TestCase
         $LinodeID = rand(1, PHP_INT_MAX);
 
         $expected = "api_key={$this->key}&api_action=linode.config.list&LinodeID={$LinodeID}";
-        $query = $this->api->getList($LinodeID);
+        $query    = $this->api->getList($LinodeID);
         $this->assertEquals($expected, $query);
     }
 
@@ -69,7 +69,7 @@ class LinodeConfigTest extends \PHPUnit_Framework_TestCase
         $DiskList = rand(1, PHP_INT_MAX);
 
         $expected = "api_key={$this->key}&api_action=linode.config.update&LinodeID={$LinodeID}&ConfigID={$ConfigID}&Label={$Label}&KernelID={$KernelID}&DiskList={$DiskList}";
-        $query = $this->api->update($LinodeID, $ConfigID, $Label, $KernelID, $DiskList);
+        $query    = $this->api->update($LinodeID, $ConfigID, $Label, $KernelID, $DiskList);
         $this->assertEquals($expected, $query);
     }
 }

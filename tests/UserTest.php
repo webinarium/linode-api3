@@ -11,7 +11,7 @@
 //
 //----------------------------------------------------------------------
 
-require_once(__DIR__ . '/../vendor/autoload.php');
+require_once __DIR__ . '/../vendor/autoload.php';
 
 use Linode\UserApi;
 
@@ -35,7 +35,7 @@ class UserTest extends \PHPUnit_Framework_TestCase
         $password = uniqid();
 
         $expected = "api_key={$this->key}&api_action=user.getapikey&username={$username}&password={$password}";
-        $query = $this->api->getApiKey($username, $password);
+        $query    = $this->api->getApiKey($username, $password);
         $this->assertEquals($expected, $query);
     }
 }

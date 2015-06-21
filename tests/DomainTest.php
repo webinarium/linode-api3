@@ -11,7 +11,7 @@
 //
 //----------------------------------------------------------------------
 
-require_once(__DIR__ . '/../vendor/autoload.php');
+require_once __DIR__ . '/../vendor/autoload.php';
 
 use Linode\DomainApi;
 use Linode\DomainType;
@@ -36,7 +36,7 @@ class DomainTest extends \PHPUnit_Framework_TestCase
         $Type   = DomainType::MASTER;
 
         $expected = "api_key={$this->key}&api_action=domain.create&Domain={$Domain}&Type={$Type}";
-        $query = $this->api->create($Domain, $Type);
+        $query    = $this->api->create($Domain, $Type);
         $this->assertEquals($expected, $query);
     }
 
@@ -45,7 +45,7 @@ class DomainTest extends \PHPUnit_Framework_TestCase
         $DomainID = rand(1, PHP_INT_MAX);
 
         $expected = "api_key={$this->key}&api_action=domain.delete&DomainID={$DomainID}";
-        $query = $this->api->delete($DomainID);
+        $query    = $this->api->delete($DomainID);
         $this->assertEquals($expected, $query);
     }
 
@@ -54,17 +54,17 @@ class DomainTest extends \PHPUnit_Framework_TestCase
         $DomainID = rand(1, PHP_INT_MAX);
 
         $expected = "api_key={$this->key}&api_action=domain.list&DomainID={$DomainID}";
-        $query = $this->api->getList($DomainID);
+        $query    = $this->api->getList($DomainID);
         $this->assertEquals($expected, $query);
     }
 
     public function testUpdate()
     {
         $DomainID = rand(1, PHP_INT_MAX);
-        $Domain = 'www.example.com';
+        $Domain   = 'www.example.com';
 
         $expected = "api_key={$this->key}&api_action=domain.update&DomainID={$DomainID}&Domain={$Domain}";
-        $query = $this->api->update($DomainID, $Domain);
+        $query    = $this->api->update($DomainID, $Domain);
         $this->assertEquals($expected, $query);
     }
 }

@@ -11,7 +11,7 @@
 //
 //----------------------------------------------------------------------
 
-require_once(__DIR__ . '/../vendor/autoload.php');
+require_once __DIR__ . '/../vendor/autoload.php';
 
 use Linode\NodeBalancer\NodeApi;
 
@@ -32,11 +32,11 @@ class NodeBalancerNodeTest extends \PHPUnit_Framework_TestCase
     public function testCreate()
     {
         $ConfigID  = rand(1, PHP_INT_MAX);
-        $Label   = 'label';
-        $Address = '127.0.0.1';
+        $Label     = 'label';
+        $Address   = '127.0.0.1';
 
         $expected = "api_key={$this->key}&api_action=nodebalancer.node.create&ConfigID={$ConfigID}&Label={$Label}&Address={$Address}";
-        $query = $this->api->create($ConfigID, $Label, $Address);
+        $query    = $this->api->create($ConfigID, $Label, $Address);
         $this->assertEquals($expected, $query);
     }
 
@@ -45,7 +45,7 @@ class NodeBalancerNodeTest extends \PHPUnit_Framework_TestCase
         $NodeID = rand(1, PHP_INT_MAX);
 
         $expected = "api_key={$this->key}&api_action=nodebalancer.node.delete&NodeID={$NodeID}";
-        $query = $this->api->delete($NodeID);
+        $query    = $this->api->delete($NodeID);
         $this->assertEquals($expected, $query);
     }
 
@@ -55,7 +55,7 @@ class NodeBalancerNodeTest extends \PHPUnit_Framework_TestCase
         $NodeID   = rand(1, PHP_INT_MAX);
 
         $expected = "api_key={$this->key}&api_action=nodebalancer.node.list&ConfigID={$ConfigID}&NodeID={$NodeID}";
-        $query = $this->api->getList($ConfigID, $NodeID);
+        $query    = $this->api->getList($ConfigID, $NodeID);
         $this->assertEquals($expected, $query);
     }
 
@@ -65,7 +65,7 @@ class NodeBalancerNodeTest extends \PHPUnit_Framework_TestCase
         $Label  = 'label';
 
         $expected = "api_key={$this->key}&api_action=nodebalancer.node.update&NodeID={$NodeID}&Label={$Label}";
-        $query = $this->api->update($NodeID, $Label);
+        $query    = $this->api->update($NodeID, $Label);
         $this->assertEquals($expected, $query);
     }
 }

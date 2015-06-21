@@ -11,7 +11,7 @@
 //
 //----------------------------------------------------------------------
 
-require_once(__DIR__ . '/../vendor/autoload.php');
+require_once __DIR__ . '/../vendor/autoload.php';
 
 use Linode\ImageApi;
 
@@ -34,7 +34,7 @@ class ImageTest extends \PHPUnit_Framework_TestCase
         $ImageID = rand(1, PHP_INT_MAX);
 
         $expected = "api_key={$this->key}&api_action=image.delete&ImageID={$ImageID}";
-        $query = $this->api->delete($ImageID);
+        $query    = $this->api->delete($ImageID);
         $this->assertEquals($expected, $query);
     }
 
@@ -43,7 +43,7 @@ class ImageTest extends \PHPUnit_Framework_TestCase
         $ImageID = rand(1, PHP_INT_MAX);
 
         $expected = "api_key={$this->key}&api_action=image.list&ImageID={$ImageID}";
-        $query = $this->api->getList($ImageID);
+        $query    = $this->api->getList($ImageID);
         $this->assertEquals($expected, $query);
     }
 
@@ -52,7 +52,7 @@ class ImageTest extends \PHPUnit_Framework_TestCase
         $ImageID = rand(1, PHP_INT_MAX);
 
         $expected = "api_key={$this->key}&api_action=image.update&ImageID={$ImageID}";
-        $query = $this->api->update($ImageID);
+        $query    = $this->api->update($ImageID);
         $this->assertEquals($expected, $query);
     }
 }

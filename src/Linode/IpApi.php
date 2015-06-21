@@ -11,6 +11,7 @@
 //
 //----------------------------------------------------------------------
 
+
 namespace Linode\Linode;
 
 use Linode\BaseLinodeApi;
@@ -26,9 +27,9 @@ class IpApi extends BaseLinodeApi
      * Assigns a Private IP to a Linode.
      * Returns the IPAddressID that was added.
      *
-     * @param   integer $LinodeID [required]
+     * @param int $LinodeID [required]
      *
-     * @return  array
+     * @return array
      */
     public function addPrivate($LinodeID)
     {
@@ -41,9 +42,9 @@ class IpApi extends BaseLinodeApi
      * Assigns a Public IP to a Linode.
      * Returns the IPAddressID and IPAddress that was added.
      *
-     * @param   integer $LinodeID [required] The LinodeID of the Linode that will be assigned an additional public IP address
+     * @param int $LinodeID [required] The LinodeID of the Linode that will be assigned an additional public IP address
      *
-     * @return  array
+     * @return array
      */
     public function addPublic($LinodeID)
     {
@@ -55,10 +56,10 @@ class IpApi extends BaseLinodeApi
     /**
      * Returns the IP addresses of all Linodes you have access to.
      *
-     * @param   integer $LinodeID    [optional] If specified, limits the result to this LinodeID
-     * @param   integer $IPAddressID [optional] If specified, limits the result to this IPAddressID
+     * @param int $LinodeID    [optional] If specified, limits the result to this LinodeID
+     * @param int $IPAddressID [optional] If specified, limits the result to this IPAddressID
      *
-     * @return  array
+     * @return array
      */
     public function getList($LinodeID = null, $IPAddressID = null)
     {
@@ -72,10 +73,10 @@ class IpApi extends BaseLinodeApi
      * Sets the rDNS name of a Public IP.
      * Returns the IPAddressID and IPAddress that were updated.
      *
-     * @param   integer $IPAddressID [required] The IPAddressID of the address to update
-     * @param   string  $Hostname    [required] The hostname to set the reverse DNS to
+     * @param int    $IPAddressID [required] The IPAddressID of the address to update
+     * @param string $Hostname    [required] The hostname to set the reverse DNS to
      *
-     * @return  array
+     * @return array
      */
     public function setReverseDNS($IPAddressID, $Hostname)
     {
@@ -91,11 +92,11 @@ class IpApi extends BaseLinodeApi
      * Returns the resulting relationship of the Linode and IP Address parameters.
      * When performing a one directional swap, the source is represented by the first of the two resultant array members.
      *
-     * @param   integer $IPAddressID     [required] The IPAddressID of an IP Address to transfer or swap
-     * @param   integer $withIPAddressID [optional] The IP Address ID to swap
-     * @param   integer $toLinodeID      [optional] The LinodeID of the Linode where IPAddressID will be transfered
+     * @param int $IPAddressID     [required] The IPAddressID of an IP Address to transfer or swap
+     * @param int $withIPAddressID [optional] The IP Address ID to swap
+     * @param int $toLinodeID      [optional] The LinodeID of the Linode where IPAddressID will be transfered
      *
-     * @return  array
+     * @return array
      */
     public function swap($IPAddressID, $withIPAddressID = null, $toLinodeID = null)
     {

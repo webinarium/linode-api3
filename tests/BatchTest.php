@@ -11,7 +11,7 @@
 //
 //----------------------------------------------------------------------
 
-require_once(__DIR__ . '/../vendor/autoload.php');
+require_once __DIR__ . '/../vendor/autoload.php';
 
 use Linode\Batch;
 use Linode\LinodeApi;
@@ -34,7 +34,7 @@ class BatchTest extends \PHPUnit_Framework_TestCase
         $batch = new Batch($this->key);
         $api   = new LinodeApi($batch);
 
-        for ($i = 1; $i <= 3; $i++) {
+        for ($i = 1; $i <= 3; ++$i) {
             $api->create($i, 1, PaymentTerm::ONE_MONTH);
         }
 

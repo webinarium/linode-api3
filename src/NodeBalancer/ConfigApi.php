@@ -11,6 +11,7 @@
 //
 //----------------------------------------------------------------------
 
+
 namespace Linode\NodeBalancer;
 
 use Linode\BaseLinodeApi;
@@ -23,23 +24,21 @@ use Linode\BaseLinodeApi;
 class ConfigApi extends BaseLinodeApi
 {
     /**
+     * @param int    $NodeBalancerID [required] The parent NodeBalancer's ID
+     * @param string $Algorithm      [optional] Balancing algorithm.  One of 'roundrobin', 'leastconn', 'source'
+     * @param string $Stickiness     [optional] Session persistence.  One of 'none', 'table', 'http_cookie'
+     * @param string $Protocol       [optional] Either 'tcp', 'http', or 'https'
+     * @param int    $Port           [optional] Port to bind to on the public interfaces. 1-65534
+     * @param string $check          [optional] Perform active health checks on the backend nodes.  One of 'connection', 'http', 'http_body'
+     * @param int    $check_interval [optional] Seconds between health check probes.  2-3600
+     * @param string $check_attempts [optional] Number of failed probes before taking a node out of rotation. 1-30
+     * @param string $check_timeout  [optional] Seconds to wait before considering the probe a failure. 1-30.  Must be less than check_interval.
+     * @param string $check_path     [optional] When check=http, the path to request
+     * @param string $check_body     [optional] When check=http_body, a regex against the expected result body
+     * @param string $ssl_cert       [optional] SSL certificate served by the NodeBalancer when the protocol is 'https'
+     * @param string $ssl_key        [optional] Unpassphrased private key for the SSL certificate when protocol is 'https'
      *
-     *
-     * @param   integer $NodeBalancerID [required] The parent NodeBalancer's ID
-     * @param   string  $Algorithm      [optional] Balancing algorithm.  One of 'roundrobin', 'leastconn', 'source'
-     * @param   string  $Stickiness     [optional] Session persistence.  One of 'none', 'table', 'http_cookie'
-     * @param   string  $Protocol       [optional] Either 'tcp', 'http', or 'https'
-     * @param   integer $Port           [optional] Port to bind to on the public interfaces. 1-65534
-     * @param   string  $check          [optional] Perform active health checks on the backend nodes.  One of 'connection', 'http', 'http_body'
-     * @param   integer $check_interval [optional] Seconds between health check probes.  2-3600
-     * @param   string  $check_attempts [optional] Number of failed probes before taking a node out of rotation. 1-30
-     * @param   string  $check_timeout  [optional] Seconds to wait before considering the probe a failure. 1-30.  Must be less than check_interval.
-     * @param   string  $check_path     [optional] When check=http, the path to request
-     * @param   string  $check_body     [optional] When check=http_body, a regex against the expected result body
-     * @param   string  $ssl_cert       [optional] SSL certificate served by the NodeBalancer when the protocol is 'https'
-     * @param   string  $ssl_key        [optional] Unpassphrased private key for the SSL certificate when protocol is 'https'
-     *
-     * @return  array
+     * @return array
      */
     public function create($NodeBalancerID, $Algorithm = null, $Stickiness = null, $Protocol = null, $Port = null, $check = null, $check_interval = null, $check_attempts = null, $check_timeout = null, $check_path = null, $check_body = null, $ssl_cert = null, $ssl_key = null)
     {
@@ -61,12 +60,12 @@ class ConfigApi extends BaseLinodeApi
     }
 
     /**
-     * Deletes a NodeBalancer's Config
+     * Deletes a NodeBalancer's Config.
      *
-     * @param   integer $NodeBalancerID [required]
-     * @param   integer $ConfigID       [required] The ConfigID to delete
+     * @param int $NodeBalancerID [required]
+     * @param int $ConfigID       [required] The ConfigID to delete
      *
-     * @return  array
+     * @return array
      */
     public function delete($NodeBalancerID, $ConfigID)
     {
@@ -77,12 +76,12 @@ class ConfigApi extends BaseLinodeApi
     }
 
     /**
-     * Returns a list of NodeBalancers this user has access or delete to, including their properties
+     * Returns a list of NodeBalancers this user has access or delete to, including their properties.
      *
-     * @param   integer $NodeBalancerID [required]
-     * @param   integer $ConfigID       [optional] Limits the list to the specified ConfigID
+     * @param int $NodeBalancerID [required]
+     * @param int $ConfigID       [optional] Limits the list to the specified ConfigID
      *
-     * @return  array
+     * @return array
      */
     public function getList($NodeBalancerID, $ConfigID = null)
     {
@@ -93,23 +92,23 @@ class ConfigApi extends BaseLinodeApi
     }
 
     /**
-     * Updates a Config's properties
+     * Updates a Config's properties.
      *
-     * @param   integer $ConfigID       [required]
-     * @param   string  $Algorithm      [optional] Balancing algorithm.  One of 'roundrobin', 'leastconn', 'source'
-     * @param   string  $Stickiness     [optional] Session persistence.  One of 'none', 'table', 'http_cookie'
-     * @param   string  $Protocol       [optional] Either 'tcp', 'http', or 'https'
-     * @param   integer $Port           [optional] Port to bind to on the public interfaces. 1-65534
-     * @param   string  $check          [optional] Perform active health checks on the backend nodes.  One of 'connection', 'http', 'http_body'
-     * @param   integer $check_interval [optional] Seconds between health check probes.  2-3600
-     * @param   string  $check_attempts [optional] Number of failed probes before taking a node out of rotation. 1-30
-     * @param   string  $check_timeout  [optional] Seconds to wait before considering the probe a failure. 1-30.  Must be less than check_interval.
-     * @param   string  $check_path     [optional] When check=http, the path to request
-     * @param   string  $check_body     [optional] When check=http_body, a regex against the expected result body
-     * @param   string  $ssl_cert       [optional] SSL certificate served by the NodeBalancer when the protocol is 'https'
-     * @param   string  $ssl_key        [optional] Unpassphrased private key for the SSL certificate when protocol is 'https'
+     * @param int    $ConfigID       [required]
+     * @param string $Algorithm      [optional] Balancing algorithm.  One of 'roundrobin', 'leastconn', 'source'
+     * @param string $Stickiness     [optional] Session persistence.  One of 'none', 'table', 'http_cookie'
+     * @param string $Protocol       [optional] Either 'tcp', 'http', or 'https'
+     * @param int    $Port           [optional] Port to bind to on the public interfaces. 1-65534
+     * @param string $check          [optional] Perform active health checks on the backend nodes.  One of 'connection', 'http', 'http_body'
+     * @param int    $check_interval [optional] Seconds between health check probes.  2-3600
+     * @param string $check_attempts [optional] Number of failed probes before taking a node out of rotation. 1-30
+     * @param string $check_timeout  [optional] Seconds to wait before considering the probe a failure. 1-30.  Must be less than check_interval.
+     * @param string $check_path     [optional] When check=http, the path to request
+     * @param string $check_body     [optional] When check=http_body, a regex against the expected result body
+     * @param string $ssl_cert       [optional] SSL certificate served by the NodeBalancer when the protocol is 'https'
+     * @param string $ssl_key        [optional] Unpassphrased private key for the SSL certificate when protocol is 'https'
      *
-     * @return  array
+     * @return array
      */
     public function update($ConfigID, $Algorithm = null, $Stickiness = null, $Protocol = null, $Port = null, $check = null, $check_interval = null, $check_attempts = null, $check_timeout = null, $check_path = null, $check_body = null, $ssl_cert = null, $ssl_key = null)
     {

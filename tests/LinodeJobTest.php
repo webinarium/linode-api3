@@ -11,7 +11,7 @@
 //
 //----------------------------------------------------------------------
 
-require_once(__DIR__ . '/../vendor/autoload.php');
+require_once __DIR__ . '/../vendor/autoload.php';
 
 use Linode\Linode\JobApi;
 
@@ -34,7 +34,7 @@ class LinodeJobTest extends \PHPUnit_Framework_TestCase
         $LinodeID = rand(1, PHP_INT_MAX);
 
         $expected = "api_key={$this->key}&api_action=linode.job.list&LinodeID={$LinodeID}";
-        $query = $this->api->getList($LinodeID);
+        $query    = $this->api->getList($LinodeID);
         $this->assertEquals($expected, $query);
     }
 }

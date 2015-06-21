@@ -11,7 +11,7 @@
 //
 //----------------------------------------------------------------------
 
-require_once(__DIR__ . '/../vendor/autoload.php');
+require_once __DIR__ . '/../vendor/autoload.php';
 
 use Linode\AccountApi;
 use Linode\LinodeMode;
@@ -37,21 +37,21 @@ class AccountTest extends \PHPUnit_Framework_TestCase
         $PlanID   = rand(1, PHP_INT_MAX);
 
         $expected = "api_key={$this->key}&api_action=account.estimateinvoice&mode={$mode}&LinodeID={$LinodeID}&PlanID={$PlanID}";
-        $query = $this->api->estimateInvoice($mode, $LinodeID, $PlanID);
+        $query    = $this->api->estimateInvoice($mode, $LinodeID, $PlanID);
         $this->assertEquals($expected, $query);
     }
 
     public function testInfo()
     {
         $expected = "api_key={$this->key}&api_action=account.info";
-        $query = $this->api->info();
+        $query    = $this->api->info();
         $this->assertEquals($expected, $query);
     }
 
     public function testPayBalance()
     {
         $expected = "api_key={$this->key}&api_action=account.paybalance";
-        $query = $this->api->payBalance();
+        $query    = $this->api->payBalance();
         $this->assertEquals($expected, $query);
     }
 
@@ -62,7 +62,7 @@ class AccountTest extends \PHPUnit_Framework_TestCase
         $ccExpYear  = intval(date('Y')) + 1;
 
         $expected = "api_key={$this->key}&api_action=account.updatecard&ccNumber={$ccNumber}&ccExpMonth={$ccExpMonth}&ccExpYear={$ccExpYear}";
-        $query = $this->api->updateCard($ccNumber, $ccExpMonth, $ccExpYear);
+        $query    = $this->api->updateCard($ccNumber, $ccExpMonth, $ccExpYear);
         $this->assertEquals($expected, $query);
     }
 }

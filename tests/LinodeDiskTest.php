@@ -11,10 +11,10 @@
 //
 //----------------------------------------------------------------------
 
-require_once(__DIR__ . '/../vendor/autoload.php');
+require_once __DIR__ . '/../vendor/autoload.php';
 
-use Linode\Linode\DiskApi;
 use Linode\DiskType;
+use Linode\Linode\DiskApi;
 
 class LinodeDiskTest extends \PHPUnit_Framework_TestCase
 {
@@ -38,7 +38,7 @@ class LinodeDiskTest extends \PHPUnit_Framework_TestCase
         $Size     = 100;
 
         $expected = "api_key={$this->key}&api_action=linode.disk.create&LinodeID={$LinodeID}&Label={$Label}&Type={$Type}&Size={$Size}";
-        $query = $this->api->create($LinodeID, $Label, $Type, $Size);
+        $query    = $this->api->create($LinodeID, $Label, $Type, $Size);
         $this->assertEquals($expected, $query);
     }
 
@@ -50,7 +50,7 @@ class LinodeDiskTest extends \PHPUnit_Framework_TestCase
         $Size           = 100;
 
         $expected = "api_key={$this->key}&api_action=linode.disk.createfromdistribution&LinodeID={$LinodeID}&Label={$Label}&DistributionID={$DistributionID}&Size={$Size}";
-        $query = $this->api->createFromDistribution($LinodeID, $Label, $DistributionID, $Size);
+        $query    = $this->api->createFromDistribution($LinodeID, $Label, $DistributionID, $Size);
         $this->assertEquals($expected, $query);
     }
 
@@ -62,7 +62,7 @@ class LinodeDiskTest extends \PHPUnit_Framework_TestCase
         $Size     = 100;
 
         $expected = "api_key={$this->key}&api_action=linode.disk.createfromimage&LinodeID={$LinodeID}&Label={$Label}&ImageID={$ImageID}&Size={$Size}";
-        $query = $this->api->createFromImage($LinodeID, $Label, $ImageID, $Size);
+        $query    = $this->api->createFromImage($LinodeID, $Label, $ImageID, $Size);
         $this->assertEquals($expected, $query);
     }
 
@@ -77,7 +77,7 @@ class LinodeDiskTest extends \PHPUnit_Framework_TestCase
         $rootPass                = 'secret';
 
         $expected = "api_key={$this->key}&api_action=linode.disk.createfromstackscript&LinodeID={$LinodeID}&Label={$Label}&DistributionID={$DistributionID}&StackScriptID={$StackScriptID}&StackScriptUDFResponses={$StackScriptUDFResponses}&Size={$Size}&rootPass={$rootPass}";
-        $query = $this->api->createFromStackScript($LinodeID, $Label, $DistributionID, $StackScriptID, $StackScriptUDFResponses, $Size, $rootPass);
+        $query    = $this->api->createFromStackScript($LinodeID, $Label, $DistributionID, $StackScriptID, $StackScriptUDFResponses, $Size, $rootPass);
         $this->assertEquals($expected, $query);
     }
 
@@ -87,7 +87,7 @@ class LinodeDiskTest extends \PHPUnit_Framework_TestCase
         $DiskID   = rand(1, PHP_INT_MAX);
 
         $expected = "api_key={$this->key}&api_action=linode.disk.delete&LinodeID={$LinodeID}&DiskID={$DiskID}";
-        $query = $this->api->delete($LinodeID, $DiskID);
+        $query    = $this->api->delete($LinodeID, $DiskID);
         $this->assertEquals($expected, $query);
     }
 
@@ -97,7 +97,7 @@ class LinodeDiskTest extends \PHPUnit_Framework_TestCase
         $DiskID   = rand(1, PHP_INT_MAX);
 
         $expected = "api_key={$this->key}&api_action=linode.disk.duplicate&LinodeID={$LinodeID}&DiskID={$DiskID}";
-        $query = $this->api->duplicate($LinodeID, $DiskID);
+        $query    = $this->api->duplicate($LinodeID, $DiskID);
         $this->assertEquals($expected, $query);
     }
 
@@ -107,7 +107,7 @@ class LinodeDiskTest extends \PHPUnit_Framework_TestCase
         $DiskID   = rand(1, PHP_INT_MAX);
 
         $expected = "api_key={$this->key}&api_action=linode.disk.imagize&LinodeID={$LinodeID}&DiskID={$DiskID}";
-        $query = $this->api->imagize($LinodeID, $DiskID);
+        $query    = $this->api->imagize($LinodeID, $DiskID);
         $this->assertEquals($expected, $query);
     }
 
@@ -116,7 +116,7 @@ class LinodeDiskTest extends \PHPUnit_Framework_TestCase
         $LinodeID = rand(1, PHP_INT_MAX);
 
         $expected = "api_key={$this->key}&api_action=linode.disk.list&LinodeID={$LinodeID}";
-        $query = $this->api->getList($LinodeID);
+        $query    = $this->api->getList($LinodeID);
         $this->assertEquals($expected, $query);
     }
 
@@ -127,7 +127,7 @@ class LinodeDiskTest extends \PHPUnit_Framework_TestCase
         $Size     = 100;
 
         $expected = "api_key={$this->key}&api_action=linode.disk.resize&LinodeID={$LinodeID}&DiskID={$DiskID}&Size={$Size}";
-        $query = $this->api->resize($LinodeID, $DiskID, $Size);
+        $query    = $this->api->resize($LinodeID, $DiskID, $Size);
         $this->assertEquals($expected, $query);
     }
 
@@ -137,7 +137,7 @@ class LinodeDiskTest extends \PHPUnit_Framework_TestCase
         $DiskID   = rand(1, PHP_INT_MAX);
 
         $expected = "api_key={$this->key}&api_action=linode.disk.update&LinodeID={$LinodeID}&DiskID={$DiskID}";
-        $query = $this->api->update($LinodeID, $DiskID);
+        $query    = $this->api->update($LinodeID, $DiskID);
         $this->assertEquals($expected, $query);
     }
 }

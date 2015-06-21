@@ -11,7 +11,7 @@
 //
 //----------------------------------------------------------------------
 
-require_once(__DIR__ . '/../vendor/autoload.php');
+require_once __DIR__ . '/../vendor/autoload.php';
 
 use Linode\AvailApi;
 
@@ -32,42 +32,42 @@ class AvailTest extends \PHPUnit_Framework_TestCase
     public function testDatacenters()
     {
         $expected = "api_key={$this->key}&api_action=avail.datacenters";
-        $query = $this->api->dataCenters();
+        $query    = $this->api->dataCenters();
         $this->assertEquals($expected, $query);
     }
 
     public function testDistributions()
     {
         $expected = "api_key={$this->key}&api_action=avail.distributions";
-        $query = $this->api->distributions();
+        $query    = $this->api->distributions();
         $this->assertEquals($expected, $query);
     }
 
     public function testKernels()
     {
         $expected = "api_key={$this->key}&api_action=avail.kernels";
-        $query = $this->api->kernels();
+        $query    = $this->api->kernels();
         $this->assertEquals($expected, $query);
     }
 
     public function testLinodePlans()
     {
         $expected = "api_key={$this->key}&api_action=avail.linodeplans";
-        $query = $this->api->linodePlans();
+        $query    = $this->api->linodePlans();
         $this->assertEquals($expected, $query);
     }
 
     public function testNodeBalancers()
     {
         $expected = "api_key={$this->key}&api_action=avail.nodebalancers";
-        $query = $this->api->nodeBalancers();
+        $query    = $this->api->nodeBalancers();
         $this->assertEquals($expected, $query);
     }
 
     public function testStackscripts()
     {
         $expected = "api_key={$this->key}&api_action=avail.stackscripts";
-        $query = $this->api->stackScripts();
+        $query    = $this->api->stackScripts();
         $this->assertEquals($expected, $query);
     }
 }
