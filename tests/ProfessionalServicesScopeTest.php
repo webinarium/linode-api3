@@ -13,8 +13,6 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-//use Linode\AccountApi;
-//use Linode\LinodeMode;
 use Linode\ProfessionalServices\ScopeApi;
 
 class ProfessionalServicesScopeTest extends \PHPUnit_Framework_TestCase
