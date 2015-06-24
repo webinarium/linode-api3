@@ -11,7 +11,6 @@
 //
 //----------------------------------------------------------------------
 
-
 namespace Linode\Domain;
 
 use Linode\BaseLinodeApi;

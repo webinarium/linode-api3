@@ -11,7 +11,6 @@
 //
 //----------------------------------------------------------------------
 
-
 namespace Linode\NodeBalancer;
 
 use Linode\BaseLinodeApi;

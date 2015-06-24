@@ -11,7 +11,6 @@
 //
 //----------------------------------------------------------------------
 
-
 namespace Linode\ProfessionalServices;
 
 use Linode\BaseLinodeApi;
