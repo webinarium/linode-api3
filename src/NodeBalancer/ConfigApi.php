@@ -34,12 +34,13 @@ class ConfigApi extends BaseLinodeApi
      * @param string $check_attempts [optional] Number of failed probes before taking a node out of rotation. 1-30
      * @param string $check_path     [optional] When check=http, the path to request
      * @param string $check_body     [optional] When check=http, a regex to match within the first 16,384 bytes of the response body
+     * @param bool   $check_passive  [optional] Enable passive checks based on observing communication with back-end nodes.
      * @param string $ssl_cert       [optional] SSL certificate served by the NodeBalancer when the protocol is 'https'
      * @param string $ssl_key        [optional] Unpassphrased private key for the SSL certificate when protocol is 'https'
      *
      * @return array
      */
-    public function create($NodeBalancerID, $Port = null, $Protocol = null, $Algorithm = null, $Stickiness = null, $check = null, $check_interval = null, $check_timeout = null, $check_attempts = null, $check_path = null, $check_body = null, $ssl_cert = null, $ssl_key = null)
+    public function create($NodeBalancerID, $Port = null, $Protocol = null, $Algorithm = null, $Stickiness = null, $check = null, $check_interval = null, $check_timeout = null, $check_attempts = null, $check_path = null, $check_body = null, $check_passive = null, $ssl_cert = null, $ssl_key = null)
     {
         return $this->call('nodebalancer.config.create', array(
             'NodeBalancerID' => $NodeBalancerID,
@@ -53,6 +54,7 @@ class ConfigApi extends BaseLinodeApi
             'check_attempts' => $check_attempts,
             'check_path'     => $check_path,
             'check_body'     => $check_body,
+            'check_passive'  => $check_passive,
             'ssl_cert'       => $ssl_cert,
             'ssl_key'        => $ssl_key,
         ));
@@ -104,12 +106,13 @@ class ConfigApi extends BaseLinodeApi
      * @param string $check_attempts [optional] Number of failed probes before taking a node out of rotation. 1-30
      * @param string $check_path     [optional] When check=http, the path to request
      * @param string $check_body     [optional] When check=http, a regex to match within the first 16,384 bytes of the response body
+     * @param bool   $check_passive  [optional] Enable passive checks based on observing communication with back-end nodes.
      * @param string $ssl_cert       [optional] SSL certificate served by the NodeBalancer when the protocol is 'https'
      * @param string $ssl_key        [optional] Unpassphrased private key for the SSL certificate when protocol is 'https'
      *
      * @return array
      */
-    public function update($ConfigID, $Port = null, $Protocol = null, $Algorithm = null, $Stickiness = null, $check = null, $check_interval = null, $check_timeout = null, $check_attempts = null, $check_path = null, $check_body = null, $ssl_cert = null, $ssl_key = null)
+    public function update($ConfigID, $Port = null, $Protocol = null, $Algorithm = null, $Stickiness = null, $check = null, $check_interval = null, $check_timeout = null, $check_attempts = null, $check_path = null, $check_body = null, $check_passive = null, $ssl_cert = null, $ssl_key = null)
     {
         return $this->call('nodebalancer.config.update', array(
             'ConfigID'       => $ConfigID,
@@ -123,6 +126,7 @@ class ConfigApi extends BaseLinodeApi
             'check_attempts' => $check_attempts,
             'check_path'     => $check_path,
             'check_body'     => $check_body,
+            'check_passive'  => $check_passive,
             'ssl_cert'       => $ssl_cert,
             'ssl_key'        => $ssl_key,
         ));

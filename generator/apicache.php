@@ -1251,20 +1251,51 @@ return array (
           'TYPE' => 'string',
           'REQUIRED' => false,
         ),
-        'Port' => 
-        array (
-          'NAME' => 'Port',
-          'DESCRIPTION' => 'Port to bind to on the public interfaces. 1-65534',
-          'default' => 80,
-          'TYPE' => 'numeric',
-          'REQUIRED' => false,
-        ),
         'check_body' => 
         array (
           'NAME' => 'check_body',
           'DESCRIPTION' => 'When check=http, a regex to match within the first 16,384 bytes of the response body',
           'default' => '',
           'TYPE' => 'string',
+          'REQUIRED' => false,
+        ),
+        'check_interval' => 
+        array (
+          'NAME' => 'check_interval',
+          'DESCRIPTION' => 'Seconds between health check probes.  2-3600',
+          'default' => 5,
+          'TYPE' => 'numeric',
+          'REQUIRED' => false,
+        ),
+        'Algorithm' => 
+        array (
+          'NAME' => 'Algorithm',
+          'DESCRIPTION' => 'Balancing algorithm.  One of \'roundrobin\', \'leastconn\', \'source\'',
+          'default' => 'roundrobin',
+          'TYPE' => 'string',
+          'REQUIRED' => false,
+        ),
+        'NodeBalancerID' => 
+        array (
+          'NAME' => 'NodeBalancerID',
+          'DESCRIPTION' => 'The parent NodeBalancer\'s ID',
+          'TYPE' => 'numeric',
+          'REQUIRED' => true,
+        ),
+        'check_attempts' => 
+        array (
+          'NAME' => 'check_attempts',
+          'DESCRIPTION' => 'Number of failed probes before taking a node out of rotation. 1-30',
+          'default' => 2,
+          'TYPE' => 'string',
+          'REQUIRED' => false,
+        ),
+        'Port' => 
+        array (
+          'NAME' => 'Port',
+          'DESCRIPTION' => 'Port to bind to on the public interfaces. 1-65534',
+          'default' => 80,
+          'TYPE' => 'numeric',
           'REQUIRED' => false,
         ),
         'check' => 
@@ -1275,12 +1306,12 @@ return array (
           'TYPE' => 'string',
           'REQUIRED' => false,
         ),
-        'check_interval' => 
+        'check_passive' => 
         array (
-          'NAME' => 'check_interval',
-          'DESCRIPTION' => 'Seconds between health check probes.  2-3600',
-          'default' => 5,
-          'TYPE' => 'numeric',
+          'NAME' => 'check_passive',
+          'DESCRIPTION' => 'Enable passive checks based on observing communication with back-end nodes.',
+          'default' => 1,
+          'TYPE' => 'boolean',
           'REQUIRED' => false,
         ),
         'ssl_key' => 
@@ -1299,34 +1330,11 @@ return array (
           'TYPE' => 'string',
           'REQUIRED' => false,
         ),
-        'Algorithm' => 
-        array (
-          'NAME' => 'Algorithm',
-          'DESCRIPTION' => 'Balancing algorithm.  One of \'roundrobin\', \'leastconn\', \'source\'',
-          'default' => 'roundrobin',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
         'check_timeout' => 
         array (
           'NAME' => 'check_timeout',
           'DESCRIPTION' => 'Seconds to wait before considering the probe a failure. 1-30.  Must be less than check_interval.',
           'default' => 3,
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'NodeBalancerID' => 
-        array (
-          'NAME' => 'NodeBalancerID',
-          'DESCRIPTION' => 'The parent NodeBalancer\'s ID',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-        'check_attempts' => 
-        array (
-          'NAME' => 'check_attempts',
-          'DESCRIPTION' => 'Number of failed probes before taking a node out of rotation. 1-30',
-          'default' => 2,
           'TYPE' => 'string',
           'REQUIRED' => false,
         ),
@@ -1612,6 +1620,13 @@ return array (
           'NAME' => 'check_interval',
           'DESCRIPTION' => 'Seconds between health check probes.  2-3600',
           'TYPE' => 'numeric',
+          'REQUIRED' => false,
+        ),
+        'check_passive' => 
+        array (
+          'NAME' => 'check_passive',
+          'DESCRIPTION' => 'Enable passive checks based on observing communication with back-end nodes.',
+          'TYPE' => 'boolean',
           'REQUIRED' => false,
         ),
         'ssl_key' => 
