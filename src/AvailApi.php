@@ -49,14 +49,16 @@ class AvailApi extends BaseLinodeApi
      *
      * @param int  $KernelID [optional]
      * @param bool $isXen    [optional] Limits the results to show only Xen kernels
+     * @param bool $isKVM    [optional] Limits the results to show only KVM kernels
      *
      * @return array
      */
-    public function kernels($KernelID = null, $isXen = null)
+    public function kernels($KernelID = null, $isXen = null, $isKVM = null)
     {
         return $this->call('avail.kernels', array(
             'KernelID' => $KernelID,
             'isXen'    => $isXen,
+            'isKVM'    => $isKVM,
         ));
     }
 

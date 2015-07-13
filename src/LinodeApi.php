@@ -78,22 +78,20 @@ class LinodeApi extends BaseLinodeApi
      * Linode. There is a limit of 5 active clone operations per source Linode.  It is recommended that the
      * source Linode be powered down during the clone.
      *
-     * @param int    $LinodeID     [required] The LinodeID that you want cloned
-     * @param int    $DatacenterID [required] The DatacenterID from avail.datacenters() where you wish to place this new Linode
-     * @param int    $PlanID       [required] The desired PlanID available from avail.LinodePlans()
-     * @param int    $PaymentTerm  [optional] Subscription term in months for prepaid customers.  One of: 1, 12, or 24
-     * @param string $hypervisor   [optional]
+     * @param int $LinodeID     [required] The LinodeID that you want cloned
+     * @param int $DatacenterID [required] The DatacenterID from avail.datacenters() where you wish to place this new Linode
+     * @param int $PlanID       [required] The desired PlanID available from avail.LinodePlans()
+     * @param int $PaymentTerm  [optional] Subscription term in months for prepaid customers.  One of: 1, 12, or 24
      *
      * @return array
      */
-    public function duplicate($LinodeID, $DatacenterID, $PlanID, $PaymentTerm = null, $hypervisor = null)
+    public function duplicate($LinodeID, $DatacenterID, $PlanID, $PaymentTerm = null)
     {
         return $this->call('linode.clone', array(
             'LinodeID'     => $LinodeID,
             'DatacenterID' => $DatacenterID,
             'PlanID'       => $PlanID,
             'PaymentTerm'  => $PaymentTerm,
-            'hypervisor'   => $hypervisor,
         ));
     }
 

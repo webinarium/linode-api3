@@ -1450,13 +1450,6 @@ return array (
       'DESCRIPTION' => 'Creates a new Linode, assigns you full privileges, and then clones the specified LinodeID to the new Linode. There is a limit of 5 active clone operations per source Linode.  It is recommended that the source Linode be powered down during the clone.',
       'PARAMETERS' => 
       array (
-        'DatacenterID' => 
-        array (
-          'NAME' => 'DatacenterID',
-          'DESCRIPTION' => 'The DatacenterID from avail.datacenters() where you wish to place this new Linode',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
         'PaymentTerm' => 
         array (
           'NAME' => 'PaymentTerm',
@@ -1464,12 +1457,12 @@ return array (
           'TYPE' => 'numeric',
           'REQUIRED' => false,
         ),
-        'hypervisor' => 
+        'DatacenterID' => 
         array (
-          'NAME' => 'hypervisor',
-          'DESCRIPTION' => '',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
+          'NAME' => 'DatacenterID',
+          'DESCRIPTION' => 'The DatacenterID from avail.datacenters() where you wish to place this new Linode',
+          'TYPE' => 'numeric',
+          'REQUIRED' => true,
         ),
         'LinodeID' => 
         array (
@@ -2090,6 +2083,13 @@ return array (
         array (
           'NAME' => 'isXen',
           'DESCRIPTION' => 'Limits the results to show only Xen kernels',
+          'TYPE' => 'boolean',
+          'REQUIRED' => false,
+        ),
+        'isKVM' => 
+        array (
+          'NAME' => 'isKVM',
+          'DESCRIPTION' => 'Limits the results to show only KVM kernels',
           'TYPE' => 'boolean',
           'REQUIRED' => false,
         ),
