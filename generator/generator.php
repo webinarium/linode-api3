@@ -49,10 +49,15 @@ $vocabulary = array(
 
 $params_order = array(
     'account.estimateinvoice'            => array('mode', 'LinodeID', 'PlanID', 'PaymentTerm'),
+    'account.info'                       => array(),
+    'account.paybalance'                 => array(),
     'account.updatecard'                 => array('ccNumber', 'ccExpMonth', 'ccExpYear'),
+    'api.spec'                           => array(),
+    'avail.datacenters'                  => array(),
     'avail.distributions'                => array('DistributionID'),
     'avail.kernels'                      => array('KernelID', 'isXen'),
     'avail.linodeplans'                  => array('PlanID'),
+    'avail.nodebalancers'                => array(),
     'avail.stackscripts'                 => array('DistributionID', 'DistributionVendor', 'keywords'),
     'domain.create'                      => array('Domain', 'Type', 'SOA_Email', 'Description', 'Refresh_sec', 'Retry_sec', 'Expire_sec', 'TTL_sec', 'lpm_displayGroup', 'status', 'master_ips', 'axfr_ips'),
     'domain.delete'                      => array('DomainID'),
@@ -108,6 +113,7 @@ $params_order = array(
     'nodebalancer.node.list'             => array('ConfigID', 'NodeID'),
     'nodebalancer.node.update'           => array('NodeID', 'Label', 'Address', 'Weight', 'Mode'),
     'nodebalancer.update'                => array('NodeBalancerID', 'Label', 'ClientConnThrottle'),
+    'professionalservices.scope.create'  => array('linode_plan', 'customer_name', 'web_server', 'mail_transfer', 'server_quantity', 'provider_access', 'monitoring', 'web_cache', 'database_server', 'mail_filtering', 'notes', 'ticket_number', 'content_management', 'linode_datacenter', 'mail_retrieval', 'system_administration', 'requested_service', 'crossover', 'phone_number', 'application_quantity', 'managed', 'webmail', 'current_provider', 'email_address', 'replication'),
     'stackscript.create'                 => array('script', 'DistributionIDList', 'Label', 'Description', 'isPublic', 'rev_note'),
     'stackscript.delete'                 => array('StackScriptID'),
     'stackscript.list'                   => array('StackScriptID'),
@@ -194,26 +200,29 @@ foreach ($classes as $class => $methods) {
         // If we have predefined order for this function, use it.
         if (array_key_exists($meta['ACTION'], $params_order)) {
 
+            // Check for new parameters.
+            $diff = array_diff(array_keys($meta['PARAMETERS']), $params_order[$meta['ACTION']]);
+
+            if (count($diff) != 0) {
+                printf("Unknown parameters in '{$meta['ACTION']}': %s\n", implode(', ', $diff));
+                exit;
+            }
+
             foreach ($params_order[$meta['ACTION']] as $parameter) {
+
+                // Known parameter has gone - update predefined order first.
+                if (!array_key_exists($parameter, $meta['PARAMETERS'])) {
+                    print("Known parameter '{$parameter}' has gone from '{$meta['ACTION']}'.\n");
+                    exit;
+                }
+
                 $parameters[] = $meta['PARAMETERS'][$parameter];
             }
         }
-        // Otherwise we have to pull required parameters to the top of parameters list.
+        // Otherwise we have to prepare it first.
         else {
-
-            // Pick up required parameters first.
-            foreach ($meta['PARAMETERS'] as $key => $parameter) {
-                if ($parameter['REQUIRED']) {
-                    $parameters[] = $parameter;
-                }
-            }
-
-            // Now gather optional parameters.
-            foreach ($meta['PARAMETERS'] as $key => $parameter) {
-                if (!$parameter['REQUIRED']) {
-                    $parameters[] = $parameter;
-                }
-            }
+            print("Unknown API: '{$meta['ACTION']}'.\n");
+            exit;
         }
 
         // Replace original parameters with reordered ones.
