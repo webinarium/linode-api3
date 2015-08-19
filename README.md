@@ -27,7 +27,7 @@ PHP needs to be a minimum version of PHP 5.2.0.
 The recommended way to install is via Composer:
 
 ```bash
-composer.phar require "arodygin/linode-api-php=~1.0"
+composer.phar require "arodygin/linode-api-php"
 composer.phar install
 ```
 
@@ -97,7 +97,7 @@ foreach ($results as $res) {
 ## Tests
 
 Almost all tests are mocked so you don't have to use a real API key and no real linodes are affected.
-The only tests which make a complete API call are `TestTest` (for "[api.spec](https://www.linode.com/api/utility/test.echo)") and `ApiTest` (for "[api.spec](https://www.linode.com/api/utility/api.spec)"):
+The only tests which make a complete API call are `TestTest` (for "[test.echo](https://www.linode.com/api/utility/test.echo)") and `ApiTest` (for "[api.spec](https://www.linode.com/api/utility/api.spec)"):
 
 ```bash
 ./bin/phpunit --coverage-text
