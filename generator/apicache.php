@@ -1267,6 +1267,14 @@ return array (
           'TYPE' => 'numeric',
           'REQUIRED' => false,
         ),
+        'cipher_suite' => 
+        array (
+          'NAME' => 'cipher_suite',
+          'DESCRIPTION' => 'SSL cipher suite to enforce. One of \'recommended\', \'legacy\'',
+          'default' => 'recommended',
+          'TYPE' => 'string',
+          'REQUIRED' => false,
+        ),
         'Algorithm' => 
         array (
           'NAME' => 'Algorithm',
@@ -1626,6 +1634,13 @@ return array (
         array (
           'NAME' => 'ssl_key',
           'DESCRIPTION' => 'Unpassphrased private key for the SSL certificate when protocol is \'https\'',
+          'TYPE' => 'string',
+          'REQUIRED' => false,
+        ),
+        'cipher_suite' => 
+        array (
+          'NAME' => 'cipher_suite',
+          'DESCRIPTION' => 'SSL cipher suite to enforce. One of \'recommended\', \'legacy\'',
           'TYPE' => 'string',
           'REQUIRED' => false,
         ),
