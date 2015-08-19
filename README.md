@@ -108,6 +108,6 @@ The only tests which make a complete API call are `TestTest` (for "[test.echo](h
 If you would like to regenerate the library code, you can do it with two simple steps:
 
 ```bash
-php ./generator/generator.php
+php ./generator/generator
 php ./bin/php-cs-fixer fix
 ```
