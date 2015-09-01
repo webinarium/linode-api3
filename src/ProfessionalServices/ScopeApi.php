@@ -26,7 +26,7 @@ class ScopeApi extends BaseLinodeApi
      * Creates a new Professional Services scope submission.
      *
      * @param string $linode_plan           [optional] Which Linode plans would you like to deploy?
-     * @param string $customer_name         [optional]
+     * @param string $customer_name         [optional] 
      * @param string $web_server            [optional] These provide network protocol handling for hosting websites.
      * @param string $mail_transfer         [optional] Mail transfer agents facilitate message transfer between servers
      * @param string $server_quantity       [optional] How many separate servers are involved in this migration?
@@ -35,20 +35,20 @@ class ScopeApi extends BaseLinodeApi
      * @param string $web_cache             [optional] Caching mechanisms provide temporary storage for web requests--cached content can generally be retrieved faster.
      * @param string $database_server       [optional] Generally used by applications to provide an organized way to capture and manipulate data
      * @param string $mail_filtering        [optional] Services here manipulate recieved messages in various ways
-     * @param string $notes                 [optional]
-     * @param string $ticket_number         [optional]
+     * @param string $notes                 [optional] 
+     * @param string $ticket_number         [optional] 
      * @param string $content_management    [optional] Centralized interfaces for editing, organizing, and publishing content
      * @param string $linode_datacenter     [optional] Which datacenters would you like your Linodes to be deployed in?
      * @param string $mail_retrieval        [optional] User mail clients connect to these to retrieve delivered mail
      * @param string $system_administration [optional] Various web interfaces for performing system administration tasks
-     * @param string $requested_service     [optional]
+     * @param string $requested_service     [optional] 
      * @param string $crossover             [optional] These can assist in providing reliable crossover--failures of individual components can be transparent to the application.
-     * @param string $phone_number          [optional]
+     * @param string $phone_number          [optional] 
      * @param string $application_quantity  [optional] How many separate applications or websites are involved in this migration?
-     * @param string $managed               [optional]
+     * @param string $managed               [optional] 
      * @param string $webmail               [optional] Access and administrate mail via web interfaces
-     * @param string $current_provider      [optional]
-     * @param string $email_address         [optional]
+     * @param string $current_provider      [optional] 
+     * @param string $email_address         [optional] 
      * @param string $replication           [optional] Redundant services often have shared state--replication automatically propagates state changes between individual components.
      *
      * @return array

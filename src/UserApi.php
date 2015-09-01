@@ -25,8 +25,8 @@ class UserApi extends BaseLinodeApi
      * enabled), and then returns a new API key, which can be used until it expires.  The number of active
      * keys is limited to 20.
      *
-     * @param string $username [required]
-     * @param string $password [required]
+     * @param string $username [required] 
+     * @param string $password [required] 
      * @param string $token    [optional] Required when two-factor authentication is enabled.
      * @param int    $expires  [optional] Number of hours the key will remain valid, between 0 and 8760. 0 means no expiration. Defaults to 168.
      * @param string $label    [optional] An optional label for this key.

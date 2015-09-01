@@ -59,7 +59,7 @@ class NodeApi extends BaseLinodeApi
     /**
      * Returns a list of Nodes associated with a NodeBalancer Config.
      *
-     * @param int $ConfigID [required]
+     * @param int $ConfigID [required] 
      * @param int $NodeID   [optional] Limits the list to the specified NodeID
      *
      * @return array
@@ -75,7 +75,7 @@ class NodeApi extends BaseLinodeApi
     /**
      * Updates a Node's properties.
      *
-     * @param int    $NodeID  [required]
+     * @param int    $NodeID  [required] 
      * @param string $Label   [optional] This backend Node's label
      * @param string $Address [optional] The address:port combination used to communicate with this Node
      * @param int    $Weight  [optional] Load balancing weight, 1-255. Higher means more connections.

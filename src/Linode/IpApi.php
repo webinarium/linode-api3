@@ -25,7 +25,7 @@ class IpApi extends BaseLinodeApi
     /**
      * Assigns a Private IP to a Linode.  Returns the IPAddressID that was added.
      *
-     * @param int $LinodeID [required]
+     * @param int $LinodeID [required] 
      *
      * @return array
      */

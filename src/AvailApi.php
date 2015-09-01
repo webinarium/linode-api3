@@ -47,7 +47,7 @@ class AvailApi extends BaseLinodeApi
     /**
      * List available kernels.
      *
-     * @param int  $KernelID [optional]
+     * @param int  $KernelID [optional] 
      * @param bool $isXen    [optional] Limits the results to show only Xen kernels
      * @param bool $isKVM    [optional] Limits the results to show only KVM kernels
      *

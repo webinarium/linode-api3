@@ -24,7 +24,7 @@ class LinodeApi extends BaseLinodeApi
      * Issues a boot job for the provided ConfigID.  If no ConfigID is provided boots the last used
      * configuration profile, or the first configuration profile if this Linode has never been booted.
      *
-     * @param int $LinodeID [required]
+     * @param int $LinodeID [required] 
      * @param int $ConfigID [optional] The ConfigID to boot, available from linode.config.list().
      *
      * @return array
@@ -113,7 +113,7 @@ class LinodeApi extends BaseLinodeApi
     /**
      * Upgrades a Linode to its next generation.
      *
-     * @param int $LinodeID [required]
+     * @param int $LinodeID [required] 
      *
      * @return array
      */
@@ -127,8 +127,8 @@ class LinodeApi extends BaseLinodeApi
     /**
      * Issues a shutdown, and then boot job for a given LinodeID.
      *
-     * @param int $LinodeID [required]
-     * @param int $ConfigID [optional]
+     * @param int $LinodeID [required] 
+     * @param int $ConfigID [optional] 
      *
      * @return array
      */
@@ -144,7 +144,7 @@ class LinodeApi extends BaseLinodeApi
      * Resizes a Linode from one plan to another.  Immediately shuts the Linode down, charges/credits the
      * account, and issue a migration to another host server.
      *
-     * @param int $LinodeID [required]
+     * @param int $LinodeID [required] 
      * @param int $PlanID   [required] The desired PlanID available from avail.LinodePlans()
      *
      * @return array
@@ -160,7 +160,7 @@ class LinodeApi extends BaseLinodeApi
     /**
      * Issues a shutdown job for a given LinodeID.
      *
-     * @param int $LinodeID [required]
+     * @param int $LinodeID [required] 
      *
      * @return array
      */
@@ -174,7 +174,7 @@ class LinodeApi extends BaseLinodeApi
     /**
      * Updates a Linode's properties.
      *
-     * @param int    $LinodeID                [required]
+     * @param int    $LinodeID                [required] 
      * @param string $Label                   [optional] This Linode's label
      * @param string $lpm_displayGroup        [optional] Display group in the Linode list inside the Linode Manager
      * @param bool   $Alert_cpu_enabled       [optional] Enable the cpu usage email alert
@@ -187,13 +187,13 @@ class LinodeApi extends BaseLinodeApi
      * @param int    $Alert_bwout_threshold   [optional] Mb/sec
      * @param bool   $Alert_bwquota_enabled   [optional] Enable the bw quote email alert
      * @param int    $Alert_bwquota_threshold [optional] Percentage of monthly bw quota
-     * @param int    $backupWindow            [optional]
-     * @param int    $backupWeeklyDay         [optional]
+     * @param int    $backupWindow            [optional] 
+     * @param int    $backupWeeklyDay         [optional] 
      * @param bool   $watchdog                [optional] Enable the Lassie shutdown watchdog
-     * @param bool   $ms_ssh_disabled         [optional]
-     * @param string $ms_ssh_user             [optional]
-     * @param string $ms_ssh_ip               [optional]
-     * @param int    $ms_ssh_port             [optional]
+     * @param bool   $ms_ssh_disabled         [optional] 
+     * @param string $ms_ssh_user             [optional] 
+     * @param string $ms_ssh_ip               [optional] 
+     * @param int    $ms_ssh_port             [optional] 
      *
      * @return array
      */
@@ -226,7 +226,7 @@ class LinodeApi extends BaseLinodeApi
     /**
      * Generates a console token starting a web console LISH session for the requesting IP.
      *
-     * @param int $LinodeID [required]
+     * @param int $LinodeID [required] 
      *
      * @return array
      */

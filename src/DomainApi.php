@@ -27,13 +27,13 @@ class DomainApi extends BaseLinodeApi
      * @param string $Type             [required] master or slave
      * @param string $SOA_Email        [optional] Required when type=master
      * @param string $Description      [optional] Currently undisplayed.
-     * @param int    $Refresh_sec      [optional]
-     * @param int    $Retry_sec        [optional]
-     * @param int    $Expire_sec       [optional]
-     * @param int    $TTL_sec          [optional]
+     * @param int    $Refresh_sec      [optional] 
+     * @param int    $Retry_sec        [optional] 
+     * @param int    $Expire_sec       [optional] 
+     * @param int    $TTL_sec          [optional] 
      * @param string $lpm_displayGroup [optional] Display group in the Domain list inside the Linode DNS Manager
      * @param int    $status           [optional] 0, 1, or 2 (disabled, active, edit mode)
-     * @param string $master_ips       [optional] When type=slave, the zone's master DNS servers list, semicolon separated
+     * @param string $master_ips       [optional] When type=slave, the zone's master DNS servers list, semicolon separated 
      * @param string $axfr_ips         [optional] IP addresses allowed to AXFR the entire zone, semicolon separated
      *
      * @return array
@@ -57,7 +57,7 @@ class DomainApi extends BaseLinodeApi
     }
 
     /**
-     * @param int $DomainID [required]
+     * @param int $DomainID [required] 
      *
      * @return array
      */
@@ -85,18 +85,18 @@ class DomainApi extends BaseLinodeApi
     /**
      * Update a domain record.
      *
-     * @param int    $DomainID         [required]
+     * @param int    $DomainID         [required] 
      * @param string $Domain           [optional] The zone's name
      * @param string $Type             [optional] master or slave
      * @param string $SOA_Email        [optional] Required when type=master
      * @param string $Description      [optional] Currently undisplayed.
-     * @param int    $Refresh_sec      [optional]
-     * @param int    $Retry_sec        [optional]
-     * @param int    $Expire_sec       [optional]
-     * @param int    $TTL_sec          [optional]
+     * @param int    $Refresh_sec      [optional] 
+     * @param int    $Retry_sec        [optional] 
+     * @param int    $Expire_sec       [optional] 
+     * @param int    $TTL_sec          [optional] 
      * @param string $lpm_displayGroup [optional] Display group in the Domain list inside the Linode DNS Manager
      * @param int    $status           [optional] 0, 1, or 2 (disabled, active, edit mode)
-     * @param string $master_ips       [optional] When type=slave, the zone's master DNS servers list, semicolon separated
+     * @param string $master_ips       [optional] When type=slave, the zone's master DNS servers list, semicolon separated 
      * @param string $axfr_ips         [optional] IP addresses allowed to AXFR the entire zone, semicolon separated
      *
      * @return array
