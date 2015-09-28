@@ -2097,22 +2097,15 @@ return array (
         'isXen' => 
         array (
           'NAME' => 'isXen',
-          'DESCRIPTION' => 'Limits the results to show only Xen kernels',
+          'DESCRIPTION' => 'Show or hide Xen compatible kernels',
           'TYPE' => 'boolean',
           'REQUIRED' => false,
         ),
         'isKVM' => 
         array (
           'NAME' => 'isKVM',
-          'DESCRIPTION' => 'Limits the results to show only KVM kernels',
+          'DESCRIPTION' => 'Show or hide KVM compatible kernels',
           'TYPE' => 'boolean',
-          'REQUIRED' => false,
-        ),
-        'KernelID' => 
-        array (
-          'NAME' => 'KernelID',
-          'DESCRIPTION' => '',
-          'TYPE' => 'numeric',
           'REQUIRED' => false,
         ),
       ),
