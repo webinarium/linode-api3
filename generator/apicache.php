@@ -1491,7 +1491,7 @@ return array (
     ),
     'user.getapikey' => 
     array (
-      'DESCRIPTION' => 'Authenticates a Linode Manager user against their username, password, and two-factor token (when enabled), and then returns a new API key, which can be used until it expires.  The number of active keys is limited to 20.',
+      'DESCRIPTION' => 'Authenticates a Linode Manager user against their username, password, and two-factor token (when enabled), and then returns a new API key, which can be used until it expires.  The number of active keys is limited to 20.  Batch requests will be rejected if they include this API action.',
       'PARAMETERS' => 
       array (
         'label' => 
