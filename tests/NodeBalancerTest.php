@@ -21,49 +21,49 @@ class NodeBalancerTest extends \PHPUnit_Framework_TestCase
     private $key;
 
     /** @var NodeBalancerApi */
-    private $api = null;
+    private $api;
 
     protected function setUp()
     {
-        $this->key = uniqid();
+        $this->key = uniqid(null, false);
         $this->api = new NodeBalancerApi($this->key, true);
     }
 
     public function testCreate()
     {
-        $DatacenterID = rand(1, PHP_INT_MAX);
+        $DatacenterID = mt_rand(1, PHP_INT_MAX);
         $Label        = 'label';
 
         $expected = "api_key={$this->key}&api_action=nodebalancer.create&DatacenterID={$DatacenterID}&Label={$Label}";
         $query    = $this->api->create($DatacenterID, $Label);
-        $this->assertEquals($expected, $query);
+        self::assertEquals($expected, $query);
     }
 
     public function testDelete()
     {
-        $NodeBalancerID = rand(1, PHP_INT_MAX);
+        $NodeBalancerID = mt_rand(1, PHP_INT_MAX);
 
         $expected = "api_key={$this->key}&api_action=nodebalancer.delete&NodeBalancerID={$NodeBalancerID}";
         $query    = $this->api->delete($NodeBalancerID);
-        $this->assertEquals($expected, $query);
+        self::assertEquals($expected, $query);
     }
 
     public function testList()
     {
-        $NodeBalancerID = rand(1, PHP_INT_MAX);
+        $NodeBalancerID = mt_rand(1, PHP_INT_MAX);
 
         $expected = "api_key={$this->key}&api_action=nodebalancer.list&NodeBalancerID={$NodeBalancerID}";
         $query    = $this->api->getList($NodeBalancerID);
-        $this->assertEquals($expected, $query);
+        self::assertEquals($expected, $query);
     }
 
     public function testUpdate()
     {
-        $NodeBalancerID = rand(1, PHP_INT_MAX);
+        $NodeBalancerID = mt_rand(1, PHP_INT_MAX);
         $Label          = 'label';
 
         $expected = "api_key={$this->key}&api_action=nodebalancer.update&NodeBalancerID={$NodeBalancerID}&Label={$Label}";
         $query    = $this->api->update($NodeBalancerID, $Label);
-        $this->assertEquals($expected, $query);
+        self::assertEquals($expected, $query);
     }
 }

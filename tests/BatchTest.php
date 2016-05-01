@@ -24,7 +24,7 @@ class BatchTest extends \PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
-        $this->key = uniqid();
+        $this->key = uniqid(null, false);
     }
 
     public function testBatch()
@@ -40,7 +40,7 @@ class BatchTest extends \PHPUnit_Framework_TestCase
 
         $result = $batch->execute(true);
 
-        $this->assertEquals($expected, $result);
-        $this->assertFalse($batch->execute(true));
+        self::assertEquals($expected, $result);
+        self::assertFalse($batch->execute(true));
     }
 }

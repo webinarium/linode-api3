@@ -23,17 +23,17 @@ class NodeBalancerConfigTest extends \PHPUnit_Framework_TestCase
     private $key;
 
     /** @var ConfigApi */
-    private $api = null;
+    private $api;
 
     protected function setUp()
     {
-        $this->key = uniqid();
+        $this->key = uniqid(null, false);
         $this->api = new ConfigApi($this->key, true);
     }
 
     public function testCreate()
     {
-        $NodeBalancerID = rand(1, PHP_INT_MAX);
+        $NodeBalancerID = mt_rand(1, PHP_INT_MAX);
         $Port           = 80;
         $Protocol       = 'HTTP';
         $Algorithm      = BalancingAlgorithm::ROUNDROBIN;
@@ -41,32 +41,32 @@ class NodeBalancerConfigTest extends \PHPUnit_Framework_TestCase
 
         $expected = "api_key={$this->key}&api_action=nodebalancer.config.create&NodeBalancerID={$NodeBalancerID}&Port={$Port}&Protocol={$Protocol}&Algorithm={$Algorithm}&Stickiness={$Stickiness}";
         $query    = $this->api->create($NodeBalancerID, $Port, $Protocol, $Algorithm, $Stickiness);
-        $this->assertEquals($expected, $query);
+        self::assertEquals($expected, $query);
     }
 
     public function testDelete()
     {
-        $NodeBalancerID = rand(1, PHP_INT_MAX);
-        $ConfigID       = rand(1, PHP_INT_MAX);
+        $NodeBalancerID = mt_rand(1, PHP_INT_MAX);
+        $ConfigID       = mt_rand(1, PHP_INT_MAX);
 
         $expected = "api_key={$this->key}&api_action=nodebalancer.config.delete&NodeBalancerID={$NodeBalancerID}&ConfigID={$ConfigID}";
         $query    = $this->api->delete($NodeBalancerID, $ConfigID);
-        $this->assertEquals($expected, $query);
+        self::assertEquals($expected, $query);
     }
 
     public function testList()
     {
-        $NodeBalancerID = rand(1, PHP_INT_MAX);
-        $ConfigID       = rand(1, PHP_INT_MAX);
+        $NodeBalancerID = mt_rand(1, PHP_INT_MAX);
+        $ConfigID       = mt_rand(1, PHP_INT_MAX);
 
         $expected = "api_key={$this->key}&api_action=nodebalancer.config.list&NodeBalancerID={$NodeBalancerID}&ConfigID={$ConfigID}";
         $query    = $this->api->getList($NodeBalancerID, $ConfigID);
-        $this->assertEquals($expected, $query);
+        self::assertEquals($expected, $query);
     }
 
     public function testUpdate()
     {
-        $ConfigID   = rand(1, PHP_INT_MAX);
+        $ConfigID   = mt_rand(1, PHP_INT_MAX);
         $Port       = 80;
         $Protocol   = 'HTTP';
         $Algorithm  = BalancingAlgorithm::ROUNDROBIN;
@@ -74,6 +74,6 @@ class NodeBalancerConfigTest extends \PHPUnit_Framework_TestCase
 
         $expected = "api_key={$this->key}&api_action=nodebalancer.config.update&ConfigID={$ConfigID}&Port={$Port}&Protocol={$Protocol}&Algorithm={$Algorithm}&Stickiness={$Stickiness}";
         $query    = $this->api->update($ConfigID, $Port, $Protocol, $Algorithm, $Stickiness);
-        $this->assertEquals($expected, $query);
+        self::assertEquals($expected, $query);
     }
 }

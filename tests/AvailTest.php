@@ -21,11 +21,11 @@ class AvailTest extends \PHPUnit_Framework_TestCase
     private $key;
 
     /** @var AvailApi */
-    private $api = null;
+    private $api;
 
     protected function setUp()
     {
-        $this->key = uniqid();
+        $this->key = uniqid(null, false);
         $this->api = new AvailApi($this->key, true);
     }
 
@@ -33,41 +33,41 @@ class AvailTest extends \PHPUnit_Framework_TestCase
     {
         $expected = "api_key={$this->key}&api_action=avail.datacenters";
         $query    = $this->api->dataCenters();
-        $this->assertEquals($expected, $query);
+        self::assertEquals($expected, $query);
     }
 
     public function testDistributions()
     {
         $expected = "api_key={$this->key}&api_action=avail.distributions";
         $query    = $this->api->distributions();
-        $this->assertEquals($expected, $query);
+        self::assertEquals($expected, $query);
     }
 
     public function testKernels()
     {
         $expected = "api_key={$this->key}&api_action=avail.kernels";
         $query    = $this->api->kernels();
-        $this->assertEquals($expected, $query);
+        self::assertEquals($expected, $query);
     }
 
     public function testLinodePlans()
     {
         $expected = "api_key={$this->key}&api_action=avail.linodeplans";
         $query    = $this->api->linodePlans();
-        $this->assertEquals($expected, $query);
+        self::assertEquals($expected, $query);
     }
 
     public function testNodeBalancers()
     {
         $expected = "api_key={$this->key}&api_action=avail.nodebalancers";
         $query    = $this->api->nodeBalancers();
-        $this->assertEquals($expected, $query);
+        self::assertEquals($expected, $query);
     }
 
     public function testStackscripts()
     {
         $expected = "api_key={$this->key}&api_action=avail.stackscripts";
         $query    = $this->api->stackScripts();
-        $this->assertEquals($expected, $query);
+        self::assertEquals($expected, $query);
     }
 }

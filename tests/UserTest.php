@@ -21,21 +21,21 @@ class UserTest extends \PHPUnit_Framework_TestCase
     private $key;
 
     /** @var UserApi */
-    private $api = null;
+    private $api;
 
     protected function setUp()
     {
-        $this->key = uniqid();
+        $this->key = uniqid(null, false);
         $this->api = new UserApi($this->key, true);
     }
 
     public function testGetApiKey()
     {
-        $username = uniqid();
-        $password = uniqid();
+        $username = uniqid(null, false);
+        $password = uniqid(null, false);
 
         $expected = "api_key={$this->key}&api_action=user.getapikey&username={$username}&password={$password}";
         $query    = $this->api->getApiKey($username, $password);
-        $this->assertEquals($expected, $query);
+        self::assertEquals($expected, $query);
     }
 }

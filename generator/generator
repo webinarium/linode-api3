@@ -138,9 +138,9 @@ $classes = [];
 
 // Convert "linode.disk.createfromstackscript" names to ["Linode.Disk"]["createFromStackScript"].
 
-foreach (array_keys($api['METHODS']) as $entry) {
+foreach ($api['METHODS'] as $entry => $api_method) {
 
-    if ($entry == 'test.echo') {
+    if ($entry === 'test.echo') {
         continue;
     }
 
@@ -152,13 +152,13 @@ foreach (array_keys($api['METHODS']) as $entry) {
         $method = $vocabulary[$method];
     }
 
-    foreach ($parts as $key => $value) {
+    foreach ($parts as &$value) {
 
         if (array_key_exists($value, $vocabulary)) {
             $value = $vocabulary[$value];
         }
 
-        $parts[$key] = ucfirst($value);
+        $value = ucfirst($value);
     }
 
     $class = implode('.', $parts);
@@ -167,7 +167,7 @@ foreach (array_keys($api['METHODS']) as $entry) {
         $classes[$class] = [];
     }
 
-    $classes[$class][$method] = $api['METHODS'][$entry];
+    $classes[$class][$method] = $api_method;
     $classes[$class][$method]['ACTION'] = $entry;
 }
 
@@ -184,7 +184,7 @@ foreach ($classes as $class => $methods) {
     $php = null;
 
     // Add spec version info into "Linode\Api" class.
-    if ($class == 'Api') {
+    if ($class === 'Api') {
         $php .= "\n";
         $php .= "    /** API version */\n";
         $php .= "    const VERSION = '{$api['VERSION']}';\n";
@@ -203,7 +203,7 @@ foreach ($classes as $class => $methods) {
             // Check for new parameters.
             $diff = array_diff(array_keys($meta['PARAMETERS']), $params_order[$meta['ACTION']]);
 
-            if (count($diff) != 0) {
+            if (count($diff) !== 0) {
                 printf("Unknown parameters in '{$meta['ACTION']}': %s\n", implode(', ', $diff));
                 exit;
             }
@@ -295,7 +295,7 @@ foreach ($classes as $class => $methods) {
     $namespace = implode('\\', $class);
 
     // Append class name with "Api" suffix.
-    if ($classname != 'Api') {
+    if ($classname !== 'Api') {
         $classname .= 'Api';
     }
 
@@ -307,7 +307,7 @@ foreach ($classes as $class => $methods) {
     $php = sprintf($class_template, $namespace, $version, $classname, $php);
 
     // Remove unnecessary "use" operators.
-    if ($namespace == 'Linode') {
+    if ($namespace === 'Linode') {
         $php = str_replace("use Linode\\BaseLinodeApi;\n\n", null, $php);
     }
 

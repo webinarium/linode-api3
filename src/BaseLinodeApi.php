@@ -57,14 +57,14 @@ class BaseLinodeApi
      * @throws LinodeException
      * @throws \Exception
      */
-    protected function call($action, $parameters = [])
+    protected function call($action, array $parameters = [])
     {
         if ($this->batch) {
 
             $query = ['api_action' => $action];
 
             foreach ($parameters as $key => $value) {
-                if (!is_null($value)) {
+                if ($value !== null) {
                     $query[urlencode($key)] = urlencode($value);
                 }
             }
@@ -83,7 +83,7 @@ class BaseLinodeApi
         $query = "api_key={$this->key}&api_action={$action}";
 
         foreach ($parameters as $key => $value) {
-            if (!is_null($value)) {
+            if ($value !== null) {
                 $query .= sprintf('&%s=%s', urlencode($key), urlencode($value));
             }
         }
@@ -104,7 +104,7 @@ class BaseLinodeApi
         $json = json_decode($result, true);
 
         if (!$json) {
-            throw new \Exception('Empty response');
+            throw new \RuntimeException('Empty response');
         }
 
         $error = reset($json['ERRORARRAY']);

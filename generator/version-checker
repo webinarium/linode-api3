@@ -3,7 +3,7 @@
 
 //----------------------------------------------------------------------
 //
-//  Copyright (C) 2015 Artem Rodygin
+//  Copyright (C) 2015-2016 Artem Rodygin
 //
 //  This file is part of Linode API Client Library for PHP.
 //
@@ -22,6 +22,6 @@ $spec = $api->spec();
 printf("Available version:\t%s\n", $api::VERSION);
 printf("Library version:\t%s\n", $spec['VERSION']);
 
-if ($api::VERSION != $spec['VERSION']) {
+if ($api::VERSION !== $spec['VERSION']) {
     printf("\nWARNING: the library is not up-to-date with the latest available API.\n");
 }

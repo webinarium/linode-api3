@@ -22,50 +22,50 @@ class DomainResourceTest extends \PHPUnit_Framework_TestCase
     private $key;
 
     /** @var Domain\ResourceApi */
-    private $api = null;
+    private $api;
 
     protected function setUp()
     {
-        $this->key = uniqid();
+        $this->key = uniqid(null, false);
         $this->api = new Domain\ResourceApi($this->key, true);
     }
 
     public function testCreate()
     {
-        $DomainID = rand(1, PHP_INT_MAX);
+        $DomainID = mt_rand(1, PHP_INT_MAX);
         $Type     = DnsRecord::A;
 
         $expected = "api_key={$this->key}&api_action=domain.resource.create&DomainID={$DomainID}&Type={$Type}";
         $query    = $this->api->create($DomainID, $Type);
-        $this->assertEquals($expected, $query);
+        self::assertEquals($expected, $query);
     }
 
     public function testDelete()
     {
-        $DomainID   = rand(1, PHP_INT_MAX);
-        $ResourceID = rand(1, PHP_INT_MAX);
+        $DomainID   = mt_rand(1, PHP_INT_MAX);
+        $ResourceID = mt_rand(1, PHP_INT_MAX);
 
         $expected = "api_key={$this->key}&api_action=domain.resource.delete&DomainID={$DomainID}&ResourceID={$ResourceID}";
         $query    = $this->api->delete($DomainID, $ResourceID);
-        $this->assertEquals($expected, $query);
+        self::assertEquals($expected, $query);
     }
 
     public function testList()
     {
-        $DomainID = rand(1, PHP_INT_MAX);
+        $DomainID = mt_rand(1, PHP_INT_MAX);
 
         $expected = "api_key={$this->key}&api_action=domain.resource.list&DomainID={$DomainID}";
         $query    = $this->api->getList($DomainID);
-        $this->assertEquals($expected, $query);
+        self::assertEquals($expected, $query);
     }
 
     public function testUpdate()
     {
-        $DomainID   = rand(1, PHP_INT_MAX);
-        $ResourceID = rand(1, PHP_INT_MAX);
+        $DomainID   = mt_rand(1, PHP_INT_MAX);
+        $ResourceID = mt_rand(1, PHP_INT_MAX);
 
         $expected = "api_key={$this->key}&api_action=domain.resource.update&DomainID={$DomainID}&ResourceID={$ResourceID}";
         $query    = $this->api->update($DomainID, $ResourceID);
-        $this->assertEquals($expected, $query);
+        self::assertEquals($expected, $query);
     }
 }

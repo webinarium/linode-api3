@@ -21,55 +21,55 @@ class LinodeConfigTest extends \PHPUnit_Framework_TestCase
     private $key;
 
     /** @var ConfigApi */
-    private $api = null;
+    private $api;
 
     protected function setUp()
     {
-        $this->key = uniqid();
+        $this->key = uniqid(null, false);
         $this->api = new ConfigApi($this->key, true);
     }
 
     public function testCreate()
     {
-        $LinodeID = rand(1, PHP_INT_MAX);
+        $LinodeID = mt_rand(1, PHP_INT_MAX);
         $Label    = 'label';
-        $KernelID = rand(1, PHP_INT_MAX);
-        $DiskList = rand(1, PHP_INT_MAX);
+        $KernelID = mt_rand(1, PHP_INT_MAX);
+        $DiskList = mt_rand(1, PHP_INT_MAX);
 
         $expected = "api_key={$this->key}&api_action=linode.config.create&LinodeID={$LinodeID}&Label={$Label}&KernelID={$KernelID}&DiskList={$DiskList}";
         $query    = $this->api->create($LinodeID, $Label, $KernelID, $DiskList);
-        $this->assertEquals($expected, $query);
+        self::assertEquals($expected, $query);
     }
 
     public function testDelete()
     {
-        $LinodeID = rand(1, PHP_INT_MAX);
-        $ConfigID = rand(1, PHP_INT_MAX);
+        $LinodeID = mt_rand(1, PHP_INT_MAX);
+        $ConfigID = mt_rand(1, PHP_INT_MAX);
 
         $expected = "api_key={$this->key}&api_action=linode.config.delete&LinodeID={$LinodeID}&ConfigID={$ConfigID}";
         $query    = $this->api->delete($LinodeID, $ConfigID);
-        $this->assertEquals($expected, $query);
+        self::assertEquals($expected, $query);
     }
 
     public function testList()
     {
-        $LinodeID = rand(1, PHP_INT_MAX);
+        $LinodeID = mt_rand(1, PHP_INT_MAX);
 
         $expected = "api_key={$this->key}&api_action=linode.config.list&LinodeID={$LinodeID}";
         $query    = $this->api->getList($LinodeID);
-        $this->assertEquals($expected, $query);
+        self::assertEquals($expected, $query);
     }
 
     public function testUpdate()
     {
-        $LinodeID = rand(1, PHP_INT_MAX);
-        $ConfigID = rand(1, PHP_INT_MAX);
+        $LinodeID = mt_rand(1, PHP_INT_MAX);
+        $ConfigID = mt_rand(1, PHP_INT_MAX);
         $Label    = 'label';
-        $KernelID = rand(1, PHP_INT_MAX);
-        $DiskList = rand(1, PHP_INT_MAX);
+        $KernelID = mt_rand(1, PHP_INT_MAX);
+        $DiskList = mt_rand(1, PHP_INT_MAX);
 
         $expected = "api_key={$this->key}&api_action=linode.config.update&LinodeID={$LinodeID}&ConfigID={$ConfigID}&Label={$Label}&KernelID={$KernelID}&DiskList={$DiskList}";
         $query    = $this->api->update($LinodeID, $ConfigID, $Label, $KernelID, $DiskList);
-        $this->assertEquals($expected, $query);
+        self::assertEquals($expected, $query);
     }
 }

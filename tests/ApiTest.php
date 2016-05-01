@@ -18,7 +18,7 @@ use Linode\Api;
 class ApiTest extends \PHPUnit_Framework_TestCase
 {
     /** @var Api */
-    private $api = null;
+    private $api;
 
     protected function setUp()
     {
@@ -27,11 +27,11 @@ class ApiTest extends \PHPUnit_Framework_TestCase
 
     public function testSpec()
     {
-        $result = $this->api->spec('api.spec');
+        $result = $this->api->spec();
 
-        $this->assertTrue(is_array($result));
-        $this->assertArrayHasKey('METHODS', $result);
-        $this->assertArrayHasKey('VERSION', $result);
-        $this->assertEquals(Api::VERSION, $result['VERSION']);
+        self::assertTrue(is_array($result));
+        self::assertArrayHasKey('METHODS', $result);
+        self::assertArrayHasKey('VERSION', $result);
+        self::assertEquals(Api::VERSION, $result['VERSION']);
     }
 }

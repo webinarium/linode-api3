@@ -21,38 +21,38 @@ class ImageTest extends \PHPUnit_Framework_TestCase
     private $key;
 
     /** @var ImageApi */
-    private $api = null;
+    private $api;
 
     protected function setUp()
     {
-        $this->key = uniqid();
+        $this->key = uniqid(null, false);
         $this->api = new ImageApi($this->key, true);
     }
 
     public function testDelete()
     {
-        $ImageID = rand(1, PHP_INT_MAX);
+        $ImageID = mt_rand(1, PHP_INT_MAX);
 
         $expected = "api_key={$this->key}&api_action=image.delete&ImageID={$ImageID}";
         $query    = $this->api->delete($ImageID);
-        $this->assertEquals($expected, $query);
+        self::assertEquals($expected, $query);
     }
 
     public function testList()
     {
-        $ImageID = rand(1, PHP_INT_MAX);
+        $ImageID = mt_rand(1, PHP_INT_MAX);
 
         $expected = "api_key={$this->key}&api_action=image.list&ImageID={$ImageID}";
         $query    = $this->api->getList($ImageID);
-        $this->assertEquals($expected, $query);
+        self::assertEquals($expected, $query);
     }
 
     public function testUpdate()
     {
-        $ImageID = rand(1, PHP_INT_MAX);
+        $ImageID = mt_rand(1, PHP_INT_MAX);
 
         $expected = "api_key={$this->key}&api_action=image.update&ImageID={$ImageID}";
         $query    = $this->api->update($ImageID);
-        $this->assertEquals($expected, $query);
+        self::assertEquals($expected, $query);
     }
 }

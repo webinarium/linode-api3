@@ -21,11 +21,11 @@ class ProfessionalServicesScopeTest extends \PHPUnit_Framework_TestCase
     private $key;
 
     /** @var ScopeApi */
-    private $api = null;
+    private $api;
 
     protected function setUp()
     {
-        $this->key = uniqid();
+        $this->key = uniqid(null, false);
         $this->api = new ScopeApi($this->key, true);
     }
 
@@ -35,6 +35,6 @@ class ProfessionalServicesScopeTest extends \PHPUnit_Framework_TestCase
 
         $expected = "api_key={$this->key}&api_action=professionalservices.scope.create&linode_plan={$LinodePlan}";
         $query    = $this->api->create($LinodePlan);
-        $this->assertEquals($expected, $query);
+        self::assertEquals($expected, $query);
     }
 }

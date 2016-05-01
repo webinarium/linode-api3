@@ -21,20 +21,20 @@ class LinodeJobTest extends \PHPUnit_Framework_TestCase
     private $key;
 
     /** @var JobApi */
-    private $api = null;
+    private $api;
 
     protected function setUp()
     {
-        $this->key = uniqid();
+        $this->key = uniqid(null, false);
         $this->api = new JobApi($this->key, true);
     }
 
     public function testList()
     {
-        $LinodeID = rand(1, PHP_INT_MAX);
+        $LinodeID = mt_rand(1, PHP_INT_MAX);
 
         $expected = "api_key={$this->key}&api_action=linode.job.list&LinodeID={$LinodeID}";
         $query    = $this->api->getList($LinodeID);
-        $this->assertEquals($expected, $query);
+        self::assertEquals($expected, $query);
     }
 }

@@ -21,52 +21,52 @@ class StackScriptTest extends \PHPUnit_Framework_TestCase
     private $key;
 
     /** @var StackScriptApi */
-    private $api = null;
+    private $api;
 
     protected function setUp()
     {
-        $this->key = uniqid();
+        $this->key = uniqid(null, false);
         $this->api = new StackScriptApi($this->key, true);
     }
 
     public function testCreate()
     {
         $script         = 'sources';
-        $DistributionID = rand(1, PHP_INT_MAX);
+        $DistributionID = mt_rand(1, PHP_INT_MAX);
         $Label          = 'test';
 
         $expected = "api_key={$this->key}&api_action=stackscript.create&script={$script}&DistributionIDList={$DistributionID}&Label={$Label}";
         $query    = $this->api->create($script, $DistributionID, $Label);
-        $this->assertEquals($expected, $query);
+        self::assertEquals($expected, $query);
     }
 
     public function testDelete()
     {
-        $StackScriptID = rand(1, PHP_INT_MAX);
+        $StackScriptID = mt_rand(1, PHP_INT_MAX);
 
         $expected = "api_key={$this->key}&api_action=stackscript.delete&StackScriptID={$StackScriptID}";
         $query    = $this->api->delete($StackScriptID);
-        $this->assertEquals($expected, $query);
+        self::assertEquals($expected, $query);
     }
 
     public function testList()
     {
-        $StackScriptID = rand(1, PHP_INT_MAX);
+        $StackScriptID = mt_rand(1, PHP_INT_MAX);
 
         $expected = "api_key={$this->key}&api_action=stackscript.list&StackScriptID={$StackScriptID}";
         $query    = $this->api->getList($StackScriptID);
-        $this->assertEquals($expected, $query);
+        self::assertEquals($expected, $query);
     }
 
     public function testUpdate()
     {
-        $StackScriptID  = rand(1, PHP_INT_MAX);
+        $StackScriptID  = mt_rand(1, PHP_INT_MAX);
         $script         = 'sources';
-        $DistributionID = rand(1, PHP_INT_MAX);
+        $DistributionID = mt_rand(1, PHP_INT_MAX);
         $Label          = 'test';
 
         $expected = "api_key={$this->key}&api_action=stackscript.update&StackScriptID={$StackScriptID}&script={$script}&DistributionIDList={$DistributionID}&Label={$Label}";
         $query    = $this->api->update($StackScriptID, $script, $DistributionID, $Label);
-        $this->assertEquals($expected, $query);
+        self::assertEquals($expected, $query);
     }
 }

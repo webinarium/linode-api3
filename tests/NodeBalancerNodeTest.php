@@ -21,51 +21,51 @@ class NodeBalancerNodeTest extends \PHPUnit_Framework_TestCase
     private $key;
 
     /** @var NodeApi */
-    private $api = null;
+    private $api;
 
     protected function setUp()
     {
-        $this->key = uniqid();
+        $this->key = uniqid(null, false);
         $this->api = new NodeApi($this->key, true);
     }
 
     public function testCreate()
     {
-        $ConfigID  = rand(1, PHP_INT_MAX);
+        $ConfigID  = mt_rand(1, PHP_INT_MAX);
         $Label     = 'label';
         $Address   = '127.0.0.1';
 
         $expected = "api_key={$this->key}&api_action=nodebalancer.node.create&ConfigID={$ConfigID}&Label={$Label}&Address={$Address}";
         $query    = $this->api->create($ConfigID, $Label, $Address);
-        $this->assertEquals($expected, $query);
+        self::assertEquals($expected, $query);
     }
 
     public function testDelete()
     {
-        $NodeID = rand(1, PHP_INT_MAX);
+        $NodeID = mt_rand(1, PHP_INT_MAX);
 
         $expected = "api_key={$this->key}&api_action=nodebalancer.node.delete&NodeID={$NodeID}";
         $query    = $this->api->delete($NodeID);
-        $this->assertEquals($expected, $query);
+        self::assertEquals($expected, $query);
     }
 
     public function testList()
     {
-        $ConfigID = rand(1, PHP_INT_MAX);
-        $NodeID   = rand(1, PHP_INT_MAX);
+        $ConfigID = mt_rand(1, PHP_INT_MAX);
+        $NodeID   = mt_rand(1, PHP_INT_MAX);
 
         $expected = "api_key={$this->key}&api_action=nodebalancer.node.list&ConfigID={$ConfigID}&NodeID={$NodeID}";
         $query    = $this->api->getList($ConfigID, $NodeID);
-        $this->assertEquals($expected, $query);
+        self::assertEquals($expected, $query);
     }
 
     public function testUpdate()
     {
-        $NodeID = rand(1, PHP_INT_MAX);
+        $NodeID = mt_rand(1, PHP_INT_MAX);
         $Label  = 'label';
 
         $expected = "api_key={$this->key}&api_action=nodebalancer.node.update&NodeID={$NodeID}&Label={$Label}";
         $query    = $this->api->update($NodeID, $Label);
-        $this->assertEquals($expected, $query);
+        self::assertEquals($expected, $query);
     }
 }

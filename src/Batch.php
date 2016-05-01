@@ -56,7 +56,7 @@ class Batch
      */
     public function execute($debug = false)
     {
-        if (count($this->requests) == 0) {
+        if (count($this->requests) === 0) {
             return false;
         }
 
@@ -86,7 +86,7 @@ class Batch
         $json = json_decode($result, true);
 
         if (!$json) {
-            throw new \Exception('Empty response');
+            throw new \RuntimeException('Empty response');
         }
 
         return $json;

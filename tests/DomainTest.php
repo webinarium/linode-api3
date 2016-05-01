@@ -22,11 +22,11 @@ class DomainTest extends \PHPUnit_Framework_TestCase
     private $key;
 
     /** @var DomainApi */
-    private $api = null;
+    private $api;
 
     protected function setUp()
     {
-        $this->key = uniqid();
+        $this->key = uniqid(null, false);
         $this->api = new DomainApi($this->key, true);
     }
 
@@ -37,34 +37,34 @@ class DomainTest extends \PHPUnit_Framework_TestCase
 
         $expected = "api_key={$this->key}&api_action=domain.create&Domain={$Domain}&Type={$Type}";
         $query    = $this->api->create($Domain, $Type);
-        $this->assertEquals($expected, $query);
+        self::assertEquals($expected, $query);
     }
 
     public function testDelete()
     {
-        $DomainID = rand(1, PHP_INT_MAX);
+        $DomainID = mt_rand(1, PHP_INT_MAX);
 
         $expected = "api_key={$this->key}&api_action=domain.delete&DomainID={$DomainID}";
         $query    = $this->api->delete($DomainID);
-        $this->assertEquals($expected, $query);
+        self::assertEquals($expected, $query);
     }
 
     public function testList()
     {
-        $DomainID = rand(1, PHP_INT_MAX);
+        $DomainID = mt_rand(1, PHP_INT_MAX);
 
         $expected = "api_key={$this->key}&api_action=domain.list&DomainID={$DomainID}";
         $query    = $this->api->getList($DomainID);
-        $this->assertEquals($expected, $query);
+        self::assertEquals($expected, $query);
     }
 
     public function testUpdate()
     {
-        $DomainID = rand(1, PHP_INT_MAX);
+        $DomainID = mt_rand(1, PHP_INT_MAX);
         $Domain   = 'www.example.com';
 
         $expected = "api_key={$this->key}&api_action=domain.update&DomainID={$DomainID}&Domain={$Domain}";
         $query    = $this->api->update($DomainID, $Domain);
-        $this->assertEquals($expected, $query);
+        self::assertEquals($expected, $query);
     }
 }
