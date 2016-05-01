@@ -2,7 +2,7 @@
 
 //----------------------------------------------------------------------
 //
-//  Copyright (C) 2015 Artem Rodygin
+//  Copyright (C) 2015-2016 Artem Rodygin
 //
 //  This file is part of Linode API Client Library for PHP.
 //
@@ -35,12 +35,12 @@ class UserApi extends BaseLinodeApi
      */
     public function getApiKey($username, $password, $token = null, $expires = null, $label = null)
     {
-        return $this->call('user.getapikey', array(
+        return $this->call('user.getapikey', [
             'username' => $username,
             'password' => $password,
             'token'    => $token,
             'expires'  => $expires,
             'label'    => $label,
-        ));
+        ]);
     }
 }

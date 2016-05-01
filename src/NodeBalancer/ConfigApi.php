@@ -2,7 +2,7 @@
 
 //----------------------------------------------------------------------
 //
-//  Copyright (C) 2015 Artem Rodygin
+//  Copyright (C) 2015-2016 Artem Rodygin
 //
 //  This file is part of Linode API Client Library for PHP.
 //
@@ -43,7 +43,7 @@ class ConfigApi extends BaseLinodeApi
      */
     public function create($NodeBalancerID, $Port = null, $Protocol = null, $Algorithm = null, $Stickiness = null, $check = null, $check_interval = null, $check_timeout = null, $check_attempts = null, $check_path = null, $check_body = null, $check_passive = null, $ssl_cert = null, $ssl_key = null, $cipher_suite = null)
     {
-        return $this->call('nodebalancer.config.create', array(
+        return $this->call('nodebalancer.config.create', [
             'NodeBalancerID' => $NodeBalancerID,
             'Port'           => $Port,
             'Protocol'       => $Protocol,
@@ -59,7 +59,7 @@ class ConfigApi extends BaseLinodeApi
             'ssl_cert'       => $ssl_cert,
             'ssl_key'        => $ssl_key,
             'cipher_suite'   => $cipher_suite,
-        ));
+        ]);
     }
 
     /**
@@ -72,10 +72,10 @@ class ConfigApi extends BaseLinodeApi
      */
     public function delete($NodeBalancerID, $ConfigID)
     {
-        return $this->call('nodebalancer.config.delete', array(
+        return $this->call('nodebalancer.config.delete', [
             'NodeBalancerID' => $NodeBalancerID,
             'ConfigID'       => $ConfigID,
-        ));
+        ]);
     }
 
     /**
@@ -88,10 +88,10 @@ class ConfigApi extends BaseLinodeApi
      */
     public function getList($NodeBalancerID, $ConfigID = null)
     {
-        return $this->call('nodebalancer.config.list', array(
+        return $this->call('nodebalancer.config.list', [
             'NodeBalancerID' => $NodeBalancerID,
             'ConfigID'       => $ConfigID,
-        ));
+        ]);
     }
 
     /**
@@ -117,7 +117,7 @@ class ConfigApi extends BaseLinodeApi
      */
     public function update($ConfigID, $Port = null, $Protocol = null, $Algorithm = null, $Stickiness = null, $check = null, $check_interval = null, $check_timeout = null, $check_attempts = null, $check_path = null, $check_body = null, $check_passive = null, $ssl_cert = null, $ssl_key = null, $cipher_suite = null)
     {
-        return $this->call('nodebalancer.config.update', array(
+        return $this->call('nodebalancer.config.update', [
             'ConfigID'       => $ConfigID,
             'Port'           => $Port,
             'Protocol'       => $Protocol,
@@ -133,6 +133,6 @@ class ConfigApi extends BaseLinodeApi
             'ssl_cert'       => $ssl_cert,
             'ssl_key'        => $ssl_key,
             'cipher_suite'   => $cipher_suite,
-        ));
+        ]);
     }
 }

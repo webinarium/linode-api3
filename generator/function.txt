@@ -6,6 +6,6 @@
      */
     public function %s(%s)
     {
-        return $this->call('%s', array(
-%s        ));
+        return $this->call('%s', [
+%s        ]);
     }

@@ -2,7 +2,7 @@
 
 //----------------------------------------------------------------------
 //
-//  Copyright (C) 2015 Artem Rodygin
+//  Copyright (C) 2015-2016 Artem Rodygin
 //
 //  This file is part of Linode API Client Library for PHP.
 //
@@ -40,7 +40,7 @@ class DomainApi extends BaseLinodeApi
      */
     public function create($Domain, $Type, $SOA_Email = null, $Description = null, $Refresh_sec = null, $Retry_sec = null, $Expire_sec = null, $TTL_sec = null, $lpm_displayGroup = null, $status = null, $master_ips = null, $axfr_ips = null)
     {
-        return $this->call('domain.create', array(
+        return $this->call('domain.create', [
             'Domain'           => $Domain,
             'Type'             => $Type,
             'SOA_Email'        => $SOA_Email,
@@ -53,7 +53,7 @@ class DomainApi extends BaseLinodeApi
             'status'           => $status,
             'master_ips'       => $master_ips,
             'axfr_ips'         => $axfr_ips,
-        ));
+        ]);
     }
 
     /**
@@ -63,9 +63,9 @@ class DomainApi extends BaseLinodeApi
      */
     public function delete($DomainID)
     {
-        return $this->call('domain.delete', array(
+        return $this->call('domain.delete', [
             'DomainID' => $DomainID,
-        ));
+        ]);
     }
 
     /**
@@ -77,9 +77,9 @@ class DomainApi extends BaseLinodeApi
      */
     public function getList($DomainID = null)
     {
-        return $this->call('domain.list', array(
+        return $this->call('domain.list', [
             'DomainID' => $DomainID,
-        ));
+        ]);
     }
 
     /**
@@ -103,7 +103,7 @@ class DomainApi extends BaseLinodeApi
      */
     public function update($DomainID, $Domain = null, $Type = null, $SOA_Email = null, $Description = null, $Refresh_sec = null, $Retry_sec = null, $Expire_sec = null, $TTL_sec = null, $lpm_displayGroup = null, $status = null, $master_ips = null, $axfr_ips = null)
     {
-        return $this->call('domain.update', array(
+        return $this->call('domain.update', [
             'DomainID'         => $DomainID,
             'Domain'           => $Domain,
             'Type'             => $Type,
@@ -117,6 +117,6 @@ class DomainApi extends BaseLinodeApi
             'status'           => $status,
             'master_ips'       => $master_ips,
             'axfr_ips'         => $axfr_ips,
-        ));
+        ]);
     }
 }

@@ -2,7 +2,7 @@
 
 //----------------------------------------------------------------------
 //
-//  Copyright (C) 2015 Artem Rodygin
+//  Copyright (C) 2015-2016 Artem Rodygin
 //
 //  This file is part of Linode API Client Library for PHP.
 //
@@ -33,13 +33,13 @@ class NodeApi extends BaseLinodeApi
      */
     public function create($ConfigID, $Label, $Address, $Weight = null, $Mode = null)
     {
-        return $this->call('nodebalancer.node.create', array(
+        return $this->call('nodebalancer.node.create', [
             'ConfigID' => $ConfigID,
             'Label'    => $Label,
             'Address'  => $Address,
             'Weight'   => $Weight,
             'Mode'     => $Mode,
-        ));
+        ]);
     }
 
     /**
@@ -51,9 +51,9 @@ class NodeApi extends BaseLinodeApi
      */
     public function delete($NodeID)
     {
-        return $this->call('nodebalancer.node.delete', array(
+        return $this->call('nodebalancer.node.delete', [
             'NodeID' => $NodeID,
-        ));
+        ]);
     }
 
     /**
@@ -66,10 +66,10 @@ class NodeApi extends BaseLinodeApi
      */
     public function getList($ConfigID, $NodeID = null)
     {
-        return $this->call('nodebalancer.node.list', array(
+        return $this->call('nodebalancer.node.list', [
             'ConfigID' => $ConfigID,
             'NodeID'   => $NodeID,
-        ));
+        ]);
     }
 
     /**
@@ -85,12 +85,12 @@ class NodeApi extends BaseLinodeApi
      */
     public function update($NodeID, $Label = null, $Address = null, $Weight = null, $Mode = null)
     {
-        return $this->call('nodebalancer.node.update', array(
+        return $this->call('nodebalancer.node.update', [
             'NodeID'  => $NodeID,
             'Label'   => $Label,
             'Address' => $Address,
             'Weight'  => $Weight,
             'Mode'    => $Mode,
-        ));
+        ]);
     }
 }

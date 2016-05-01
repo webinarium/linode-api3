@@ -2,7 +2,7 @@
 
 //----------------------------------------------------------------------
 //
-//  Copyright (C) 2015 Artem Rodygin
+//  Copyright (C) 2015-2016 Artem Rodygin
 //
 //  This file is part of Linode API Client Library for PHP.
 //
@@ -55,7 +55,7 @@ class ScopeApi extends BaseLinodeApi
      */
     public function create($linode_plan = null, $customer_name = null, $web_server = null, $mail_transfer = null, $server_quantity = null, $provider_access = null, $monitoring = null, $web_cache = null, $database_server = null, $mail_filtering = null, $notes = null, $ticket_number = null, $content_management = null, $linode_datacenter = null, $mail_retrieval = null, $system_administration = null, $requested_service = null, $crossover = null, $phone_number = null, $application_quantity = null, $managed = null, $webmail = null, $current_provider = null, $email_address = null, $replication = null)
     {
-        return $this->call('professionalservices.scope.create', array(
+        return $this->call('professionalservices.scope.create', [
             'linode_plan'           => $linode_plan,
             'customer_name'         => $customer_name,
             'web_server'            => $web_server,
@@ -81,6 +81,6 @@ class ScopeApi extends BaseLinodeApi
             'current_provider'      => $current_provider,
             'email_address'         => $email_address,
             'replication'           => $replication,
-        ));
+        ]);
     }
 }

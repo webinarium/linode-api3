@@ -21,9 +21,9 @@ return Symfony\CS\Config\Config::create()
         'align_double_arrow',
         'align_equals',
         'concat_with_spaces',
-        'long_array_syntax',
         'no_blank_lines_before_namespace',
         'ordered_use',
+        'short_array_syntax',
     ])
     ->finder($finder)
 ;

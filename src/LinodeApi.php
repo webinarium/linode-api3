@@ -2,7 +2,7 @@
 
 //----------------------------------------------------------------------
 //
-//  Copyright (C) 2015 Artem Rodygin
+//  Copyright (C) 2015-2016 Artem Rodygin
 //
 //  This file is part of Linode API Client Library for PHP.
 //
@@ -31,10 +31,10 @@ class LinodeApi extends BaseLinodeApi
      */
     public function boot($LinodeID, $ConfigID = null)
     {
-        return $this->call('linode.boot', array(
+        return $this->call('linode.boot', [
             'LinodeID' => $LinodeID,
             'ConfigID' => $ConfigID,
-        ));
+        ]);
     }
 
     /**
@@ -48,11 +48,11 @@ class LinodeApi extends BaseLinodeApi
      */
     public function create($DatacenterID, $PlanID, $PaymentTerm = null)
     {
-        return $this->call('linode.create', array(
+        return $this->call('linode.create', [
             'DatacenterID' => $DatacenterID,
             'PlanID'       => $PlanID,
             'PaymentTerm'  => $PaymentTerm,
-        ));
+        ]);
     }
 
     /**
@@ -67,10 +67,10 @@ class LinodeApi extends BaseLinodeApi
      */
     public function delete($LinodeID, $skipChecks = null)
     {
-        return $this->call('linode.delete', array(
+        return $this->call('linode.delete', [
             'LinodeID'   => $LinodeID,
             'skipChecks' => $skipChecks,
-        ));
+        ]);
     }
 
     /**
@@ -87,12 +87,12 @@ class LinodeApi extends BaseLinodeApi
      */
     public function duplicate($LinodeID, $DatacenterID, $PlanID, $PaymentTerm = null)
     {
-        return $this->call('linode.clone', array(
+        return $this->call('linode.clone', [
             'LinodeID'     => $LinodeID,
             'DatacenterID' => $DatacenterID,
             'PlanID'       => $PlanID,
             'PaymentTerm'  => $PaymentTerm,
-        ));
+        ]);
     }
 
     /**
@@ -105,9 +105,9 @@ class LinodeApi extends BaseLinodeApi
      */
     public function getList($LinodeID = null)
     {
-        return $this->call('linode.list', array(
+        return $this->call('linode.list', [
             'LinodeID' => $LinodeID,
-        ));
+        ]);
     }
 
     /**
@@ -119,9 +119,9 @@ class LinodeApi extends BaseLinodeApi
      */
     public function mutate($LinodeID)
     {
-        return $this->call('linode.mutate', array(
+        return $this->call('linode.mutate', [
             'LinodeID' => $LinodeID,
-        ));
+        ]);
     }
 
     /**
@@ -134,10 +134,10 @@ class LinodeApi extends BaseLinodeApi
      */
     public function reboot($LinodeID, $ConfigID = null)
     {
-        return $this->call('linode.reboot', array(
+        return $this->call('linode.reboot', [
             'LinodeID' => $LinodeID,
             'ConfigID' => $ConfigID,
-        ));
+        ]);
     }
 
     /**
@@ -151,10 +151,10 @@ class LinodeApi extends BaseLinodeApi
      */
     public function resize($LinodeID, $PlanID)
     {
-        return $this->call('linode.resize', array(
+        return $this->call('linode.resize', [
             'LinodeID' => $LinodeID,
             'PlanID'   => $PlanID,
-        ));
+        ]);
     }
 
     /**
@@ -166,9 +166,9 @@ class LinodeApi extends BaseLinodeApi
      */
     public function shutdown($LinodeID)
     {
-        return $this->call('linode.shutdown', array(
+        return $this->call('linode.shutdown', [
             'LinodeID' => $LinodeID,
-        ));
+        ]);
     }
 
     /**
@@ -199,7 +199,7 @@ class LinodeApi extends BaseLinodeApi
      */
     public function update($LinodeID, $Label = null, $lpm_displayGroup = null, $Alert_cpu_enabled = null, $Alert_cpu_threshold = null, $Alert_diskio_enabled = null, $Alert_diskio_threshold = null, $Alert_bwin_enabled = null, $Alert_bwin_threshold = null, $Alert_bwout_enabled = null, $Alert_bwout_threshold = null, $Alert_bwquota_enabled = null, $Alert_bwquota_threshold = null, $backupWindow = null, $backupWeeklyDay = null, $watchdog = null, $ms_ssh_disabled = null, $ms_ssh_user = null, $ms_ssh_ip = null, $ms_ssh_port = null)
     {
-        return $this->call('linode.update', array(
+        return $this->call('linode.update', [
             'LinodeID'                => $LinodeID,
             'Label'                   => $Label,
             'lpm_displayGroup'        => $lpm_displayGroup,
@@ -220,7 +220,7 @@ class LinodeApi extends BaseLinodeApi
             'ms_ssh_user'             => $ms_ssh_user,
             'ms_ssh_ip'               => $ms_ssh_ip,
             'ms_ssh_port'             => $ms_ssh_port,
-        ));
+        ]);
     }
 
     /**
@@ -232,8 +232,8 @@ class LinodeApi extends BaseLinodeApi
      */
     public function webConsoleToken($LinodeID)
     {
-        return $this->call('linode.webconsoletoken', array(
+        return $this->call('linode.webconsoletoken', [
             'LinodeID' => $LinodeID,
-        ));
+        ]);
     }
 }

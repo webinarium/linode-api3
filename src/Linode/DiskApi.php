@@ -2,7 +2,7 @@
 
 //----------------------------------------------------------------------
 //
-//  Copyright (C) 2015 Artem Rodygin
+//  Copyright (C) 2015-2016 Artem Rodygin
 //
 //  This file is part of Linode API Client Library for PHP.
 //
@@ -36,7 +36,7 @@ class DiskApi extends BaseLinodeApi
      */
     public function create($LinodeID, $Label, $Type, $Size, $isReadOnly = null, $FromDistributionID = null, $rootPass = null, $rootSSHKey = null)
     {
-        return $this->call('linode.disk.create', array(
+        return $this->call('linode.disk.create', [
             'LinodeID'           => $LinodeID,
             'Label'              => $Label,
             'Type'               => $Type,
@@ -45,7 +45,7 @@ class DiskApi extends BaseLinodeApi
             'FromDistributionID' => $FromDistributionID,
             'rootPass'           => $rootPass,
             'rootSSHKey'         => $rootSSHKey,
-        ));
+        ]);
     }
 
     /**
@@ -60,14 +60,14 @@ class DiskApi extends BaseLinodeApi
      */
     public function createFromDistribution($LinodeID, $DistributionID, $Label, $Size, $rootPass, $rootSSHKey = null)
     {
-        return $this->call('linode.disk.createfromdistribution', array(
+        return $this->call('linode.disk.createfromdistribution', [
             'LinodeID'       => $LinodeID,
             'DistributionID' => $DistributionID,
             'Label'          => $Label,
             'Size'           => $Size,
             'rootPass'       => $rootPass,
             'rootSSHKey'     => $rootSSHKey,
-        ));
+        ]);
     }
 
     /**
@@ -84,14 +84,14 @@ class DiskApi extends BaseLinodeApi
      */
     public function createFromImage($LinodeID, $ImageID, $Label = null, $size = null, $rootPass = null, $rootSSHKey = null)
     {
-        return $this->call('linode.disk.createfromimage', array(
+        return $this->call('linode.disk.createfromimage', [
             'LinodeID'   => $LinodeID,
             'ImageID'    => $ImageID,
             'Label'      => $Label,
             'size'       => $size,
             'rootPass'   => $rootPass,
             'rootSSHKey' => $rootSSHKey,
-        ));
+        ]);
     }
 
     /**
@@ -108,7 +108,7 @@ class DiskApi extends BaseLinodeApi
      */
     public function createFromStackScript($LinodeID, $StackScriptID, $StackScriptUDFResponses, $DistributionID, $Label, $Size, $rootPass, $rootSSHKey = null)
     {
-        return $this->call('linode.disk.createfromstackscript', array(
+        return $this->call('linode.disk.createfromstackscript', [
             'LinodeID'                => $LinodeID,
             'StackScriptID'           => $StackScriptID,
             'StackScriptUDFResponses' => $StackScriptUDFResponses,
@@ -117,7 +117,7 @@ class DiskApi extends BaseLinodeApi
             'Size'                    => $Size,
             'rootPass'                => $rootPass,
             'rootSSHKey'              => $rootSSHKey,
-        ));
+        ]);
     }
 
     /**
@@ -128,10 +128,10 @@ class DiskApi extends BaseLinodeApi
      */
     public function delete($LinodeID, $DiskID)
     {
-        return $this->call('linode.disk.delete', array(
+        return $this->call('linode.disk.delete', [
             'LinodeID' => $LinodeID,
             'DiskID'   => $DiskID,
-        ));
+        ]);
     }
 
     /**
@@ -144,10 +144,10 @@ class DiskApi extends BaseLinodeApi
      */
     public function duplicate($LinodeID, $DiskID)
     {
-        return $this->call('linode.disk.duplicate', array(
+        return $this->call('linode.disk.duplicate', [
             'LinodeID' => $LinodeID,
             'DiskID'   => $DiskID,
-        ));
+        ]);
     }
 
     /**
@@ -160,10 +160,10 @@ class DiskApi extends BaseLinodeApi
      */
     public function getList($LinodeID, $DiskID = null)
     {
-        return $this->call('linode.disk.list', array(
+        return $this->call('linode.disk.list', [
             'LinodeID' => $LinodeID,
             'DiskID'   => $DiskID,
-        ));
+        ]);
     }
 
     /**
@@ -178,12 +178,12 @@ class DiskApi extends BaseLinodeApi
      */
     public function imagize($LinodeID, $DiskID, $Label = null, $Description = null)
     {
-        return $this->call('linode.disk.imagize', array(
+        return $this->call('linode.disk.imagize', [
             'LinodeID'    => $LinodeID,
             'DiskID'      => $DiskID,
             'Label'       => $Label,
             'Description' => $Description,
-        ));
+        ]);
     }
 
     /**
@@ -195,11 +195,11 @@ class DiskApi extends BaseLinodeApi
      */
     public function resize($LinodeID, $DiskID, $size)
     {
-        return $this->call('linode.disk.resize', array(
+        return $this->call('linode.disk.resize', [
             'LinodeID' => $LinodeID,
             'DiskID'   => $DiskID,
             'size'     => $size,
-        ));
+        ]);
     }
 
     /**
@@ -212,11 +212,11 @@ class DiskApi extends BaseLinodeApi
      */
     public function update($LinodeID = null, $DiskID, $Label = null, $isReadOnly = null)
     {
-        return $this->call('linode.disk.update', array(
+        return $this->call('linode.disk.update', [
             'LinodeID'   => $LinodeID,
             'DiskID'     => $DiskID,
             'Label'      => $Label,
             'isReadOnly' => $isReadOnly,
-        ));
+        ]);
     }
 }

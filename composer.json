@@ -6,7 +6,7 @@
     "homepage": "https://github.com/arodygin/linode-api-php",
     "license": "MIT",
     "require": {
-        "php": ">=5.2.0",
+        "php": ">=5.4.0",
         "ext-curl": "*",
         "ext-json": "*"
     },

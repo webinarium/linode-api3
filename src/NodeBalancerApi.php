@@ -2,7 +2,7 @@
 
 //----------------------------------------------------------------------
 //
-//  Copyright (C) 2015 Artem Rodygin
+//  Copyright (C) 2015-2016 Artem Rodygin
 //
 //  This file is part of Linode API Client Library for PHP.
 //
@@ -29,11 +29,11 @@ class NodeBalancerApi extends BaseLinodeApi
      */
     public function create($DatacenterID, $Label = null, $ClientConnThrottle = null)
     {
-        return $this->call('nodebalancer.create', array(
+        return $this->call('nodebalancer.create', [
             'DatacenterID'       => $DatacenterID,
             'Label'              => $Label,
             'ClientConnThrottle' => $ClientConnThrottle,
-        ));
+        ]);
     }
 
     /**
@@ -46,9 +46,9 @@ class NodeBalancerApi extends BaseLinodeApi
      */
     public function delete($NodeBalancerID)
     {
-        return $this->call('nodebalancer.delete', array(
+        return $this->call('nodebalancer.delete', [
             'NodeBalancerID' => $NodeBalancerID,
-        ));
+        ]);
     }
 
     /**
@@ -60,9 +60,9 @@ class NodeBalancerApi extends BaseLinodeApi
      */
     public function getList($NodeBalancerID = null)
     {
-        return $this->call('nodebalancer.list', array(
+        return $this->call('nodebalancer.list', [
             'NodeBalancerID' => $NodeBalancerID,
-        ));
+        ]);
     }
 
     /**
@@ -76,10 +76,10 @@ class NodeBalancerApi extends BaseLinodeApi
      */
     public function update($NodeBalancerID, $Label = null, $ClientConnThrottle = null)
     {
-        return $this->call('nodebalancer.update', array(
+        return $this->call('nodebalancer.update', [
             'NodeBalancerID'     => $NodeBalancerID,
             'Label'              => $Label,
             'ClientConnThrottle' => $ClientConnThrottle,
-        ));
+        ]);
     }
 }

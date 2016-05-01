@@ -57,11 +57,11 @@ class BaseLinodeApi
      * @throws LinodeException
      * @throws \Exception
      */
-    protected function call($action, $parameters = array())
+    protected function call($action, $parameters = [])
     {
         if ($this->batch) {
 
-            $query = array('api_action' => $action);
+            $query = ['api_action' => $action];
 
             foreach ($parameters as $key => $value) {
                 if (!is_null($value)) {

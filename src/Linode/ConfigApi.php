@@ -2,7 +2,7 @@
 
 //----------------------------------------------------------------------
 //
-//  Copyright (C) 2015 Artem Rodygin
+//  Copyright (C) 2015-2016 Artem Rodygin
 //
 //  This file is part of Linode API Client Library for PHP.
 //
@@ -47,7 +47,7 @@ class ConfigApi extends BaseLinodeApi
      */
     public function create($LinodeID, $Label, $KernelID, $DiskList, $RunLevel = null, $RAMLimit = null, $virt_mode = null, $RootDeviceNum = null, $RootDeviceCustom = null, $RootDeviceRO = null, $devtmpfs_automount = null, $helper_distro = null, $helper_xen = null, $helper_disableUpdateDB = null, $helper_depmod = null, $helper_network = null, $Comments = null)
     {
-        return $this->call('linode.config.create', array(
+        return $this->call('linode.config.create', [
             'LinodeID'               => $LinodeID,
             'Label'                  => $Label,
             'KernelID'               => $KernelID,
@@ -65,7 +65,7 @@ class ConfigApi extends BaseLinodeApi
             'helper_depmod'          => $helper_depmod,
             'helper_network'         => $helper_network,
             'Comments'               => $Comments,
-        ));
+        ]);
     }
 
     /**
@@ -78,10 +78,10 @@ class ConfigApi extends BaseLinodeApi
      */
     public function delete($LinodeID, $ConfigID)
     {
-        return $this->call('linode.config.delete', array(
+        return $this->call('linode.config.delete', [
             'LinodeID' => $LinodeID,
             'ConfigID' => $ConfigID,
-        ));
+        ]);
     }
 
     /**
@@ -94,10 +94,10 @@ class ConfigApi extends BaseLinodeApi
      */
     public function getList($LinodeID, $ConfigID = null)
     {
-        return $this->call('linode.config.list', array(
+        return $this->call('linode.config.list', [
             'LinodeID' => $LinodeID,
             'ConfigID' => $ConfigID,
-        ));
+        ]);
     }
 
     /**
@@ -126,7 +126,7 @@ class ConfigApi extends BaseLinodeApi
      */
     public function update($LinodeID = null, $ConfigID, $Label = null, $KernelID = null, $DiskList = null, $RunLevel = null, $RAMLimit = null, $virt_mode = null, $RootDeviceNum = null, $RootDeviceCustom = null, $RootDeviceRO = null, $devtmpfs_automount = null, $helper_distro = null, $helper_xen = null, $helper_disableUpdateDB = null, $helper_depmod = null, $helper_network = null, $Comments = null)
     {
-        return $this->call('linode.config.update', array(
+        return $this->call('linode.config.update', [
             'LinodeID'               => $LinodeID,
             'ConfigID'               => $ConfigID,
             'Label'                  => $Label,
@@ -145,6 +145,6 @@ class ConfigApi extends BaseLinodeApi
             'helper_depmod'          => $helper_depmod,
             'helper_network'         => $helper_network,
             'Comments'               => $Comments,
-        ));
+        ]);
     }
 }

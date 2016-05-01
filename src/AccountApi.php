@@ -2,7 +2,7 @@
 
 //----------------------------------------------------------------------
 //
-//  Copyright (C) 2015 Artem Rodygin
+//  Copyright (C) 2015-2016 Artem Rodygin
 //
 //  This file is part of Linode API Client Library for PHP.
 //
@@ -34,12 +34,12 @@ class AccountApi extends BaseLinodeApi
      */
     public function estimateInvoice($mode, $LinodeID = null, $PlanID = null, $PaymentTerm = null)
     {
-        return $this->call('account.estimateinvoice', array(
+        return $this->call('account.estimateinvoice', [
             'mode'        => $mode,
             'LinodeID'    => $LinodeID,
             'PlanID'      => $PlanID,
             'PaymentTerm' => $PaymentTerm,
-        ));
+        ]);
     }
 
     /**
@@ -72,10 +72,10 @@ class AccountApi extends BaseLinodeApi
      */
     public function updateCard($ccNumber, $ccExpMonth, $ccExpYear)
     {
-        return $this->call('account.updatecard', array(
+        return $this->call('account.updatecard', [
             'ccNumber'   => $ccNumber,
             'ccExpMonth' => $ccExpMonth,
             'ccExpYear'  => $ccExpYear,
-        ));
+        ]);
     }
 }

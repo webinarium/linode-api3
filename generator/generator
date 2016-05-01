@@ -3,7 +3,7 @@
 
 //----------------------------------------------------------------------
 //
-//  Copyright (C) 2015 Artem Rodygin
+//  Copyright (C) 2015-2016 Artem Rodygin
 //
 //  This file is part of Linode API Client Library for PHP.
 //
@@ -14,7 +14,7 @@
 
 // Some known strings to replace with camelCase.
 
-$vocabulary = array(
+$vocabulary = [
 
     // reservered words
     'clone'                  => 'duplicate',
@@ -42,84 +42,84 @@ $vocabulary = array(
     'stackscripts'           => 'stackScripts',
     'updatecard'             => 'updateCard',
     'webconsoletoken'        => 'webConsoleToken',
-);
+];
 
 // The spec doesn't keep the order of parameters in consistency.
 // To avoid changing of the order on each update we store predefined order for known functions.
 
-$params_order = array(
-    'account.estimateinvoice'            => array('mode', 'LinodeID', 'PlanID', 'PaymentTerm'),
-    'account.info'                       => array(),
-    'account.paybalance'                 => array(),
-    'account.updatecard'                 => array('ccNumber', 'ccExpMonth', 'ccExpYear'),
-    'api.spec'                           => array(),
-    'avail.datacenters'                  => array(),
-    'avail.distributions'                => array('DistributionID'),
-    'avail.kernels'                      => array('isXen', 'isKVM'),
-    'avail.linodeplans'                  => array('PlanID'),
-    'avail.nodebalancers'                => array(),
-    'avail.stackscripts'                 => array('DistributionID', 'DistributionVendor', 'keywords'),
-    'domain.create'                      => array('Domain', 'Type', 'SOA_Email', 'Description', 'Refresh_sec', 'Retry_sec', 'Expire_sec', 'TTL_sec', 'lpm_displayGroup', 'status', 'master_ips', 'axfr_ips'),
-    'domain.delete'                      => array('DomainID'),
-    'domain.list'                        => array('DomainID'),
-    'domain.resource.create'             => array('DomainID', 'Type', 'Name', 'Target', 'Priority', 'Weight', 'Port', 'Protocol', 'TTL_sec'),
-    'domain.resource.delete'             => array('DomainID', 'ResourceID'),
-    'domain.resource.list'               => array('DomainID', 'ResourceID'),
-    'domain.resource.update'             => array('DomainID', 'ResourceID', 'Name', 'Target', 'Priority', 'Weight', 'Port', 'Protocol', 'TTL_sec'),
-    'domain.update'                      => array('DomainID', 'Domain', 'Type', 'SOA_Email', 'Description', 'Refresh_sec', 'Retry_sec', 'Expire_sec', 'TTL_sec', 'lpm_displayGroup', 'status', 'master_ips', 'axfr_ips'),
-    'image.delete'                       => array('ImageID'),
-    'image.list'                         => array('ImageID', 'pending'),
-    'image.update'                       => array('ImageID', 'label', 'description'),
-    'linode.boot'                        => array('LinodeID', 'ConfigID'),
-    'linode.clone'                       => array('LinodeID', 'DatacenterID', 'PlanID', 'PaymentTerm'),
-    'linode.config.create'               => array('LinodeID', 'Label', 'KernelID', 'DiskList', 'RunLevel', 'RAMLimit', 'virt_mode', 'RootDeviceNum', 'RootDeviceCustom', 'RootDeviceRO', 'devtmpfs_automount', 'helper_distro', 'helper_xen', 'helper_disableUpdateDB', 'helper_depmod', 'helper_network', 'Comments'),
-    'linode.config.delete'               => array('LinodeID', 'ConfigID'),
-    'linode.config.list'                 => array('LinodeID', 'ConfigID'),
-    'linode.config.update'               => array('LinodeID', 'ConfigID', 'Label', 'KernelID', 'DiskList', 'RunLevel', 'RAMLimit', 'virt_mode', 'RootDeviceNum', 'RootDeviceCustom', 'RootDeviceRO', 'devtmpfs_automount', 'helper_distro', 'helper_xen', 'helper_disableUpdateDB', 'helper_depmod', 'helper_network', 'Comments'),
-    'linode.create'                      => array('DatacenterID', 'PlanID', 'PaymentTerm'),
-    'linode.delete'                      => array('LinodeID', 'skipChecks'),
-    'linode.disk.create'                 => array('LinodeID', 'Label', 'Type', 'Size', 'isReadOnly', 'FromDistributionID', 'rootPass', 'rootSSHKey'),
-    'linode.disk.createfromdistribution' => array('LinodeID', 'DistributionID', 'Label', 'Size', 'rootPass', 'rootSSHKey'),
-    'linode.disk.createfromimage'        => array('LinodeID', 'ImageID', 'Label', 'size', 'rootPass', 'rootSSHKey'),
-    'linode.disk.createfromstackscript'  => array('LinodeID', 'StackScriptID', 'StackScriptUDFResponses', 'DistributionID', 'Label', 'Size', 'rootPass', 'rootSSHKey'),
-    'linode.disk.delete'                 => array('LinodeID', 'DiskID'),
-    'linode.disk.duplicate'              => array('LinodeID', 'DiskID'),
-    'linode.disk.imagize'                => array('LinodeID', 'DiskID', 'Label', 'Description'),
-    'linode.disk.list'                   => array('LinodeID', 'DiskID'),
-    'linode.disk.resize'                 => array('LinodeID', 'DiskID', 'size'),
-    'linode.disk.update'                 => array('LinodeID', 'DiskID', 'Label', 'isReadOnly'),
-    'linode.ip.addprivate'               => array('LinodeID'),
-    'linode.ip.addpublic'                => array('LinodeID'),
-    'linode.ip.list'                     => array('LinodeID', 'IPAddressID'),
-    'linode.ip.setrdns'                  => array('IPAddressID', 'Hostname'),
-    'linode.ip.swap'                     => array('IPAddressID', 'withIPAddressID', 'toLinodeID'),
-    'linode.job.list'                    => array('LinodeID', 'JobID', 'pendingOnly'),
-    'linode.list'                        => array('LinodeID'),
-    'linode.mutate'                      => array('LinodeID'),
-    'linode.reboot'                      => array('LinodeID', 'ConfigID'),
-    'linode.resize'                      => array('LinodeID', 'PlanID'),
-    'linode.shutdown'                    => array('LinodeID'),
-    'linode.update'                      => array('LinodeID', 'Label', 'lpm_displayGroup', 'Alert_cpu_enabled', 'Alert_cpu_threshold', 'Alert_diskio_enabled', 'Alert_diskio_threshold', 'Alert_bwin_enabled', 'Alert_bwin_threshold', 'Alert_bwout_enabled', 'Alert_bwout_threshold', 'Alert_bwquota_enabled', 'Alert_bwquota_threshold', 'backupWindow', 'backupWeeklyDay', 'watchdog', 'ms_ssh_disabled', 'ms_ssh_user', 'ms_ssh_ip', 'ms_ssh_port'),
-    'linode.webconsoletoken'             => array('LinodeID'),
-    'nodebalancer.config.create'         => array('NodeBalancerID', 'Port', 'Protocol', 'Algorithm', 'Stickiness', 'check', 'check_interval', 'check_timeout', 'check_attempts', 'check_path', 'check_body', 'check_passive', 'ssl_cert', 'ssl_key', 'cipher_suite'),
-    'nodebalancer.config.delete'         => array('NodeBalancerID', 'ConfigID'),
-    'nodebalancer.config.list'           => array('NodeBalancerID', 'ConfigID'),
-    'nodebalancer.config.update'         => array('ConfigID', 'Port', 'Protocol', 'Algorithm', 'Stickiness', 'check', 'check_interval', 'check_timeout', 'check_attempts', 'check_path', 'check_body', 'check_passive', 'ssl_cert', 'ssl_key', 'cipher_suite'),
-    'nodebalancer.create'                => array('DatacenterID', 'Label', 'ClientConnThrottle'),
-    'nodebalancer.delete'                => array('NodeBalancerID'),
-    'nodebalancer.list'                  => array('NodeBalancerID'),
-    'nodebalancer.node.create'           => array('ConfigID', 'Label', 'Address', 'Weight', 'Mode'),
-    'nodebalancer.node.delete'           => array('NodeID'),
-    'nodebalancer.node.list'             => array('ConfigID', 'NodeID'),
-    'nodebalancer.node.update'           => array('NodeID', 'Label', 'Address', 'Weight', 'Mode'),
-    'nodebalancer.update'                => array('NodeBalancerID', 'Label', 'ClientConnThrottle'),
-    'professionalservices.scope.create'  => array('linode_plan', 'customer_name', 'web_server', 'mail_transfer', 'server_quantity', 'provider_access', 'monitoring', 'web_cache', 'database_server', 'mail_filtering', 'notes', 'ticket_number', 'content_management', 'linode_datacenter', 'mail_retrieval', 'system_administration', 'requested_service', 'crossover', 'phone_number', 'application_quantity', 'managed', 'webmail', 'current_provider', 'email_address', 'replication'),
-    'stackscript.create'                 => array('script', 'DistributionIDList', 'Label', 'Description', 'isPublic', 'rev_note'),
-    'stackscript.delete'                 => array('StackScriptID'),
-    'stackscript.list'                   => array('StackScriptID'),
-    'stackscript.update'                 => array('StackScriptID', 'script', 'DistributionIDList', 'Label', 'Description', 'isPublic', 'rev_note'),
-    'user.getapikey'                     => array('username', 'password', 'token', 'expires', 'label'),
-);
+$params_order = [
+    'account.estimateinvoice'            => ['mode', 'LinodeID', 'PlanID', 'PaymentTerm'],
+    'account.info'                       => [],
+    'account.paybalance'                 => [],
+    'account.updatecard'                 => ['ccNumber', 'ccExpMonth', 'ccExpYear'],
+    'api.spec'                           => [],
+    'avail.datacenters'                  => [],
+    'avail.distributions'                => ['DistributionID'],
+    'avail.kernels'                      => ['isXen', 'isKVM'],
+    'avail.linodeplans'                  => ['PlanID'],
+    'avail.nodebalancers'                => [],
+    'avail.stackscripts'                 => ['DistributionID', 'DistributionVendor', 'keywords'],
+    'domain.create'                      => ['Domain', 'Type', 'SOA_Email', 'Description', 'Refresh_sec', 'Retry_sec', 'Expire_sec', 'TTL_sec', 'lpm_displayGroup', 'status', 'master_ips', 'axfr_ips'],
+    'domain.delete'                      => ['DomainID'],
+    'domain.list'                        => ['DomainID'],
+    'domain.resource.create'             => ['DomainID', 'Type', 'Name', 'Target', 'Priority', 'Weight', 'Port', 'Protocol', 'TTL_sec'],
+    'domain.resource.delete'             => ['DomainID', 'ResourceID'],
+    'domain.resource.list'               => ['DomainID', 'ResourceID'],
+    'domain.resource.update'             => ['DomainID', 'ResourceID', 'Name', 'Target', 'Priority', 'Weight', 'Port', 'Protocol', 'TTL_sec'],
+    'domain.update'                      => ['DomainID', 'Domain', 'Type', 'SOA_Email', 'Description', 'Refresh_sec', 'Retry_sec', 'Expire_sec', 'TTL_sec', 'lpm_displayGroup', 'status', 'master_ips', 'axfr_ips'],
+    'image.delete'                       => ['ImageID'],
+    'image.list'                         => ['ImageID', 'pending'],
+    'image.update'                       => ['ImageID', 'label', 'description'],
+    'linode.boot'                        => ['LinodeID', 'ConfigID'],
+    'linode.clone'                       => ['LinodeID', 'DatacenterID', 'PlanID', 'PaymentTerm'],
+    'linode.config.create'               => ['LinodeID', 'Label', 'KernelID', 'DiskList', 'RunLevel', 'RAMLimit', 'virt_mode', 'RootDeviceNum', 'RootDeviceCustom', 'RootDeviceRO', 'devtmpfs_automount', 'helper_distro', 'helper_xen', 'helper_disableUpdateDB', 'helper_depmod', 'helper_network', 'Comments'],
+    'linode.config.delete'               => ['LinodeID', 'ConfigID'],
+    'linode.config.list'                 => ['LinodeID', 'ConfigID'],
+    'linode.config.update'               => ['LinodeID', 'ConfigID', 'Label', 'KernelID', 'DiskList', 'RunLevel', 'RAMLimit', 'virt_mode', 'RootDeviceNum', 'RootDeviceCustom', 'RootDeviceRO', 'devtmpfs_automount', 'helper_distro', 'helper_xen', 'helper_disableUpdateDB', 'helper_depmod', 'helper_network', 'Comments'],
+    'linode.create'                      => ['DatacenterID', 'PlanID', 'PaymentTerm'],
+    'linode.delete'                      => ['LinodeID', 'skipChecks'],
+    'linode.disk.create'                 => ['LinodeID', 'Label', 'Type', 'Size', 'isReadOnly', 'FromDistributionID', 'rootPass', 'rootSSHKey'],
+    'linode.disk.createfromdistribution' => ['LinodeID', 'DistributionID', 'Label', 'Size', 'rootPass', 'rootSSHKey'],
+    'linode.disk.createfromimage'        => ['LinodeID', 'ImageID', 'Label', 'size', 'rootPass', 'rootSSHKey'],
+    'linode.disk.createfromstackscript'  => ['LinodeID', 'StackScriptID', 'StackScriptUDFResponses', 'DistributionID', 'Label', 'Size', 'rootPass', 'rootSSHKey'],
+    'linode.disk.delete'                 => ['LinodeID', 'DiskID'],
+    'linode.disk.duplicate'              => ['LinodeID', 'DiskID'],
+    'linode.disk.imagize'                => ['LinodeID', 'DiskID', 'Label', 'Description'],
+    'linode.disk.list'                   => ['LinodeID', 'DiskID'],
+    'linode.disk.resize'                 => ['LinodeID', 'DiskID', 'size'],
+    'linode.disk.update'                 => ['LinodeID', 'DiskID', 'Label', 'isReadOnly'],
+    'linode.ip.addprivate'               => ['LinodeID'],
+    'linode.ip.addpublic'                => ['LinodeID'],
+    'linode.ip.list'                     => ['LinodeID', 'IPAddressID'],
+    'linode.ip.setrdns'                  => ['IPAddressID', 'Hostname'],
+    'linode.ip.swap'                     => ['IPAddressID', 'withIPAddressID', 'toLinodeID'],
+    'linode.job.list'                    => ['LinodeID', 'JobID', 'pendingOnly'],
+    'linode.list'                        => ['LinodeID'],
+    'linode.mutate'                      => ['LinodeID'],
+    'linode.reboot'                      => ['LinodeID', 'ConfigID'],
+    'linode.resize'                      => ['LinodeID', 'PlanID'],
+    'linode.shutdown'                    => ['LinodeID'],
+    'linode.update'                      => ['LinodeID', 'Label', 'lpm_displayGroup', 'Alert_cpu_enabled', 'Alert_cpu_threshold', 'Alert_diskio_enabled', 'Alert_diskio_threshold', 'Alert_bwin_enabled', 'Alert_bwin_threshold', 'Alert_bwout_enabled', 'Alert_bwout_threshold', 'Alert_bwquota_enabled', 'Alert_bwquota_threshold', 'backupWindow', 'backupWeeklyDay', 'watchdog', 'ms_ssh_disabled', 'ms_ssh_user', 'ms_ssh_ip', 'ms_ssh_port'],
+    'linode.webconsoletoken'             => ['LinodeID'],
+    'nodebalancer.config.create'         => ['NodeBalancerID', 'Port', 'Protocol', 'Algorithm', 'Stickiness', 'check', 'check_interval', 'check_timeout', 'check_attempts', 'check_path', 'check_body', 'check_passive', 'ssl_cert', 'ssl_key', 'cipher_suite'],
+    'nodebalancer.config.delete'         => ['NodeBalancerID', 'ConfigID'],
+    'nodebalancer.config.list'           => ['NodeBalancerID', 'ConfigID'],
+    'nodebalancer.config.update'         => ['ConfigID', 'Port', 'Protocol', 'Algorithm', 'Stickiness', 'check', 'check_interval', 'check_timeout', 'check_attempts', 'check_path', 'check_body', 'check_passive', 'ssl_cert', 'ssl_key', 'cipher_suite'],
+    'nodebalancer.create'                => ['DatacenterID', 'Label', 'ClientConnThrottle'],
+    'nodebalancer.delete'                => ['NodeBalancerID'],
+    'nodebalancer.list'                  => ['NodeBalancerID'],
+    'nodebalancer.node.create'           => ['ConfigID', 'Label', 'Address', 'Weight', 'Mode'],
+    'nodebalancer.node.delete'           => ['NodeID'],
+    'nodebalancer.node.list'             => ['ConfigID', 'NodeID'],
+    'nodebalancer.node.update'           => ['NodeID', 'Label', 'Address', 'Weight', 'Mode'],
+    'nodebalancer.update'                => ['NodeBalancerID', 'Label', 'ClientConnThrottle'],
+    'professionalservices.scope.create'  => ['linode_plan', 'customer_name', 'web_server', 'mail_transfer', 'server_quantity', 'provider_access', 'monitoring', 'web_cache', 'database_server', 'mail_filtering', 'notes', 'ticket_number', 'content_management', 'linode_datacenter', 'mail_retrieval', 'system_administration', 'requested_service', 'crossover', 'phone_number', 'application_quantity', 'managed', 'webmail', 'current_provider', 'email_address', 'replication'],
+    'stackscript.create'                 => ['script', 'DistributionIDList', 'Label', 'Description', 'isPublic', 'rev_note'],
+    'stackscript.delete'                 => ['StackScriptID'],
+    'stackscript.list'                   => ['StackScriptID'],
+    'stackscript.update'                 => ['StackScriptID', 'script', 'DistributionIDList', 'Label', 'Description', 'isPublic', 'rev_note'],
+    'user.getapikey'                     => ['username', 'password', 'token', 'expires', 'label'],
+];
 
 // Get API specification.
 
@@ -134,7 +134,7 @@ $version = $api['VERSION'];
 
 // Array of classes with nested arrays of methods.
 
-$classes = array();
+$classes = [];
 
 // Convert "linode.disk.createfromstackscript" names to ["Linode.Disk"]["createFromStackScript"].
 
@@ -164,7 +164,7 @@ foreach (array_keys($api['METHODS']) as $entry) {
     $class = implode('.', $parts);
 
     if (!array_key_exists($class, $classes)) {
-        $classes[$class] = array();
+        $classes[$class] = [];
     }
 
     $classes[$class][$method] = $api['METHODS'][$entry];
@@ -195,7 +195,7 @@ foreach ($classes as $class => $methods) {
 
         // The original API spec contains optional and required parameters unordered.
 
-        $parameters = array();
+        $parameters = [];
 
         // If we have predefined order for this function, use it.
         if (array_key_exists($meta['ACTION'], $params_order)) {
@@ -232,7 +232,7 @@ foreach ($classes as $class => $methods) {
         $annotation = null;
 
         // Function parameters.
-        $function_params = array();
+        $function_params = [];
 
         // API call parameters.
         $call_params = null;
@@ -241,11 +241,11 @@ foreach ($classes as $class => $methods) {
         foreach ($meta['PARAMETERS'] as $parameter) {
 
             // Map of spec types to PHP types.
-            $types = array(
+            $types = [
                 'boolean' => 'bool',
                 'numeric' => 'int',
                 'string'  => 'string',
-            );
+            ];
 
             // Add parameter's annotation.
             $annotation .= sprintf("%s* @param %s $%s [%s] %s\n",
@@ -284,7 +284,7 @@ foreach ($classes as $class => $methods) {
         );
 
         // Remove empty array from API call.
-        $function = str_replace(", array(\n        )", null, $function);
+        $function = str_replace(", [\n        ]", null, $function);
 
         $php .= $function;
     }

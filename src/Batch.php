@@ -32,7 +32,7 @@ class Batch
     public function __construct($key)
     {
         $this->key      = $key;
-        $this->requests = array();
+        $this->requests = [];
     }
 
     /**
@@ -68,7 +68,7 @@ class Batch
 
         $query = "api_key={$this->key}&api_action=batch&api_requestArray=" . json_encode($this->requests);
 
-        $this->requests = array();
+        $this->requests = [];
 
         if ($debug) {
             return $query;

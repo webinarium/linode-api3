@@ -20,7 +20,7 @@ Also please note that "[test.echo](https://www.linode.com/api/utility/test.echo)
 
 ## Requirements
 
-PHP needs to be a minimum version of PHP 5.2.0.
+PHP needs to be a minimum version of PHP 5.4.
 
 ## Installation
 
@@ -73,8 +73,8 @@ $key = '...';
 
 // Hardcode some IDs to make the example shorter.
 // Normally you might want to use "Linode\AvailApi" class functions.
-$datacenters = array(2, 3, 4, 6);   // all four US datacenters
-$plan        = 1;                   // we will use the cheapest plan
+$datacenters = [2, 3, 4, 6];    // all four US datacenters
+$plan        = 1;               // we will use the cheapest plan
 
 // Create a batch.
 $batch = new Batch($key);

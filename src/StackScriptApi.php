@@ -2,7 +2,7 @@
 
 //----------------------------------------------------------------------
 //
-//  Copyright (C) 2015 Artem Rodygin
+//  Copyright (C) 2015-2016 Artem Rodygin
 //
 //  This file is part of Linode API Client Library for PHP.
 //
@@ -34,14 +34,14 @@ class StackScriptApi extends BaseLinodeApi
      */
     public function create($script, $DistributionIDList, $Label, $Description = null, $isPublic = null, $rev_note = null)
     {
-        return $this->call('stackscript.create', array(
+        return $this->call('stackscript.create', [
             'script'             => $script,
             'DistributionIDList' => $DistributionIDList,
             'Label'              => $Label,
             'Description'        => $Description,
             'isPublic'           => $isPublic,
             'rev_note'           => $rev_note,
-        ));
+        ]);
     }
 
     /**
@@ -51,9 +51,9 @@ class StackScriptApi extends BaseLinodeApi
      */
     public function delete($StackScriptID)
     {
-        return $this->call('stackscript.delete', array(
+        return $this->call('stackscript.delete', [
             'StackScriptID' => $StackScriptID,
-        ));
+        ]);
     }
 
     /**
@@ -65,9 +65,9 @@ class StackScriptApi extends BaseLinodeApi
      */
     public function getList($StackScriptID = null)
     {
-        return $this->call('stackscript.list', array(
+        return $this->call('stackscript.list', [
             'StackScriptID' => $StackScriptID,
-        ));
+        ]);
     }
 
     /**
@@ -85,7 +85,7 @@ class StackScriptApi extends BaseLinodeApi
      */
     public function update($StackScriptID, $script = null, $DistributionIDList = null, $Label = null, $Description = null, $isPublic = null, $rev_note = null)
     {
-        return $this->call('stackscript.update', array(
+        return $this->call('stackscript.update', [
             'StackScriptID'      => $StackScriptID,
             'script'             => $script,
             'DistributionIDList' => $DistributionIDList,
@@ -93,6 +93,6 @@ class StackScriptApi extends BaseLinodeApi
             'Description'        => $Description,
             'isPublic'           => $isPublic,
             'rev_note'           => $rev_note,
-        ));
+        ]);
     }
 }

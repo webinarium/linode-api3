@@ -2,7 +2,7 @@
 
 //----------------------------------------------------------------------
 //
-//  Copyright (C) 2015 Artem Rodygin
+//  Copyright (C) 2015-2016 Artem Rodygin
 //
 //  This file is part of Linode API Client Library for PHP.
 //
@@ -29,9 +29,9 @@ class ImageApi extends BaseLinodeApi
      */
     public function delete($ImageID)
     {
-        return $this->call('image.delete', array(
+        return $this->call('image.delete', [
             'ImageID' => $ImageID,
-        ));
+        ]);
     }
 
     /**
@@ -44,10 +44,10 @@ class ImageApi extends BaseLinodeApi
      */
     public function getList($ImageID = null, $pending = null)
     {
-        return $this->call('image.list', array(
+        return $this->call('image.list', [
             'ImageID' => $ImageID,
             'pending' => $pending,
-        ));
+        ]);
     }
 
     /**
@@ -61,10 +61,10 @@ class ImageApi extends BaseLinodeApi
      */
     public function update($ImageID, $label = null, $description = null)
     {
-        return $this->call('image.update', array(
+        return $this->call('image.update', [
             'ImageID'     => $ImageID,
             'label'       => $label,
             'description' => $description,
-        ));
+        ]);
     }
 }

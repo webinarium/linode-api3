@@ -2,7 +2,7 @@
 
 //----------------------------------------------------------------------
 //
-//  Copyright (C) 2015 Artem Rodygin
+//  Copyright (C) 2015-2016 Artem Rodygin
 //
 //  This file is part of Linode API Client Library for PHP.
 //
@@ -39,9 +39,9 @@ class AvailApi extends BaseLinodeApi
      */
     public function distributions($DistributionID = null)
     {
-        return $this->call('avail.distributions', array(
+        return $this->call('avail.distributions', [
             'DistributionID' => $DistributionID,
-        ));
+        ]);
     }
 
     /**
@@ -54,10 +54,10 @@ class AvailApi extends BaseLinodeApi
      */
     public function kernels($isXen = null, $isKVM = null)
     {
-        return $this->call('avail.kernels', array(
+        return $this->call('avail.kernels', [
             'isXen' => $isXen,
             'isKVM' => $isKVM,
-        ));
+        ]);
     }
 
     /**
@@ -70,9 +70,9 @@ class AvailApi extends BaseLinodeApi
      */
     public function linodePlans($PlanID = null)
     {
-        return $this->call('avail.linodeplans', array(
+        return $this->call('avail.linodeplans', [
             'PlanID' => $PlanID,
-        ));
+        ]);
     }
 
     /**
@@ -96,10 +96,10 @@ class AvailApi extends BaseLinodeApi
      */
     public function stackScripts($DistributionID = null, $DistributionVendor = null, $keywords = null)
     {
-        return $this->call('avail.stackscripts', array(
+        return $this->call('avail.stackscripts', [
             'DistributionID'     => $DistributionID,
             'DistributionVendor' => $DistributionVendor,
             'keywords'           => $keywords,
-        ));
+        ]);
     }
 }

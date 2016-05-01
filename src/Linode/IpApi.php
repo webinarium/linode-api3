@@ -2,7 +2,7 @@
 
 //----------------------------------------------------------------------
 //
-//  Copyright (C) 2015 Artem Rodygin
+//  Copyright (C) 2015-2016 Artem Rodygin
 //
 //  This file is part of Linode API Client Library for PHP.
 //
@@ -31,9 +31,9 @@ class IpApi extends BaseLinodeApi
      */
     public function addPrivate($LinodeID)
     {
-        return $this->call('linode.ip.addprivate', array(
+        return $this->call('linode.ip.addprivate', [
             'LinodeID' => $LinodeID,
-        ));
+        ]);
     }
 
     /**
@@ -45,9 +45,9 @@ class IpApi extends BaseLinodeApi
      */
     public function addPublic($LinodeID)
     {
-        return $this->call('linode.ip.addpublic', array(
+        return $this->call('linode.ip.addpublic', [
             'LinodeID' => $LinodeID,
-        ));
+        ]);
     }
 
     /**
@@ -60,10 +60,10 @@ class IpApi extends BaseLinodeApi
      */
     public function getList($LinodeID = null, $IPAddressID = null)
     {
-        return $this->call('linode.ip.list', array(
+        return $this->call('linode.ip.list', [
             'LinodeID'    => $LinodeID,
             'IPAddressID' => $IPAddressID,
-        ));
+        ]);
     }
 
     /**
@@ -76,10 +76,10 @@ class IpApi extends BaseLinodeApi
      */
     public function setReverseDNS($IPAddressID, $Hostname)
     {
-        return $this->call('linode.ip.setrdns', array(
+        return $this->call('linode.ip.setrdns', [
             'IPAddressID' => $IPAddressID,
             'Hostname'    => $Hostname,
-        ));
+        ]);
     }
 
     /**
@@ -96,10 +96,10 @@ class IpApi extends BaseLinodeApi
      */
     public function swap($IPAddressID, $withIPAddressID = null, $toLinodeID = null)
     {
-        return $this->call('linode.ip.swap', array(
+        return $this->call('linode.ip.swap', [
             'IPAddressID'     => $IPAddressID,
             'withIPAddressID' => $withIPAddressID,
             'toLinodeID'      => $toLinodeID,
-        ));
+        ]);
     }
 }

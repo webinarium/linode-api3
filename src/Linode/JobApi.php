@@ -2,7 +2,7 @@
 
 //----------------------------------------------------------------------
 //
-//  Copyright (C) 2015 Artem Rodygin
+//  Copyright (C) 2015-2016 Artem Rodygin
 //
 //  This file is part of Linode API Client Library for PHP.
 //
@@ -31,10 +31,10 @@ class JobApi extends BaseLinodeApi
      */
     public function getList($LinodeID, $JobID = null, $pendingOnly = null)
     {
-        return $this->call('linode.job.list', array(
+        return $this->call('linode.job.list', [
             'LinodeID'    => $LinodeID,
             'JobID'       => $JobID,
             'pendingOnly' => $pendingOnly,
-        ));
+        ]);
     }
 }

@@ -2,7 +2,7 @@
 
 //----------------------------------------------------------------------
 //
-//  Copyright (C) 2015 Artem Rodygin
+//  Copyright (C) 2015-2016 Artem Rodygin
 //
 //  This file is part of Linode API Client Library for PHP.
 //
@@ -39,7 +39,7 @@ class ResourceApi extends BaseLinodeApi
      */
     public function create($DomainID, $Type, $Name = null, $Target = null, $Priority = null, $Weight = null, $Port = null, $Protocol = null, $TTL_sec = null)
     {
-        return $this->call('domain.resource.create', array(
+        return $this->call('domain.resource.create', [
             'DomainID' => $DomainID,
             'Type'     => $Type,
             'Name'     => $Name,
@@ -49,7 +49,7 @@ class ResourceApi extends BaseLinodeApi
             'Port'     => $Port,
             'Protocol' => $Protocol,
             'TTL_sec'  => $TTL_sec,
-        ));
+        ]);
     }
 
     /**
@@ -60,10 +60,10 @@ class ResourceApi extends BaseLinodeApi
      */
     public function delete($DomainID, $ResourceID)
     {
-        return $this->call('domain.resource.delete', array(
+        return $this->call('domain.resource.delete', [
             'DomainID'   => $DomainID,
             'ResourceID' => $ResourceID,
-        ));
+        ]);
     }
 
     /**
@@ -74,10 +74,10 @@ class ResourceApi extends BaseLinodeApi
      */
     public function getList($DomainID, $ResourceID = null)
     {
-        return $this->call('domain.resource.list', array(
+        return $this->call('domain.resource.list', [
             'DomainID'   => $DomainID,
             'ResourceID' => $ResourceID,
-        ));
+        ]);
     }
 
     /**
@@ -97,7 +97,7 @@ class ResourceApi extends BaseLinodeApi
      */
     public function update($DomainID = null, $ResourceID, $Name = null, $Target = null, $Priority = null, $Weight = null, $Port = null, $Protocol = null, $TTL_sec = null)
     {
-        return $this->call('domain.resource.update', array(
+        return $this->call('domain.resource.update', [
             'DomainID'   => $DomainID,
             'ResourceID' => $ResourceID,
             'Name'       => $Name,
@@ -107,6 +107,6 @@ class ResourceApi extends BaseLinodeApi
             'Port'       => $Port,
             'Protocol'   => $Protocol,
             'TTL_sec'    => $TTL_sec,
-        ));
+        ]);
     }
 }
