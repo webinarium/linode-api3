@@ -27,8 +27,8 @@ PHP needs to be a minimum version of PHP 5.4.
 The recommended way to install is via Composer:
 
 ```bash
-composer.phar require "arodygin/linode-api-php"
-composer.phar install
+composer require "arodygin/linode-api-php"
+composer install
 ```
 
 ## Usage Example
