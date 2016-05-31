@@ -100,7 +100,7 @@ Almost all tests are mocked so you don't have to use a real API key and no real 
 The only tests which make a complete API call are `TestTest` (for "[test.echo](https://www.linode.com/api/utility/test.echo)") and `ApiTest` (for "[api.spec](https://www.linode.com/api/utility/api.spec)"):
 
 ```bash
-./bin/phpunit --coverage-text
+phpunit --coverage-text
 ```
 
 ## Library regeneration
