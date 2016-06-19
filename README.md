@@ -1,8 +1,8 @@
 [![License](https://poser.pugx.org/arodygin/linode-api-php/license)](https://packagist.org/packages/arodygin/linode-api-php)
 [![Latest Stable Version](https://poser.pugx.org/arodygin/linode-api-php/v/stable)](https://packagist.org/packages/arodygin/linode-api-php)
-[![Build Status](https://travis-ci.org/arodygin/linode-api-php.svg?branch=master)](https://travis-ci.org/arodygin/linode-api-php)
-[![Code Coverage](https://scrutinizer-ci.com/g/arodygin/linode-api-php/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/arodygin/linode-api-php/?branch=master)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/arodygin/linode-api-php/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/arodygin/linode-api-php/?branch=master)
+[![Build Status](https://travis-ci.org/arodygin/php-linode-api3.svg?branch=master)](https://travis-ci.org/arodygin/php-linode-api3)
+[![Code Coverage](https://scrutinizer-ci.com/g/arodygin/php-linode-api3/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/arodygin/php-linode-api3/?branch=master)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/arodygin/php-linode-api3/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/arodygin/php-linode-api3/?branch=master)
 [![SensioLabsInsight](https://img.shields.io/sensiolabs/i/727b4566-d4ae-49a3-90de-b4a607d514bc.svg)](https://insight.sensiolabs.com/projects/727b4566-d4ae-49a3-90de-b4a607d514bc)
 
 # Linode API v3 Client Library for PHP
