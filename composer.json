@@ -1,6 +1,6 @@
 {
     "name": "arodygin/linode-api-php",
-    "description": "Linode API Client Library for PHP",
+    "description": "Linode API v3 Client Library for PHP",
     "type": "library",
     "keywords": ["api", "linode"],
     "homepage": "https://github.com/arodygin/linode-api-php",
