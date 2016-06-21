@@ -11,8 +11,6 @@
 //
 //----------------------------------------------------------------------
 
-require_once __DIR__ . '/../vendor/autoload.php';
-
 use Linode\DnsRecord;
 use Linode\Domain;
 

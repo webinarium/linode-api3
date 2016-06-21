@@ -11,8 +11,6 @@
 //
 //----------------------------------------------------------------------
 
-require_once __DIR__ . '/../vendor/autoload.php';
-
 use Linode\Batch;
 use Linode\LinodeApi;
 use Linode\PaymentTerm;

@@ -28,7 +28,6 @@ The recommended way to install is via Composer:
 
 ```bash
 composer require "arodygin/linode-api-php"
-composer install
 ```
 
 ## Usage Example
@@ -36,8 +35,6 @@ composer install
 Below is a complete example of how to create a new Linode host using the library:
 
 ```php
-require_once(__DIR__ . '/../vendor/autoload.php');
-
 use Linode\LinodeApi;
 use Linode\PaymentTerm;
 
@@ -62,8 +59,6 @@ The Linode API also supports a batched mode, whereby you supply multiple request
 Example batch request using the library:
 
 ```php
-require_once(__DIR__ . '/../vendor/autoload.php');
-
 use Linode\Batch;
 use Linode\LinodeApi;
 use Linode\PaymentTerm;

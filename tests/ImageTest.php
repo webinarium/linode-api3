@@ -11,8 +11,6 @@
 //
 //----------------------------------------------------------------------
 
-require_once __DIR__ . '/../vendor/autoload.php';
-
 use Linode\ImageApi;
 
 class ImageTest extends \PHPUnit_Framework_TestCase

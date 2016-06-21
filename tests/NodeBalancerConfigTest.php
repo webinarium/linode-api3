@@ -11,8 +11,6 @@
 //
 //----------------------------------------------------------------------
 
-require_once __DIR__ . '/../vendor/autoload.php';
-
 use Linode\BalancingAlgorithm;
 use Linode\NodeBalancer\ConfigApi;
 use Linode\SessionPersistence;

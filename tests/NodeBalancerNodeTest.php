@@ -11,8 +11,6 @@
 //
 //----------------------------------------------------------------------
 
-require_once __DIR__ . '/../vendor/autoload.php';
-
 use Linode\NodeBalancer\NodeApi;
 
 class NodeBalancerNodeTest extends \PHPUnit_Framework_TestCase
