@@ -1,4 +1,5 @@
 [![License](https://poser.pugx.org/arodygin/linode-api-php/license)](https://packagist.org/packages/arodygin/linode-api-php)
+[![PHP](https://img.shields.io/badge/PHP-5.4%2B-blue.svg)](https://secure.php.net/migration54)
 [![Latest Stable Version](https://poser.pugx.org/arodygin/linode-api-php/v/stable)](https://packagist.org/packages/arodygin/linode-api-php)
 [![Build Status](https://travis-ci.org/arodygin/php-linode-api3.svg?branch=master)](https://travis-ci.org/arodygin/php-linode-api3)
 [![Code Coverage](https://scrutinizer-ci.com/g/arodygin/php-linode-api3/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/arodygin/php-linode-api3/?branch=master)
