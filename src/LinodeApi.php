@@ -111,6 +111,20 @@ class LinodeApi extends BaseLinodeApi
     }
 
     /**
+     * Changes a Linode's hypervisor from Xen to KVM.
+     *
+     * @param int $LinodeID [required] The LinodeID to migrate to KVM.
+     *
+     * @return array
+     */
+    public function kvmify($LinodeID)
+    {
+        return $this->call('linode.kvmify', [
+            'LinodeID' => $LinodeID,
+        ]);
+    }
+
+    /**
      * Upgrades a Linode to its next generation.
      *
      * @param int $LinodeID [required] 

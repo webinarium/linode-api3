@@ -610,214 +610,6 @@ return array (
       ),
       'THROWS' => '',
     ),
-    'professionalservices.scope.create' => 
-    array (
-      'DESCRIPTION' => 'Creates a new Professional Services scope submission',
-      'PARAMETERS' => 
-      array (
-        'linode_plan' => 
-        array (
-          'NAME' => 'linode_plan',
-          'DESCRIPTION' => 'Which Linode plans would you like to deploy?',
-          'default' => '',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'customer_name' => 
-        array (
-          'NAME' => 'customer_name',
-          'DESCRIPTION' => '',
-          'default' => '',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'web_server' => 
-        array (
-          'NAME' => 'web_server',
-          'DESCRIPTION' => 'These provide network protocol handling for hosting websites.',
-          'default' => '',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'mail_transfer' => 
-        array (
-          'NAME' => 'mail_transfer',
-          'DESCRIPTION' => 'Mail transfer agents facilitate message transfer between servers',
-          'default' => '',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'server_quantity' => 
-        array (
-          'NAME' => 'server_quantity',
-          'DESCRIPTION' => 'How many separate servers are involved in this migration?',
-          'default' => '',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'provider_access' => 
-        array (
-          'NAME' => 'provider_access',
-          'DESCRIPTION' => 'What types of server access do you have at your current provider?',
-          'default' => '',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'monitoring' => 
-        array (
-          'NAME' => 'monitoring',
-          'DESCRIPTION' => 'Constant monitoring of your deployed systems--these can also provide automatic notifications for service failures.',
-          'default' => '',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'web_cache' => 
-        array (
-          'NAME' => 'web_cache',
-          'DESCRIPTION' => 'Caching mechanisms provide temporary storage for web requests--cached content can generally be retrieved faster.',
-          'default' => '',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'database_server' => 
-        array (
-          'NAME' => 'database_server',
-          'DESCRIPTION' => 'Generally used by applications to provide an organized way to capture and manipulate data',
-          'default' => '',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'mail_filtering' => 
-        array (
-          'NAME' => 'mail_filtering',
-          'DESCRIPTION' => 'Services here manipulate recieved messages in various ways',
-          'default' => '',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'notes' => 
-        array (
-          'NAME' => 'notes',
-          'DESCRIPTION' => '',
-          'default' => '',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'ticket_number' => 
-        array (
-          'NAME' => 'ticket_number',
-          'DESCRIPTION' => '',
-          'default' => '',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'content_management' => 
-        array (
-          'NAME' => 'content_management',
-          'DESCRIPTION' => 'Centralized interfaces for editing, organizing, and publishing content',
-          'default' => '',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'linode_datacenter' => 
-        array (
-          'NAME' => 'linode_datacenter',
-          'DESCRIPTION' => 'Which datacenters would you like your Linodes to be deployed in?',
-          'default' => '',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'mail_retrieval' => 
-        array (
-          'NAME' => 'mail_retrieval',
-          'DESCRIPTION' => 'User mail clients connect to these to retrieve delivered mail',
-          'default' => '',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'system_administration' => 
-        array (
-          'NAME' => 'system_administration',
-          'DESCRIPTION' => 'Various web interfaces for performing system administration tasks',
-          'default' => '',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'requested_service' => 
-        array (
-          'NAME' => 'requested_service',
-          'DESCRIPTION' => '',
-          'default' => '',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'crossover' => 
-        array (
-          'NAME' => 'crossover',
-          'DESCRIPTION' => 'These can assist in providing reliable crossover--failures of individual components can be transparent to the application.',
-          'default' => '',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'phone_number' => 
-        array (
-          'NAME' => 'phone_number',
-          'DESCRIPTION' => '',
-          'default' => '',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'application_quantity' => 
-        array (
-          'NAME' => 'application_quantity',
-          'DESCRIPTION' => 'How many separate applications or websites are involved in this migration?',
-          'default' => '',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'managed' => 
-        array (
-          'NAME' => 'managed',
-          'DESCRIPTION' => '',
-          'default' => '',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'webmail' => 
-        array (
-          'NAME' => 'webmail',
-          'DESCRIPTION' => 'Access and administrate mail via web interfaces',
-          'default' => '',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'current_provider' => 
-        array (
-          'NAME' => 'current_provider',
-          'DESCRIPTION' => '',
-          'default' => '',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'email_address' => 
-        array (
-          'NAME' => 'email_address',
-          'DESCRIPTION' => '',
-          'default' => '',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'replication' => 
-        array (
-          'NAME' => 'replication',
-          'DESCRIPTION' => 'Redundant services often have shared state--replication automatically propagates state changes between individual components.',
-          'default' => '',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-      ),
-      'THROWS' => '',
-    ),
     'linode.disk.createfromimage' => 
     array (
       'DESCRIPTION' => 'Creates a new disk from a previously imagized disk.',
@@ -1415,6 +1207,21 @@ return array (
       array (
       ),
       'THROWS' => '',
+    ),
+    'linode.kvmify' => 
+    array (
+      'DESCRIPTION' => 'Changes a Linode\'s hypervisor from Xen to KVM.',
+      'PARAMETERS' => 
+      array (
+        'LinodeID' => 
+        array (
+          'NAME' => 'LinodeID',
+          'DESCRIPTION' => 'The LinodeID to migrate to KVM.',
+          'TYPE' => 'numeric',
+          'REQUIRED' => true,
+        ),
+      ),
+      'THROWS' => 'NOTFOUND,VALIDATION',
     ),
     'image.delete' => 
     array (

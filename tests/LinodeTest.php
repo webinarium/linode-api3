@@ -66,6 +66,15 @@ class LinodeTest extends \PHPUnit_Framework_TestCase
         self::assertEquals($expected, $query);
     }
 
+    public function testKvmify()
+    {
+        $LinodeID = mt_rand(1, PHP_INT_MAX);
+
+        $expected = "api_key={$this->key}&api_action=linode.kvmify&LinodeID={$LinodeID}";
+        $query    = $this->api->kvmify($LinodeID);
+        self::assertEquals($expected, $query);
+    }
+
     public function testList()
     {
         $expected = "api_key={$this->key}&api_action=linode.list";
