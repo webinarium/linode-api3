@@ -725,22 +725,6 @@ return array (
       'DESCRIPTION' => '',
       'PARAMETERS' => 
       array (
-        'isReadOnly' => 
-        array (
-          'NAME' => 'isReadOnly',
-          'DESCRIPTION' => 'Enable forced read-only for this Disk',
-          'default' => false,
-          'TYPE' => 'boolean',
-          'REQUIRED' => false,
-        ),
-        'rootPass' => 
-        array (
-          'NAME' => 'rootPass',
-          'DESCRIPTION' => '',
-          'default' => '',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
         'Label' => 
         array (
           'NAME' => 'Label',
@@ -748,20 +732,12 @@ return array (
           'TYPE' => 'string',
           'REQUIRED' => true,
         ),
-        'rootSSHKey' => 
+        'isReadOnly' => 
         array (
-          'NAME' => 'rootSSHKey',
-          'DESCRIPTION' => '',
-          'default' => '',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'FromDistributionID' => 
-        array (
-          'NAME' => 'FromDistributionID',
-          'DESCRIPTION' => '',
-          'default' => 0,
-          'TYPE' => 'numeric',
+          'NAME' => 'isReadOnly',
+          'DESCRIPTION' => 'Enable forced read-only for this Disk',
+          'default' => false,
+          'TYPE' => 'boolean',
           'REQUIRED' => false,
         ),
         'Size' => 

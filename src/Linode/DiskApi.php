@@ -23,28 +23,22 @@ use Linode\BaseLinodeApi;
 class DiskApi extends BaseLinodeApi
 {
     /**
-     * @param int    $LinodeID           [required] 
-     * @param string $Label              [required] The display label for this Disk
-     * @param string $Type               [required] The formatted type of this disk.  Valid types are: ext3, ext4, swap, raw
-     * @param int    $Size               [required] The size in MB of this Disk.
-     * @param bool   $isReadOnly         [optional] Enable forced read-only for this Disk
-     * @param int    $FromDistributionID [optional] 
-     * @param string $rootPass           [optional] 
-     * @param string $rootSSHKey         [optional] 
+     * @param int    $LinodeID   [required] 
+     * @param string $Label      [required] The display label for this Disk
+     * @param string $Type       [required] The formatted type of this disk.  Valid types are: ext3, ext4, swap, raw
+     * @param int    $Size       [required] The size in MB of this Disk.
+     * @param bool   $isReadOnly [optional] Enable forced read-only for this Disk
      *
      * @return array
      */
-    public function create($LinodeID, $Label, $Type, $Size, $isReadOnly = null, $FromDistributionID = null, $rootPass = null, $rootSSHKey = null)
+    public function create($LinodeID, $Label, $Type, $Size, $isReadOnly = null)
     {
         return $this->call('linode.disk.create', [
-            'LinodeID'           => $LinodeID,
-            'Label'              => $Label,
-            'Type'               => $Type,
-            'Size'               => $Size,
-            'isReadOnly'         => $isReadOnly,
-            'FromDistributionID' => $FromDistributionID,
-            'rootPass'           => $rootPass,
-            'rootSSHKey'         => $rootSSHKey,
+            'LinodeID'   => $LinodeID,
+            'Label'      => $Label,
+            'Type'       => $Type,
+            'Size'       => $Size,
+            'isReadOnly' => $isReadOnly,
         ]);
     }
 
