@@ -4,2573 +4,2573 @@ return array (
   'VERSION' => 3.2999999999999998,
   'METHODS' => 
   array (
-    'linode.list' => 
-    array (
-      'DESCRIPTION' => 'Returns a list of all Linodes user has access or delete to, including some properties.  Status values are -1: Being Created, 0: Brand New, 1: Running, and 2: Powered Off.',
-      'PARAMETERS' => 
-      array (
-        'LinodeID' => 
-        array (
-          'NAME' => 'LinodeID',
-          'DESCRIPTION' => 'Limits the list to the specified LinodeID',
-          'TYPE' => 'numeric',
-          'REQUIRED' => false,
-        ),
-      ),
-      'THROWS' => '',
-    ),
-    'nodebalancer.node.update' => 
-    array (
-      'DESCRIPTION' => 'Updates a Node\'s properties',
-      'PARAMETERS' => 
-      array (
-        'Label' => 
-        array (
-          'NAME' => 'Label',
-          'DESCRIPTION' => 'This backend Node\'s label',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'NodeID' => 
-        array (
-          'NAME' => 'NodeID',
-          'DESCRIPTION' => '',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-        'Mode' => 
-        array (
-          'NAME' => 'Mode',
-          'DESCRIPTION' => 'The connections mode for this node.  One of \'accept\', \'reject\', or \'drain\'',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'Weight' => 
-        array (
-          'NAME' => 'Weight',
-          'DESCRIPTION' => 'Load balancing weight, 1-255. Higher means more connections.',
-          'TYPE' => 'numeric',
-          'REQUIRED' => false,
-        ),
-        'Address' => 
-        array (
-          'NAME' => 'Address',
-          'DESCRIPTION' => 'The address:port combination used to communicate with this Node',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-      ),
-      'THROWS' => 'NOTFOUND,VALIDATION',
-    ),
-    'domain.update' => 
-    array (
-      'DESCRIPTION' => 'Update a domain record.',
-      'PARAMETERS' => 
-      array (
-        'DomainID' => 
-        array (
-          'NAME' => 'DomainID',
-          'DESCRIPTION' => '',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-        'Description' => 
-        array (
-          'NAME' => 'Description',
-          'DESCRIPTION' => 'Currently undisplayed.',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'Retry_sec' => 
-        array (
-          'NAME' => 'Retry_sec',
-          'DESCRIPTION' => '',
-          'TYPE' => 'numeric',
-          'REQUIRED' => false,
-        ),
-        'Expire_sec' => 
-        array (
-          'NAME' => 'Expire_sec',
-          'DESCRIPTION' => '',
-          'TYPE' => 'numeric',
-          'REQUIRED' => false,
-        ),
-        'status' => 
-        array (
-          'NAME' => 'status',
-          'DESCRIPTION' => '0, 1, or 2 (disabled, active, edit mode)',
-          'TYPE' => 'numeric',
-          'REQUIRED' => false,
-        ),
-        'Refresh_sec' => 
-        array (
-          'NAME' => 'Refresh_sec',
-          'DESCRIPTION' => '',
-          'TYPE' => 'numeric',
-          'REQUIRED' => false,
-        ),
-        'lpm_displayGroup' => 
-        array (
-          'NAME' => 'lpm_displayGroup',
-          'DESCRIPTION' => 'Display group in the Domain list inside the Linode DNS Manager',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'master_ips' => 
-        array (
-          'NAME' => 'master_ips',
-          'DESCRIPTION' => 'When type=slave, the zone\'s master DNS servers list, semicolon separated ',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'SOA_Email' => 
-        array (
-          'NAME' => 'SOA_Email',
-          'DESCRIPTION' => 'Required when type=master',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'TTL_sec' => 
-        array (
-          'NAME' => 'TTL_sec',
-          'DESCRIPTION' => '',
-          'TYPE' => 'numeric',
-          'REQUIRED' => false,
-        ),
-        'Domain' => 
-        array (
-          'NAME' => 'Domain',
-          'DESCRIPTION' => 'The zone\'s name',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'Type' => 
-        array (
-          'NAME' => 'Type',
-          'DESCRIPTION' => 'master or slave',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'axfr_ips' => 
-        array (
-          'NAME' => 'axfr_ips',
-          'DESCRIPTION' => 'IP addresses allowed to AXFR the entire zone, semicolon separated',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-      ),
-      'THROWS' => 'NOTFOUND,VALIDATION',
-    ),
-    'avail.datacenters' => 
-    array (
-      'DESCRIPTION' => 'Returns a list of Linode data center facilities.',
-      'PARAMETERS' => 
-      array (
-      ),
-      'THROWS' => '',
-    ),
-    'avail.linodeplans' => 
-    array (
-      'DESCRIPTION' => 'Returns a structure of Linode PlanIDs containing the Plan label and the availability in each Datacenter.',
-      'PARAMETERS' => 
-      array (
-        'PlanID' => 
-        array (
-          'NAME' => 'PlanID',
-          'DESCRIPTION' => 'Limits the list to the specified PlanID',
-          'TYPE' => 'numeric',
-          'REQUIRED' => false,
-        ),
-      ),
-      'THROWS' => '',
-    ),
-    'linode.disk.delete' => 
-    array (
-      'DESCRIPTION' => '',
-      'PARAMETERS' => 
-      array (
-        'LinodeID' => 
-        array (
-          'NAME' => 'LinodeID',
-          'DESCRIPTION' => '',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-        'DiskID' => 
-        array (
-          'NAME' => 'DiskID',
-          'DESCRIPTION' => '',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-      ),
-      'THROWS' => 'NOTFOUND,VALIDATION',
-    ),
-    'image.update' => 
-    array (
-      'DESCRIPTION' => 'Update an Image record.',
-      'PARAMETERS' => 
-      array (
-        'label' => 
-        array (
-          'NAME' => 'label',
-          'DESCRIPTION' => 'The label of the Image.',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'description' => 
-        array (
-          'NAME' => 'description',
-          'DESCRIPTION' => 'An optional description of the Image.',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'ImageID' => 
-        array (
-          'NAME' => 'ImageID',
-          'DESCRIPTION' => 'The ID of the Image to modify.',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-      ),
-      'THROWS' => 'NOTFOUND,VALIDATION',
-    ),
-    'linode.webconsoletoken' => 
-    array (
-      'DESCRIPTION' => 'Generates a console token starting a web console LISH session for the requesting IP',
-      'PARAMETERS' => 
-      array (
-        'LinodeID' => 
-        array (
-          'NAME' => 'LinodeID',
-          'DESCRIPTION' => '',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-      ),
-      'THROWS' => 'NOTFOUND,VALIDATION',
-    ),
-    'nodebalancer.create' => 
-    array (
-      'DESCRIPTION' => '',
-      'PARAMETERS' => 
-      array (
-        'Label' => 
-        array (
-          'NAME' => 'Label',
-          'DESCRIPTION' => 'This NodeBalancer\'s label',
-          'default' => 'deflabel9000cakemix',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'ClientConnThrottle' => 
-        array (
-          'NAME' => 'ClientConnThrottle',
-          'DESCRIPTION' => 'To help mitigate abuse, throttle connections per second, per client IP. 0 to disable. Max of 20.',
-          'default' => 0,
-          'TYPE' => 'numeric',
-          'REQUIRED' => false,
-        ),
-        'DatacenterID' => 
-        array (
-          'NAME' => 'DatacenterID',
-          'DESCRIPTION' => 'The DatacenterID from avail.datacenters() where you wish to place this new NodeBalancer',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-      ),
-      'THROWS' => 'NOACCESS,CCFAILED,VALIDATION',
-    ),
-    'linode.ip.addpublic' => 
-    array (
-      'DESCRIPTION' => 'Assigns a Public IP to a Linode.  Returns the IPAddressID and IPAddress that was added.',
-      'PARAMETERS' => 
-      array (
-        'LinodeID' => 
-        array (
-          'NAME' => 'LinodeID',
-          'DESCRIPTION' => 'The LinodeID of the Linode that will be assigned an additional public IP address',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-      ),
-      'THROWS' => 'NOTFOUND,VALIDATION',
-    ),
-    'domain.create' => 
-    array (
-      'DESCRIPTION' => 'Create a domain record.',
-      'PARAMETERS' => 
-      array (
-        'SOA_Email' => 
-        array (
-          'NAME' => 'SOA_Email',
-          'DESCRIPTION' => 'Required when type=master',
-          'default' => '',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'Description' => 
-        array (
-          'NAME' => 'Description',
-          'DESCRIPTION' => 'Currently undisplayed.',
-          'default' => '',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'TTL_sec' => 
-        array (
-          'NAME' => 'TTL_sec',
-          'DESCRIPTION' => '',
-          'default' => 0,
-          'TYPE' => 'numeric',
-          'REQUIRED' => false,
-        ),
-        'Retry_sec' => 
-        array (
-          'NAME' => 'Retry_sec',
-          'DESCRIPTION' => '',
-          'default' => 0,
-          'TYPE' => 'numeric',
-          'REQUIRED' => false,
-        ),
-        'Expire_sec' => 
-        array (
-          'NAME' => 'Expire_sec',
-          'DESCRIPTION' => '',
-          'default' => 0,
-          'TYPE' => 'numeric',
-          'REQUIRED' => false,
-        ),
-        'Domain' => 
-        array (
-          'NAME' => 'Domain',
-          'DESCRIPTION' => 'The zone\'s name',
-          'TYPE' => 'string',
-          'REQUIRED' => true,
-        ),
-        'status' => 
-        array (
-          'NAME' => 'status',
-          'DESCRIPTION' => '0, 1, or 2 (disabled, active, edit mode)',
-          'default' => 1,
-          'TYPE' => 'numeric',
-          'REQUIRED' => false,
-        ),
-        'Type' => 
-        array (
-          'NAME' => 'Type',
-          'DESCRIPTION' => 'master or slave',
-          'TYPE' => 'string',
-          'REQUIRED' => true,
-        ),
-        'Refresh_sec' => 
-        array (
-          'NAME' => 'Refresh_sec',
-          'DESCRIPTION' => '',
-          'default' => 0,
-          'TYPE' => 'numeric',
-          'REQUIRED' => false,
-        ),
-        'lpm_displayGroup' => 
-        array (
-          'NAME' => 'lpm_displayGroup',
-          'DESCRIPTION' => 'Display group in the Domain list inside the Linode DNS Manager',
-          'default' => '',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'master_ips' => 
-        array (
-          'NAME' => 'master_ips',
-          'DESCRIPTION' => 'When type=slave, the zone\'s master DNS servers list, semicolon separated ',
-          'default' => '',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'axfr_ips' => 
-        array (
-          'NAME' => 'axfr_ips',
-          'DESCRIPTION' => 'IP addresses allowed to AXFR the entire zone, semicolon separated',
-          'default' => '',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-      ),
-      'THROWS' => 'NOACCESS,VALIDATION',
-    ),
-    'account.estimateinvoice' => 
-    array (
-      'DESCRIPTION' => 'Estimates the invoice for adding a new Linode or NodeBalancer as well as resizing a Linode. This returns two fields: PRICE which is the estimated cost of the invoice, and INVOICE_TO which is the date invoice would be though with timezone set to America/New_York',
-      'PARAMETERS' => 
-      array (
-        'PaymentTerm' => 
-        array (
-          'NAME' => 'PaymentTerm',
-          'DESCRIPTION' => 'Subscription term in months. One of: 1, 12, or 24. This is required for modes \'linode_new\' and \'nodebalancer_new\'.',
-          'TYPE' => 'numeric',
-          'REQUIRED' => false,
-        ),
-        'mode' => 
-        array (
-          'NAME' => 'mode',
-          'DESCRIPTION' => 'This is one of the following options: \'linode_new\', \'linode_resize\', or \'nodebalancer_new\'.',
-          'TYPE' => 'string',
-          'REQUIRED' => true,
-        ),
-        'LinodeID' => 
-        array (
-          'NAME' => 'LinodeID',
-          'DESCRIPTION' => 'This is the LinodeID you want to resize and is required for mode \'linode_resize\'.',
-          'TYPE' => 'numeric',
-          'REQUIRED' => false,
-        ),
-        'PlanID' => 
-        array (
-          'NAME' => 'PlanID',
-          'DESCRIPTION' => 'The desired PlanID available from avail.LinodePlans(). This is required for modes \'linode_new\' and \'linode_resize\'.',
-          'TYPE' => 'numeric',
-          'REQUIRED' => false,
-        ),
-      ),
-      'THROWS' => 'VALIDATION',
-    ),
-    'account.updatecard' => 
-    array (
-      'DESCRIPTION' => '',
-      'PARAMETERS' => 
-      array (
-        'ccExpMonth' => 
-        array (
-          'NAME' => 'ccExpMonth',
-          'DESCRIPTION' => '',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-        'ccExpYear' => 
-        array (
-          'NAME' => 'ccExpYear',
-          'DESCRIPTION' => '',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-        'ccNumber' => 
-        array (
-          'NAME' => 'ccNumber',
-          'DESCRIPTION' => '',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-      ),
-      'THROWS' => '',
-    ),
-    'stackscript.create' => 
-    array (
-      'DESCRIPTION' => 'Create a StackScript.',
-      'PARAMETERS' => 
-      array (
-        'Label' => 
-        array (
-          'NAME' => 'Label',
-          'DESCRIPTION' => 'The Label for this StackScript',
-          'TYPE' => 'string',
-          'REQUIRED' => true,
-        ),
-        'rev_note' => 
-        array (
-          'NAME' => 'rev_note',
-          'DESCRIPTION' => '',
-          'default' => '',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'script' => 
-        array (
-          'NAME' => 'script',
-          'DESCRIPTION' => 'The actual script',
-          'TYPE' => 'string',
-          'REQUIRED' => true,
-        ),
-        'isPublic' => 
-        array (
-          'NAME' => 'isPublic',
-          'DESCRIPTION' => 'Whether this StackScript is published in the Library, for everyone to use',
-          'default' => false,
-          'TYPE' => 'boolean',
-          'REQUIRED' => false,
-        ),
-        'Description' => 
-        array (
-          'NAME' => 'Description',
-          'DESCRIPTION' => '',
-          'default' => '',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'DistributionIDList' => 
-        array (
-          'NAME' => 'DistributionIDList',
-          'DESCRIPTION' => 'Comma delimited list of DistributionIDs that this script works on ',
-          'TYPE' => 'string',
-          'REQUIRED' => true,
-        ),
-      ),
-      'THROWS' => 'NOACCESS,VALIDATION',
-    ),
-    'linode.disk.update' => 
-    array (
-      'DESCRIPTION' => '',
-      'PARAMETERS' => 
-      array (
-        'Label' => 
-        array (
-          'NAME' => 'Label',
-          'DESCRIPTION' => 'The display label for this Disk',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'LinodeID' => 
-        array (
-          'NAME' => 'LinodeID',
-          'DESCRIPTION' => '',
-          'TYPE' => 'numeric',
-          'REQUIRED' => false,
-        ),
-        'isReadOnly' => 
-        array (
-          'NAME' => 'isReadOnly',
-          'DESCRIPTION' => 'Enable forced read-only for this Disk',
-          'TYPE' => 'boolean',
-          'REQUIRED' => false,
-        ),
-        'DiskID' => 
-        array (
-          'NAME' => 'DiskID',
-          'DESCRIPTION' => '',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-      ),
-      'THROWS' => 'NOTFOUND,VALIDATION',
-    ),
-    'domain.resource.delete' => 
-    array (
-      'DESCRIPTION' => '',
-      'PARAMETERS' => 
-      array (
-        'DomainID' => 
-        array (
-          'NAME' => 'DomainID',
-          'DESCRIPTION' => '',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-        'ResourceID' => 
-        array (
-          'NAME' => 'ResourceID',
-          'DESCRIPTION' => '',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-      ),
-      'THROWS' => 'NOTFOUND',
-    ),
-    'linode.disk.imagize' => 
-    array (
-      'DESCRIPTION' => 'Creates a gold-master image for future deployments',
-      'PARAMETERS' => 
-      array (
-        'Label' => 
-        array (
-          'NAME' => 'Label',
-          'DESCRIPTION' => 'Sets the name of the image shown in the base image list, defaults to the source image label',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'LinodeID' => 
-        array (
-          'NAME' => 'LinodeID',
-          'DESCRIPTION' => 'Specifies the source Linode to create the image from',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-        'Description' => 
-        array (
-          'NAME' => 'Description',
-          'DESCRIPTION' => 'An optional description of the created image',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'DiskID' => 
-        array (
-          'NAME' => 'DiskID',
-          'DESCRIPTION' => 'Specifies the source Disk to create the image from',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-      ),
-      'THROWS' => '',
-    ),
-    'linode.disk.createfromimage' => 
-    array (
-      'DESCRIPTION' => 'Creates a new disk from a previously imagized disk.',
-      'PARAMETERS' => 
-      array (
-        'Label' => 
-        array (
-          'NAME' => 'Label',
-          'DESCRIPTION' => 'The label of this new disk image',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'rootSSHKey' => 
-        array (
-          'NAME' => 'rootSSHKey',
-          'DESCRIPTION' => 'Optionally sets this string into /root/.ssh/authorized_keys upon image deployment',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'size' => 
-        array (
-          'NAME' => 'size',
-          'DESCRIPTION' => 'The size of the disk image to creates. Defaults to the minimum size required for the requested image',
-          'TYPE' => 'numeric',
-          'REQUIRED' => false,
-        ),
-        'LinodeID' => 
-        array (
-          'NAME' => 'LinodeID',
-          'DESCRIPTION' => 'Specifies the Linode to deploy on to',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-        'rootPass' => 
-        array (
-          'NAME' => 'rootPass',
-          'DESCRIPTION' => 'Optionally sets the root password at deployment time. If a password is not provided the existing root password of the frozen image will not be modified',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'ImageID' => 
-        array (
-          'NAME' => 'ImageID',
-          'DESCRIPTION' => 'The ID of the frozen image to deploy from',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-      ),
-      'THROWS' => '',
-    ),
-    'nodebalancer.delete' => 
-    array (
-      'DESCRIPTION' => 'Immediately removes a NodeBalancer from your account and issues a pro-rated credit back to your account, if applicable.',
-      'PARAMETERS' => 
-      array (
-        'NodeBalancerID' => 
-        array (
-          'NAME' => 'NodeBalancerID',
-          'DESCRIPTION' => 'The NodeBalancerID to delete',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-      ),
-      'THROWS' => 'NOTFOUND',
-    ),
-    'linode.create' => 
-    array (
-      'DESCRIPTION' => 'Creates a Linode and assigns you full privileges. There is a 75-linodes-per-hour limiter.',
-      'PARAMETERS' => 
-      array (
-        'PlanID' => 
-        array (
-          'NAME' => 'PlanID',
-          'DESCRIPTION' => 'The desired PlanID available from avail.LinodePlans()',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-        'DatacenterID' => 
-        array (
-          'NAME' => 'DatacenterID',
-          'DESCRIPTION' => 'The DatacenterID from avail.datacenters() where you wish to place this new Linode',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-        'PaymentTerm' => 
-        array (
-          'NAME' => 'PaymentTerm',
-          'DESCRIPTION' => 'Subscription term in months for prepaid customers.  One of: 1, 12, or 24',
-          'default' => 1,
-          'TYPE' => 'numeric',
-          'REQUIRED' => false,
-        ),
-      ),
-      'THROWS' => 'NOACCESS,CCFAILED,VALIDATION,LINODELIMITER,ACCOUNTLIMIT',
-    ),
-    'stackscript.delete' => 
-    array (
-      'DESCRIPTION' => '',
-      'PARAMETERS' => 
-      array (
-        'StackScriptID' => 
-        array (
-          'NAME' => 'StackScriptID',
-          'DESCRIPTION' => '',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-      ),
-      'THROWS' => 'NOTFOUND',
-    ),
-    'linode.disk.create' => 
-    array (
-      'DESCRIPTION' => '',
-      'PARAMETERS' => 
-      array (
-        'Label' => 
-        array (
-          'NAME' => 'Label',
-          'DESCRIPTION' => 'The display label for this Disk',
-          'TYPE' => 'string',
-          'REQUIRED' => true,
-        ),
-        'isReadOnly' => 
-        array (
-          'NAME' => 'isReadOnly',
-          'DESCRIPTION' => 'Enable forced read-only for this Disk',
-          'default' => false,
-          'TYPE' => 'boolean',
-          'REQUIRED' => false,
-        ),
-        'Size' => 
-        array (
-          'NAME' => 'Size',
-          'DESCRIPTION' => 'The size in MB of this Disk.',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-        'LinodeID' => 
-        array (
-          'NAME' => 'LinodeID',
-          'DESCRIPTION' => '',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-        'Type' => 
-        array (
-          'NAME' => 'Type',
-          'DESCRIPTION' => 'The formatted type of this disk.  Valid types are: ext3, ext4, swap, raw',
-          'TYPE' => 'string',
-          'REQUIRED' => true,
-        ),
-      ),
-      'THROWS' => 'NOTFOUND,VALIDATION',
-    ),
-    'linode.disk.createfromstackscript' => 
-    array (
-      'DESCRIPTION' => '',
-      'PARAMETERS' => 
-      array (
-        'StackScriptUDFResponses' => 
-        array (
-          'NAME' => 'StackScriptUDFResponses',
-          'DESCRIPTION' => 'JSON encoded name/value pairs, answering this StackScript\'s User Defined Fields',
-          'TYPE' => 'string',
-          'REQUIRED' => true,
-        ),
-        'DistributionID' => 
-        array (
-          'NAME' => 'DistributionID',
-          'DESCRIPTION' => 'Which Distribution to apply this StackScript to.  Must be one from the script\'s DistributionIDList',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-        'rootPass' => 
-        array (
-          'NAME' => 'rootPass',
-          'DESCRIPTION' => 'The root user\'s password',
-          'TYPE' => 'string',
-          'REQUIRED' => true,
-        ),
-        'rootSSHKey' => 
-        array (
-          'NAME' => 'rootSSHKey',
-          'DESCRIPTION' => 'Optionally sets this string into /root/.ssh/authorized_keys upon distribution configuration.',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'Label' => 
-        array (
-          'NAME' => 'Label',
-          'DESCRIPTION' => 'The label of this new disk image',
-          'TYPE' => 'string',
-          'REQUIRED' => true,
-        ),
-        'Size' => 
-        array (
-          'NAME' => 'Size',
-          'DESCRIPTION' => 'Size of this disk image in MB',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-        'LinodeID' => 
-        array (
-          'NAME' => 'LinodeID',
-          'DESCRIPTION' => '',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-        'StackScriptID' => 
-        array (
-          'NAME' => 'StackScriptID',
-          'DESCRIPTION' => 'The StackScript to create this image from',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-      ),
-      'THROWS' => 'NOTFOUND,VALIDATION',
-    ),
-    'linode.ip.setrdns' => 
-    array (
-      'DESCRIPTION' => 'Sets the rDNS name of a Public IP.  Returns the IPAddressID and IPAddress that were updated.',
-      'PARAMETERS' => 
-      array (
-        'IPAddressID' => 
-        array (
-          'NAME' => 'IPAddressID',
-          'DESCRIPTION' => 'The IPAddressID of the address to update',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-        'Hostname' => 
-        array (
-          'NAME' => 'Hostname',
-          'DESCRIPTION' => 'The hostname to set the reverse DNS to',
-          'TYPE' => 'string',
-          'REQUIRED' => true,
-        ),
-      ),
-      'THROWS' => 'NOTFOUND,VALIDATION',
-    ),
-    'linode.update' => 
-    array (
-      'DESCRIPTION' => 'Updates a Linode\'s properties.',
-      'PARAMETERS' => 
-      array (
-        'Alert_cpu_enabled' => 
-        array (
-          'NAME' => 'Alert_cpu_enabled',
-          'DESCRIPTION' => 'Enable the cpu usage email alert',
-          'TYPE' => 'boolean',
-          'REQUIRED' => false,
-        ),
-        'ms_ssh_user' => 
-        array (
-          'NAME' => 'ms_ssh_user',
-          'DESCRIPTION' => '',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'Alert_bwin_enabled' => 
-        array (
-          'NAME' => 'Alert_bwin_enabled',
-          'DESCRIPTION' => 'Enable the incoming bandwidth email alert',
-          'TYPE' => 'boolean',
-          'REQUIRED' => false,
-        ),
-        'Alert_cpu_threshold' => 
-        array (
-          'NAME' => 'Alert_cpu_threshold',
-          'DESCRIPTION' => 'CPU Alert threshold, percentage 0-800',
-          'TYPE' => 'numeric',
-          'REQUIRED' => false,
-        ),
-        'Alert_bwquota_enabled' => 
-        array (
-          'NAME' => 'Alert_bwquota_enabled',
-          'DESCRIPTION' => 'Enable the bw quote email alert',
-          'TYPE' => 'boolean',
-          'REQUIRED' => false,
-        ),
-        'Alert_diskio_threshold' => 
-        array (
-          'NAME' => 'Alert_diskio_threshold',
-          'DESCRIPTION' => 'IO ops/sec',
-          'TYPE' => 'numeric',
-          'REQUIRED' => false,
-        ),
-        'Label' => 
-        array (
-          'NAME' => 'Label',
-          'DESCRIPTION' => 'This Linode\'s label',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'backupWindow' => 
-        array (
-          'NAME' => 'backupWindow',
-          'DESCRIPTION' => '',
-          'TYPE' => 'numeric',
-          'REQUIRED' => false,
-        ),
-        'backupWeeklyDay' => 
-        array (
-          'NAME' => 'backupWeeklyDay',
-          'DESCRIPTION' => '',
-          'TYPE' => 'numeric',
-          'REQUIRED' => false,
-        ),
-        'watchdog' => 
-        array (
-          'NAME' => 'watchdog',
-          'DESCRIPTION' => 'Enable the Lassie shutdown watchdog',
-          'TYPE' => 'boolean',
-          'REQUIRED' => false,
-        ),
-        'Alert_diskio_enabled' => 
-        array (
-          'NAME' => 'Alert_diskio_enabled',
-          'DESCRIPTION' => 'Enable the disk IO email alert',
-          'TYPE' => 'boolean',
-          'REQUIRED' => false,
-        ),
-        'lpm_displayGroup' => 
-        array (
-          'NAME' => 'lpm_displayGroup',
-          'DESCRIPTION' => 'Display group in the Linode list inside the Linode Manager',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'ms_ssh_port' => 
-        array (
-          'NAME' => 'ms_ssh_port',
-          'DESCRIPTION' => '',
-          'TYPE' => 'numeric',
-          'REQUIRED' => false,
-        ),
-        'ms_ssh_disabled' => 
-        array (
-          'NAME' => 'ms_ssh_disabled',
-          'DESCRIPTION' => '',
-          'TYPE' => 'boolean',
-          'REQUIRED' => false,
-        ),
-        'Alert_bwquota_threshold' => 
-        array (
-          'NAME' => 'Alert_bwquota_threshold',
-          'DESCRIPTION' => 'Percentage of monthly bw quota',
-          'TYPE' => 'numeric',
-          'REQUIRED' => false,
-        ),
-        'ms_ssh_ip' => 
-        array (
-          'NAME' => 'ms_ssh_ip',
-          'DESCRIPTION' => '',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'Alert_bwin_threshold' => 
-        array (
-          'NAME' => 'Alert_bwin_threshold',
-          'DESCRIPTION' => 'Mb/sec',
-          'TYPE' => 'numeric',
-          'REQUIRED' => false,
-        ),
-        'LinodeID' => 
-        array (
-          'NAME' => 'LinodeID',
-          'DESCRIPTION' => '',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-        'Alert_bwout_threshold' => 
-        array (
-          'NAME' => 'Alert_bwout_threshold',
-          'DESCRIPTION' => 'Mb/sec',
-          'TYPE' => 'numeric',
-          'REQUIRED' => false,
-        ),
-        'Alert_bwout_enabled' => 
-        array (
-          'NAME' => 'Alert_bwout_enabled',
-          'DESCRIPTION' => 'Enable the outgoing bandwidth email alert',
-          'TYPE' => 'boolean',
-          'REQUIRED' => false,
-        ),
-      ),
-      'THROWS' => 'NOTFOUND,VALIDATION',
-    ),
-    'nodebalancer.config.create' => 
-    array (
-      'DESCRIPTION' => '',
-      'PARAMETERS' => 
-      array (
-        'Stickiness' => 
-        array (
-          'NAME' => 'Stickiness',
-          'DESCRIPTION' => 'Session persistence.  One of \'none\', \'table\', \'http_cookie\'',
-          'default' => 'table',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'check_path' => 
-        array (
-          'NAME' => 'check_path',
-          'DESCRIPTION' => 'When check=http, the path to request',
-          'default' => '/',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'check_body' => 
-        array (
-          'NAME' => 'check_body',
-          'DESCRIPTION' => 'When check=http, a regex to match within the first 16,384 bytes of the response body',
-          'default' => '',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'check_interval' => 
-        array (
-          'NAME' => 'check_interval',
-          'DESCRIPTION' => 'Seconds between health check probes.  2-3600',
-          'default' => 5,
-          'TYPE' => 'numeric',
-          'REQUIRED' => false,
-        ),
-        'cipher_suite' => 
-        array (
-          'NAME' => 'cipher_suite',
-          'DESCRIPTION' => 'SSL cipher suite to enforce. One of \'recommended\', \'legacy\'',
-          'default' => 'recommended',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'Algorithm' => 
-        array (
-          'NAME' => 'Algorithm',
-          'DESCRIPTION' => 'Balancing algorithm.  One of \'roundrobin\', \'leastconn\', \'source\'',
-          'default' => 'roundrobin',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'NodeBalancerID' => 
-        array (
-          'NAME' => 'NodeBalancerID',
-          'DESCRIPTION' => 'The parent NodeBalancer\'s ID',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-        'check_attempts' => 
-        array (
-          'NAME' => 'check_attempts',
-          'DESCRIPTION' => 'Number of failed probes before taking a node out of rotation. 1-30',
-          'default' => 2,
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'Port' => 
-        array (
-          'NAME' => 'Port',
-          'DESCRIPTION' => 'Port to bind to on the public interfaces. 1-65534',
-          'default' => 80,
-          'TYPE' => 'numeric',
-          'REQUIRED' => false,
-        ),
-        'check' => 
-        array (
-          'NAME' => 'check',
-          'DESCRIPTION' => 'Perform active health checks on the backend nodes.  One of \'connection\', \'http\', \'http_body\'',
-          'default' => 'connection',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'check_passive' => 
-        array (
-          'NAME' => 'check_passive',
-          'DESCRIPTION' => 'Enable passive checks based on observing communication with back-end nodes.',
-          'default' => 1,
-          'TYPE' => 'boolean',
-          'REQUIRED' => false,
-        ),
-        'ssl_key' => 
-        array (
-          'NAME' => 'ssl_key',
-          'DESCRIPTION' => 'Unpassphrased private key for the SSL certificate when protocol is \'https\'',
-          'default' => '',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'Protocol' => 
-        array (
-          'NAME' => 'Protocol',
-          'DESCRIPTION' => 'Either \'tcp\', \'http\', or \'https\'',
-          'default' => 'http',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'check_timeout' => 
-        array (
-          'NAME' => 'check_timeout',
-          'DESCRIPTION' => 'Seconds to wait before considering the probe a failure. 1-30.  Must be less than check_interval.',
-          'default' => 3,
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'ssl_cert' => 
-        array (
-          'NAME' => 'ssl_cert',
-          'DESCRIPTION' => 'SSL certificate served by the NodeBalancer when the protocol is \'https\'',
-          'default' => '',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-      ),
-      'THROWS' => 'NOTFOUND,VALIDATION',
-    ),
-    'linode.ip.list' => 
-    array (
-      'DESCRIPTION' => 'Returns the IP addresses of all Linodes you have access to.',
-      'PARAMETERS' => 
-      array (
-        'IPAddressID' => 
-        array (
-          'NAME' => 'IPAddressID',
-          'DESCRIPTION' => 'If specified, limits the result to this IPAddressID',
-          'TYPE' => 'numeric',
-          'REQUIRED' => false,
-        ),
-        'LinodeID' => 
-        array (
-          'NAME' => 'LinodeID',
-          'DESCRIPTION' => 'If specified, limits the result to this LinodeID',
-          'TYPE' => 'numeric',
-          'REQUIRED' => false,
-        ),
-      ),
-      'THROWS' => 'NOTFOUND',
-    ),
-    'avail.stackscripts' => 
-    array (
-      'DESCRIPTION' => 'Returns a list of available public StackScripts.',
-      'PARAMETERS' => 
-      array (
-        'DistributionID' => 
-        array (
-          'NAME' => 'DistributionID',
-          'DESCRIPTION' => 'Limit the results to StackScripts that can be applied to this DistributionID',
-          'TYPE' => 'numeric',
-          'REQUIRED' => false,
-        ),
-        'keywords' => 
-        array (
-          'NAME' => 'keywords',
-          'DESCRIPTION' => 'Search terms',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'DistributionVendor' => 
-        array (
-          'NAME' => 'DistributionVendor',
-          'DESCRIPTION' => 'Debian, Ubuntu, Fedora, etc.',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-      ),
-      'THROWS' => '',
-    ),
-    'api.spec' => 
-    array (
-      'DESCRIPTION' => 'Returns a data structure of the entire Linode API specification.  This method does not require authorization.<br><br>For example: <a target="_blank" href="https://api.linode.com/?api_action=api.spec">https://api.linode.com/?api_action=api.spec</a>',
-      'PARAMETERS' => 
-      array (
-      ),
-      'THROWS' => '',
-    ),
-    'linode.kvmify' => 
-    array (
-      'DESCRIPTION' => 'Changes a Linode\'s hypervisor from Xen to KVM.',
-      'PARAMETERS' => 
-      array (
-        'LinodeID' => 
-        array (
-          'NAME' => 'LinodeID',
-          'DESCRIPTION' => 'The LinodeID to migrate to KVM.',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-      ),
-      'THROWS' => 'NOTFOUND,VALIDATION',
-    ),
-    'image.delete' => 
-    array (
-      'DESCRIPTION' => 'Deletes a gold-master image',
-      'PARAMETERS' => 
-      array (
-        'ImageID' => 
-        array (
-          'NAME' => 'ImageID',
-          'DESCRIPTION' => 'The ID of the gold-master image to delete',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-      ),
-      'THROWS' => 'NOTFOUND',
-    ),
-    'linode.disk.list' => 
-    array (
-      'DESCRIPTION' => 'Status values are 1: Ready and 2: Being Deleted.',
-      'PARAMETERS' => 
-      array (
-        'LinodeID' => 
-        array (
-          'NAME' => 'LinodeID',
-          'DESCRIPTION' => '',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-        'DiskID' => 
-        array (
-          'NAME' => 'DiskID',
-          'DESCRIPTION' => '',
-          'TYPE' => 'numeric',
-          'REQUIRED' => false,
-        ),
-      ),
-      'THROWS' => '',
-    ),
-    'linode.clone' => 
-    array (
-      'DESCRIPTION' => 'Creates a new Linode, assigns you full privileges, and then clones the specified LinodeID to the new Linode. There is a limit of 5 active clone operations per source Linode.  It is recommended that the source Linode be powered down during the clone.',
-      'PARAMETERS' => 
-      array (
-        'PaymentTerm' => 
-        array (
-          'NAME' => 'PaymentTerm',
-          'DESCRIPTION' => 'Subscription term in months for prepaid customers.  One of: 1, 12, or 24',
-          'TYPE' => 'numeric',
-          'REQUIRED' => false,
-        ),
-        'DatacenterID' => 
-        array (
-          'NAME' => 'DatacenterID',
-          'DESCRIPTION' => 'The DatacenterID from avail.datacenters() where you wish to place this new Linode',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-        'LinodeID' => 
-        array (
-          'NAME' => 'LinodeID',
-          'DESCRIPTION' => 'The LinodeID that you want cloned',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-        'PlanID' => 
-        array (
-          'NAME' => 'PlanID',
-          'DESCRIPTION' => 'The desired PlanID available from avail.LinodePlans()',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-      ),
-      'THROWS' => 'NOACCESS,NOTFOUND,CCFAILED,VALIDATION,LINODELIMITER,ACCOUNTLIMIT',
-    ),
-    'user.getapikey' => 
-    array (
-      'DESCRIPTION' => 'Authenticates a Linode Manager user against their username, password, and two-factor token (when enabled), and then returns a new API key, which can be used until it expires.  The number of active keys is limited to 20.  Batch requests will be rejected if they include this API action.',
-      'PARAMETERS' => 
-      array (
-        'label' => 
-        array (
-          'NAME' => 'label',
-          'DESCRIPTION' => 'An optional label for this key.',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'expires' => 
-        array (
-          'NAME' => 'expires',
-          'DESCRIPTION' => 'Number of hours the key will remain valid, between 0 and 8760. 0 means no expiration. Defaults to 168.',
-          'TYPE' => 'numeric',
-          'REQUIRED' => false,
-        ),
-        'username' => 
-        array (
-          'NAME' => 'username',
-          'DESCRIPTION' => '',
-          'TYPE' => 'string',
-          'REQUIRED' => true,
-        ),
-        'password' => 
-        array (
-          'NAME' => 'password',
-          'DESCRIPTION' => '',
-          'TYPE' => 'string',
-          'REQUIRED' => true,
-        ),
-        'token' => 
-        array (
-          'NAME' => 'token',
-          'DESCRIPTION' => 'Required when two-factor authentication is enabled.',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-      ),
-      'THROWS' => 'AUTHFAIL,NEEDTOKEN,PASSWORDEXPIRED,KEYLIMIT',
-    ),
-    'linode.delete' => 
-    array (
-      'DESCRIPTION' => 'Immediately removes a Linode from your account and issues a pro-rated credit back to your account, if applicable.  To prevent accidental deletes, this requires the Linode has no Disk images.  You must first delete its disk images."',
-      'PARAMETERS' => 
-      array (
-        'skipChecks' => 
-        array (
-          'NAME' => 'skipChecks',
-          'DESCRIPTION' => 'Skips the safety checks and will always delete the Linode',
-          'TYPE' => 'boolean',
-          'REQUIRED' => false,
-        ),
-        'LinodeID' => 
-        array (
-          'NAME' => 'LinodeID',
-          'DESCRIPTION' => 'The LinodeID to delete',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-      ),
-      'THROWS' => 'NOTFOUND,LINODENOTEMPTY',
-    ),
-    'domain.resource.list' => 
-    array (
-      'DESCRIPTION' => '',
-      'PARAMETERS' => 
-      array (
-        'DomainID' => 
-        array (
-          'NAME' => 'DomainID',
-          'DESCRIPTION' => '',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-        'ResourceID' => 
-        array (
-          'NAME' => 'ResourceID',
-          'DESCRIPTION' => '',
-          'TYPE' => 'numeric',
-          'REQUIRED' => false,
-        ),
-      ),
-      'THROWS' => '',
-    ),
-    'nodebalancer.config.update' => 
-    array (
-      'DESCRIPTION' => 'Updates a Config\'s properties',
-      'PARAMETERS' => 
-      array (
-        'Stickiness' => 
-        array (
-          'NAME' => 'Stickiness',
-          'DESCRIPTION' => 'Session persistence.  One of \'none\', \'table\', \'http_cookie\'',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'check_path' => 
-        array (
-          'NAME' => 'check_path',
-          'DESCRIPTION' => 'When check=http, the path to request',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'Port' => 
-        array (
-          'NAME' => 'Port',
-          'DESCRIPTION' => 'Port to bind to on the public interfaces. 1-65534',
-          'TYPE' => 'numeric',
-          'REQUIRED' => false,
-        ),
-        'check_body' => 
-        array (
-          'NAME' => 'check_body',
-          'DESCRIPTION' => 'When check=http, a regex to match within the first 16,384 bytes of the response body',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'check' => 
-        array (
-          'NAME' => 'check',
-          'DESCRIPTION' => 'Perform active health checks on the backend nodes.  One of \'connection\', \'http\', \'http_body\'',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'check_interval' => 
-        array (
-          'NAME' => 'check_interval',
-          'DESCRIPTION' => 'Seconds between health check probes.  2-3600',
-          'TYPE' => 'numeric',
-          'REQUIRED' => false,
-        ),
-        'check_passive' => 
-        array (
-          'NAME' => 'check_passive',
-          'DESCRIPTION' => 'Enable passive checks based on observing communication with back-end nodes.',
-          'TYPE' => 'boolean',
-          'REQUIRED' => false,
-        ),
-        'ssl_key' => 
-        array (
-          'NAME' => 'ssl_key',
-          'DESCRIPTION' => 'Unpassphrased private key for the SSL certificate when protocol is \'https\'',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'cipher_suite' => 
-        array (
-          'NAME' => 'cipher_suite',
-          'DESCRIPTION' => 'SSL cipher suite to enforce. One of \'recommended\', \'legacy\'',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'ConfigID' => 
-        array (
-          'NAME' => 'ConfigID',
-          'DESCRIPTION' => '',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-        'Protocol' => 
-        array (
-          'NAME' => 'Protocol',
-          'DESCRIPTION' => 'Either \'tcp\', \'http\', or \'https\'',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'Algorithm' => 
-        array (
-          'NAME' => 'Algorithm',
-          'DESCRIPTION' => 'Balancing algorithm.  One of \'roundrobin\', \'leastconn\', \'source\'',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'check_timeout' => 
-        array (
-          'NAME' => 'check_timeout',
-          'DESCRIPTION' => 'Seconds to wait before considering the probe a failure. 1-30.  Must be less than check_interval.',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'check_attempts' => 
-        array (
-          'NAME' => 'check_attempts',
-          'DESCRIPTION' => 'Number of failed probes before taking a node out of rotation. 1-30',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'ssl_cert' => 
-        array (
-          'NAME' => 'ssl_cert',
-          'DESCRIPTION' => 'SSL certificate served by the NodeBalancer when the protocol is \'https\'',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-      ),
-      'THROWS' => 'NOTFOUND,VALIDATION',
-    ),
-    'linode.reboot' => 
-    array (
-      'DESCRIPTION' => 'Issues a shutdown, and then boot job for a given LinodeID.',
-      'PARAMETERS' => 
-      array (
-        'LinodeID' => 
-        array (
-          'NAME' => 'LinodeID',
-          'DESCRIPTION' => '',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-        'ConfigID' => 
-        array (
-          'NAME' => 'ConfigID',
-          'DESCRIPTION' => '',
-          'TYPE' => 'numeric',
-          'REQUIRED' => false,
-        ),
-      ),
-      'THROWS' => 'NOTFOUND',
-    ),
-    'linode.config.list' => 
-    array (
-      'DESCRIPTION' => 'Lists a Linode\'s Configuration Profiles.',
-      'PARAMETERS' => 
-      array (
-        'LinodeID' => 
-        array (
-          'NAME' => 'LinodeID',
-          'DESCRIPTION' => '',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-        'ConfigID' => 
-        array (
-          'NAME' => 'ConfigID',
-          'DESCRIPTION' => '',
-          'TYPE' => 'numeric',
-          'REQUIRED' => false,
-        ),
-      ),
-      'THROWS' => 'NOTFOUND',
-    ),
-    'linode.disk.createfromdistribution' => 
-    array (
-      'DESCRIPTION' => '',
-      'PARAMETERS' => 
-      array (
-        'Label' => 
-        array (
-          'NAME' => 'Label',
-          'DESCRIPTION' => 'The label of this new disk image',
-          'TYPE' => 'string',
-          'REQUIRED' => true,
-        ),
-        'rootSSHKey' => 
-        array (
-          'NAME' => 'rootSSHKey',
-          'DESCRIPTION' => 'Optionally sets this string into /root/.ssh/authorized_keys upon distribution configuration.',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'Size' => 
-        array (
-          'NAME' => 'Size',
-          'DESCRIPTION' => 'Size of this disk image in MB',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-        'DistributionID' => 
-        array (
-          'NAME' => 'DistributionID',
-          'DESCRIPTION' => 'The DistributionID to create this disk from.  Found in avail.distributions()',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-        'LinodeID' => 
-        array (
-          'NAME' => 'LinodeID',
-          'DESCRIPTION' => '',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-        'rootPass' => 
-        array (
-          'NAME' => 'rootPass',
-          'DESCRIPTION' => 'The root user\'s password',
-          'TYPE' => 'string',
-          'REQUIRED' => true,
-        ),
-      ),
-      'THROWS' => 'NOTFOUND,VALIDATION',
-    ),
-    'linode.resize' => 
-    array (
-      'DESCRIPTION' => 'Resizes a Linode from one plan to another.  Immediately shuts the Linode down, charges/credits the account, and issue a migration to another host server.',
-      'PARAMETERS' => 
-      array (
-        'LinodeID' => 
-        array (
-          'NAME' => 'LinodeID',
-          'DESCRIPTION' => '',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-        'PlanID' => 
-        array (
-          'NAME' => 'PlanID',
-          'DESCRIPTION' => 'The desired PlanID available from avail.LinodePlans()',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-      ),
-      'THROWS' => 'NOTFOUND,CCFAILED,VALIDATION',
-    ),
-    'nodebalancer.node.list' => 
-    array (
-      'DESCRIPTION' => 'Returns a list of Nodes associated with a NodeBalancer Config',
-      'PARAMETERS' => 
-      array (
-        'NodeID' => 
-        array (
-          'NAME' => 'NodeID',
-          'DESCRIPTION' => 'Limits the list to the specified NodeID',
-          'TYPE' => 'numeric',
-          'REQUIRED' => false,
-        ),
-        'ConfigID' => 
-        array (
-          'NAME' => 'ConfigID',
-          'DESCRIPTION' => '',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-      ),
-      'THROWS' => '',
-    ),
-    'linode.job.list' => 
-    array (
-      'DESCRIPTION' => '',
-      'PARAMETERS' => 
-      array (
-        'JobID' => 
-        array (
-          'NAME' => 'JobID',
-          'DESCRIPTION' => 'Limits the list to the specified JobID',
-          'TYPE' => 'numeric',
-          'REQUIRED' => false,
-        ),
-        'LinodeID' => 
-        array (
-          'NAME' => 'LinodeID',
-          'DESCRIPTION' => '',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-        'pendingOnly' => 
-        array (
-          'NAME' => 'pendingOnly',
-          'DESCRIPTION' => '',
-          'TYPE' => 'boolean',
-          'REQUIRED' => false,
-        ),
-      ),
-      'THROWS' => '',
-    ),
-    'domain.list' => 
-    array (
-      'DESCRIPTION' => 'Lists domains you have access to.',
-      'PARAMETERS' => 
-      array (
-        'DomainID' => 
-        array (
-          'NAME' => 'DomainID',
-          'DESCRIPTION' => 'Limits the list to the specified DomainID',
-          'TYPE' => 'numeric',
-          'REQUIRED' => false,
-        ),
-      ),
-      'THROWS' => '',
-    ),
-    'domain.resource.create' => 
-    array (
-      'DESCRIPTION' => 'Create a domain record.',
-      'PARAMETERS' => 
-      array (
-        'DomainID' => 
-        array (
-          'NAME' => 'DomainID',
-          'DESCRIPTION' => '',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-        'Port' => 
-        array (
-          'NAME' => 'Port',
-          'DESCRIPTION' => '',
-          'default' => 80,
-          'TYPE' => 'numeric',
-          'REQUIRED' => false,
-        ),
-        'Name' => 
-        array (
-          'NAME' => 'Name',
-          'DESCRIPTION' => 'The hostname or FQDN.  When Type=MX the subdomain to delegate to the Target MX server.',
-          'default' => '',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'Weight' => 
-        array (
-          'NAME' => 'Weight',
-          'DESCRIPTION' => '',
-          'default' => 5,
-          'TYPE' => 'numeric',
-          'REQUIRED' => false,
-        ),
-        'Target' => 
-        array (
-          'NAME' => 'Target',
-          'DESCRIPTION' => 'When Type=MX the hostname.  When Type=CNAME the target of the alias.  When Type=TXT the value of the record. When Type=A or AAAA the token of \'[remote_addr]\' will be substituted with the IP address of the request.',
-          'default' => '',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'Priority' => 
-        array (
-          'NAME' => 'Priority',
-          'DESCRIPTION' => 'Priority for MX and SRV records, 0-255',
-          'default' => 10,
-          'TYPE' => 'numeric',
-          'REQUIRED' => false,
-        ),
-        'TTL_sec' => 
-        array (
-          'NAME' => 'TTL_sec',
-          'DESCRIPTION' => 'TTL.  Leave as 0 to accept our default.',
-          'default' => 0,
-          'TYPE' => 'numeric',
-          'REQUIRED' => false,
-        ),
-        'Protocol' => 
-        array (
-          'NAME' => 'Protocol',
-          'DESCRIPTION' => 'The protocol to append to an SRV record.  Ignored on other record types.',
-          'default' => '',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'Type' => 
-        array (
-          'NAME' => 'Type',
-          'DESCRIPTION' => 'One of: NS, MX, A, AAAA, CNAME, TXT, or SRV',
-          'TYPE' => 'string',
-          'REQUIRED' => true,
-        ),
-      ),
-      'THROWS' => 'NOACCESS,VALIDATION',
-    ),
-    'linode.config.delete' => 
-    array (
-      'DESCRIPTION' => 'Deletes a Linode Configuration Profile.',
-      'PARAMETERS' => 
-      array (
-        'LinodeID' => 
-        array (
-          'NAME' => 'LinodeID',
-          'DESCRIPTION' => '',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-        'ConfigID' => 
-        array (
-          'NAME' => 'ConfigID',
-          'DESCRIPTION' => '',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-      ),
-      'THROWS' => 'NOTFOUND,VALIDATION',
-    ),
-    'nodebalancer.config.delete' => 
-    array (
-      'DESCRIPTION' => 'Deletes a NodeBalancer\'s Config',
-      'PARAMETERS' => 
-      array (
-        'NodeBalancerID' => 
-        array (
-          'NAME' => 'NodeBalancerID',
-          'DESCRIPTION' => '',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-        'ConfigID' => 
-        array (
-          'NAME' => 'ConfigID',
-          'DESCRIPTION' => 'The ConfigID to delete',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-      ),
-      'THROWS' => 'NOTFOUND',
-    ),
-    'avail.nodebalancers' => 
-    array (
-      'DESCRIPTION' => 'Returns NodeBalancer pricing information.',
-      'PARAMETERS' => 
-      array (
-      ),
-      'THROWS' => '',
-    ),
-    'linode.ip.swap' => 
-    array (
-      'DESCRIPTION' => 'Exchanges Public IP addresses between two Linodes within a Datacenter.  The destination of the IP Address can be designated by either the toLinodeID or withIPAddressID parameter.  Returns the resulting relationship of the Linode and IP Address parameters.  When performing a one directional swap, the source is represented by the first of the two resultant array members.',
-      'PARAMETERS' => 
-      array (
-        'toLinodeID' => 
-        array (
-          'NAME' => 'toLinodeID',
-          'DESCRIPTION' => 'The LinodeID of the Linode where IPAddressID will be transfered',
-          'TYPE' => 'numeric',
-          'REQUIRED' => false,
-        ),
-        'IPAddressID' => 
-        array (
-          'NAME' => 'IPAddressID',
-          'DESCRIPTION' => 'The IPAddressID of an IP Address to transfer or swap',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-        'withIPAddressID' => 
-        array (
-          'NAME' => 'withIPAddressID',
-          'DESCRIPTION' => 'The IP Address ID to swap',
-          'TYPE' => 'numeric',
-          'REQUIRED' => false,
-        ),
-      ),
-      'THROWS' => 'NOTFOUND,VALIDATION',
-    ),
-    'linode.boot' => 
-    array (
-      'DESCRIPTION' => 'Issues a boot job for the provided ConfigID.  If no ConfigID is provided boots the last used configuration profile, or the first configuration profile if this Linode has never been booted.',
-      'PARAMETERS' => 
-      array (
-        'LinodeID' => 
-        array (
-          'NAME' => 'LinodeID',
-          'DESCRIPTION' => '',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-        'ConfigID' => 
-        array (
-          'NAME' => 'ConfigID',
-          'DESCRIPTION' => 'The ConfigID to boot, available from linode.config.list().',
-          'TYPE' => 'numeric',
-          'REQUIRED' => false,
-        ),
-      ),
-      'THROWS' => 'NOTFOUND',
-    ),
-    'avail.distributions' => 
-    array (
-      'DESCRIPTION' => 'Returns a list of available Linux Distributions.',
-      'PARAMETERS' => 
-      array (
-        'DistributionID' => 
-        array (
-          'NAME' => 'DistributionID',
-          'DESCRIPTION' => 'Limits the results to the specified DistributionID',
-          'TYPE' => 'numeric',
-          'REQUIRED' => false,
-        ),
-      ),
-      'THROWS' => '',
-    ),
-    'linode.disk.duplicate' => 
-    array (
-      'DESCRIPTION' => 'Performs a bit-for-bit copy of a disk image.',
-      'PARAMETERS' => 
-      array (
-        'LinodeID' => 
-        array (
-          'NAME' => 'LinodeID',
-          'DESCRIPTION' => '',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-        'DiskID' => 
-        array (
-          'NAME' => 'DiskID',
-          'DESCRIPTION' => '',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-      ),
-      'THROWS' => 'NOTFOUND,VALIDATION',
-    ),
     'avail.kernels' => 
     array (
       'DESCRIPTION' => 'List available kernels.',
+      'THROWS' => '',
       'PARAMETERS' => 
       array (
         'isXen' => 
         array (
-          'NAME' => 'isXen',
+          'REQUIRED' => false,
           'DESCRIPTION' => 'Show or hide Xen compatible kernels',
           'TYPE' => 'boolean',
-          'REQUIRED' => false,
+          'NAME' => 'isXen',
         ),
         'isKVM' => 
         array (
-          'NAME' => 'isKVM',
+          'REQUIRED' => false,
           'DESCRIPTION' => 'Show or hide KVM compatible kernels',
           'TYPE' => 'boolean',
-          'REQUIRED' => false,
+          'NAME' => 'isKVM',
         ),
       ),
-      'THROWS' => '',
     ),
-    'stackscript.update' => 
-    array (
-      'DESCRIPTION' => 'Update a StackScript.',
-      'PARAMETERS' => 
-      array (
-        'rev_note' => 
-        array (
-          'NAME' => 'rev_note',
-          'DESCRIPTION' => '',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'script' => 
-        array (
-          'NAME' => 'script',
-          'DESCRIPTION' => 'The actual script',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'DistributionIDList' => 
-        array (
-          'NAME' => 'DistributionIDList',
-          'DESCRIPTION' => 'Comma delimited list of DistributionIDs that this script works on ',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'Description' => 
-        array (
-          'NAME' => 'Description',
-          'DESCRIPTION' => '',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'Label' => 
-        array (
-          'NAME' => 'Label',
-          'DESCRIPTION' => 'The Label for this StackScript',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'StackScriptID' => 
-        array (
-          'NAME' => 'StackScriptID',
-          'DESCRIPTION' => '',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-        'isPublic' => 
-        array (
-          'NAME' => 'isPublic',
-          'DESCRIPTION' => 'Whether this StackScript is published in the Library, for everyone to use',
-          'TYPE' => 'boolean',
-          'REQUIRED' => false,
-        ),
-      ),
-      'THROWS' => 'NOTFOUND,VALIDATION',
-    ),
-    'nodebalancer.node.create' => 
+    'nodebalancer.create' => 
     array (
       'DESCRIPTION' => '',
+      'THROWS' => 'NOACCESS,CCFAILED,VALIDATION',
       'PARAMETERS' => 
       array (
         'Label' => 
         array (
-          'NAME' => 'Label',
-          'DESCRIPTION' => 'This backend Node\'s label',
-          'TYPE' => 'string',
-          'REQUIRED' => true,
-        ),
-        'ConfigID' => 
-        array (
-          'NAME' => 'ConfigID',
-          'DESCRIPTION' => 'The parent ConfigID to attach this Node to',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-        'Mode' => 
-        array (
-          'NAME' => 'Mode',
-          'DESCRIPTION' => 'The connections mode for this node.  One of \'accept\', \'reject\', or \'drain\'',
-          'default' => 'accept',
-          'TYPE' => 'string',
           'REQUIRED' => false,
-        ),
-        'Weight' => 
-        array (
-          'NAME' => 'Weight',
-          'DESCRIPTION' => 'Load balancing weight, 1-255. Higher means more connections.',
-          'default' => 100,
-          'TYPE' => 'numeric',
-          'REQUIRED' => false,
-        ),
-        'Address' => 
-        array (
-          'NAME' => 'Address',
-          'DESCRIPTION' => 'The address:port combination used to communicate with this Node',
-          'TYPE' => 'string',
-          'REQUIRED' => true,
-        ),
-      ),
-      'THROWS' => 'NOTFOUND,VALIDATION',
-    ),
-    'account.info' => 
-    array (
-      'DESCRIPTION' => 'Shows information about your account such as the date your account was opened as well as your network utilization for the current month in gigabytes.',
-      'PARAMETERS' => 
-      array (
-      ),
-      'THROWS' => '',
-    ),
-    'linode.ip.addprivate' => 
-    array (
-      'DESCRIPTION' => 'Assigns a Private IP to a Linode.  Returns the IPAddressID that was added.',
-      'PARAMETERS' => 
-      array (
-        'LinodeID' => 
-        array (
-          'NAME' => 'LinodeID',
-          'DESCRIPTION' => '',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-      ),
-      'THROWS' => 'NOTFOUND',
-    ),
-    'linode.disk.resize' => 
-    array (
-      'DESCRIPTION' => '',
-      'PARAMETERS' => 
-      array (
-        'size' => 
-        array (
-          'NAME' => 'size',
-          'DESCRIPTION' => 'The requested new size of this Disk in MB',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-        'LinodeID' => 
-        array (
-          'NAME' => 'LinodeID',
-          'DESCRIPTION' => '',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-        'DiskID' => 
-        array (
-          'NAME' => 'DiskID',
-          'DESCRIPTION' => '',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-      ),
-      'THROWS' => 'NOTFOUND,VALIDATION',
-    ),
-    'linode.mutate' => 
-    array (
-      'DESCRIPTION' => 'Upgrades a Linode to its next generation.',
-      'PARAMETERS' => 
-      array (
-        'LinodeID' => 
-        array (
-          'NAME' => 'LinodeID',
-          'DESCRIPTION' => '',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-      ),
-      'THROWS' => 'NOTFOUND,VALIDATION',
-    ),
-    'nodebalancer.update' => 
-    array (
-      'DESCRIPTION' => 'Updates a NodeBalancer\'s properties',
-      'PARAMETERS' => 
-      array (
-        'Label' => 
-        array (
-          'NAME' => 'Label',
           'DESCRIPTION' => 'This NodeBalancer\'s label',
           'TYPE' => 'string',
-          'REQUIRED' => false,
+          'default' => 'deflabel9000cakemix',
+          'NAME' => 'Label',
         ),
         'ClientConnThrottle' => 
         array (
-          'NAME' => 'ClientConnThrottle',
+          'REQUIRED' => false,
           'DESCRIPTION' => 'To help mitigate abuse, throttle connections per second, per client IP. 0 to disable. Max of 20.',
           'TYPE' => 'numeric',
-          'REQUIRED' => false,
+          'default' => 0,
+          'NAME' => 'ClientConnThrottle',
         ),
-        'NodeBalancerID' => 
+        'DatacenterID' => 
         array (
-          'NAME' => 'NodeBalancerID',
-          'DESCRIPTION' => '',
-          'TYPE' => 'numeric',
           'REQUIRED' => true,
+          'DESCRIPTION' => 'The DatacenterID from avail.datacenters() where you wish to place this new NodeBalancer',
+          'TYPE' => 'numeric',
+          'NAME' => 'DatacenterID',
         ),
       ),
-      'THROWS' => 'NOTFOUND,VALIDATION',
     ),
-    'nodebalancer.config.list' => 
-    array (
-      'DESCRIPTION' => 'Returns a list of NodeBalancers this user has access or delete to, including their properties',
-      'PARAMETERS' => 
-      array (
-        'NodeBalancerID' => 
-        array (
-          'NAME' => 'NodeBalancerID',
-          'DESCRIPTION' => '',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-        'ConfigID' => 
-        array (
-          'NAME' => 'ConfigID',
-          'DESCRIPTION' => 'Limits the list to the specified ConfigID',
-          'TYPE' => 'numeric',
-          'REQUIRED' => false,
-        ),
-      ),
-      'THROWS' => '',
-    ),
-    'linode.config.update' => 
-    array (
-      'DESCRIPTION' => 'Updates a Linode Configuration Profile.',
-      'PARAMETERS' => 
-      array (
-        'RootDeviceCustom' => 
-        array (
-          'NAME' => 'RootDeviceCustom',
-          'DESCRIPTION' => 'A custom root device setting.',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'Comments' => 
-        array (
-          'NAME' => 'Comments',
-          'DESCRIPTION' => 'Comments you wish to save along with this profile',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'helper_distro' => 
-        array (
-          'NAME' => 'helper_distro',
-          'DESCRIPTION' => 'Enable the Distro filesystem helper.  Corrects fstab and inittab/upstart entries depending on the kernel you\'re booting.  You want this.',
-          'TYPE' => 'boolean',
-          'REQUIRED' => false,
-        ),
-        'devtmpfs_automount' => 
-        array (
-          'NAME' => 'devtmpfs_automount',
-          'DESCRIPTION' => 'Controls if pv_ops kernels should automount devtmpfs at boot. ',
-          'TYPE' => 'boolean',
-          'REQUIRED' => false,
-        ),
-        'Label' => 
-        array (
-          'NAME' => 'Label',
-          'DESCRIPTION' => 'The Label for this profile',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'helper_disableUpdateDB' => 
-        array (
-          'NAME' => 'helper_disableUpdateDB',
-          'DESCRIPTION' => 'Enable the disableUpdateDB filesystem helper',
-          'TYPE' => 'boolean',
-          'REQUIRED' => false,
-        ),
-        'ConfigID' => 
-        array (
-          'NAME' => 'ConfigID',
-          'DESCRIPTION' => '',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-        'helper_network' => 
-        array (
-          'NAME' => 'helper_network',
-          'DESCRIPTION' => 'Automatically creates network configuration files for your distro and places them into your filesystem.',
-          'TYPE' => 'boolean',
-          'REQUIRED' => false,
-        ),
-        'DiskList' => 
-        array (
-          'NAME' => 'DiskList',
-          'DESCRIPTION' => 'A comma delimited list of DiskIDs; position reflects device node.  The 9th element for specifying the initrd.',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'RootDeviceRO' => 
-        array (
-          'NAME' => 'RootDeviceRO',
-          'DESCRIPTION' => 'Enables the \'ro\' kernel flag.  Modern distros want this. ',
-          'TYPE' => 'boolean',
-          'REQUIRED' => false,
-        ),
-        'RunLevel' => 
-        array (
-          'NAME' => 'RunLevel',
-          'DESCRIPTION' => 'One of \'default\', \'single\', \'binbash\' ',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'RootDeviceNum' => 
-        array (
-          'NAME' => 'RootDeviceNum',
-          'DESCRIPTION' => 'Which device number (1-8) that contains the root partition.  0 to utilize RootDeviceCustom.',
-          'TYPE' => 'numeric',
-          'REQUIRED' => false,
-        ),
-        'helper_xen' => 
-        array (
-          'NAME' => 'helper_xen',
-          'DESCRIPTION' => 'Deprecated - use helper_distro.',
-          'TYPE' => 'boolean',
-          'REQUIRED' => false,
-        ),
-        'RAMLimit' => 
-        array (
-          'NAME' => 'RAMLimit',
-          'DESCRIPTION' => 'RAMLimit in MB.  0 for max.',
-          'TYPE' => 'numeric',
-          'REQUIRED' => false,
-        ),
-        'virt_mode' => 
-        array (
-          'NAME' => 'virt_mode',
-          'DESCRIPTION' => 'Controls the virtualization mode. One of \'paravirt\', \'fullvirt\' ',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'LinodeID' => 
-        array (
-          'NAME' => 'LinodeID',
-          'DESCRIPTION' => '',
-          'TYPE' => 'numeric',
-          'REQUIRED' => false,
-        ),
-        'KernelID' => 
-        array (
-          'NAME' => 'KernelID',
-          'DESCRIPTION' => 'The KernelID for this profile.  Found in avail.kernels()',
-          'TYPE' => 'numeric',
-          'REQUIRED' => false,
-        ),
-        'helper_depmod' => 
-        array (
-          'NAME' => 'helper_depmod',
-          'DESCRIPTION' => 'Creates an empty modprobe file for the kernel you\'re booting. ',
-          'TYPE' => 'boolean',
-          'REQUIRED' => false,
-        ),
-      ),
-      'THROWS' => 'NOTFOUND,VALIDATION',
-    ),
-    'linode.shutdown' => 
-    array (
-      'DESCRIPTION' => 'Issues a shutdown job for a given LinodeID.',
-      'PARAMETERS' => 
-      array (
-        'LinodeID' => 
-        array (
-          'NAME' => 'LinodeID',
-          'DESCRIPTION' => '',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-      ),
-      'THROWS' => 'NOTFOUND',
-    ),
-    'domain.delete' => 
+    'stackscript.delete' => 
     array (
       'DESCRIPTION' => '',
+      'THROWS' => 'NOTFOUND',
       'PARAMETERS' => 
       array (
-        'DomainID' => 
+        'StackScriptID' => 
         array (
-          'NAME' => 'DomainID',
+          'REQUIRED' => true,
           'DESCRIPTION' => '',
           'TYPE' => 'numeric',
-          'REQUIRED' => true,
+          'NAME' => 'StackScriptID',
         ),
       ),
-      'THROWS' => 'NOTFOUND',
-    ),
-    'image.list' => 
-    array (
-      'DESCRIPTION' => 'Lists available gold-master images',
-      'PARAMETERS' => 
-      array (
-        'ImageID' => 
-        array (
-          'NAME' => 'ImageID',
-          'DESCRIPTION' => 'Request information for a specific gold-master image',
-          'TYPE' => 'numeric',
-          'REQUIRED' => false,
-        ),
-        'pending' => 
-        array (
-          'NAME' => 'pending',
-          'DESCRIPTION' => 'Show images currently being created.',
-          'TYPE' => 'numeric',
-          'REQUIRED' => false,
-        ),
-      ),
-      'THROWS' => 'NOTFOUND',
-    ),
-    'account.paybalance' => 
-    array (
-      'DESCRIPTION' => 'Pays current balance on file, returning it in the response.',
-      'PARAMETERS' => 
-      array (
-      ),
-      'THROWS' => 'CCEXPIRED,CCFAILED,NOACCESS,PAYMENTLIMITER,VALIDATION',
-    ),
-    'nodebalancer.node.delete' => 
-    array (
-      'DESCRIPTION' => 'Deletes a Node from a NodeBalancer Config',
-      'PARAMETERS' => 
-      array (
-        'NodeID' => 
-        array (
-          'NAME' => 'NodeID',
-          'DESCRIPTION' => 'The NodeID to delete',
-          'TYPE' => 'numeric',
-          'REQUIRED' => true,
-        ),
-      ),
-      'THROWS' => 'NOTFOUND',
     ),
     'nodebalancer.list' => 
     array (
       'DESCRIPTION' => 'Returns a list of NodeBalancers this user has access or delete to, including their properties',
+      'THROWS' => '',
       'PARAMETERS' => 
       array (
         'NodeBalancerID' => 
         array (
-          'NAME' => 'NodeBalancerID',
+          'REQUIRED' => false,
           'DESCRIPTION' => 'Limits the list to the specified NodeBalancerID',
           'TYPE' => 'numeric',
-          'REQUIRED' => false,
+          'NAME' => 'NodeBalancerID',
         ),
       ),
-      'THROWS' => '',
     ),
-    'test.echo' => 
+    'image.list' => 
     array (
-      'DESCRIPTION' => 'Echos back parameters that were passed in.',
+      'DESCRIPTION' => 'Lists available gold-master images',
+      'THROWS' => 'NOTFOUND',
       'PARAMETERS' => 
       array (
-      ),
-      'THROWS' => '',
-    ),
-    'stackscript.list' => 
-    array (
-      'DESCRIPTION' => 'Lists StackScripts you have access to.',
-      'PARAMETERS' => 
-      array (
-        'StackScriptID' => 
+        'ImageID' => 
         array (
-          'NAME' => 'StackScriptID',
-          'DESCRIPTION' => 'Limits the list to the specified StackScriptID',
-          'TYPE' => 'numeric',
           'REQUIRED' => false,
+          'DESCRIPTION' => 'Request information for a specific gold-master image',
+          'TYPE' => 'numeric',
+          'NAME' => 'ImageID',
+        ),
+        'pending' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Show images currently being created.',
+          'TYPE' => 'numeric',
+          'NAME' => 'pending',
         ),
       ),
-      'THROWS' => '',
     ),
-    'domain.resource.update' => 
+    'linode.resize' => 
     array (
-      'DESCRIPTION' => 'Update a domain record.',
+      'DESCRIPTION' => 'Resizes a Linode from one plan to another.  Immediately shuts the Linode down, charges/credits the account, and issue a migration to another host server.',
+      'THROWS' => 'NOTFOUND,CCFAILED,VALIDATION',
       'PARAMETERS' => 
       array (
-        'DomainID' => 
+        'PlanID' => 
         array (
-          'NAME' => 'DomainID',
-          'DESCRIPTION' => '',
-          'TYPE' => 'numeric',
-          'REQUIRED' => false,
-        ),
-        'Port' => 
-        array (
-          'NAME' => 'Port',
-          'DESCRIPTION' => '',
-          'TYPE' => 'numeric',
-          'REQUIRED' => false,
-        ),
-        'ResourceID' => 
-        array (
-          'NAME' => 'ResourceID',
-          'DESCRIPTION' => '',
-          'TYPE' => 'numeric',
           'REQUIRED' => true,
+          'DESCRIPTION' => 'The desired PlanID available from avail.LinodePlans()',
+          'TYPE' => 'numeric',
+          'NAME' => 'PlanID',
         ),
-        'Name' => 
+        'LinodeID' => 
         array (
-          'NAME' => 'Name',
-          'DESCRIPTION' => 'The hostname or FQDN.  When Type=MX the subdomain to delegate to the Target MX server.',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'Weight' => 
-        array (
-          'NAME' => 'Weight',
+          'REQUIRED' => true,
           'DESCRIPTION' => '',
           'TYPE' => 'numeric',
-          'REQUIRED' => false,
-        ),
-        'Target' => 
-        array (
-          'NAME' => 'Target',
-          'DESCRIPTION' => 'When Type=MX the hostname.  When Type=CNAME the target of the alias.  When Type=TXT the value of the record. When Type=A or AAAA the token of \'[remote_addr]\' will be substituted with the IP address of the request.',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'Priority' => 
-        array (
-          'NAME' => 'Priority',
-          'DESCRIPTION' => 'Priority for MX and SRV records, 0-255',
-          'TYPE' => 'numeric',
-          'REQUIRED' => false,
-        ),
-        'TTL_sec' => 
-        array (
-          'NAME' => 'TTL_sec',
-          'DESCRIPTION' => 'TTL.  Leave as 0 to accept our default.',
-          'TYPE' => 'numeric',
-          'REQUIRED' => false,
-        ),
-        'Protocol' => 
-        array (
-          'NAME' => 'Protocol',
-          'DESCRIPTION' => 'The protocol to append to an SRV record.  Ignored on other record types.',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
+          'NAME' => 'LinodeID',
         ),
       ),
+    ),
+    'linode.reboot' => 
+    array (
+      'DESCRIPTION' => 'Issues a shutdown, and then boot job for a given LinodeID.',
+      'THROWS' => 'NOTFOUND',
+      'PARAMETERS' => 
+      array (
+        'ConfigID' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => '',
+          'TYPE' => 'numeric',
+          'NAME' => 'ConfigID',
+        ),
+        'LinodeID' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => '',
+          'TYPE' => 'numeric',
+          'NAME' => 'LinodeID',
+        ),
+      ),
+    ),
+    'avail.linodeplans' => 
+    array (
+      'DESCRIPTION' => 'Returns a structure of Linode PlanIDs containing the Plan label and the availability in each Datacenter.',
+      'THROWS' => '',
+      'PARAMETERS' => 
+      array (
+        'PlanID' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Limits the list to the specified PlanID',
+          'TYPE' => 'numeric',
+          'NAME' => 'PlanID',
+        ),
+      ),
+    ),
+    'avail.distributions' => 
+    array (
+      'DESCRIPTION' => 'Returns a list of available Linux Distributions.',
+      'THROWS' => '',
+      'PARAMETERS' => 
+      array (
+        'DistributionID' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Limits the results to the specified DistributionID',
+          'TYPE' => 'numeric',
+          'NAME' => 'DistributionID',
+        ),
+      ),
+    ),
+    'linode.disk.duplicate' => 
+    array (
+      'DESCRIPTION' => 'Performs a bit-for-bit copy of a disk image.',
       'THROWS' => 'NOTFOUND,VALIDATION',
+      'PARAMETERS' => 
+      array (
+        'LinodeID' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => '',
+          'TYPE' => 'numeric',
+          'NAME' => 'LinodeID',
+        ),
+        'DiskID' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => '',
+          'TYPE' => 'numeric',
+          'NAME' => 'DiskID',
+        ),
+      ),
+    ),
+    'nodebalancer.node.list' => 
+    array (
+      'DESCRIPTION' => 'Returns a list of Nodes associated with a NodeBalancer Config',
+      'THROWS' => '',
+      'PARAMETERS' => 
+      array (
+        'ConfigID' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => '',
+          'TYPE' => 'numeric',
+          'NAME' => 'ConfigID',
+        ),
+        'NodeID' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Limits the list to the specified NodeID',
+          'TYPE' => 'numeric',
+          'NAME' => 'NodeID',
+        ),
+      ),
+    ),
+    'linode.disk.delete' => 
+    array (
+      'DESCRIPTION' => '',
+      'THROWS' => 'NOTFOUND,VALIDATION',
+      'PARAMETERS' => 
+      array (
+        'LinodeID' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => '',
+          'TYPE' => 'numeric',
+          'NAME' => 'LinodeID',
+        ),
+        'DiskID' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => '',
+          'TYPE' => 'numeric',
+          'NAME' => 'DiskID',
+        ),
+      ),
+    ),
+    'nodebalancer.config.delete' => 
+    array (
+      'DESCRIPTION' => 'Deletes a NodeBalancer\'s Config',
+      'THROWS' => 'NOTFOUND',
+      'PARAMETERS' => 
+      array (
+        'NodeBalancerID' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => '',
+          'TYPE' => 'numeric',
+          'NAME' => 'NodeBalancerID',
+        ),
+        'ConfigID' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => 'The ConfigID to delete',
+          'TYPE' => 'numeric',
+          'NAME' => 'ConfigID',
+        ),
+      ),
+    ),
+    'linode.list' => 
+    array (
+      'DESCRIPTION' => 'Returns a list of all Linodes user has access or delete to, including some properties.  Status values are -1: Being Created, 0: Brand New, 1: Running, and 2: Powered Off.',
+      'THROWS' => '',
+      'PARAMETERS' => 
+      array (
+        'LinodeID' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Limits the list to the specified LinodeID',
+          'TYPE' => 'numeric',
+          'NAME' => 'LinodeID',
+        ),
+      ),
     ),
     'linode.config.create' => 
     array (
       'DESCRIPTION' => 'Creates a Linode Configuration Profile.',
+      'THROWS' => 'NOTFOUND,VALIDATION',
       'PARAMETERS' => 
       array (
+        'RootDeviceNum' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Which device number (1-8) that contains the root partition.  0 to utilize RootDeviceCustom.',
+          'TYPE' => 'numeric',
+          'default' => 1,
+          'NAME' => 'RootDeviceNum',
+        ),
         'RootDeviceCustom' => 
         array (
-          'NAME' => 'RootDeviceCustom',
+          'REQUIRED' => false,
           'DESCRIPTION' => 'A custom root device setting.',
+          'TYPE' => 'string',
           'default' => '',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'Comments' => 
-        array (
-          'NAME' => 'Comments',
-          'DESCRIPTION' => 'Comments you wish to save along with this profile',
-          'default' => '',
-          'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'helper_distro' => 
-        array (
-          'NAME' => 'helper_distro',
-          'DESCRIPTION' => 'Enable the Distro filesystem helper.  Corrects fstab and inittab/upstart entries depending on the kernel you\'re booting.  You want this.',
-          'default' => true,
-          'TYPE' => 'boolean',
-          'REQUIRED' => false,
-        ),
-        'devtmpfs_automount' => 
-        array (
-          'NAME' => 'devtmpfs_automount',
-          'DESCRIPTION' => 'Controls if pv_ops kernels should automount devtmpfs at boot. ',
-          'default' => true,
-          'TYPE' => 'boolean',
-          'REQUIRED' => false,
-        ),
-        'helper_disableUpdateDB' => 
-        array (
-          'NAME' => 'helper_disableUpdateDB',
-          'DESCRIPTION' => 'Enable the disableUpdateDB filesystem helper',
-          'default' => true,
-          'TYPE' => 'boolean',
-          'REQUIRED' => false,
-        ),
-        'Label' => 
-        array (
-          'NAME' => 'Label',
-          'DESCRIPTION' => 'The Label for this profile',
-          'TYPE' => 'string',
-          'REQUIRED' => true,
-        ),
-        'helper_network' => 
-        array (
-          'NAME' => 'helper_network',
-          'DESCRIPTION' => 'Automatically creates network configuration files for your distro and places them into your filesystem.',
-          'default' => true,
-          'TYPE' => 'boolean',
-          'REQUIRED' => false,
-        ),
-        'DiskList' => 
-        array (
-          'NAME' => 'DiskList',
-          'DESCRIPTION' => 'A comma delimited list of DiskIDs; position reflects device node.  The 9th element for specifying the initrd.',
-          'TYPE' => 'string',
-          'REQUIRED' => true,
-        ),
-        'RootDeviceRO' => 
-        array (
-          'NAME' => 'RootDeviceRO',
-          'DESCRIPTION' => 'Enables the \'ro\' kernel flag.  Modern distros want this. ',
-          'default' => true,
-          'TYPE' => 'boolean',
-          'REQUIRED' => false,
+          'NAME' => 'RootDeviceCustom',
         ),
         'RunLevel' => 
         array (
-          'NAME' => 'RunLevel',
+          'REQUIRED' => false,
           'DESCRIPTION' => 'One of \'default\', \'single\', \'binbash\' ',
-          'default' => 'default',
           'TYPE' => 'string',
-          'REQUIRED' => false,
-        ),
-        'RootDeviceNum' => 
-        array (
-          'NAME' => 'RootDeviceNum',
-          'DESCRIPTION' => 'Which device number (1-8) that contains the root partition.  0 to utilize RootDeviceCustom.',
-          'default' => 1,
-          'TYPE' => 'numeric',
-          'REQUIRED' => false,
+          'default' => 'default',
+          'NAME' => 'RunLevel',
         ),
         'helper_xen' => 
         array (
-          'NAME' => 'helper_xen',
+          'REQUIRED' => false,
           'DESCRIPTION' => 'Deprecated - use helper_distro.',
-          'default' => true,
           'TYPE' => 'boolean',
-          'REQUIRED' => false,
-        ),
-        'RAMLimit' => 
-        array (
-          'NAME' => 'RAMLimit',
-          'DESCRIPTION' => 'RAMLimit in MB.  0 for max.',
-          'default' => 0,
-          'TYPE' => 'numeric',
-          'REQUIRED' => false,
+          'default' => true,
+          'NAME' => 'helper_xen',
         ),
         'virt_mode' => 
         array (
-          'NAME' => 'virt_mode',
-          'DESCRIPTION' => 'Controls the virtualization mode. One of \'paravirt\', \'fullvirt\' ',
-          'default' => 'paravirt',
-          'TYPE' => 'string',
           'REQUIRED' => false,
+          'DESCRIPTION' => 'Controls the virtualization mode. One of \'paravirt\', \'fullvirt\' ',
+          'TYPE' => 'string',
+          'default' => 'paravirt',
+          'NAME' => 'virt_mode',
         ),
-        'LinodeID' => 
+        'DiskList' => 
         array (
-          'NAME' => 'LinodeID',
-          'DESCRIPTION' => '',
-          'TYPE' => 'numeric',
           'REQUIRED' => true,
+          'DESCRIPTION' => 'A comma delimited list of DiskIDs; position reflects device node.  The 9th element for specifying the initrd.',
+          'TYPE' => 'string',
+          'NAME' => 'DiskList',
         ),
         'KernelID' => 
         array (
-          'NAME' => 'KernelID',
+          'REQUIRED' => true,
           'DESCRIPTION' => 'The KernelID for this profile.  Found in avail.kernels()',
           'TYPE' => 'numeric',
+          'NAME' => 'KernelID',
+        ),
+        'helper_network' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Automatically creates network configuration files for your distro and places them into your filesystem.',
+          'TYPE' => 'boolean',
+          'default' => true,
+          'NAME' => 'helper_network',
+        ),
+        'LinodeID' => 
+        array (
           'REQUIRED' => true,
+          'DESCRIPTION' => '',
+          'TYPE' => 'numeric',
+          'NAME' => 'LinodeID',
+        ),
+        'Comments' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Comments you wish to save along with this profile',
+          'TYPE' => 'string',
+          'default' => '',
+          'NAME' => 'Comments',
+        ),
+        'RootDeviceRO' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Enables the \'ro\' kernel flag.  Modern distros want this. ',
+          'TYPE' => 'boolean',
+          'default' => true,
+          'NAME' => 'RootDeviceRO',
+        ),
+        'devtmpfs_automount' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Controls if pv_ops kernels should automount devtmpfs at boot. ',
+          'TYPE' => 'boolean',
+          'default' => true,
+          'NAME' => 'devtmpfs_automount',
+        ),
+        'helper_disableUpdateDB' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Enable the disableUpdateDB filesystem helper',
+          'TYPE' => 'boolean',
+          'default' => true,
+          'NAME' => 'helper_disableUpdateDB',
         ),
         'helper_depmod' => 
         array (
-          'NAME' => 'helper_depmod',
-          'DESCRIPTION' => 'Creates an empty modprobe file for the kernel you\'re booting. ',
-          'default' => true,
-          'TYPE' => 'boolean',
           'REQUIRED' => false,
+          'DESCRIPTION' => 'Creates an empty modprobe file for the kernel you\'re booting. ',
+          'TYPE' => 'boolean',
+          'default' => true,
+          'NAME' => 'helper_depmod',
+        ),
+        'RAMLimit' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'RAMLimit in MB.  0 for max.',
+          'TYPE' => 'numeric',
+          'default' => 0,
+          'NAME' => 'RAMLimit',
+        ),
+        'Label' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => 'The Label for this profile',
+          'TYPE' => 'string',
+          'NAME' => 'Label',
+        ),
+        'helper_distro' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Enable the Distro filesystem helper.  Corrects fstab and inittab/upstart entries depending on the kernel you\'re booting.  You want this.',
+          'TYPE' => 'boolean',
+          'default' => true,
+          'NAME' => 'helper_distro',
         ),
       ),
+    ),
+    'linode.disk.resize' => 
+    array (
+      'DESCRIPTION' => '',
       'THROWS' => 'NOTFOUND,VALIDATION',
+      'PARAMETERS' => 
+      array (
+        'LinodeID' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => '',
+          'TYPE' => 'numeric',
+          'NAME' => 'LinodeID',
+        ),
+        'DiskID' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => '',
+          'TYPE' => 'numeric',
+          'NAME' => 'DiskID',
+        ),
+        'size' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => 'The requested new size of this Disk in MB',
+          'TYPE' => 'numeric',
+          'NAME' => 'size',
+        ),
+      ),
+    ),
+    'domain.delete' => 
+    array (
+      'DESCRIPTION' => '',
+      'THROWS' => 'NOTFOUND',
+      'PARAMETERS' => 
+      array (
+        'DomainID' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => '',
+          'TYPE' => 'numeric',
+          'NAME' => 'DomainID',
+        ),
+      ),
+    ),
+    'domain.update' => 
+    array (
+      'DESCRIPTION' => 'Update a domain record.',
+      'THROWS' => 'NOTFOUND,VALIDATION',
+      'PARAMETERS' => 
+      array (
+        'Domain' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'The zone\'s name',
+          'TYPE' => 'string',
+          'NAME' => 'Domain',
+        ),
+        'TTL_sec' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => '',
+          'TYPE' => 'numeric',
+          'NAME' => 'TTL_sec',
+        ),
+        'axfr_ips' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'IP addresses allowed to AXFR the entire zone, semicolon separated',
+          'TYPE' => 'string',
+          'NAME' => 'axfr_ips',
+        ),
+        'DomainID' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => '',
+          'TYPE' => 'numeric',
+          'NAME' => 'DomainID',
+        ),
+        'SOA_Email' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Required when type=master',
+          'TYPE' => 'string',
+          'NAME' => 'SOA_Email',
+        ),
+        'Expire_sec' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => '',
+          'TYPE' => 'numeric',
+          'NAME' => 'Expire_sec',
+        ),
+        'Retry_sec' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => '',
+          'TYPE' => 'numeric',
+          'NAME' => 'Retry_sec',
+        ),
+        'status' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => '0, 1, or 2 (disabled, active, edit mode)',
+          'TYPE' => 'numeric',
+          'NAME' => 'status',
+        ),
+        'Description' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Currently undisplayed.',
+          'TYPE' => 'string',
+          'NAME' => 'Description',
+        ),
+        'lpm_displayGroup' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Display group in the Domain list inside the Linode DNS Manager',
+          'TYPE' => 'string',
+          'NAME' => 'lpm_displayGroup',
+        ),
+        'Refresh_sec' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => '',
+          'TYPE' => 'numeric',
+          'NAME' => 'Refresh_sec',
+        ),
+        'Type' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'master or slave',
+          'TYPE' => 'string',
+          'NAME' => 'Type',
+        ),
+        'master_ips' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'When type=slave, the zone\'s master DNS servers list, semicolon separated ',
+          'TYPE' => 'string',
+          'NAME' => 'master_ips',
+        ),
+      ),
+    ),
+    'nodebalancer.node.create' => 
+    array (
+      'DESCRIPTION' => '',
+      'THROWS' => 'NOTFOUND,VALIDATION',
+      'PARAMETERS' => 
+      array (
+        'Label' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => 'This backend Node\'s label',
+          'TYPE' => 'string',
+          'NAME' => 'Label',
+        ),
+        'ConfigID' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => 'The parent ConfigID to attach this Node to',
+          'TYPE' => 'numeric',
+          'NAME' => 'ConfigID',
+        ),
+        'Weight' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Load balancing weight, 1-255. Higher means more connections.',
+          'TYPE' => 'numeric',
+          'default' => 100,
+          'NAME' => 'Weight',
+        ),
+        'Address' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => 'The address:port combination used to communicate with this Node',
+          'TYPE' => 'string',
+          'NAME' => 'Address',
+        ),
+        'Mode' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'The connections mode for this node.  One of \'accept\', \'reject\', or \'drain\'',
+          'TYPE' => 'string',
+          'default' => 'accept',
+          'NAME' => 'Mode',
+        ),
+      ),
+    ),
+    'avail.nodebalancers' => 
+    array (
+      'DESCRIPTION' => 'Returns NodeBalancer pricing information.',
+      'THROWS' => '',
+      'PARAMETERS' => 
+      array (
+      ),
+    ),
+    'linode.disk.update' => 
+    array (
+      'DESCRIPTION' => '',
+      'THROWS' => 'NOTFOUND,VALIDATION',
+      'PARAMETERS' => 
+      array (
+        'isReadOnly' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Enable forced read-only for this Disk',
+          'TYPE' => 'boolean',
+          'NAME' => 'isReadOnly',
+        ),
+        'LinodeID' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => '',
+          'TYPE' => 'numeric',
+          'NAME' => 'LinodeID',
+        ),
+        'Label' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'The display label for this Disk',
+          'TYPE' => 'string',
+          'NAME' => 'Label',
+        ),
+        'DiskID' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => '',
+          'TYPE' => 'numeric',
+          'NAME' => 'DiskID',
+        ),
+      ),
+    ),
+    'stackscript.list' => 
+    array (
+      'DESCRIPTION' => 'Lists StackScripts you have access to.',
+      'THROWS' => '',
+      'PARAMETERS' => 
+      array (
+        'StackScriptID' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Limits the list to the specified StackScriptID',
+          'TYPE' => 'numeric',
+          'NAME' => 'StackScriptID',
+        ),
+      ),
+    ),
+    'nodebalancer.config.list' => 
+    array (
+      'DESCRIPTION' => 'Returns a list of NodeBalancers this user has access or delete to, including their properties',
+      'THROWS' => '',
+      'PARAMETERS' => 
+      array (
+        'NodeBalancerID' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => '',
+          'TYPE' => 'numeric',
+          'NAME' => 'NodeBalancerID',
+        ),
+        'ConfigID' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Limits the list to the specified ConfigID',
+          'TYPE' => 'numeric',
+          'NAME' => 'ConfigID',
+        ),
+      ),
+    ),
+    'domain.list' => 
+    array (
+      'DESCRIPTION' => 'Lists domains you have access to.',
+      'THROWS' => '',
+      'PARAMETERS' => 
+      array (
+        'DomainID' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Limits the list to the specified DomainID',
+          'TYPE' => 'numeric',
+          'NAME' => 'DomainID',
+        ),
+      ),
+    ),
+    'domain.resource.delete' => 
+    array (
+      'DESCRIPTION' => '',
+      'THROWS' => 'NOTFOUND',
+      'PARAMETERS' => 
+      array (
+        'DomainID' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => '',
+          'TYPE' => 'numeric',
+          'NAME' => 'DomainID',
+        ),
+        'ResourceID' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => '',
+          'TYPE' => 'numeric',
+          'NAME' => 'ResourceID',
+        ),
+      ),
+    ),
+    'linode.config.list' => 
+    array (
+      'DESCRIPTION' => 'Lists a Linode\'s Configuration Profiles.',
+      'THROWS' => 'NOTFOUND',
+      'PARAMETERS' => 
+      array (
+        'ConfigID' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => '',
+          'TYPE' => 'numeric',
+          'NAME' => 'ConfigID',
+        ),
+        'LinodeID' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => '',
+          'TYPE' => 'numeric',
+          'NAME' => 'LinodeID',
+        ),
+      ),
+    ),
+    'image.delete' => 
+    array (
+      'DESCRIPTION' => 'Deletes a gold-master image',
+      'THROWS' => 'NOTFOUND',
+      'PARAMETERS' => 
+      array (
+        'ImageID' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => 'The ID of the gold-master image to delete',
+          'TYPE' => 'numeric',
+          'NAME' => 'ImageID',
+        ),
+      ),
+    ),
+    'linode.ip.swap' => 
+    array (
+      'DESCRIPTION' => 'Exchanges Public IP addresses between two Linodes within a Datacenter.  The destination of the IP Address can be designated by either the toLinodeID or withIPAddressID parameter.  Returns the resulting relationship of the Linode and IP Address parameters.  When performing a one directional swap, the source is represented by the first of the two resultant array members.',
+      'THROWS' => 'NOTFOUND,VALIDATION',
+      'PARAMETERS' => 
+      array (
+        'withIPAddressID' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'The IP Address ID to swap',
+          'TYPE' => 'numeric',
+          'NAME' => 'withIPAddressID',
+        ),
+        'IPAddressID' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => 'The IPAddressID of an IP Address to transfer or swap',
+          'TYPE' => 'numeric',
+          'NAME' => 'IPAddressID',
+        ),
+        'toLinodeID' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'The LinodeID of the Linode where IPAddressID will be transfered',
+          'TYPE' => 'numeric',
+          'NAME' => 'toLinodeID',
+        ),
+      ),
+    ),
+    'linode.clone' => 
+    array (
+      'DESCRIPTION' => 'Creates a new Linode, assigns you full privileges, and then clones the specified LinodeID to the new Linode. There is a limit of 5 active clone operations per source Linode.  It is recommended that the source Linode be powered down during the clone.',
+      'THROWS' => 'NOACCESS,NOTFOUND,CCFAILED,VALIDATION,LINODELIMITER,ACCOUNTLIMIT',
+      'PARAMETERS' => 
+      array (
+        'LinodeID' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => 'The LinodeID that you want cloned',
+          'TYPE' => 'numeric',
+          'NAME' => 'LinodeID',
+        ),
+        'PaymentTerm' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Subscription term in months for prepaid customers.  One of: 1, 12, or 24',
+          'TYPE' => 'numeric',
+          'NAME' => 'PaymentTerm',
+        ),
+        'DatacenterID' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => 'The DatacenterID from avail.datacenters() where you wish to place this new Linode',
+          'TYPE' => 'numeric',
+          'NAME' => 'DatacenterID',
+        ),
+        'PlanID' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => 'The desired PlanID available from avail.LinodePlans()',
+          'TYPE' => 'numeric',
+          'NAME' => 'PlanID',
+        ),
+      ),
+    ),
+    'linode.update' => 
+    array (
+      'DESCRIPTION' => 'Updates a Linode\'s properties.',
+      'THROWS' => 'NOTFOUND,VALIDATION',
+      'PARAMETERS' => 
+      array (
+        'Alert_diskio_enabled' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Enable the disk IO email alert',
+          'TYPE' => 'boolean',
+          'NAME' => 'Alert_diskio_enabled',
+        ),
+        'Alert_bwquota_enabled' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Enable the bw quote email alert',
+          'TYPE' => 'boolean',
+          'NAME' => 'Alert_bwquota_enabled',
+        ),
+        'Alert_bwout_enabled' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Enable the outgoing bandwidth email alert',
+          'TYPE' => 'boolean',
+          'NAME' => 'Alert_bwout_enabled',
+        ),
+        'Alert_cpu_threshold' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'CPU Alert threshold, percentage 0-800',
+          'TYPE' => 'numeric',
+          'NAME' => 'Alert_cpu_threshold',
+        ),
+        'LinodeID' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => '',
+          'TYPE' => 'numeric',
+          'NAME' => 'LinodeID',
+        ),
+        'watchdog' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Enable the Lassie shutdown watchdog',
+          'TYPE' => 'boolean',
+          'NAME' => 'watchdog',
+        ),
+        'Alert_bwout_threshold' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Mb/sec',
+          'TYPE' => 'numeric',
+          'NAME' => 'Alert_bwout_threshold',
+        ),
+        'backupWindow' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => '',
+          'TYPE' => 'numeric',
+          'NAME' => 'backupWindow',
+        ),
+        'ms_ssh_ip' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => '',
+          'TYPE' => 'string',
+          'NAME' => 'ms_ssh_ip',
+        ),
+        'Alert_bwin_enabled' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Enable the incoming bandwidth email alert',
+          'TYPE' => 'boolean',
+          'NAME' => 'Alert_bwin_enabled',
+        ),
+        'ms_ssh_disabled' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => '',
+          'TYPE' => 'boolean',
+          'NAME' => 'ms_ssh_disabled',
+        ),
+        'ms_ssh_port' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => '',
+          'TYPE' => 'numeric',
+          'NAME' => 'ms_ssh_port',
+        ),
+        'Alert_bwquota_threshold' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Percentage of monthly bw quota',
+          'TYPE' => 'numeric',
+          'NAME' => 'Alert_bwquota_threshold',
+        ),
+        'backupWeeklyDay' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => '',
+          'TYPE' => 'numeric',
+          'NAME' => 'backupWeeklyDay',
+        ),
+        'Label' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'This Linode\'s label',
+          'TYPE' => 'string',
+          'NAME' => 'Label',
+        ),
+        'lpm_displayGroup' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Display group in the Linode list inside the Linode Manager',
+          'TYPE' => 'string',
+          'NAME' => 'lpm_displayGroup',
+        ),
+        'Alert_diskio_threshold' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'IO ops/sec',
+          'TYPE' => 'numeric',
+          'NAME' => 'Alert_diskio_threshold',
+        ),
+        'Alert_cpu_enabled' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Enable the cpu usage email alert',
+          'TYPE' => 'boolean',
+          'NAME' => 'Alert_cpu_enabled',
+        ),
+        'Alert_bwin_threshold' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Mb/sec',
+          'TYPE' => 'numeric',
+          'NAME' => 'Alert_bwin_threshold',
+        ),
+        'ms_ssh_user' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => '',
+          'TYPE' => 'string',
+          'NAME' => 'ms_ssh_user',
+        ),
+      ),
+    ),
+    'account.paybalance' => 
+    array (
+      'DESCRIPTION' => 'Pays current balance on file, returning it in the response.',
+      'THROWS' => 'CCEXPIRED,CCFAILED,NOACCESS,PAYMENTLIMITER,VALIDATION',
+      'PARAMETERS' => 
+      array (
+      ),
+    ),
+    'nodebalancer.config.update' => 
+    array (
+      'DESCRIPTION' => 'Updates a Config\'s properties',
+      'THROWS' => 'NOTFOUND,VALIDATION',
+      'PARAMETERS' => 
+      array (
+        'check_passive' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Enable passive checks based on observing communication with back-end nodes.',
+          'TYPE' => 'boolean',
+          'NAME' => 'check_passive',
+        ),
+        'Port' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Port to bind to on the public interfaces. 1-65534',
+          'TYPE' => 'numeric',
+          'NAME' => 'Port',
+        ),
+        'check_body' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'When check=http, a regex to match within the first 16,384 bytes of the response body',
+          'TYPE' => 'string',
+          'NAME' => 'check_body',
+        ),
+        'ssl_cert' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'SSL certificate served by the NodeBalancer when the protocol is \'https\'',
+          'TYPE' => 'string',
+          'NAME' => 'ssl_cert',
+        ),
+        'Algorithm' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Balancing algorithm.  One of \'roundrobin\', \'leastconn\', \'source\'',
+          'TYPE' => 'string',
+          'NAME' => 'Algorithm',
+        ),
+        'Protocol' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Either \'tcp\', \'http\', or \'https\'',
+          'TYPE' => 'string',
+          'NAME' => 'Protocol',
+        ),
+        'cipher_suite' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'SSL cipher suite to enforce. One of \'recommended\', \'legacy\'',
+          'TYPE' => 'string',
+          'NAME' => 'cipher_suite',
+        ),
+        'ConfigID' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => '',
+          'TYPE' => 'numeric',
+          'NAME' => 'ConfigID',
+        ),
+        'check_interval' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Seconds between health check probes.  2-3600',
+          'TYPE' => 'numeric',
+          'NAME' => 'check_interval',
+        ),
+        'ssl_key' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Unpassphrased private key for the SSL certificate when protocol is \'https\'',
+          'TYPE' => 'string',
+          'NAME' => 'ssl_key',
+        ),
+        'Stickiness' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Session persistence.  One of \'none\', \'table\', \'http_cookie\'',
+          'TYPE' => 'string',
+          'NAME' => 'Stickiness',
+        ),
+        'check_attempts' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Number of failed probes before taking a node out of rotation. 1-30',
+          'TYPE' => 'string',
+          'NAME' => 'check_attempts',
+        ),
+        'check' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Perform active health checks on the backend nodes.  One of \'connection\', \'http\', \'http_body\'',
+          'TYPE' => 'string',
+          'NAME' => 'check',
+        ),
+        'check_path' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'When check=http, the path to request',
+          'TYPE' => 'string',
+          'NAME' => 'check_path',
+        ),
+        'check_timeout' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Seconds to wait before considering the probe a failure. 1-30.  Must be less than check_interval.',
+          'TYPE' => 'string',
+          'NAME' => 'check_timeout',
+        ),
+      ),
+    ),
+    'linode.disk.list' => 
+    array (
+      'DESCRIPTION' => 'Status values are 1: Ready and 2: Being Deleted.',
+      'THROWS' => '',
+      'PARAMETERS' => 
+      array (
+        'LinodeID' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => '',
+          'TYPE' => 'numeric',
+          'NAME' => 'LinodeID',
+        ),
+        'DiskID' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => '',
+          'TYPE' => 'numeric',
+          'NAME' => 'DiskID',
+        ),
+      ),
+    ),
+    'stackscript.update' => 
+    array (
+      'DESCRIPTION' => 'Update a StackScript.',
+      'THROWS' => 'NOTFOUND,VALIDATION',
+      'PARAMETERS' => 
+      array (
+        'rev_note' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => '',
+          'TYPE' => 'string',
+          'NAME' => 'rev_note',
+        ),
+        'script' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'The actual script',
+          'TYPE' => 'string',
+          'NAME' => 'script',
+        ),
+        'Description' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => '',
+          'TYPE' => 'string',
+          'NAME' => 'Description',
+        ),
+        'StackScriptID' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => '',
+          'TYPE' => 'numeric',
+          'NAME' => 'StackScriptID',
+        ),
+        'isPublic' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Whether this StackScript is published in the Library, for everyone to use',
+          'TYPE' => 'boolean',
+          'NAME' => 'isPublic',
+        ),
+        'Label' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'The Label for this StackScript',
+          'TYPE' => 'string',
+          'NAME' => 'Label',
+        ),
+        'DistributionIDList' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Comma delimited list of DistributionIDs that this script works on ',
+          'TYPE' => 'string',
+          'NAME' => 'DistributionIDList',
+        ),
+      ),
+    ),
+    'linode.boot' => 
+    array (
+      'DESCRIPTION' => 'Issues a boot job for the provided ConfigID.  If no ConfigID is provided boots the last used configuration profile, or the first configuration profile if this Linode has never been booted.',
+      'THROWS' => 'NOTFOUND',
+      'PARAMETERS' => 
+      array (
+        'ConfigID' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'The ConfigID to boot, available from linode.config.list().',
+          'TYPE' => 'numeric',
+          'NAME' => 'ConfigID',
+        ),
+        'LinodeID' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => '',
+          'TYPE' => 'numeric',
+          'NAME' => 'LinodeID',
+        ),
+      ),
+    ),
+    'linode.ip.addpublic' => 
+    array (
+      'DESCRIPTION' => 'Assigns a Public IP to a Linode.  Returns the IPAddressID and IPAddress that was added.',
+      'THROWS' => 'NOTFOUND,VALIDATION',
+      'PARAMETERS' => 
+      array (
+        'LinodeID' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => 'The LinodeID of the Linode that will be assigned an additional public IP address',
+          'TYPE' => 'numeric',
+          'NAME' => 'LinodeID',
+        ),
+      ),
+    ),
+    'linode.job.list' => 
+    array (
+      'DESCRIPTION' => '',
+      'THROWS' => '',
+      'PARAMETERS' => 
+      array (
+        'pendingOnly' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => '',
+          'TYPE' => 'boolean',
+          'NAME' => 'pendingOnly',
+        ),
+        'LinodeID' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => '',
+          'TYPE' => 'numeric',
+          'NAME' => 'LinodeID',
+        ),
+        'JobID' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Limits the list to the specified JobID',
+          'TYPE' => 'numeric',
+          'NAME' => 'JobID',
+        ),
+      ),
+    ),
+    'linode.ip.list' => 
+    array (
+      'DESCRIPTION' => 'Returns the IP addresses of all Linodes you have access to.',
+      'THROWS' => 'NOTFOUND',
+      'PARAMETERS' => 
+      array (
+        'LinodeID' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'If specified, limits the result to this LinodeID',
+          'TYPE' => 'numeric',
+          'NAME' => 'LinodeID',
+        ),
+        'IPAddressID' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'If specified, limits the result to this IPAddressID',
+          'TYPE' => 'numeric',
+          'NAME' => 'IPAddressID',
+        ),
+      ),
+    ),
+    'linode.disk.createfromdistribution' => 
+    array (
+      'DESCRIPTION' => '',
+      'THROWS' => 'NOTFOUND,VALIDATION',
+      'PARAMETERS' => 
+      array (
+        'LinodeID' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => '',
+          'TYPE' => 'numeric',
+          'NAME' => 'LinodeID',
+        ),
+        'Label' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => 'The label of this new disk image',
+          'TYPE' => 'string',
+          'NAME' => 'Label',
+        ),
+        'rootPass' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => 'The root user\'s password',
+          'TYPE' => 'string',
+          'NAME' => 'rootPass',
+        ),
+        'rootSSHKey' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Optionally sets this string into /root/.ssh/authorized_keys upon distribution configuration.',
+          'TYPE' => 'string',
+          'NAME' => 'rootSSHKey',
+        ),
+        'DistributionID' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => 'The DistributionID to create this disk from.  Found in avail.distributions()',
+          'TYPE' => 'numeric',
+          'NAME' => 'DistributionID',
+        ),
+        'Size' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => 'Size of this disk image in MB',
+          'TYPE' => 'numeric',
+          'NAME' => 'Size',
+        ),
+      ),
+    ),
+    'linode.disk.create' => 
+    array (
+      'DESCRIPTION' => '',
+      'THROWS' => 'NOTFOUND,VALIDATION',
+      'PARAMETERS' => 
+      array (
+        'isReadOnly' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Enable forced read-only for this Disk',
+          'TYPE' => 'boolean',
+          'default' => false,
+          'NAME' => 'isReadOnly',
+        ),
+        'LinodeID' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => '',
+          'TYPE' => 'numeric',
+          'NAME' => 'LinodeID',
+        ),
+        'Label' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => 'The display label for this Disk',
+          'TYPE' => 'string',
+          'NAME' => 'Label',
+        ),
+        'Type' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => 'The formatted type of this disk.  Valid types are: ext3, ext4, swap, raw',
+          'TYPE' => 'string',
+          'NAME' => 'Type',
+        ),
+        'Size' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => 'The size in MB of this Disk.',
+          'TYPE' => 'numeric',
+          'NAME' => 'Size',
+        ),
+      ),
+    ),
+    'linode.config.update' => 
+    array (
+      'DESCRIPTION' => 'Updates a Linode Configuration Profile.',
+      'THROWS' => 'NOTFOUND,VALIDATION',
+      'PARAMETERS' => 
+      array (
+        'RootDeviceNum' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Which device number (1-8) that contains the root partition.  0 to utilize RootDeviceCustom.',
+          'TYPE' => 'numeric',
+          'NAME' => 'RootDeviceNum',
+        ),
+        'RootDeviceCustom' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'A custom root device setting.',
+          'TYPE' => 'string',
+          'NAME' => 'RootDeviceCustom',
+        ),
+        'RunLevel' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'One of \'default\', \'single\', \'binbash\' ',
+          'TYPE' => 'string',
+          'NAME' => 'RunLevel',
+        ),
+        'helper_xen' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Deprecated - use helper_distro.',
+          'TYPE' => 'boolean',
+          'NAME' => 'helper_xen',
+        ),
+        'virt_mode' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Controls the virtualization mode. One of \'paravirt\', \'fullvirt\' ',
+          'TYPE' => 'string',
+          'NAME' => 'virt_mode',
+        ),
+        'DiskList' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'A comma delimited list of DiskIDs; position reflects device node.  The 9th element for specifying the initrd.',
+          'TYPE' => 'string',
+          'NAME' => 'DiskList',
+        ),
+        'KernelID' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'The KernelID for this profile.  Found in avail.kernels()',
+          'TYPE' => 'numeric',
+          'NAME' => 'KernelID',
+        ),
+        'helper_network' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Automatically creates network configuration files for your distro and places them into your filesystem.',
+          'TYPE' => 'boolean',
+          'NAME' => 'helper_network',
+        ),
+        'LinodeID' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => '',
+          'TYPE' => 'numeric',
+          'NAME' => 'LinodeID',
+        ),
+        'Comments' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Comments you wish to save along with this profile',
+          'TYPE' => 'string',
+          'NAME' => 'Comments',
+        ),
+        'ConfigID' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => '',
+          'TYPE' => 'numeric',
+          'NAME' => 'ConfigID',
+        ),
+        'RootDeviceRO' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Enables the \'ro\' kernel flag.  Modern distros want this. ',
+          'TYPE' => 'boolean',
+          'NAME' => 'RootDeviceRO',
+        ),
+        'devtmpfs_automount' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Controls if pv_ops kernels should automount devtmpfs at boot. ',
+          'TYPE' => 'boolean',
+          'NAME' => 'devtmpfs_automount',
+        ),
+        'helper_disableUpdateDB' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Enable the disableUpdateDB filesystem helper',
+          'TYPE' => 'boolean',
+          'NAME' => 'helper_disableUpdateDB',
+        ),
+        'helper_depmod' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Creates an empty modprobe file for the kernel you\'re booting. ',
+          'TYPE' => 'boolean',
+          'NAME' => 'helper_depmod',
+        ),
+        'RAMLimit' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'RAMLimit in MB.  0 for max.',
+          'TYPE' => 'numeric',
+          'NAME' => 'RAMLimit',
+        ),
+        'Label' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'The Label for this profile',
+          'TYPE' => 'string',
+          'NAME' => 'Label',
+        ),
+        'helper_distro' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Enable the Distro filesystem helper.  Corrects fstab and inittab/upstart entries depending on the kernel you\'re booting.  You want this.',
+          'TYPE' => 'boolean',
+          'NAME' => 'helper_distro',
+        ),
+      ),
+    ),
+    'linode.config.delete' => 
+    array (
+      'DESCRIPTION' => 'Deletes a Linode Configuration Profile.',
+      'THROWS' => 'NOTFOUND,VALIDATION',
+      'PARAMETERS' => 
+      array (
+        'ConfigID' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => '',
+          'TYPE' => 'numeric',
+          'NAME' => 'ConfigID',
+        ),
+        'LinodeID' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => '',
+          'TYPE' => 'numeric',
+          'NAME' => 'LinodeID',
+        ),
+      ),
+    ),
+    'linode.webconsoletoken' => 
+    array (
+      'DESCRIPTION' => 'Generates a console token starting a web console LISH session for the requesting IP',
+      'THROWS' => 'NOTFOUND,VALIDATION',
+      'PARAMETERS' => 
+      array (
+        'LinodeID' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => '',
+          'TYPE' => 'numeric',
+          'NAME' => 'LinodeID',
+        ),
+      ),
+    ),
+    'linode.mutate' => 
+    array (
+      'DESCRIPTION' => 'Upgrades a Linode to its next generation.',
+      'THROWS' => 'NOTFOUND,VALIDATION',
+      'PARAMETERS' => 
+      array (
+        'LinodeID' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => '',
+          'TYPE' => 'numeric',
+          'NAME' => 'LinodeID',
+        ),
+      ),
+    ),
+    'test.echo' => 
+    array (
+      'DESCRIPTION' => 'Echos back parameters that were passed in.',
+      'THROWS' => '',
+      'PARAMETERS' => 
+      array (
+      ),
+    ),
+    'domain.resource.create' => 
+    array (
+      'DESCRIPTION' => 'Create a domain record.',
+      'THROWS' => 'NOACCESS,VALIDATION',
+      'PARAMETERS' => 
+      array (
+        'Target' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'When Type=MX the hostname.  When Type=CNAME the target of the alias.  When Type=TXT the value of the record. When Type=A or AAAA the token of \'[remote_addr]\' will be substituted with the IP address of the request.',
+          'TYPE' => 'string',
+          'default' => '',
+          'NAME' => 'Target',
+        ),
+        'TTL_sec' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'TTL.  Leave as 0 to accept our default.',
+          'TYPE' => 'numeric',
+          'default' => 0,
+          'NAME' => 'TTL_sec',
+        ),
+        'Port' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => '',
+          'TYPE' => 'numeric',
+          'default' => 80,
+          'NAME' => 'Port',
+        ),
+        'DomainID' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => '',
+          'TYPE' => 'numeric',
+          'NAME' => 'DomainID',
+        ),
+        'Protocol' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'The protocol to append to an SRV record.  Ignored on other record types.',
+          'TYPE' => 'string',
+          'default' => '',
+          'NAME' => 'Protocol',
+        ),
+        'Priority' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Priority for MX and SRV records, 0-255',
+          'TYPE' => 'numeric',
+          'default' => 10,
+          'NAME' => 'Priority',
+        ),
+        'Weight' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => '',
+          'TYPE' => 'numeric',
+          'default' => 5,
+          'NAME' => 'Weight',
+        ),
+        'Type' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => 'One of: NS, MX, A, AAAA, CNAME, TXT, or SRV',
+          'TYPE' => 'string',
+          'NAME' => 'Type',
+        ),
+        'Name' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'The hostname or FQDN.  When Type=MX the subdomain to delegate to the Target MX server.',
+          'TYPE' => 'string',
+          'default' => '',
+          'NAME' => 'Name',
+        ),
+      ),
+    ),
+    'linode.ip.setrdns' => 
+    array (
+      'DESCRIPTION' => 'Sets the rDNS name of a Public IP.  Returns the IPAddressID and IPAddress that were updated.',
+      'THROWS' => 'NOTFOUND,VALIDATION',
+      'PARAMETERS' => 
+      array (
+        'Hostname' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => 'The hostname to set the reverse DNS to',
+          'TYPE' => 'string',
+          'NAME' => 'Hostname',
+        ),
+        'IPAddressID' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => 'The IPAddressID of the address to update',
+          'TYPE' => 'numeric',
+          'NAME' => 'IPAddressID',
+        ),
+      ),
+    ),
+    'nodebalancer.node.delete' => 
+    array (
+      'DESCRIPTION' => 'Deletes a Node from a NodeBalancer Config',
+      'THROWS' => 'NOTFOUND',
+      'PARAMETERS' => 
+      array (
+        'NodeID' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => 'The NodeID to delete',
+          'TYPE' => 'numeric',
+          'NAME' => 'NodeID',
+        ),
+      ),
+    ),
+    'nodebalancer.delete' => 
+    array (
+      'DESCRIPTION' => 'Immediately removes a NodeBalancer from your account and issues a pro-rated credit back to your account, if applicable.',
+      'THROWS' => 'NOTFOUND',
+      'PARAMETERS' => 
+      array (
+        'NodeBalancerID' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => 'The NodeBalancerID to delete',
+          'TYPE' => 'numeric',
+          'NAME' => 'NodeBalancerID',
+        ),
+      ),
+    ),
+    'linode.kvmify' => 
+    array (
+      'DESCRIPTION' => 'Changes a Linode\'s hypervisor from Xen to KVM.',
+      'THROWS' => 'NOTFOUND,VALIDATION',
+      'PARAMETERS' => 
+      array (
+        'LinodeID' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => 'The LinodeID to migrate to KVM.',
+          'TYPE' => 'numeric',
+          'NAME' => 'LinodeID',
+        ),
+      ),
+    ),
+    'stackscript.create' => 
+    array (
+      'DESCRIPTION' => 'Create a StackScript.',
+      'THROWS' => 'NOACCESS,VALIDATION',
+      'PARAMETERS' => 
+      array (
+        'rev_note' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => '',
+          'TYPE' => 'string',
+          'default' => '',
+          'NAME' => 'rev_note',
+        ),
+        'isPublic' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Whether this StackScript is published in the Library, for everyone to use',
+          'TYPE' => 'boolean',
+          'default' => false,
+          'NAME' => 'isPublic',
+        ),
+        'Label' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => 'The Label for this StackScript',
+          'TYPE' => 'string',
+          'NAME' => 'Label',
+        ),
+        'script' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => 'The actual script',
+          'TYPE' => 'string',
+          'NAME' => 'script',
+        ),
+        'Description' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => '',
+          'TYPE' => 'string',
+          'default' => '',
+          'NAME' => 'Description',
+        ),
+        'DistributionIDList' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => 'Comma delimited list of DistributionIDs that this script works on ',
+          'TYPE' => 'string',
+          'NAME' => 'DistributionIDList',
+        ),
+      ),
+    ),
+    'linode.create' => 
+    array (
+      'DESCRIPTION' => 'Creates a Linode and assigns you full privileges. There is a 250-linodes-per-hour limiter.',
+      'THROWS' => 'NOACCESS,CCFAILED,VALIDATION,LINODELIMITER,ACCOUNTLIMIT',
+      'PARAMETERS' => 
+      array (
+        'PlanID' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => 'The desired PlanID available from avail.LinodePlans()',
+          'TYPE' => 'numeric',
+          'NAME' => 'PlanID',
+        ),
+        'PaymentTerm' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Subscription term in months for prepaid customers.  One of: 1, 12, or 24',
+          'TYPE' => 'numeric',
+          'default' => 1,
+          'NAME' => 'PaymentTerm',
+        ),
+        'DatacenterID' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => 'The DatacenterID from avail.datacenters() where you wish to place this new Linode',
+          'TYPE' => 'numeric',
+          'NAME' => 'DatacenterID',
+        ),
+      ),
+    ),
+    'account.info' => 
+    array (
+      'DESCRIPTION' => 'Shows information about your account such as the date your account was opened as well as your network utilization for the current month in gigabytes.',
+      'THROWS' => '',
+      'PARAMETERS' => 
+      array (
+      ),
+    ),
+    'domain.resource.list' => 
+    array (
+      'DESCRIPTION' => '',
+      'THROWS' => '',
+      'PARAMETERS' => 
+      array (
+        'DomainID' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => '',
+          'TYPE' => 'numeric',
+          'NAME' => 'DomainID',
+        ),
+        'ResourceID' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => '',
+          'TYPE' => 'numeric',
+          'NAME' => 'ResourceID',
+        ),
+      ),
+    ),
+    'nodebalancer.config.create' => 
+    array (
+      'DESCRIPTION' => '',
+      'THROWS' => 'NOTFOUND,VALIDATION',
+      'PARAMETERS' => 
+      array (
+        'check_passive' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Enable passive checks based on observing communication with back-end nodes.',
+          'TYPE' => 'boolean',
+          'default' => 1,
+          'NAME' => 'check_passive',
+        ),
+        'Port' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Port to bind to on the public interfaces. 1-65534',
+          'TYPE' => 'numeric',
+          'default' => 80,
+          'NAME' => 'Port',
+        ),
+        'check_body' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'When check=http, a regex to match within the first 16,384 bytes of the response body',
+          'TYPE' => 'string',
+          'default' => '',
+          'NAME' => 'check_body',
+        ),
+        'ssl_cert' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'SSL certificate served by the NodeBalancer when the protocol is \'https\'',
+          'TYPE' => 'string',
+          'default' => '',
+          'NAME' => 'ssl_cert',
+        ),
+        'Algorithm' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Balancing algorithm.  One of \'roundrobin\', \'leastconn\', \'source\'',
+          'TYPE' => 'string',
+          'default' => 'roundrobin',
+          'NAME' => 'Algorithm',
+        ),
+        'Protocol' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Either \'tcp\', \'http\', or \'https\'',
+          'TYPE' => 'string',
+          'default' => 'http',
+          'NAME' => 'Protocol',
+        ),
+        'cipher_suite' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'SSL cipher suite to enforce. One of \'recommended\', \'legacy\'',
+          'TYPE' => 'string',
+          'default' => 'recommended',
+          'NAME' => 'cipher_suite',
+        ),
+        'NodeBalancerID' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => 'The parent NodeBalancer\'s ID',
+          'TYPE' => 'numeric',
+          'NAME' => 'NodeBalancerID',
+        ),
+        'check_interval' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Seconds between health check probes.  2-3600',
+          'TYPE' => 'numeric',
+          'default' => 5,
+          'NAME' => 'check_interval',
+        ),
+        'ssl_key' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Unpassphrased private key for the SSL certificate when protocol is \'https\'',
+          'TYPE' => 'string',
+          'default' => '',
+          'NAME' => 'ssl_key',
+        ),
+        'Stickiness' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Session persistence.  One of \'none\', \'table\', \'http_cookie\'',
+          'TYPE' => 'string',
+          'default' => 'table',
+          'NAME' => 'Stickiness',
+        ),
+        'check_attempts' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Number of failed probes before taking a node out of rotation. 1-30',
+          'TYPE' => 'string',
+          'default' => 2,
+          'NAME' => 'check_attempts',
+        ),
+        'check' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Perform active health checks on the backend nodes.  One of \'connection\', \'http\', \'http_body\'',
+          'TYPE' => 'string',
+          'default' => 'connection',
+          'NAME' => 'check',
+        ),
+        'check_path' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'When check=http, the path to request',
+          'TYPE' => 'string',
+          'default' => '/',
+          'NAME' => 'check_path',
+        ),
+        'check_timeout' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Seconds to wait before considering the probe a failure. 1-30.  Must be less than check_interval.',
+          'TYPE' => 'string',
+          'default' => 3,
+          'NAME' => 'check_timeout',
+        ),
+      ),
+    ),
+    'avail.stackscripts' => 
+    array (
+      'DESCRIPTION' => 'Returns a list of available public StackScripts.',
+      'THROWS' => '',
+      'PARAMETERS' => 
+      array (
+        'DistributionID' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Limit the results to StackScripts that can be applied to this DistributionID',
+          'TYPE' => 'numeric',
+          'NAME' => 'DistributionID',
+        ),
+        'DistributionVendor' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Debian, Ubuntu, Fedora, etc.',
+          'TYPE' => 'string',
+          'NAME' => 'DistributionVendor',
+        ),
+        'keywords' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Search terms',
+          'TYPE' => 'string',
+          'NAME' => 'keywords',
+        ),
+      ),
+    ),
+    'linode.ip.addprivate' => 
+    array (
+      'DESCRIPTION' => 'Assigns a Private IP to a Linode.  Returns the IPAddressID that was added.',
+      'THROWS' => 'NOTFOUND',
+      'PARAMETERS' => 
+      array (
+        'LinodeID' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => '',
+          'TYPE' => 'numeric',
+          'NAME' => 'LinodeID',
+        ),
+      ),
+    ),
+    'linode.disk.createfromimage' => 
+    array (
+      'DESCRIPTION' => 'Creates a new disk from a previously imagized disk.',
+      'THROWS' => '',
+      'PARAMETERS' => 
+      array (
+        'LinodeID' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => 'Specifies the Linode to deploy on to',
+          'TYPE' => 'numeric',
+          'NAME' => 'LinodeID',
+        ),
+        'Label' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'The label of this new disk image',
+          'TYPE' => 'string',
+          'NAME' => 'Label',
+        ),
+        'rootPass' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Optionally sets the root password at deployment time. If a password is not provided the existing root password of the frozen image will not be modified',
+          'TYPE' => 'string',
+          'NAME' => 'rootPass',
+        ),
+        'rootSSHKey' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Optionally sets this string into /root/.ssh/authorized_keys upon image deployment',
+          'TYPE' => 'string',
+          'NAME' => 'rootSSHKey',
+        ),
+        'ImageID' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => 'The ID of the frozen image to deploy from',
+          'TYPE' => 'numeric',
+          'NAME' => 'ImageID',
+        ),
+        'size' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'The size of the disk image to creates. Defaults to the minimum size required for the requested image',
+          'TYPE' => 'numeric',
+          'NAME' => 'size',
+        ),
+      ),
+    ),
+    'linode.disk.imagize' => 
+    array (
+      'DESCRIPTION' => 'Creates a gold-master image for future deployments',
+      'THROWS' => '',
+      'PARAMETERS' => 
+      array (
+        'LinodeID' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => 'Specifies the source Linode to create the image from',
+          'TYPE' => 'numeric',
+          'NAME' => 'LinodeID',
+        ),
+        'Label' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Sets the name of the image shown in the base image list, defaults to the source image label',
+          'TYPE' => 'string',
+          'NAME' => 'Label',
+        ),
+        'Description' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'An optional description of the created image',
+          'TYPE' => 'string',
+          'NAME' => 'Description',
+        ),
+        'DiskID' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => 'Specifies the source Disk to create the image from',
+          'TYPE' => 'numeric',
+          'NAME' => 'DiskID',
+        ),
+      ),
+    ),
+    'linode.shutdown' => 
+    array (
+      'DESCRIPTION' => 'Issues a shutdown job for a given LinodeID.',
+      'THROWS' => 'NOTFOUND',
+      'PARAMETERS' => 
+      array (
+        'LinodeID' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => '',
+          'TYPE' => 'numeric',
+          'NAME' => 'LinodeID',
+        ),
+      ),
+    ),
+    'domain.create' => 
+    array (
+      'DESCRIPTION' => 'Create a domain record.',
+      'THROWS' => 'NOACCESS,VALIDATION',
+      'PARAMETERS' => 
+      array (
+        'Domain' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => 'The zone\'s name',
+          'TYPE' => 'string',
+          'NAME' => 'Domain',
+        ),
+        'Retry_sec' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => '',
+          'TYPE' => 'numeric',
+          'default' => 0,
+          'NAME' => 'Retry_sec',
+        ),
+        'status' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => '0, 1, or 2 (disabled, active, edit mode)',
+          'TYPE' => 'numeric',
+          'default' => 1,
+          'NAME' => 'status',
+        ),
+        'TTL_sec' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => '',
+          'TYPE' => 'numeric',
+          'default' => 0,
+          'NAME' => 'TTL_sec',
+        ),
+        'axfr_ips' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'IP addresses allowed to AXFR the entire zone, semicolon separated',
+          'TYPE' => 'string',
+          'default' => '',
+          'NAME' => 'axfr_ips',
+        ),
+        'Description' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Currently undisplayed.',
+          'TYPE' => 'string',
+          'default' => '',
+          'NAME' => 'Description',
+        ),
+        'lpm_displayGroup' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Display group in the Domain list inside the Linode DNS Manager',
+          'TYPE' => 'string',
+          'default' => '',
+          'NAME' => 'lpm_displayGroup',
+        ),
+        'Refresh_sec' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => '',
+          'TYPE' => 'numeric',
+          'default' => 0,
+          'NAME' => 'Refresh_sec',
+        ),
+        'SOA_Email' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Required when type=master',
+          'TYPE' => 'string',
+          'default' => '',
+          'NAME' => 'SOA_Email',
+        ),
+        'Type' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => 'master or slave',
+          'TYPE' => 'string',
+          'NAME' => 'Type',
+        ),
+        'Expire_sec' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => '',
+          'TYPE' => 'numeric',
+          'default' => 0,
+          'NAME' => 'Expire_sec',
+        ),
+        'master_ips' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'When type=slave, the zone\'s master DNS servers list, semicolon separated ',
+          'TYPE' => 'string',
+          'default' => '',
+          'NAME' => 'master_ips',
+        ),
+      ),
+    ),
+    'linode.delete' => 
+    array (
+      'DESCRIPTION' => 'Immediately removes a Linode from your account and issues a pro-rated credit back to your account, if applicable.  To prevent accidental deletes, this requires the Linode has no Disk images.  You must first delete its disk images."',
+      'THROWS' => 'NOTFOUND,LINODENOTEMPTY',
+      'PARAMETERS' => 
+      array (
+        'LinodeID' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => 'The LinodeID to delete',
+          'TYPE' => 'numeric',
+          'NAME' => 'LinodeID',
+        ),
+        'skipChecks' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Skips the safety checks and will always delete the Linode',
+          'TYPE' => 'boolean',
+          'NAME' => 'skipChecks',
+        ),
+      ),
+    ),
+    'domain.resource.update' => 
+    array (
+      'DESCRIPTION' => 'Update a domain record.',
+      'THROWS' => 'NOTFOUND,VALIDATION',
+      'PARAMETERS' => 
+      array (
+        'Target' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'When Type=MX the hostname.  When Type=CNAME the target of the alias.  When Type=TXT the value of the record. When Type=A or AAAA the token of \'[remote_addr]\' will be substituted with the IP address of the request.',
+          'TYPE' => 'string',
+          'NAME' => 'Target',
+        ),
+        'TTL_sec' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'TTL.  Leave as 0 to accept our default.',
+          'TYPE' => 'numeric',
+          'NAME' => 'TTL_sec',
+        ),
+        'Port' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => '',
+          'TYPE' => 'numeric',
+          'NAME' => 'Port',
+        ),
+        'DomainID' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => '',
+          'TYPE' => 'numeric',
+          'NAME' => 'DomainID',
+        ),
+        'Protocol' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'The protocol to append to an SRV record.  Ignored on other record types.',
+          'TYPE' => 'string',
+          'NAME' => 'Protocol',
+        ),
+        'Priority' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Priority for MX and SRV records, 0-255',
+          'TYPE' => 'numeric',
+          'NAME' => 'Priority',
+        ),
+        'Weight' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => '',
+          'TYPE' => 'numeric',
+          'NAME' => 'Weight',
+        ),
+        'ResourceID' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => '',
+          'TYPE' => 'numeric',
+          'NAME' => 'ResourceID',
+        ),
+        'Name' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'The hostname or FQDN.  When Type=MX the subdomain to delegate to the Target MX server.',
+          'TYPE' => 'string',
+          'NAME' => 'Name',
+        ),
+      ),
+    ),
+    'image.update' => 
+    array (
+      'DESCRIPTION' => 'Update an Image record.',
+      'THROWS' => 'NOTFOUND,VALIDATION',
+      'PARAMETERS' => 
+      array (
+        'description' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'An optional description of the Image.',
+          'TYPE' => 'string',
+          'NAME' => 'description',
+        ),
+        'label' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'The label of the Image.',
+          'TYPE' => 'string',
+          'NAME' => 'label',
+        ),
+        'ImageID' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => 'The ID of the Image to modify.',
+          'TYPE' => 'numeric',
+          'NAME' => 'ImageID',
+        ),
+      ),
+    ),
+    'api.spec' => 
+    array (
+      'DESCRIPTION' => 'Returns a data structure of the entire Linode API specification.  This method does not require authorization.<br><br>For example: <a target="_blank" href="https://api.linode.com/?api_action=api.spec">https://api.linode.com/?api_action=api.spec</a>',
+      'THROWS' => '',
+      'PARAMETERS' => 
+      array (
+      ),
+    ),
+    'linode.disk.createfromstackscript' => 
+    array (
+      'DESCRIPTION' => '',
+      'THROWS' => 'NOTFOUND,VALIDATION',
+      'PARAMETERS' => 
+      array (
+        'StackScriptUDFResponses' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => 'JSON encoded name/value pairs, answering this StackScript\'s User Defined Fields',
+          'TYPE' => 'string',
+          'NAME' => 'StackScriptUDFResponses',
+        ),
+        'rootPass' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => 'The root user\'s password',
+          'TYPE' => 'string',
+          'NAME' => 'rootPass',
+        ),
+        'Size' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => 'Size of this disk image in MB',
+          'TYPE' => 'numeric',
+          'NAME' => 'Size',
+        ),
+        'StackScriptID' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => 'The StackScript to create this image from',
+          'TYPE' => 'numeric',
+          'NAME' => 'StackScriptID',
+        ),
+        'LinodeID' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => '',
+          'TYPE' => 'numeric',
+          'NAME' => 'LinodeID',
+        ),
+        'Label' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => 'The label of this new disk image',
+          'TYPE' => 'string',
+          'NAME' => 'Label',
+        ),
+        'rootSSHKey' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Optionally sets this string into /root/.ssh/authorized_keys upon distribution configuration.',
+          'TYPE' => 'string',
+          'NAME' => 'rootSSHKey',
+        ),
+        'DistributionID' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => 'Which Distribution to apply this StackScript to.  Must be one from the script\'s DistributionIDList',
+          'TYPE' => 'numeric',
+          'NAME' => 'DistributionID',
+        ),
+      ),
+    ),
+    'nodebalancer.update' => 
+    array (
+      'DESCRIPTION' => 'Updates a NodeBalancer\'s properties',
+      'THROWS' => 'NOTFOUND,VALIDATION',
+      'PARAMETERS' => 
+      array (
+        'NodeBalancerID' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => '',
+          'TYPE' => 'numeric',
+          'NAME' => 'NodeBalancerID',
+        ),
+        'Label' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'This NodeBalancer\'s label',
+          'TYPE' => 'string',
+          'NAME' => 'Label',
+        ),
+        'ClientConnThrottle' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'To help mitigate abuse, throttle connections per second, per client IP. 0 to disable. Max of 20.',
+          'TYPE' => 'numeric',
+          'NAME' => 'ClientConnThrottle',
+        ),
+      ),
+    ),
+    'avail.datacenters' => 
+    array (
+      'DESCRIPTION' => 'Returns a list of Linode data center facilities.',
+      'THROWS' => '',
+      'PARAMETERS' => 
+      array (
+      ),
+    ),
+    'account.estimateinvoice' => 
+    array (
+      'DESCRIPTION' => 'Estimates the invoice for adding a new Linode or NodeBalancer as well as resizing a Linode. This returns two fields: PRICE which is the estimated cost of the invoice, and INVOICE_TO which is the date invoice would be though with timezone set to America/New_York',
+      'THROWS' => 'VALIDATION',
+      'PARAMETERS' => 
+      array (
+        'LinodeID' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'This is the LinodeID you want to resize and is required for mode \'linode_resize\'.',
+          'TYPE' => 'numeric',
+          'NAME' => 'LinodeID',
+        ),
+        'PaymentTerm' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Subscription term in months. One of: 1, 12, or 24. This is required for modes \'linode_new\' and \'nodebalancer_new\'.',
+          'TYPE' => 'numeric',
+          'NAME' => 'PaymentTerm',
+        ),
+        'PlanID' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'The desired PlanID available from avail.LinodePlans(). This is required for modes \'linode_new\' and \'linode_resize\'.',
+          'TYPE' => 'numeric',
+          'NAME' => 'PlanID',
+        ),
+        'mode' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => 'This is one of the following options: \'linode_new\', \'linode_resize\', or \'nodebalancer_new\'.',
+          'TYPE' => 'string',
+          'NAME' => 'mode',
+        ),
+      ),
+    ),
+    'user.getapikey' => 
+    array (
+      'DESCRIPTION' => 'Authenticates a Linode Manager user against their username, password, and two-factor token (when enabled), and then returns a new API key, which can be used until it expires.  The number of active keys is limited to 20.  Batch requests will be rejected if they include this API action.',
+      'THROWS' => 'AUTHFAIL,NEEDTOKEN,PASSWORDEXPIRED,KEYLIMIT,TOTPEXPIRED,NOACCESS',
+      'PARAMETERS' => 
+      array (
+        'username' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => '',
+          'TYPE' => 'string',
+          'NAME' => 'username',
+        ),
+        'label' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'An optional label for this key.',
+          'TYPE' => 'string',
+          'NAME' => 'label',
+        ),
+        'password' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => '',
+          'TYPE' => 'string',
+          'NAME' => 'password',
+        ),
+        'token' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Required when two-factor authentication is enabled. Emergency scratch codes are not permitted.',
+          'TYPE' => 'string',
+          'NAME' => 'token',
+        ),
+        'expires' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Number of hours the key will remain valid, between 0 and 8760. 0 means no expiration. Defaults to 168.',
+          'TYPE' => 'numeric',
+          'NAME' => 'expires',
+        ),
+      ),
+    ),
+    'nodebalancer.node.update' => 
+    array (
+      'DESCRIPTION' => 'Updates a Node\'s properties',
+      'THROWS' => 'NOTFOUND,VALIDATION',
+      'PARAMETERS' => 
+      array (
+        'Label' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'This backend Node\'s label',
+          'TYPE' => 'string',
+          'NAME' => 'Label',
+        ),
+        'Weight' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Load balancing weight, 1-255. Higher means more connections.',
+          'TYPE' => 'numeric',
+          'NAME' => 'Weight',
+        ),
+        'NodeID' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => '',
+          'TYPE' => 'numeric',
+          'NAME' => 'NodeID',
+        ),
+        'Address' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'The address:port combination used to communicate with this Node',
+          'TYPE' => 'string',
+          'NAME' => 'Address',
+        ),
+        'Mode' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'The connections mode for this node.  One of \'accept\', \'reject\', or \'drain\'',
+          'TYPE' => 'string',
+          'NAME' => 'Mode',
+        ),
+      ),
+    ),
+    'account.updatecard' => 
+    array (
+      'DESCRIPTION' => '',
+      'THROWS' => '',
+      'PARAMETERS' => 
+      array (
+        'ccNumber' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => '',
+          'TYPE' => 'numeric',
+          'NAME' => 'ccNumber',
+        ),
+        'ccExpYear' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => '',
+          'TYPE' => 'numeric',
+          'NAME' => 'ccExpYear',
+        ),
+        'ccExpMonth' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => '',
+          'TYPE' => 'numeric',
+          'NAME' => 'ccExpMonth',
+        ),
+      ),
     ),
   ),
 );

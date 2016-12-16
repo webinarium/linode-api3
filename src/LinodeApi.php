@@ -38,7 +38,7 @@ class LinodeApi extends BaseLinodeApi
     }
 
     /**
-     * Creates a Linode and assigns you full privileges. There is a 75-linodes-per-hour limiter.
+     * Creates a Linode and assigns you full privileges. There is a 250-linodes-per-hour limiter.
      *
      * @param int $DatacenterID [required] The DatacenterID from avail.datacenters() where you wish to place this new Linode
      * @param int $PlanID       [required] The desired PlanID available from avail.LinodePlans()

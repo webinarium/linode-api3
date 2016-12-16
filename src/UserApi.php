@@ -27,7 +27,7 @@ class UserApi extends BaseLinodeApi
      *
      * @param string $username [required]
      * @param string $password [required]
-     * @param string $token    [optional] Required when two-factor authentication is enabled.
+     * @param string $token    [optional] Required when two-factor authentication is enabled. Emergency scratch codes are not permitted.
      * @param int    $expires  [optional] Number of hours the key will remain valid, between 0 and 8760. 0 means no expiration. Defaults to 168.
      * @param string $label    [optional] An optional label for this key.
      *
