@@ -24,11 +24,11 @@ class StackScriptApi extends BaseLinodeApi
      * Create a StackScript.
      *
      * @param string $script             [required] The actual script
-     * @param string $DistributionIDList [required] Comma delimited list of DistributionIDs that this script works on 
+     * @param string $DistributionIDList [required] Comma delimited list of DistributionIDs that this script works on
      * @param string $Label              [required] The Label for this StackScript
-     * @param string $Description        [optional] 
+     * @param string $Description        [optional]
      * @param bool   $isPublic           [optional] Whether this StackScript is published in the Library, for everyone to use
-     * @param string $rev_note           [optional] 
+     * @param string $rev_note           [optional]
      *
      * @return array
      */
@@ -45,7 +45,7 @@ class StackScriptApi extends BaseLinodeApi
     }
 
     /**
-     * @param int $StackScriptID [required] 
+     * @param int $StackScriptID [required]
      *
      * @return array
      */
@@ -73,13 +73,13 @@ class StackScriptApi extends BaseLinodeApi
     /**
      * Update a StackScript.
      *
-     * @param int    $StackScriptID      [required] 
+     * @param int    $StackScriptID      [required]
      * @param string $script             [optional] The actual script
-     * @param string $DistributionIDList [optional] Comma delimited list of DistributionIDs that this script works on 
+     * @param string $DistributionIDList [optional] Comma delimited list of DistributionIDs that this script works on
      * @param string $Label              [optional] The Label for this StackScript
-     * @param string $Description        [optional] 
+     * @param string $Description        [optional]
      * @param bool   $isPublic           [optional] Whether this StackScript is published in the Library, for everyone to use
-     * @param string $rev_note           [optional] 
+     * @param string $rev_note           [optional]
      *
      * @return array
      */

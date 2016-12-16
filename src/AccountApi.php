@@ -64,9 +64,9 @@ class AccountApi extends BaseLinodeApi
     }
 
     /**
-     * @param int $ccNumber   [required] 
-     * @param int $ccExpMonth [required] 
-     * @param int $ccExpYear  [required] 
+     * @param int $ccNumber   [required]
+     * @param int $ccExpMonth [required]
+     * @param int $ccExpYear  [required]
      *
      * @return array
      */

@@ -68,7 +68,7 @@ class NodeBalancerApi extends BaseLinodeApi
     /**
      * Updates a NodeBalancer's properties.
      *
-     * @param int    $NodeBalancerID     [required] 
+     * @param int    $NodeBalancerID     [required]
      * @param string $Label              [optional] This NodeBalancer's label
      * @param int    $ClientConnThrottle [optional] To help mitigate abuse, throttle connections per second, per client IP. 0 to disable. Max of 20.
      *

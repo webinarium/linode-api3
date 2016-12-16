@@ -65,7 +65,7 @@ class ConfigApi extends BaseLinodeApi
     /**
      * Deletes a NodeBalancer's Config.
      *
-     * @param int $NodeBalancerID [required] 
+     * @param int $NodeBalancerID [required]
      * @param int $ConfigID       [required] The ConfigID to delete
      *
      * @return array
@@ -81,7 +81,7 @@ class ConfigApi extends BaseLinodeApi
     /**
      * Returns a list of NodeBalancers this user has access or delete to, including their properties.
      *
-     * @param int $NodeBalancerID [required] 
+     * @param int $NodeBalancerID [required]
      * @param int $ConfigID       [optional] Limits the list to the specified ConfigID
      *
      * @return array
@@ -97,7 +97,7 @@ class ConfigApi extends BaseLinodeApi
     /**
      * Updates a Config's properties.
      *
-     * @param int    $ConfigID       [required] 
+     * @param int    $ConfigID       [required]
      * @param int    $Port           [optional] Port to bind to on the public interfaces. 1-65534
      * @param string $Protocol       [optional] Either 'tcp', 'http', or 'https'
      * @param string $Algorithm      [optional] Balancing algorithm.  One of 'roundrobin', 'leastconn', 'source'

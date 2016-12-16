@@ -14,6 +14,8 @@ return Symfony\CS\Config\Config::create()
 
         // SYMFONY_LEVEL
         '-concat_without_spaces',
+        '-no_empty_comment',
+        '-phpdoc_annotation_without_dot',
         '-unalign_double_arrow',
         '-unalign_equals',
 

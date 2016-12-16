@@ -23,7 +23,7 @@ use Linode\BaseLinodeApi;
 class DiskApi extends BaseLinodeApi
 {
     /**
-     * @param int    $LinodeID   [required] 
+     * @param int    $LinodeID   [required]
      * @param string $Label      [required] The display label for this Disk
      * @param string $Type       [required] The formatted type of this disk.  Valid types are: ext3, ext4, swap, raw
      * @param int    $Size       [required] The size in MB of this Disk.
@@ -43,7 +43,7 @@ class DiskApi extends BaseLinodeApi
     }
 
     /**
-     * @param int    $LinodeID       [required] 
+     * @param int    $LinodeID       [required]
      * @param int    $DistributionID [required] The DistributionID to create this disk from.  Found in avail.distributions()
      * @param string $Label          [required] The label of this new disk image
      * @param int    $Size           [required] Size of this disk image in MB
@@ -89,7 +89,7 @@ class DiskApi extends BaseLinodeApi
     }
 
     /**
-     * @param int    $LinodeID                [required] 
+     * @param int    $LinodeID                [required]
      * @param int    $StackScriptID           [required] The StackScript to create this image from
      * @param string $StackScriptUDFResponses [required] JSON encoded name/value pairs, answering this StackScript's User Defined Fields
      * @param int    $DistributionID          [required] Which Distribution to apply this StackScript to.  Must be one from the script's DistributionIDList
@@ -115,8 +115,8 @@ class DiskApi extends BaseLinodeApi
     }
 
     /**
-     * @param int $LinodeID [required] 
-     * @param int $DiskID   [required] 
+     * @param int $LinodeID [required]
+     * @param int $DiskID   [required]
      *
      * @return array
      */
@@ -131,8 +131,8 @@ class DiskApi extends BaseLinodeApi
     /**
      * Performs a bit-for-bit copy of a disk image.
      *
-     * @param int $LinodeID [required] 
-     * @param int $DiskID   [required] 
+     * @param int $LinodeID [required]
+     * @param int $DiskID   [required]
      *
      * @return array
      */
@@ -147,8 +147,8 @@ class DiskApi extends BaseLinodeApi
     /**
      * Status values are 1: Ready and 2: Being Deleted.
      *
-     * @param int $LinodeID [required] 
-     * @param int $DiskID   [optional] 
+     * @param int $LinodeID [required]
+     * @param int $DiskID   [optional]
      *
      * @return array
      */
@@ -181,8 +181,8 @@ class DiskApi extends BaseLinodeApi
     }
 
     /**
-     * @param int $LinodeID [required] 
-     * @param int $DiskID   [required] 
+     * @param int $LinodeID [required]
+     * @param int $DiskID   [required]
      * @param int $size     [required] The requested new size of this Disk in MB
      *
      * @return array
@@ -197,14 +197,14 @@ class DiskApi extends BaseLinodeApi
     }
 
     /**
-     * @param int    $LinodeID   [optional] 
-     * @param int    $DiskID     [required] 
+     * @param int    $LinodeID   [optional]
+     * @param int    $DiskID     [required]
      * @param string $Label      [optional] The display label for this Disk
      * @param bool   $isReadOnly [optional] Enable forced read-only for this Disk
      *
      * @return array
      */
-    public function update($LinodeID = null, $DiskID, $Label = null, $isReadOnly = null)
+    public function update($LinodeID, $DiskID, $Label = null, $isReadOnly = null)
     {
         return $this->call('linode.disk.update', [
             'LinodeID'   => $LinodeID,
