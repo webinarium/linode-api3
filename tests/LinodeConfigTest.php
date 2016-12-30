@@ -24,7 +24,7 @@ class LinodeConfigTest extends \PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $this->key = uniqid(null, false);
-        $this->api = new ConfigApi($this->key, true);
+        $this->api = new ConfigApi($this->key, [], true);
     }
 
     public function testCreate()

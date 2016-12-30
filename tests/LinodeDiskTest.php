@@ -25,7 +25,7 @@ class LinodeDiskTest extends \PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $this->key = uniqid(null, false);
-        $this->api = new DiskApi($this->key, true);
+        $this->api = new DiskApi($this->key, [], true);
     }
 
     public function testCreate()

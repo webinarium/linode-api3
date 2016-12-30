@@ -24,7 +24,7 @@ class LinodeTest extends \PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $this->key = uniqid(null, false);
-        $this->api = new LinodeApi($this->key, true);
+        $this->api = new LinodeApi($this->key, [], true);
     }
 
     public function testBoot()

@@ -24,16 +24,20 @@ class BaseLinodeApi
     /** @var \Linode\Batch */
     protected $batch;
 
+    /** @var array Additional cURL options. */
+    protected $options;
+
     /** @var bool Whether the object is in debug mode */
     protected $debug;
 
     /**
      * Constructor.
      *
-     * @param string|Batch $key   API key, or batch of requests
-     * @param bool         $debug Whether the object should be in debug mode
+     * @param string|Batch $key     API key, or batch of requests
+     * @param array        $options Additional cURL options to be set.
+     * @param bool         $debug   Whether the object should be in debug mode
      */
-    public function __construct($key, $debug = false)
+    public function __construct($key, array $options = [], $debug = false)
     {
         if ($key instanceof Batch) {
             $this->batch = $key;
@@ -43,7 +47,8 @@ class BaseLinodeApi
             $this->batch = null;
         }
 
-        $this->debug = $debug;
+        $this->options = $options;
+        $this->debug   = $debug;
     }
 
     /**
@@ -92,10 +97,12 @@ class BaseLinodeApi
             return $query;
         }
 
-        curl_setopt($curl, CURLOPT_URL, 'https://api.linode.com/');
-        curl_setopt($curl, CURLOPT_POST, true);
-        curl_setopt($curl, CURLOPT_POSTFIELDS, $query);
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        $this->options[CURLOPT_URL]            = 'https://api.linode.com/';
+        $this->options[CURLOPT_POST]           = true;
+        $this->options[CURLOPT_POSTFIELDS]     = $query;
+        $this->options[CURLOPT_RETURNTRANSFER] = true;
+
+        curl_setopt_array($curl, $this->options);
 
         $result = curl_exec($curl);
 

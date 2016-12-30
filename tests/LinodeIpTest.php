@@ -24,7 +24,7 @@ class LinodeIpTest extends \PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $this->key = uniqid(null, false);
-        $this->api = new IpApi($this->key, true);
+        $this->api = new IpApi($this->key, [], true);
     }
 
     public function testAddPrivate()

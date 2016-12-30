@@ -25,7 +25,7 @@ class AccountTest extends \PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $this->key = uniqid(null, false);
-        $this->api = new AccountApi($this->key, true);
+        $this->api = new AccountApi($this->key, [], true);
     }
 
     public function testEstimateInvoice()

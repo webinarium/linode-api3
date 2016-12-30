@@ -24,7 +24,7 @@ class AvailTest extends \PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $this->key = uniqid(null, false);
-        $this->api = new AvailApi($this->key, true);
+        $this->api = new AvailApi($this->key, [], true);
     }
 
     public function testDatacenters()

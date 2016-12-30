@@ -24,7 +24,7 @@ class StackScriptTest extends \PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $this->key = uniqid(null, false);
-        $this->api = new StackScriptApi($this->key, true);
+        $this->api = new StackScriptApi($this->key, [], true);
     }
 
     public function testCreate()
