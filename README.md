@@ -37,6 +37,7 @@ Below is a complete example of how to create a new Linode host using the library
 
 ```php
 use Linode\LinodeApi;
+use Linode\LinodeException;
 use Linode\PaymentTerm;
 
 // Your API key from the Linode profile.
@@ -48,10 +49,15 @@ $datacenter = 3;    // Fremont datacenter
 $plan       = 1;    // we will use the cheapest plan
 
 // Create new linode.
-$api = new LinodeApi($key);
-$res = $api->create($datacenter, $plan, PaymentTerm::ONE_MONTH);
+try {
+    $api = new LinodeApi($key);
+    $res = $api->create($datacenter, $plan, PaymentTerm::ONE_MONTH);
 
-printf("Linode #%d has been created.\n", $res['LinodeID']);
+    printf("Linode #%d has been created.\n", $res['LinodeID']);
+}
+catch (LinodeException $e) {
+    printf("Error #%d: %s.\n", $e->getCode(), $e->getMessage());
+}
 ```
 
 ## Batching Requests
