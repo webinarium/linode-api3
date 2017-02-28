@@ -50,9 +50,9 @@ class Batch
      *
      * @param bool $debug Whether make a call in a debug mode
      *
-     * @return array|string|false Array of results (or query string in debug mode)
-     *
      * @throws \Exception
+     *
+     * @return array|string|false Array of results (or query string in debug mode)
      */
     public function execute($debug = false)
     {

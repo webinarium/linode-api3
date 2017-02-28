@@ -57,10 +57,10 @@ class BaseLinodeApi
      * @param string $action
      * @param array  $parameters
      *
-     * @return array|bool
-     *
      * @throws LinodeException
      * @throws \Exception
+     *
+     * @return array|bool
      */
     protected function call($action, array $parameters = [])
     {
