@@ -6,11 +6,12 @@
     "homepage": "https://github.com/webinarium/linode-api3",
     "license": "MIT",
     "require": {
-        "php": ">=5.4.0",
+        "php": ">=5.6",
         "ext-curl": "*",
         "ext-json": "*"
     },
     "require-dev": {
+        "phpunit/phpunit": "^5.4",
         "friendsofphp/php-cs-fixer": "^2.1"
     },
     "autoload": {

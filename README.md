@@ -1,4 +1,4 @@
-[![PHP](https://img.shields.io/badge/PHP-5.4%2B-blue.svg)](https://secure.php.net/migration54)
+[![PHP](https://img.shields.io/badge/PHP-5.6%2B-blue.svg)](https://secure.php.net/migration56)
 [![Latest Stable Version](https://poser.pugx.org/webinarium/linode-api3/v/stable)](https://packagist.org/packages/webinarium/linode-api3)
 [![Build Status](https://travis-ci.org/webinarium/linode-api3.svg?branch=master)](https://travis-ci.org/webinarium/linode-api3)
 [![Code Coverage](https://scrutinizer-ci.com/g/webinarium/linode-api3/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/webinarium/linode-api3/?branch=master)
@@ -100,7 +100,7 @@ Almost all tests are mocked so you don't have to use a real API key and no real 
 The only tests which make a complete API call are `TestTest` (for "[test.echo](https://www.linode.com/api/utility/test.echo)") and `ApiTest` (for "[api.spec](https://www.linode.com/api/utility/api.spec)"):
 
 ```bash
-phpunit --coverage-text
+./bin/phpunit --coverage-text
 ```
 
 ## Library regeneration
