@@ -1,9 +1,9 @@
 {
-    "name": "arodygin/linode-api-php",
+    "name": "webinarium/linode-api3",
     "description": "Linode API v3 Client Library for PHP",
     "type": "library",
     "keywords": ["api", "linode"],
-    "homepage": "https://github.com/arodygin/php-linode-api3",
+    "homepage": "https://github.com/webinarium/linode-api3",
     "license": "MIT",
     "require": {
         "php": ">=5.4.0",

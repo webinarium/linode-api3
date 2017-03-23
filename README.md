@@ -1,10 +1,8 @@
-[![License](https://poser.pugx.org/arodygin/linode-api-php/license)](https://packagist.org/packages/arodygin/linode-api-php)
 [![PHP](https://img.shields.io/badge/PHP-5.4%2B-blue.svg)](https://secure.php.net/migration54)
-[![Latest Stable Version](https://poser.pugx.org/arodygin/linode-api-php/v/stable)](https://packagist.org/packages/arodygin/linode-api-php)
-[![Build Status](https://travis-ci.org/arodygin/php-linode-api3.svg?branch=master)](https://travis-ci.org/arodygin/php-linode-api3)
-[![Code Coverage](https://scrutinizer-ci.com/g/arodygin/php-linode-api3/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/arodygin/php-linode-api3/?branch=master)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/arodygin/php-linode-api3/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/arodygin/php-linode-api3/?branch=master)
-[![SensioLabsInsight](https://img.shields.io/sensiolabs/i/727b4566-d4ae-49a3-90de-b4a607d514bc.svg)](https://insight.sensiolabs.com/projects/727b4566-d4ae-49a3-90de-b4a607d514bc)
+[![Latest Stable Version](https://poser.pugx.org/webinarium/linode-api3/v/stable)](https://packagist.org/packages/webinarium/linode-api3)
+[![Build Status](https://travis-ci.org/webinarium/linode-api3.svg?branch=master)](https://travis-ci.org/webinarium/linode-api3)
+[![Code Coverage](https://scrutinizer-ci.com/g/webinarium/linode-api3/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/webinarium/linode-api3/?branch=master)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/webinarium/linode-api3/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/webinarium/linode-api3/?branch=master)
 
 # Linode API v3 Client Library for PHP
 
@@ -28,7 +26,7 @@ PHP needs to be a minimum version of PHP 5.4.
 The recommended way to install is via Composer:
 
 ```bash
-composer require "arodygin/linode-api-php"
+composer require "webinarium/linode-api3"
 ```
 
 ## Usage Example
