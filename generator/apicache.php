@@ -661,7 +661,7 @@ return array (
     'stackscript.list' => 
     array (
       'DESCRIPTION' => 'Lists StackScripts you have access to.',
-      'THROWS' => '',
+      'THROWS' => 'STACKSCRIPTLIMIT',
       'PARAMETERS' => 
       array (
         'StackScriptID' => 
@@ -1706,7 +1706,7 @@ return array (
     'stackscript.create' => 
     array (
       'DESCRIPTION' => 'Create a StackScript.',
-      'THROWS' => 'NOACCESS,VALIDATION',
+      'THROWS' => 'NOACCESS,VALIDATION,STACKSCRIPTLIMIT',
       'PARAMETERS' => 
       array (
         'rev_note' => 
