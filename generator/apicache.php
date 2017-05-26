@@ -1498,6 +1498,21 @@ return array (
         ),
       ),
     ),
+    'volume.delete' => 
+    array (
+      'DESCRIPTION' => 'Deletes a block storage volume',
+      'THROWS' => 'NOTFOUND',
+      'PARAMETERS' => 
+      array (
+        'VolumeID' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => 'The VolumeID to delete',
+          'TYPE' => 'numeric',
+          'NAME' => 'VolumeID',
+        ),
+      ),
+    ),
     'linode.config.delete' => 
     array (
       'DESCRIPTION' => 'Deletes a Linode Configuration Profile.',
@@ -1556,6 +1571,42 @@ return array (
       'THROWS' => '',
       'PARAMETERS' => 
       array (
+      ),
+    ),
+    'volume.update' => 
+    array (
+      'DESCRIPTION' => 'Updates a volume\'s properties',
+      'THROWS' => 'NOTFOUND,VALIDATION',
+      'PARAMETERS' => 
+      array (
+        'LinodeID' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'The Linode to attach the volume to, or 0 to detach',
+          'TYPE' => 'numeric',
+          'NAME' => 'LinodeID',
+        ),
+        'Label' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'A unique name for the volume',
+          'TYPE' => 'string',
+          'NAME' => 'Label',
+        ),
+        'VolumeID' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => 'The volume to modify',
+          'TYPE' => 'numeric',
+          'NAME' => 'VolumeID',
+        ),
+        'Size' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Sets the new size of the new volume in GiB; volumes can only be made larger',
+          'TYPE' => 'numeric',
+          'NAME' => 'Size',
+        ),
       ),
     ),
     'domain.resource.create' => 
@@ -1670,6 +1721,21 @@ return array (
           'DESCRIPTION' => 'The NodeID to delete',
           'TYPE' => 'numeric',
           'NAME' => 'NodeID',
+        ),
+      ),
+    ),
+    'volume.list' => 
+    array (
+      'DESCRIPTION' => 'Returns a list of block storage Volumes',
+      'THROWS' => '',
+      'PARAMETERS' => 
+      array (
+        'VolumeID' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'Limits the list to the specified Volume',
+          'TYPE' => 'numeric',
+          'NAME' => 'VolumeID',
         ),
       ),
     ),
@@ -2309,6 +2375,43 @@ return array (
           'DESCRIPTION' => 'The ID of the Image to modify.',
           'TYPE' => 'numeric',
           'NAME' => 'ImageID',
+        ),
+      ),
+    ),
+    'volume.create' => 
+    array (
+      'DESCRIPTION' => 'Creates a new block storage volume',
+      'THROWS' => 'VALIDATION',
+      'PARAMETERS' => 
+      array (
+        'Label' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => 'A unique name for the volume',
+          'TYPE' => 'string',
+          'NAME' => 'Label',
+        ),
+        'LinodeID' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'The Linode which this volume is attached to',
+          'TYPE' => 'numeric',
+          'default' => '',
+          'NAME' => 'LinodeID',
+        ),
+        'DatacenterID' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => 'Sets the datacenter where the volume should be provisioned',
+          'TYPE' => 'numeric',
+          'NAME' => 'DatacenterID',
+        ),
+        'Size' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => 'Sets the size of the new volume in GiB',
+          'TYPE' => 'numeric',
+          'NAME' => 'Size',
         ),
       ),
     ),
