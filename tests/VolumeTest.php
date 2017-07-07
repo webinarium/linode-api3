@@ -48,6 +48,16 @@ class VolumeTest extends \PHPUnit_Framework_TestCase
         self::assertEquals($expected, $query);
     }
 
+    public function testDuplicate()
+    {
+        $LinodeID = mt_rand(1, PHP_INT_MAX);
+        $Label    = 'test';
+
+        $expected = "api_key={$this->key}&api_action=volume.clone&CloneFromID={$LinodeID}&Label={$Label}";
+        $query    = $this->api->duplicate($LinodeID, $Label);
+        self::assertEquals($expected, $query);
+    }
+
     public function testList()
     {
         $VolumeID = mt_rand(1, PHP_INT_MAX);

@@ -183,6 +183,28 @@ return array (
         ),
       ),
     ),
+    'volume.clone' => 
+    array (
+      'DESCRIPTION' => 'Clones an existing block storage volume.',
+      'THROWS' => 'NOACCESS, VALIDATION',
+      'PARAMETERS' => 
+      array (
+        'Label' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => 'A unique name for the new volume',
+          'TYPE' => 'string',
+          'NAME' => 'Label',
+        ),
+        'CloneFromID' => 
+        array (
+          'REQUIRED' => true,
+          'DESCRIPTION' => '',
+          'TYPE' => 'numeric',
+          'NAME' => 'CloneFromID',
+        ),
+      ),
+    ),
     'linode.disk.duplicate' => 
     array (
       'DESCRIPTION' => 'Performs a bit-for-bit copy of a disk image.',
@@ -1293,14 +1315,14 @@ return array (
         'rootPass' => 
         array (
           'REQUIRED' => true,
-          'DESCRIPTION' => 'The root user\'s password',
+          'DESCRIPTION' => 'The root (or core) user\'s password',
           'TYPE' => 'string',
           'NAME' => 'rootPass',
         ),
         'rootSSHKey' => 
         array (
           'REQUIRED' => false,
-          'DESCRIPTION' => 'Optionally sets this string into /root/.ssh/authorized_keys upon distribution configuration.',
+          'DESCRIPTION' => 'Optionally sets this string into /root/.ssh/authorized_keys (or /home/core/.ssh/authorized_keys) upon distribution configuration.',
           'TYPE' => 'string',
           'NAME' => 'rootSSHKey',
         ),
@@ -1579,19 +1601,19 @@ return array (
       'THROWS' => 'NOTFOUND,VALIDATION',
       'PARAMETERS' => 
       array (
-        'LinodeID' => 
-        array (
-          'REQUIRED' => false,
-          'DESCRIPTION' => 'The Linode to attach the volume to, or 0 to detach',
-          'TYPE' => 'numeric',
-          'NAME' => 'LinodeID',
-        ),
         'Label' => 
         array (
           'REQUIRED' => false,
           'DESCRIPTION' => 'A unique name for the volume',
           'TYPE' => 'string',
           'NAME' => 'Label',
+        ),
+        'LinodeID' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'The Linode this volume is attached to',
+          'TYPE' => 'numeric',
+          'NAME' => 'LinodeID',
         ),
         'VolumeID' => 
         array (
@@ -1657,7 +1679,7 @@ return array (
         'Priority' => 
         array (
           'REQUIRED' => false,
-          'DESCRIPTION' => 'Priority for MX and SRV records, 0-255',
+          'DESCRIPTION' => 'Priority for MX and SRV records, 0-65535',
           'TYPE' => 'numeric',
           'default' => 10,
           'NAME' => 'Priority',
@@ -2322,7 +2344,7 @@ return array (
         'Priority' => 
         array (
           'REQUIRED' => false,
-          'DESCRIPTION' => 'Priority for MX and SRV records, 0-255',
+          'DESCRIPTION' => 'Priority for MX and SRV records, 0-65535',
           'TYPE' => 'numeric',
           'NAME' => 'Priority',
         ),
@@ -2380,8 +2402,8 @@ return array (
     ),
     'volume.create' => 
     array (
-      'DESCRIPTION' => 'Creates a new block storage volume',
-      'THROWS' => 'VALIDATION',
+      'DESCRIPTION' => 'Creates a new block storage volume. One of DatacenterID or LinodeID is required.',
+      'THROWS' => 'NOACCESS, VALIDATION',
       'PARAMETERS' => 
       array (
         'Label' => 
@@ -2394,16 +2416,17 @@ return array (
         'LinodeID' => 
         array (
           'REQUIRED' => false,
-          'DESCRIPTION' => 'The Linode which this volume is attached to',
+          'DESCRIPTION' => 'The Linode to attach this volume to',
           'TYPE' => 'numeric',
           'default' => '',
           'NAME' => 'LinodeID',
         ),
         'DatacenterID' => 
         array (
-          'REQUIRED' => true,
+          'REQUIRED' => false,
           'DESCRIPTION' => 'Sets the datacenter where the volume should be provisioned',
           'TYPE' => 'numeric',
+          'default' => '',
           'NAME' => 'DatacenterID',
         ),
         'Size' => 

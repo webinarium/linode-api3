@@ -21,12 +21,12 @@ namespace Linode;
 class VolumeApi extends BaseLinodeApi
 {
     /**
-     * Creates a new block storage volume.
+     * Creates a new block storage volume. One of DatacenterID or LinodeID is required.
      *
-     * @param int    $DatacenterID [required] Sets the datacenter where the volume should be provisioned
+     * @param int    $DatacenterID [optional] Sets the datacenter where the volume should be provisioned
      * @param string $Label        [required] A unique name for the volume
      * @param int    $Size         [required] Sets the size of the new volume in GiB
-     * @param int    $LinodeID     [optional] The Linode which this volume is attached to
+     * @param int    $LinodeID     [optional] The Linode to attach this volume to
      *
      * @return array
      */
@@ -55,6 +55,22 @@ class VolumeApi extends BaseLinodeApi
     }
 
     /**
+     * Clones an existing block storage volume.
+     *
+     * @param int    $CloneFromID [required]
+     * @param string $Label       [required] A unique name for the new volume
+     *
+     * @return array
+     */
+    public function duplicate($CloneFromID, $Label)
+    {
+        return $this->call('volume.clone', [
+            'CloneFromID' => $CloneFromID,
+            'Label'       => $Label,
+        ]);
+    }
+
+    /**
      * Returns a list of block storage Volumes.
      *
      * @param int $VolumeID [optional] Limits the list to the specified Volume
@@ -74,7 +90,7 @@ class VolumeApi extends BaseLinodeApi
      * @param int    $VolumeID [required] The volume to modify
      * @param string $Label    [optional] A unique name for the volume
      * @param int    $Size     [optional] Sets the new size of the new volume in GiB; volumes can only be made larger
-     * @param int    $LinodeID [optional] The Linode to attach the volume to, or 0 to detach
+     * @param int    $LinodeID [optional] The Linode this volume is attached to
      *
      * @return array
      */

@@ -119,6 +119,7 @@ $params_order = [
     'stackscript.list'                   => ['StackScriptID'],
     'stackscript.update'                 => ['StackScriptID', 'script', 'DistributionIDList', 'Label', 'Description', 'isPublic', 'rev_note'],
     'user.getapikey'                     => ['username', 'password', 'token', 'expires', 'label'],
+    'volume.clone'                       => ['CloneFromID', 'Label'],
     'volume.create'                      => ['DatacenterID', 'Label', 'Size', 'LinodeID'],
     'volume.delete'                      => ['VolumeID'],
     'volume.list'                        => ['VolumeID'],

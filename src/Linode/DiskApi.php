@@ -47,8 +47,8 @@ class DiskApi extends BaseLinodeApi
      * @param int    $DistributionID [required] The DistributionID to create this disk from.  Found in avail.distributions()
      * @param string $Label          [required] The label of this new disk image
      * @param int    $Size           [required] Size of this disk image in MB
-     * @param string $rootPass       [required] The root user's password
-     * @param string $rootSSHKey     [optional] Optionally sets this string into /root/.ssh/authorized_keys upon distribution configuration.
+     * @param string $rootPass       [required] The root (or core) user's password
+     * @param string $rootSSHKey     [optional] Optionally sets this string into /root/.ssh/authorized_keys (or /home/core/.ssh/authorized_keys) upon distribution configuration.
      *
      * @return array
      */
