@@ -19,7 +19,7 @@ Also please note that "[test.echo](https://www.linode.com/api/utility/test.echo)
 
 ## Requirements
 
-PHP needs to be a minimum version of PHP 5.4.
+PHP needs to be a minimum version of PHP 5.6.
 
 ## Installation
 
