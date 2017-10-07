@@ -26,18 +26,19 @@ class ResourceApi extends BaseLinodeApi
      * Create a domain record.
      *
      * @param int    $DomainID [required]
-     * @param string $Type     [required] One of: NS, MX, A, AAAA, CNAME, TXT, or SRV
+     * @param string $Type     [required] One of: NS, MX, A, AAAA, CNAME, TXT, SRV or CAA
      * @param string $Name     [optional] The hostname or FQDN.  When Type=MX the subdomain to delegate to the Target MX server.
-     * @param string $Target   [optional] When Type=MX the hostname.  When Type=CNAME the target of the alias.  When Type=TXT the value of the record. When Type=A or AAAA the token of '[remote_addr]' will be substituted with the IP address of the request.
+     * @param string $Target   [optional] When Type=MX the hostname.  When Type=CNAME the target of the alias.  When Type=TXT or CAA the value of the record. When Type=A or AAAA the token of '[remote_addr]' will be substituted with the IP address of the request.
      * @param int    $Priority [optional] Priority for MX and SRV records, 0-65535
      * @param int    $Weight   [optional]
      * @param int    $Port     [optional]
      * @param string $Protocol [optional] The protocol to append to an SRV record.  Ignored on other record types.
+     * @param string $Tag      [optional] The tag attribute for a CAA record.  One of issue, issuewild, iodef.  Ignored on other record types.
      * @param int    $TTL_sec  [optional] TTL.  Leave as 0 to accept our default.
      *
      * @return array
      */
-    public function create($DomainID, $Type, $Name = null, $Target = null, $Priority = null, $Weight = null, $Port = null, $Protocol = null, $TTL_sec = null)
+    public function create($DomainID, $Type, $Name = null, $Target = null, $Priority = null, $Weight = null, $Port = null, $Protocol = null, $Tag = null, $TTL_sec = null)
     {
         return $this->call('domain.resource.create', [
             'DomainID' => $DomainID,
@@ -48,6 +49,7 @@ class ResourceApi extends BaseLinodeApi
             'Weight'   => $Weight,
             'Port'     => $Port,
             'Protocol' => $Protocol,
+            'Tag'      => $Tag,
             'TTL_sec'  => $TTL_sec,
         ]);
     }
@@ -86,16 +88,17 @@ class ResourceApi extends BaseLinodeApi
      * @param int    $DomainID   [optional]
      * @param int    $ResourceID [required]
      * @param string $Name       [optional] The hostname or FQDN.  When Type=MX the subdomain to delegate to the Target MX server.
-     * @param string $Target     [optional] When Type=MX the hostname.  When Type=CNAME the target of the alias.  When Type=TXT the value of the record. When Type=A or AAAA the token of '[remote_addr]' will be substituted with the IP address of the request.
+     * @param string $Target     [optional] When Type=MX the hostname.  When Type=CNAME the target of the alias.  When Type=TXT or CAA the value of the record. When Type=A or AAAA the token of '[remote_addr]' will be substituted with the IP address of the request.
      * @param int    $Priority   [optional] Priority for MX and SRV records, 0-65535
      * @param int    $Weight     [optional]
      * @param int    $Port       [optional]
      * @param string $Protocol   [optional] The protocol to append to an SRV record.  Ignored on other record types.
+     * @param string $Tag        [optional] The tag attribute for a CAA record.  One of issue, issuewild, iodef.  Ignored on other record types.
      * @param int    $TTL_sec    [optional] TTL.  Leave as 0 to accept our default.
      *
      * @return array
      */
-    public function update($DomainID, $ResourceID, $Name = null, $Target = null, $Priority = null, $Weight = null, $Port = null, $Protocol = null, $TTL_sec = null)
+    public function update($DomainID, $ResourceID, $Name = null, $Target = null, $Priority = null, $Weight = null, $Port = null, $Protocol = null, $Tag = null, $TTL_sec = null)
     {
         return $this->call('domain.resource.update', [
             'DomainID'   => $DomainID,
@@ -106,6 +109,7 @@ class ResourceApi extends BaseLinodeApi
             'Weight'     => $Weight,
             'Port'       => $Port,
             'Protocol'   => $Protocol,
+            'Tag'        => $Tag,
             'TTL_sec'    => $TTL_sec,
         ]);
     }

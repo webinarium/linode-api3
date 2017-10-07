@@ -1640,7 +1640,7 @@ return array (
         'Target' => 
         array (
           'REQUIRED' => false,
-          'DESCRIPTION' => 'When Type=MX the hostname.  When Type=CNAME the target of the alias.  When Type=TXT the value of the record. When Type=A or AAAA the token of \'[remote_addr]\' will be substituted with the IP address of the request.',
+          'DESCRIPTION' => 'When Type=MX the hostname.  When Type=CNAME the target of the alias.  When Type=TXT or CAA the value of the record. When Type=A or AAAA the token of \'[remote_addr]\' will be substituted with the IP address of the request.',
           'TYPE' => 'string',
           'default' => '',
           'NAME' => 'Target',
@@ -1684,6 +1684,14 @@ return array (
           'default' => 10,
           'NAME' => 'Priority',
         ),
+        'Tag' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'The tag attribute for a CAA record.  One of issue, issuewild, iodef.  Ignored on other record types.',
+          'TYPE' => 'string',
+          'default' => '',
+          'NAME' => 'Tag',
+        ),
         'Weight' => 
         array (
           'REQUIRED' => false,
@@ -1695,7 +1703,7 @@ return array (
         'Type' => 
         array (
           'REQUIRED' => true,
-          'DESCRIPTION' => 'One of: NS, MX, A, AAAA, CNAME, TXT, or SRV',
+          'DESCRIPTION' => 'One of: NS, MX, A, AAAA, CNAME, TXT, SRV or CAA',
           'TYPE' => 'string',
           'NAME' => 'Type',
         ),
@@ -2309,7 +2317,7 @@ return array (
         'Target' => 
         array (
           'REQUIRED' => false,
-          'DESCRIPTION' => 'When Type=MX the hostname.  When Type=CNAME the target of the alias.  When Type=TXT the value of the record. When Type=A or AAAA the token of \'[remote_addr]\' will be substituted with the IP address of the request.',
+          'DESCRIPTION' => 'When Type=MX the hostname.  When Type=CNAME the target of the alias.  When Type=TXT or CAA the value of the record. When Type=A or AAAA the token of \'[remote_addr]\' will be substituted with the IP address of the request.',
           'TYPE' => 'string',
           'NAME' => 'Target',
         ),
@@ -2347,6 +2355,13 @@ return array (
           'DESCRIPTION' => 'Priority for MX and SRV records, 0-65535',
           'TYPE' => 'numeric',
           'NAME' => 'Priority',
+        ),
+        'Tag' => 
+        array (
+          'REQUIRED' => false,
+          'DESCRIPTION' => 'The tag attribute for a CAA record.  One of issue, issuewild, iodef.  Ignored on other record types.',
+          'TYPE' => 'string',
+          'NAME' => 'Tag',
         ),
         'Weight' => 
         array (
