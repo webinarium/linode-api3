@@ -1,7 +1,7 @@
 <?php
 
 return array (
-  'VERSION' => 3.2999999999999998,
+  'VERSION' => 3.3,
   'METHODS' => 
   array (
     'avail.kernels' => 
