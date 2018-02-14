@@ -21,12 +21,12 @@ namespace Linode;
 class VolumeApi extends BaseLinodeApi
 {
     /**
-     * Creates a new block storage volume. One of DatacenterID or LinodeID is required.
+     * Creates a new Block Storage Volume. One of DatacenterID or LinodeID is required.
      *
-     * @param int    $DatacenterID [optional] Sets the datacenter where the volume should be provisioned
-     * @param string $Label        [required] A unique name for the volume
-     * @param int    $Size         [required] Sets the size of the new volume in GiB
-     * @param int    $LinodeID     [optional] The Linode to attach this volume to
+     * @param int    $DatacenterID [optional] Sets the datacenter where the Volume should be provisioned
+     * @param string $Label        [required] A unique name for the Volume
+     * @param int    $Size         [required] Sets the size of the new Volume in GiB
+     * @param int    $LinodeID     [optional] The Linode to attach this Volume to
      *
      * @return array
      */
@@ -41,9 +41,9 @@ class VolumeApi extends BaseLinodeApi
     }
 
     /**
-     * Deletes a block storage volume.
+     * Deletes a Block Storage Volume.
      *
-     * @param int $VolumeID [required] The VolumeID to delete
+     * @param int $VolumeID [required] The Volume to delete
      *
      * @return array
      */
@@ -55,10 +55,10 @@ class VolumeApi extends BaseLinodeApi
     }
 
     /**
-     * Clones an existing block storage volume.
+     * Clones an existing Block Storage Volume.
      *
      * @param int    $CloneFromID [required]
-     * @param string $Label       [required] A unique name for the new volume
+     * @param string $Label       [required] A unique name for the new Volume
      *
      * @return array
      */
@@ -85,12 +85,12 @@ class VolumeApi extends BaseLinodeApi
     }
 
     /**
-     * Updates a volume's properties.
+     * Updates a Volume's properties.
      *
-     * @param int    $VolumeID [required] The volume to modify
-     * @param string $Label    [optional] A unique name for the volume
-     * @param int    $Size     [optional] Sets the new size of the new volume in GiB; volumes can only be made larger
-     * @param int    $LinodeID [optional] The Linode this volume is attached to
+     * @param int    $VolumeID [required] The Volume to modify
+     * @param string $Label    [optional] A unique name for the Volume
+     * @param int    $Size     [optional] Sets the new size of the new Volume in GiB; Volumes can only be made larger
+     * @param int    $LinodeID [optional] The Linode to attach this Volume to
      *
      * @return array
      */

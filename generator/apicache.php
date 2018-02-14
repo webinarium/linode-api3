@@ -185,14 +185,14 @@ return array (
     ),
     'volume.clone' => 
     array (
-      'DESCRIPTION' => 'Clones an existing block storage volume.',
-      'THROWS' => 'NOACCESS, VALIDATION',
+      'DESCRIPTION' => 'Clones an existing Block Storage Volume.',
+      'THROWS' => 'NOACCESS, VALIDATION, VOLUMEBUSY, VOLUMELIMIT',
       'PARAMETERS' => 
       array (
         'Label' => 
         array (
           'REQUIRED' => true,
-          'DESCRIPTION' => 'A unique name for the new volume',
+          'DESCRIPTION' => 'A unique name for the new Volume',
           'TYPE' => 'string',
           'NAME' => 'Label',
         ),
@@ -1522,14 +1522,14 @@ return array (
     ),
     'volume.delete' => 
     array (
-      'DESCRIPTION' => 'Deletes a block storage volume',
+      'DESCRIPTION' => 'Deletes a Block Storage Volume',
       'THROWS' => 'NOTFOUND',
       'PARAMETERS' => 
       array (
         'VolumeID' => 
         array (
           'REQUIRED' => true,
-          'DESCRIPTION' => 'The VolumeID to delete',
+          'DESCRIPTION' => 'The Volume to delete',
           'TYPE' => 'numeric',
           'NAME' => 'VolumeID',
         ),
@@ -1597,35 +1597,35 @@ return array (
     ),
     'volume.update' => 
     array (
-      'DESCRIPTION' => 'Updates a volume\'s properties',
-      'THROWS' => 'NOTFOUND,VALIDATION',
+      'DESCRIPTION' => 'Updates a Volume\'s properties',
+      'THROWS' => 'NOTFOUND,VALIDATION,VOLUMEBUSY,VOLUMELIMIT',
       'PARAMETERS' => 
       array (
         'Label' => 
         array (
           'REQUIRED' => false,
-          'DESCRIPTION' => 'A unique name for the volume',
+          'DESCRIPTION' => 'A unique name for the Volume',
           'TYPE' => 'string',
           'NAME' => 'Label',
         ),
         'LinodeID' => 
         array (
           'REQUIRED' => false,
-          'DESCRIPTION' => 'The Linode this volume is attached to',
+          'DESCRIPTION' => 'The Linode to attach this Volume to',
           'TYPE' => 'numeric',
           'NAME' => 'LinodeID',
         ),
         'VolumeID' => 
         array (
           'REQUIRED' => true,
-          'DESCRIPTION' => 'The volume to modify',
+          'DESCRIPTION' => 'The Volume to modify',
           'TYPE' => 'numeric',
           'NAME' => 'VolumeID',
         ),
         'Size' => 
         array (
           'REQUIRED' => false,
-          'DESCRIPTION' => 'Sets the new size of the new volume in GiB; volumes can only be made larger',
+          'DESCRIPTION' => 'Sets the new size of the new Volume in GiB; Volumes can only be made larger',
           'TYPE' => 'numeric',
           'NAME' => 'Size',
         ),
@@ -2417,21 +2417,21 @@ return array (
     ),
     'volume.create' => 
     array (
-      'DESCRIPTION' => 'Creates a new block storage volume. One of DatacenterID or LinodeID is required.',
-      'THROWS' => 'NOACCESS, VALIDATION',
+      'DESCRIPTION' => 'Creates a new Block Storage Volume. One of DatacenterID or LinodeID is required.',
+      'THROWS' => 'NOACCESS, VALIDATION, ACCOUNTLIMIT, VOLUMELIMIT',
       'PARAMETERS' => 
       array (
         'Label' => 
         array (
           'REQUIRED' => true,
-          'DESCRIPTION' => 'A unique name for the volume',
+          'DESCRIPTION' => 'A unique name for the Volume',
           'TYPE' => 'string',
           'NAME' => 'Label',
         ),
         'LinodeID' => 
         array (
           'REQUIRED' => false,
-          'DESCRIPTION' => 'The Linode to attach this volume to',
+          'DESCRIPTION' => 'The Linode to attach this Volume to',
           'TYPE' => 'numeric',
           'default' => '',
           'NAME' => 'LinodeID',
@@ -2439,7 +2439,7 @@ return array (
         'DatacenterID' => 
         array (
           'REQUIRED' => false,
-          'DESCRIPTION' => 'Sets the datacenter where the volume should be provisioned',
+          'DESCRIPTION' => 'Sets the datacenter where the Volume should be provisioned',
           'TYPE' => 'numeric',
           'default' => '',
           'NAME' => 'DatacenterID',
@@ -2447,7 +2447,7 @@ return array (
         'Size' => 
         array (
           'REQUIRED' => true,
-          'DESCRIPTION' => 'Sets the size of the new volume in GiB',
+          'DESCRIPTION' => 'Sets the size of the new Volume in GiB',
           'TYPE' => 'numeric',
           'NAME' => 'Size',
         ),
