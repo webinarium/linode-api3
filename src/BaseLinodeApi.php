@@ -101,6 +101,7 @@ class BaseLinodeApi
         $this->options[CURLOPT_POST]           = true;
         $this->options[CURLOPT_POSTFIELDS]     = $query;
         $this->options[CURLOPT_RETURNTRANSFER] = true;
+        $this->options[CURLOPT_SSLVERSION]     = CURL_SSLVERSION_TLSv1_2;
 
         curl_setopt_array($curl, $this->options);
 
