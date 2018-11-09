@@ -17,6 +17,10 @@ This approach provides several advantages as:
 
 Also please note that "[test.echo](https://www.linode.com/api/utility/test.echo)" is skipped from the implementation.
 
+## Warning
+
+The library addresses Linode's legacy API. For most recent API please refer to [this library](https://github.com/webinarium/linode-api).
+
 ## Requirements
 
 PHP needs to be a minimum version of PHP 5.6.
